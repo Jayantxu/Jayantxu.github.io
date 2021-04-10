@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="browsermode" content="application">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jayant Blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name="format-detection" content="telephone=no">
+
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/MyPic.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/MyPic.png">
+
+
+  <meta name="subtitle" content="互联网盲区...😏">
+
+
+
+
+  <meta name="keywords" content="CSS, Stylus, nlvi">
+
+
+<link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
+<link rel="stylesheet" href="/style/style.css">
+<script>
+  var nlviconfig = {
+    title: "Jayant Blog",
+    author: "Jayantxu",
+    baseUrl: "/",
+    theme: {
+      scheme: "banderole",
+      lightbox: false,
+      animate: true,
+      search: false,
+      friends: false,
+      reward: false,
+      pjax: false,
+      lazy: false,
+      toc: true
+    }
+  }
+</script>
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+    <link rel="icon" href="/img/MyPic.png">
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@font-face {
+  font-family: "Allura";
+  src: url('/font/allura/allura.ttf');
+}
+</style>
+
+  <title> stylus_media · Jayant Blog </title>
+</head>
+<body>
+  <div class="container">
+    <header class="header" id="header">
+  <div class="header-wrapper">
+    <div class="logo">
+  <div class="logo-inner syuanpi tvIn" style="display:none;">
+    <h1><a href="/">Jayant Blog</a></h1>
+    
+      <span id="subtitle">互联网盲区...😏</span>
+    
+  </div>
+</div>
+
+    <nav class="main-nav">
+  
+  <ul class="main-nav-list syuanpi tvIn">
+  
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/" id="主页">
+        <span class="base-name">
+          
+            主页
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/archives" id="文章">
+        <span class="base-name">
+          
+            文章
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="tags">
+        <span class="base-name">
+          
+            TAGS
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/about" id="关于我">
+        <span class="base-name">
+          
+            关于我
+          
+        </span>
+      </a>
+    </li>
+  
+  
+  </ul>
+  
+</nav>
+
+  </div>
+</header>
+<div class="mobile-header" id="mobile-header">
+  <div class="mobile-header-nav">
+    <div class="mobile-header-item" id="mobile-left">
+      <div class="header-menu-item">
+        <div class="header-menu-line"></div>
+      </div>
+    </div>
+    <h1 class="mobile-header-title">
+      <a href="/">Jayant Blog</a>
+    </h1>
+    <div class="mobile-header-item"></div>
+  </div>
+  <div class="mobile-header-body">
+    <ul class="mobile-header-list">
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-0">
+          <a href="/">
+            
+              主页
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
+          <a href="/archives">
+            
+              文章
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
+          <a href="javascript:;" id="mobile-tags">
+            
+              TAGS
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
+          <a href="/about">
+            
+              关于我
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="container-inner" style="display:none;">
+      <main class="main" id="main">
+        <div class="main-wrapper">
+          
+    
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2020-12-26</time>
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          stylus_media
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <p>渲染字体响应</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">media_queries = &#123;</span><br><span class="line">  small: <span class="string">"only screen and (width: 1366px)"</span>,</span><br><span class="line">  big: <span class="string">"only screen and (width: 1920px)"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">fontSizeIter</span><span class="params">(smallSize, bigSize)</span></span></span><br><span class="line">    +for_fontSize(small)</span><br><span class="line">        fontSize(smallSize)</span><br><span class="line">    +for_fontSize(big)</span><br><span class="line">        fontSize(bigSize)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">for_fontSize</span><span class="params">(breakpoints)</span></span></span><br><span class="line">  conditions = ()</span><br><span class="line">  <span class="keyword">for</span> breakpoint <span class="keyword">in</span> breakpoints</span><br><span class="line">    push(conditions, media_queries[breakpoint])</span><br><span class="line">  conditions = join(<span class="string">""</span>, conditions)</span><br><span class="line">  @media conditions</span><br><span class="line">    &#123;block&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">fontSize</span><span class="params">(<span class="variable">$size</span>)</span></span></span><br><span class="line">  <span class="attribute">font-size</span> <span class="variable">$size</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#unicomView</span><br><span class="line">    .<span class="attribute">font</span>-<span class="number">12</span>-<span class="number">17</span></span><br><span class="line">        fontSizeIter(<span class="number">12px</span>, <span class="number">17px</span>)</span><br><span class="line">    .<span class="attribute">font</span>-<span class="number">14</span>-<span class="number">20</span></span><br><span class="line">        fontSizeIter(<span class="number">14px</span>, <span class="number">20px</span>)</span><br><span class="line">    .<span class="attribute">font</span>-<span class="number">16</span>-<span class="number">22</span></span><br><span class="line">        fontSizeIter(<span class="number">16px</span>, <span class="number">22px</span>)</span><br><span class="line">    .<span class="attribute">font</span>-<span class="number">24</span>-<span class="number">34</span></span><br><span class="line">        fontSizeIter(<span class="number">24px</span>, <span class="number">34px</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/CSS/">CSS</a>
+      
+        <a href="/tags/Stylus/">Stylus</a>
+      
+      </div>
+    
+    
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>Jayantxu</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://jayantxu.cn/2020/12/26/2020/stylus-media/">http://jayantxu.cn/2020/12/26/2020/stylus-media/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://jayantxu.cn">http://jayantxu.cn</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>JS与stylus与CSSVar的相互作用
+        </span>
+      </a>
+    
+    
+      <a href="/2020/12/01/2020/My/" id="art-right" class="art-right">
+        <span class="prev-title">
+          My<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
+  </nav>
+
+
+    
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>文章导航</span></div>
+    <div class="toc-inner">
+      
+    </div>
+  </aside>
+
+
+
+  
+
+
+        </div>
+      </main>
+      <footer class="footer syuanpi fadeIn" id="footer">
+  <hr>
+  <div class="footer-wrapper">
+    <div class="left">
+      <div class="contact-icon">
+  
+  
+</div>
+
+    </div>
+    <div class="right">
+      <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>2019 ~ 2021</span>
+        <span style="color: red;">❤</span>
+        <span>Jayantxu</span>
+    </div>
+    <div class="theme">
+        <span>
+            404 NOT NOT NOT FOUND
+        </span>
+    </div>
+    
+</div>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <div class="tagcloud" id="tagcloud">
+  <div class="tagcloud-taglist">
+  
+    <div class="tagcloud-tag">
+      <button>JavaScript</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Axios</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Vue</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>CSS</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>HTML</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>布局</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Git</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>转载</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Gulp</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>源码</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>2019</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Node</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Express</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Element</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>优化</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>canvas</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>日常碎碎</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>踩坑</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Adv</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>算法</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Stylus</button>
+    </div>
+  
+  </div>
+  
+    <div class="tagcloud-postlist active">
+      <h2>JavaScript</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript创建对象/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript创建对象</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
+            <time class="tagcloud-posttime">2019 / 02 / 18</time>
+            <span>JavaScript深浅拷贝</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript继承/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript继承</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/03/30/2020/轮播/">
+            <time class="tagcloud-posttime">2020 / 03 / 30</time>
+            <span>轮播</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Axios</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Vue</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/01/17/2020/Vue-Diff/">
+            <time class="tagcloud-posttime">2020 / 01 / 17</time>
+            <span>Vue-Diff</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>CSS</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/CSS清除浮动/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>CSS清除浮动的几种方式</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/26/2020/stylus-media/">
+            <time class="tagcloud-posttime">2020 / 12 / 26</time>
+            <span>stylus_media</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/03/01/2021/column-count描述元素的列数/">
+            <time class="tagcloud-posttime">2021 / 03 / 01</time>
+            <span>column-count描述元素的列数</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/03/30/2020/轮播/">
+            <time class="tagcloud-posttime">2020 / 03 / 30</time>
+            <span>轮播</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>HTML</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>布局</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Git</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/Git相关命令/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>Git相关命令</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>转载</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/01/17/2020/Vue-Diff/">
+            <time class="tagcloud-posttime">2020 / 01 / 17</time>
+            <span>Vue-Diff</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Gulp</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>源码</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>2019</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Node</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Express</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>MySQL</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Bug</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Element</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>优化</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>canvas</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>日常碎碎</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/22/2019/hello-world/">
+            <time class="tagcloud-posttime">2019 / 01 / 22</time>
+            <span>Hello</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/01/2020/My/">
+            <time class="tagcloud-posttime">2020 / 12 / 01</time>
+            <span>My</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/05/2021/github的3D打印/">
+            <time class="tagcloud-posttime">2021 / 04 / 05</time>
+            <span>有趣-github的3D打印</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>踩坑</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/11/01/2019/踩坑eCharts参数/">
+            <time class="tagcloud-posttime">2019 / 11 / 01</time>
+            <span>踩坑eCharts参数</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Adv</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>算法</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Stylus</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/26/2020/stylus-media/">
+            <time class="tagcloud-posttime">2020 / 12 / 26</time>
+            <span>stylus_media</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+</div>
+
+  </div>
+  <div class="backtop syuanpi melt toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/script/scheme/banderole.js"></script>
+
+
+<script src="/script/bootstarp.js"></script>
+
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
+
+
+
+</body>
+</html>

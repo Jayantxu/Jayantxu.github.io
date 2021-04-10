@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="browsermode" content="application">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jayant Blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name="format-detection" content="telephone=no">
+
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/MyPic.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/MyPic.png">
+
+
+  <meta name="subtitle" content="互联网盲区...😏">
+
+
+
+
+  <meta name="keywords" content="JavaScript, CSS, nlvi">
+
+
+<link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
+<link rel="stylesheet" href="/style/style.css">
+<script>
+  var nlviconfig = {
+    title: "Jayant Blog",
+    author: "Jayantxu",
+    baseUrl: "/",
+    theme: {
+      scheme: "banderole",
+      lightbox: false,
+      animate: true,
+      search: false,
+      friends: false,
+      reward: false,
+      pjax: false,
+      lazy: false,
+      toc: true
+    }
+  }
+</script>
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+    <link rel="icon" href="/img/MyPic.png">
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@font-face {
+  font-family: "Allura";
+  src: url('/font/allura/allura.ttf');
+}
+</style>
+
+  <title> 轮播 · Jayant Blog </title>
+</head>
+<body>
+  <div class="container">
+    <header class="header" id="header">
+  <div class="header-wrapper">
+    <div class="logo">
+  <div class="logo-inner syuanpi tvIn" style="display:none;">
+    <h1><a href="/">Jayant Blog</a></h1>
+    
+      <span id="subtitle">互联网盲区...😏</span>
+    
+  </div>
+</div>
+
+    <nav class="main-nav">
+  
+  <ul class="main-nav-list syuanpi tvIn">
+  
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/" id="主页">
+        <span class="base-name">
+          
+            主页
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/archives" id="文章">
+        <span class="base-name">
+          
+            文章
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="tags">
+        <span class="base-name">
+          
+            TAGS
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/about" id="关于我">
+        <span class="base-name">
+          
+            关于我
+          
+        </span>
+      </a>
+    </li>
+  
+  
+  </ul>
+  
+</nav>
+
+  </div>
+</header>
+<div class="mobile-header" id="mobile-header">
+  <div class="mobile-header-nav">
+    <div class="mobile-header-item" id="mobile-left">
+      <div class="header-menu-item">
+        <div class="header-menu-line"></div>
+      </div>
+    </div>
+    <h1 class="mobile-header-title">
+      <a href="/">Jayant Blog</a>
+    </h1>
+    <div class="mobile-header-item"></div>
+  </div>
+  <div class="mobile-header-body">
+    <ul class="mobile-header-list">
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-0">
+          <a href="/">
+            
+              主页
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
+          <a href="/archives">
+            
+              文章
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
+          <a href="javascript:;" id="mobile-tags">
+            
+              TAGS
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
+          <a href="/about">
+            
+              关于我
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="container-inner" style="display:none;">
+      <main class="main" id="main">
+        <div class="main-wrapper">
+          
+    
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2020-03-30</time>
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          轮播
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <p><em>2020-07-03更新描述：回头再看，这个处理过程并不优雅🤒，写的也不好🤣，权当当时的思路记录吧</em></p>
+<h4 id="仿造-CloudCarousel-3D轮播"><a href="#仿造-CloudCarousel-3D轮播" class="headerlink" title="仿造 CloudCarousel 3D轮播"></a>仿造 CloudCarousel 3D轮播</h4><p>先上效果图:<br><img src="/2020/03/30/2020/轮播/NO1.gif" alt="NO1" title="NO1"><br>（很是粗糙，还未做成通用型，未优化，先做记录下，以 <strong>8</strong> 图位为例子）</p>
+<a id="more"></a>
+<h5 id="首先我们需要将几个元素排列成圆"><a href="#首先我们需要将几个元素排列成圆" class="headerlink" title="# 首先我们需要将几个元素排列成圆"></a># <strong>首先我们需要将几个元素排列成圆</strong></h5><p>我们可以先计算 每一个元素之间间隔多少角度<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">distance</span> = <span class="number">360</span> / this.carouselData.<span class="built_in">length</span> ;</span><br><span class="line"><span class="keyword">const</span> itemdis = <span class="built_in">distance</span> * Math.PI / <span class="number">180</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 180° = Π * 弧度</span></span><br><span class="line"><span class="comment">// =&gt; 弧度 = 180° / Π</span></span><br><span class="line"><span class="comment">// 所以当我们知道了每一个所占的角度，就可以知道它 每两个间定长的弧度</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/03/30/2020/轮播/NO2.gif" alt="NO2" title="NO2"></p>
+<p><strong>以 数组中每一位 数的 index 索引与 弧度相乘，结合 cos 、 sin 函数，我们就可以让他们围绕成为圆</strong></p>
+<p>而半径则交给 <strong>radius</strong> 去决定</p>
+<ul>
+<li>Math.sin( (itemdis  <em> index) ) </em> radiusH + ‘px’</li>
+<li>Math.cos( (itemdis <em> index) ) </em> radiusH + ‘px’</li>
+</ul>
+<p>所以第一步，我们可以在界面上画出：<br><img src="/2020/03/30/2020/轮播/NO3.png" alt="NO3" title="NO3"></p>
+<p><strong>为什么它只有两个？</strong></p>
+<p>这就是因为圆心我们并没有进行设置。</p>
+<p>所以我们需要在上一步的基础上获取它的父容器的 宽高 作为中心点。（中心点可以自由去设置，此图为了完整展现，数据不完全。）</p>
+<p><img src="/2020/03/30/2020/轮播/NO4.png" alt="NO4" title="NO4"></p>
+<p>于是我们完成了第一步，将他们排列成<strong>圆</strong>。</p>
+<h5 id="放扁，有立体感"><a href="#放扁，有立体感" class="headerlink" title="# 放扁，有立体感"></a># <strong>放扁，有立体感</strong></h5><p>第二步的操作其实并不麻烦，我们仅需要将他们 bottom 竖轴的半径进行压缩，他们随之就可以成为一个立体的椭圆了。<strong>靠想象</strong></p>
+<p><img src="/2020/03/30/2020/轮播/NO5.png" alt="NO5" title="NO5"></p>
+<h5 id="动起来"><a href="#动起来" class="headerlink" title="# 动起来"></a># <strong>动起来</strong></h5><p>起初想依靠 对 <strong>数据数组</strong> 进行 头部删除，尾部插入改变序列位置，从而达到动起来的效果。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">    <span class="comment">// 临界条件，单 0 索引的位置等于目标元素 的时候即停止。</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.carouselData[<span class="number">0</span>][<span class="string">'name'</span>] === item[<span class="string">'name'</span>]) &#123;</span><br><span class="line">        clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 出 0号位置</span></span><br><span class="line">    unitItem = JSON.parse(JSON.stringify(<span class="keyword">this</span>.carouselData[<span class="number">0</span>]));</span><br><span class="line">    <span class="keyword">this</span>.carouselData.splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">this</span>.$nextTick(() =&gt; &#123;</span><br><span class="line">        <span class="comment">// 入 数组尾部</span></span><br><span class="line">        <span class="keyword">this</span>.carouselData.push(unitItem);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transition <span class="keyword">all</span> .<span class="number">8</span>s ease</span><br></pre></td></tr></table></figure>
+<p><strong>跑题：</strong><br>transition 属性是一个简写属性，用于设置四个过渡属性：</p>
+<ul>
+<li>transition-property：<br>规定设置过渡效果的 CSS 属性的名称</li>
+<li>transition-duration：<br>规定完成过渡效果需要多少秒或毫秒。</li>
+<li>transition-timing-function：<br>规定速度效果的速度曲线。</li>
+<li>transition-delay<br>定义过渡效果何时开始。</li>
+</ul>
+<p><strong>over</strong></p>
+<p>这样的确可以有效针对中间元素的移动改变。但是每一次插入 数组尾部 的该元素来说，由于无法跟踪它插入前的位置，元素信息等等等。所以transition对它来说是无效的。<br>这就造成了下面（如图）的问题。</p>
+<p><img src="/2020/03/30/2020/轮播/NO6.png" alt="NO6" title="NO6"></p>
+<p>至少我们实现了第二步，动起来。</p>
+<h5 id="更完美的动起来"><a href="#更完美的动起来" class="headerlink" title="# 更完美的动起来"></a># <strong>更完美的动起来</strong></h5><p>后来，一下想不着怎么办，就回家去想了。~ ~</p>
+<p>后来，我想到的解决方式（事实上应该不止，我只能想到一种。。）</p>
+<p><strong>我可以允许它数组以及每一位的索引位置等等不变，我可以动态计算，我应该在每一轮给它什么位置。即 我可以算给它，它在某一个时刻，应该在什么相对位置了。</strong></p>
+<p><img src="/2020/03/30/2020/轮播/NO4.png" alt="NO7" title="NO7"></p>
+<p><strong>解析：</strong><br>以数组及其索引为例子：(以 <strong>4图位</strong> 为例子)<br>索引位置：     [0]——–[1]——–[2]——–[3]</p>
+<p>假设我点了 <strong>索引2</strong> 处的位置，那么 [2] 就应该来到 [0] 的位置，它所需要经历的路径有 [1]、[0]的这两个位置。</p>
+<p>所以它需要遍历两次</p>
+<hr>
+<p>样式位置：     [0]——–[1]——–[2]——–[3]</p>
+<hr>
+<p>初始时候：     [0]——–[1]——–[2]——–[3]<br>   第一次：<br>一次结束：     [1]——–[2]——–[3]——–[0]<br>   第二次：<br>二次结束：     [2]——–[3]——–[0]——–[1]</p>
+<hr>
+<p>startIndex = 0; // 开始位置索引  0<br>step = 点击位置 - 开始索引 = &gt; 2 - 0 = 2; // 循环2次<br>iterStep = 1; 当前位移次数</p>
+<hr>
+<p>初始时候： [0]——–[1]——–[2]——–[3]</p>
+<ul>
+<li>第一次执行：</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 1  —&gt; [0]应该获得[3] 的样式 | length - iterStep + i  —&gt;  4 - 1 + 0 = 3;<br>[1]  |  1 !&lt; 1 —&gt; [1]应该获得[0] 的样式 | i - iterStep —&gt; 1 - 1 = 0;<br>[2]  |  2 !&lt; 1 —&gt; [2]应该获得[1] 的样式 | i - iterStep —&gt; 2 - 1 = 1;<br>[3]  |  3 !&lt; 1 —&gt; [3]应该获得[2] 的样式 | i - iterStep —&gt; 3 - 1 = 2;</p>
+<p>获得样式对应 ：<br>[1]——–[2]——–[3]——–[0]</p>
+<p>iterStep += 1; —&gt; iterStep = 2;<br>step -= 1; —&gt; step = 1;<br>step === 0 ？结束 ：继续；<br><strong>继续</strong></p>
+<hr>
+<ul>
+<li>第二次执行：</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 2  —&gt; [0]应该获得[2] 的样式 | length - iterStep + i  —&gt;  4 - 2 + 0 = 2;<br>[1]  |  1 &lt; 2 —&gt; [1]应该获得[3] 的样式 | length - iterStep + i —&gt; 4 - 2 + 1 = 3;<br>[2]  |  2 !&lt; 2 —&gt; [2]应该获得[0] 的样式 | i - iterStep —&gt; 2 - 2 = 0;<br>[3]  |  3 !&lt; 2 —&gt; [3]应该获得[1] 的样式 | i - iterStep —&gt; 3 - 2 = 1;</p>
+<p>获得样式对应 ：<br>[2]——–[3]——–[0]——–[1]</p>
+<p>iterStep += 1; —&gt; iterStep = 3;<br>step -= 1; —&gt; step = 0;<br>step === 0 ？结束 ：继续；<br><strong>结束</strong></p>
+<p>我们就可以先完善第一段代码：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let oldIndex = <span class="keyword">this</span>.nowFrontIndex; <span class="comment">// 当前初索引Index</span></span><br><span class="line">let step = index - oldIndex; <span class="comment">// 遍历次数</span></span><br><span class="line">let iterStep = <span class="number">1</span>; <span class="comment">// 临界条件</span></span><br><span class="line">let length = arr.length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (step === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.nowFrontIndex = index; <span class="comment">// 更新初始Index</span></span><br><span class="line">        clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">        <span class="keyword">this</span>.interval = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    let result;</span><br><span class="line">    <span class="keyword">for</span>(let i = <span class="number">0</span>; i &lt; length; i ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; iterStep) &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle(length - iterStep + i);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle(i - iterStep);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    iterStep += <span class="number">1</span>;</span><br><span class="line">    step -= <span class="number">1</span>;</span><br><span class="line">&#125;, <span class="number">400</span>);</span><br></pre></td></tr></table></figure></p>
+<h6 id="再一次点击"><a href="#再一次点击" class="headerlink" title="再一次点击"></a>再一次点击</h6><p>当前位置  [2]——–[3]——–[0]——–[1]</p>
+<p>假设我点了 <strong>索引3</strong> 处的位置，那么 [3] 就应该来到 [0] 的位置，它所需要经历的路径有 [0]的这个位置。</p>
+<p>所以它需要遍历一次</p>
+<hr>
+<p>样式位置：     [0]——–[1]——–[2]——–[3]</p>
+<hr>
+<p>初始时候：     [2]——–[3]——–[0]——–[1]<br>   第一次：<br>一次结束：     [3]——–[0]——–[1]——–[2]</p>
+<hr>
+<p>startIndex = 2; // 开始位置索引  2<br>step = 点击索引 - 开始索引 = &gt; 3 - 2 = 1; // 循环2次<br>iterStep = 1; 当前位移次数  关键！ </p>
+<p><strong>oldIndex ? iterStep += oldIndex : iterStep</strong> —&gt; iterStep = 3;</p>
+<p>如果因为此次点击是在存在了第一次点击的情况下，所以对于目前的索引位置其实已经偏移过了。</p>
+<hr>
+<p>初始时候： [2]——–[3]——–[0]——–[1]</p>
+<ul>
+<li>第一次执行：</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 3  —&gt; [0]应该获得[1] 的样式 | length - iterStep + i  —&gt;  4 - 3 + 0 = 1;<br>[1]  |  1 &lt; 3 —&gt; [1]应该获得[2] 的样式 | length - iterStep + i —&gt; 4 - 3 + 1 = 2;<br>[2]  |  2 &lt; 3 —&gt; [2]应该获得[3] 的样式 | length - iterStep + i —&gt; 4 - 3 + 2= 3;<br>[3]  |  3 !&lt; 3 —&gt; [3]应该获得[0] 的样式 | i - iterStep —&gt; 3 - 3 = 0;</p>
+<p>获得样式对应 ：<br>[3]——–[0]——–[1]——–[2]</p>
+<p>iterStep += 1; —&gt; iterStep = 4;;<br>step -= 1; —&gt; step = 0;<br>step === 0 ？结束 ：继续；<br><strong>结束</strong></p>
+<p>所以我们再一次完善一下我们的代码<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let oldIndex = <span class="keyword">this</span>.nowFrontIndex; <span class="comment">// 当前初索引Index</span></span><br><span class="line">let step = index - oldIndex; <span class="comment">// 遍历次数</span></span><br><span class="line">let iterStep = <span class="number">1</span>; <span class="comment">// 临界条件</span></span><br><span class="line">let length = <span class="keyword">this</span>.arr.length;</span><br><span class="line">+++++</span><br><span class="line">+ <span class="keyword">if</span>(oldIndex) &#123;</span><br><span class="line">+     iterStep += oldIndex;</span><br><span class="line">+ &#125;</span><br><span class="line">+++++</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (step === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.nowFrontIndex = index; <span class="comment">// 更新初始Index</span></span><br><span class="line">        clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">        <span class="keyword">this</span>.interval = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    let result;</span><br><span class="line">    <span class="keyword">for</span>(let i = <span class="number">0</span>; i &lt; length; i ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; iterStep) &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle( length - iterStep + i);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle(i - iterStep);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    iterStep += <span class="number">1</span>;</span><br><span class="line">    step -= <span class="number">1</span>;</span><br><span class="line">&#125;, <span class="number">400</span>);</span><br></pre></td></tr></table></figure></p>
+<h6 id="再再一次点击"><a href="#再再一次点击" class="headerlink" title="再再一次点击"></a>再再一次点击</h6><p>当前位置  [3]——–[0]——–[1]——–[2]</p>
+<p>假设我点了 <strong>索引1</strong> 处的位置，那么 [1] 就应该来到 [0] 的位置，它所需要经历的路径有 [0]，[1]的这个位置。</p>
+<p>所以它需要遍历一次</p>
+<hr>
+<p>样式位置：     [0]——–[1]——–[2]——–[3]</p>
+<hr>
+<p>初始时候：     [3]——–[0]——–[1]——–[2]<br>   第一次：<br>一次结束：     [0]——–[1]——–[2]——–[3]<br>   第二次：<br>二次结束：     [1]——–[2]——–[3]——–[0]</p>
+<hr>
+<p>还记得我们的计算方式吗？我们快速走一遍。</p>
+<p>startIndex = 3; // 开始位置索引  3<br>step = 点击索引 - 开始索引 = &gt; 1 - 3 = <strong>-2</strong> ； //  ？ ？ ？<br>iterStep = 1; 当前位移次数  关键！ </p>
+<p><strong>oldIndex ? iterStep += oldIndex : iterStep</strong> —&gt; 1 + 3 = 4；;</p>
+<ul>
+<li>第一次执行</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 4  —&gt; [0]应该获得[0] 的样式 | length - iterStep + i  —&gt;  4 - 4 + 0 = 0;<br>[1]  |  1 &lt; 4 —&gt; [1]应该获得[1] 的样式 | length - iterStep + i —&gt; 4 - 4 + 1 = 1;<br>[2]  |  2 &lt; 4 —&gt; [2]应该获得[2] 的样式 | length - iterStep + i —&gt; 4 - 4 + 2 = 2;<br>[3]  |  3 &lt; 3 —&gt; [3]应该获得[3] 的样式 | length - iterStep + i —&gt; 4 - 4 + 3 = 3;</p>
+<p>获得样式对应 ：<br>[0]——–[1]——–[2]——–[3]</p>
+<p>iterStep += 1; —&gt; iterStep = 5;<br>step -= 1; —&gt; step = -3;<br>step === 0 ？结束 ：继续；<br><strong>继续</strong>【同时我们应该注意到，它将不会停止了！】</p>
+<p>所以我们需要修改我们的循环次数了。</p>
+<p>[3]——–[0]——–[1]——–[2]<br>当我们点击 [0]  —&gt; 0 - 3 = -3 —&gt; step = -3 — 实际循环 1 次<br>当我们点击 [1]  —&gt; 1 - 3 = -2 —&gt; step = -2 — 实际循环 2 次<br>当我们点击 [2]  —&gt; 2 - 3 = -1 —&gt; step = -1 — 实际循环 3 次<br>-3 + length —&gt; -3 + 4 = 1<br>-2 + length —&gt; -2 + 4 = 2<br>-1 + length —&gt; -1 + 4 = 3<br><strong>so</strong><br>我们需要更改完善一下我们的代码了：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">let oldIndex = <span class="keyword">this</span>.nowFrontIndex; <span class="comment">// 当前初索引Index</span></span><br><span class="line">let step = index - oldIndex; <span class="comment">// 遍历次数</span></span><br><span class="line">let iterStep = <span class="number">1</span>; <span class="comment">// 临界条件</span></span><br><span class="line">let length = <span class="keyword">this</span>.arr.length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(oldIndex) &#123;</span><br><span class="line">   iterStep += oldIndex;</span><br><span class="line">&#125;</span><br><span class="line">+++++</span><br><span class="line">+ <span class="keyword">if</span> (step &lt; <span class="number">0</span>) &#123;</span><br><span class="line">+   step += length;</span><br><span class="line">+ &#125;</span><br><span class="line">+++++</span><br><span class="line"><span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (step === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.nowFrontIndex = index; <span class="comment">// 更新初始Index</span></span><br><span class="line">        clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">        <span class="keyword">this</span>.interval = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    let result;</span><br><span class="line">    <span class="keyword">for</span>(let i = <span class="number">0</span>; i &lt; length; i ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; iterStep) &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle( length - iterStep + i);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle(i - iterStep);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    iterStep += <span class="number">1</span>;</span><br><span class="line">    step -= <span class="number">1</span>;</span><br><span class="line">&#125;, <span class="number">400</span>);</span><br></pre></td></tr></table></figure>
+<p>所以我们再重复一下以上点击，执行看看。</p>
+<h6 id="再再再一次点击"><a href="#再再再一次点击" class="headerlink" title="再再再一次点击"></a>再再再一次点击</h6><p>当前位置  [3]——–[0]——–[1]——–[2]</p>
+<p>假设我点了 <strong>索引1</strong> 处的位置，那么 [1] 就应该来到 [0] 的位置，它所需要经历的路径有 [0]，[1]的这个位置。</p>
+<p>所以它需要遍历一次</p>
+<hr>
+<p>样式位置：     [0]——–[1]——–[2]——–[3]</p>
+<hr>
+<p>初始时候：     [3]——–[0]——–[1]——–[2]<br>   第一次：<br>一次结束：     [0]——–[1]——–[2]——–[3]<br>   第二次：<br>二次结束：     [1]——–[2]——–[3]——–[0]</p>
+<hr>
+<p>还记得我们的计算方式吗？我们快速走一遍。</p>
+<p>startIndex = 3; // 开始位置索引  3<br>step = 点击索引 - 开始索引 = &gt; 1 - 3 = -2<br><strong>step &lt; 0 ? step += length : step</strong> —&gt; -2 + 4 = 2； step = 2;</p>
+<p>iterStep = 1; 当前位移次数  关键！ </p>
+<p><strong>oldIndex ? iterStep += oldIndex : iterStep</strong> —&gt; 1 + 3 = 4； iterStep = 4;</p>
+<ul>
+<li>第一次执行</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 4  —&gt; [0]应该获得[0] 的样式 | length - iterStep + i  —&gt;  4 - 4 + 0 = 0;<br>[1]  |  1 &lt; 4 —&gt; [1]应该获得[1] 的样式 | length - iterStep + i —&gt; 4 - 4 + 1 = 1;<br>[2]  |  2 &lt; 4 —&gt; [2]应该获得[2] 的样式 | length - iterStep + i —&gt; 4 - 4 + 2 = 2;<br>[3]  |  3 &lt; 4 —&gt; [3]应该获得[3] 的样式 | length - iterStep + i —&gt; 4 - 4 + 3 = 3;</p>
+<p>获得样式对应 ：<br>[0]——–[1]——–[2]——–[3]</p>
+<p>iterStep += 1; —&gt; iterStep = 5;<br>step -= 1; —&gt; step = 1;<br>step === 0 ？结束 ：继续；<br><strong>继续</strong></p>
+<ul>
+<li>第二次执行</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong><br>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 5  —&gt; [0]应该获得[3] 的样式 | length - iterStep + i  —&gt;  4 - 5 + 0 = -1;  —  ？ ？ ？<br>[1]  |  1 &lt; 5 —&gt; [1]应该获得[0] 的样式 | length - iterStep + i —&gt; 4 - 5 + 1 = 0;<br>[2]  |  2 &lt; 5 —&gt; [2]应该获得[1] 的样式 | length - iterStep + i —&gt; 4 - 5 + 2 = 1;<br>[3]  |  3 &lt; 5 —&gt; [3]应该获得[2] 的样式 | length - iterStep + i —&gt; 4 - 5 + 3 = 2;</p>
+<p>获得样式对应 ：<br>[1]——–[2]——–[3]——–[0 // <strong>-1</strong> ？？？]</p>
+<p>iterStep += 1; —&gt; iterStep = 6;<br>step -= 1; —&gt; step = 0;<br>step === 0 ？结束 ：继续；<br><strong>结束</strong><br>我们可以注意到 -1 位置 ? 那 0 的样式就完全错了。后续也肯定会全错！<br>那问题就在我们的判断分支上了。</p>
+<p>即使存在上一轮的 iterStep, 也不应该持续不断的 + oldIndex 或者 + 1 下去。<br>但它轮转了length 长度的圈度之后，它应该重新从 “0”开始计数。</p>
+<p>也就是 iterStep &gt; length 的时候，它应该 <strong>iterStep - length</strong>;</p>
+<p>所以我们再再一次改变我们的代码</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">let oldIndex = <span class="keyword">this</span>.nowFrontIndex; <span class="comment">// 当前初索引Index</span></span><br><span class="line">let step = index - oldIndex; <span class="comment">// 遍历次数</span></span><br><span class="line">let iterStep = <span class="number">1</span>; <span class="comment">// 临界条件</span></span><br><span class="line">let length = <span class="keyword">this</span>.arr.length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(oldIndex) &#123;</span><br><span class="line">   iterStep += oldIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (step &lt; <span class="number">0</span>) &#123;</span><br><span class="line">   step += length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (step === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.nowFrontIndex = index; <span class="comment">// 更新初始Index</span></span><br><span class="line">        clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">        <span class="keyword">this</span>.interval = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    let result;</span><br><span class="line">    <span class="keyword">for</span>(let i = <span class="number">0</span>; i &lt; length; i ++) &#123;</span><br><span class="line">        +++++</span><br><span class="line">        + <span class="keyword">if</span> (iterStep &gt; length) &#123;</span><br><span class="line">        +    iterStep -= length;</span><br><span class="line">        + &#125;</span><br><span class="line">        +++++</span><br><span class="line">        <span class="keyword">if</span> (i &lt; iterStep) &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle( length - iterStep + i);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result = <span class="keyword">this</span>.transformAtCircle(i - iterStep);</span><br><span class="line">            <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.arr, i, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    iterStep += <span class="number">1</span>;</span><br><span class="line">    step -= <span class="number">1</span>;</span><br><span class="line">&#125;, <span class="number">400</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="再再再再一次点击"><a href="#再再再再一次点击" class="headerlink" title="再再再再一次点击"></a>再再再再一次点击</h6><p>当前位置  [3]——–[0]——–[1]——–[2]</p>
+<p>假设我点了 <strong>索引1</strong> 处的位置，那么 [1] 就应该来到 [0] 的位置，它所需要经历的路径有 [0]，[1]的这个位置。</p>
+<p>所以它需要遍历一次</p>
+<hr>
+<p>样式位置：     [0]——–[1]——–[2]——–[3]</p>
+<hr>
+<p>初始时候：     [3]——–[0]——–[1]——–[2]<br>   第一次：<br>一次结束：     [0]——–[1]——–[2]——–[3]<br>   第二次：<br>二次结束：     [1]——–[2]——–[3]——–[0]</p>
+<hr>
+<p>还记得我们的计算方式吗？我们快速走一遍。</p>
+<p>startIndex = 3; // 开始位置索引  3<br>step = 点击索引 - 开始索引 = &gt; 1 - 3 = -2<br><strong>step &lt; 0 ? step += length : step</strong> —&gt; -2 + 4 = 2； step = 2;</p>
+<p>iterStep = 1; 当前位移次数  关键！ </p>
+<p><strong>oldIndex ? iterStep += oldIndex : iterStep</strong> —&gt; 1 + 3 = 4； iterStep = 4;</p>
+<ul>
+<li>第一次执行</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong></p>
+<p><strong>iterStep &gt; length ? iterStep -= length : iterStep</strong> —&gt; iterStep = 4;</p>
+<p>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 4  —&gt; [0]应该获得[0] 的样式 | length - iterStep + i  —&gt;  4 - 4 + 0 = 0;<br>[1]  |  1 &lt; 4 —&gt; [1]应该获得[1] 的样式 | length - iterStep + i —&gt; 4 - 4 + 1 = 1;<br>[2]  |  2 &lt; 4 —&gt; [2]应该获得[2] 的样式 | length - iterStep + i —&gt; 4 - 4 + 2 = 2;<br>[3]  |  3 &lt; 4 —&gt; [3]应该获得[3] 的样式 | length - iterStep + i —&gt; 4 - 4 + 3 = 3;</p>
+<p>获得样式对应 ：<br>[0]——–[1]——–[2]——–[3]</p>
+<p>iterStep += 1; —&gt; iterStep = 5;<br>step -= 1; —&gt; step = 1;<br>step === 0 ？结束 ：继续；<br><strong>继续</strong></p>
+<ul>
+<li>第二次执行</li>
+</ul>
+<p>length = 4;<br><strong>for(let i = 0 ; i &lt;= length - 1; i++)</strong></p>
+<p><strong>iterStep &gt; length ? iterStep -= length : iterStep</strong> —&gt; iterStep = 5 &gt; 4 —&gt; 1;</p>
+<p>判断条件： i &lt; iterStep<br>[0]  |  0 &lt; 1  —&gt; [0]应该获得[3] 的样式 | length - iterStep + i  —&gt;  4 - 1 + 0 = 3;<br>[1]  |  1 &lt; 1 —&gt; [1]应该获得[0] 的样式 | i - iterStep —&gt; 1 - 1 = 0；<br>[2]  |  2 &lt; 1 —&gt; [2]应该获得[1] 的样式 | i - iterStep —&gt; 2 - 1 = 1；<br>[3]  |  3 &lt; 1 —&gt; [3]应该获得[2] 的样式 | i - iterStep —&gt; 3 - 1 = 2；</p>
+<p>获得样式对应 ：<br>[1]——–[2]——–[3]——–[0]</p>
+<p>iterStep += 1; —&gt; iterStep = 2;<br>step -= 1; —&gt; step = 0;<br>step === 0 ？结束 ：继续；<br><strong>结束</strong></p>
+<hr>
+<p>这样就暂时完成单向的转轮。<br>还有双向循环的旋转，就不做介绍了。<br>贴代码。</p>
+<h5 id="Over"><a href="#Over" class="headerlink" title="Over"></a>Over</h5><p>以 8 图 为例子</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.interval) &#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    let oldIndex = <span class="keyword">this</span>.nowFrontIndex; <span class="comment">// 当前初索引Index</span></span><br><span class="line">    let midIndex,</span><br><span class="line">        isRight = <span class="literal">false</span>; <span class="comment">// middleIndex</span></span><br><span class="line">    <span class="keyword">if</span> (oldIndex &gt; <span class="number">3</span>) &#123;</span><br><span class="line">        midIndex = oldIndex - <span class="number">4</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        midIndex = oldIndex + <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    isRight = <span class="keyword">this</span>.computedIsRightPart(midIndex, index, oldIndex); <span class="comment">// 左右</span></span><br><span class="line"></span><br><span class="line">    let step = index - oldIndex; <span class="comment">// 遍历次数</span></span><br><span class="line">    <span class="keyword">if</span> (step &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        step = <span class="number">8</span> + step;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (isRight) &#123;</span><br><span class="line">        step = oldIndex - index;</span><br><span class="line">        <span class="keyword">if</span> (step &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            step = <span class="number">8</span> + step</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let iterStep = <span class="number">1</span>; <span class="comment">// 临界条件</span></span><br><span class="line">    <span class="keyword">if</span> (oldIndex) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isRight) &#123;</span><br><span class="line">            iterStep += oldIndex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.interval = setInterval(() =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (step === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.nowFrontIndex = index; <span class="comment">// 更新初始Index</span></span><br><span class="line">            clearInterval(<span class="keyword">this</span>.interval);</span><br><span class="line">            <span class="keyword">this</span>.interval = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        let result;</span><br><span class="line">        <span class="keyword">for</span>(let i = <span class="number">0</span>; i &lt;= <span class="number">7</span>; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isRight) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &lt; oldIndex) &#123;</span><br><span class="line">                    let key = <span class="number">8</span> - oldIndex;</span><br><span class="line">                    <span class="keyword">if</span> ((key + i + iterStep) &lt; <span class="number">8</span>) &#123;</span><br><span class="line">                        result = <span class="keyword">this</span>.transformAtCircle(key + i + iterStep);</span><br><span class="line">                        <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result = <span class="keyword">this</span>.transformAtCircle((key + i + iterStep) - <span class="number">8</span>);</span><br><span class="line">                        <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((i - oldIndex + iterStep) &lt; <span class="number">8</span>) &#123;</span><br><span class="line">                        result = <span class="keyword">this</span>.transformAtCircle(i - oldIndex + iterStep);</span><br><span class="line">                        <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result = <span class="keyword">this</span>.transformAtCircle(i - oldIndex + iterStep - <span class="number">8</span>);</span><br><span class="line">                        <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (iterStep &gt;= <span class="number">9</span>) &#123;</span><br><span class="line">                    iterStep = iterStep - <span class="number">8</span>;</span><br><span class="line">                &#125; </span><br><span class="line">                <span class="keyword">if</span> (i &lt; iterStep) &#123;</span><br><span class="line">                    <span class="comment">// let key = 8 - iterStep + i;</span></span><br><span class="line">                    <span class="comment">// if (key &lt; 0) &#123;</span></span><br><span class="line">                    <span class="comment">//     key = iterStep - 9</span></span><br><span class="line">                    <span class="comment">// &#125;</span></span><br><span class="line">                    result = <span class="keyword">this</span>.transformAtCircle(<span class="number">8</span> - iterStep + i);</span><br><span class="line">                    <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    result = <span class="keyword">this</span>.transformAtCircle(i - iterStep);</span><br><span class="line">                    <span class="keyword">this</span>.$<span class="keyword">set</span>(<span class="keyword">this</span>.computedCarouselLoca, i, result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        iterStep += <span class="number">1</span>;</span><br><span class="line">        step -= <span class="number">1</span>;</span><br><span class="line">    &#125;, <span class="number">400</span>);</span><br></pre></td></tr></table></figure>
+      
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/JavaScript/">JavaScript</a>
+      
+        <a href="/tags/CSS/">CSS</a>
+      
+      </div>
+    
+    
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>Jayantxu</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://jayantxu.cn/2020/03/30/2020/轮播/">http://jayantxu.cn/2020/03/30/2020/轮播/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://jayantxu.cn">http://jayantxu.cn</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2020/04/07/2020/费舍尔-耶茨混洗/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>费舍尔.耶茨混洗
+        </span>
+      </a>
+    
+    
+      <a href="/2020/02/15/2020/adv/" id="art-right" class="art-right">
+        <span class="prev-title">
+          adv<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
+  </nav>
+
+
+    
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>文章导航</span></div>
+    <div class="toc-inner">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#仿造-CloudCarousel-3D轮播"><span class="toc-text">仿造 CloudCarousel 3D轮播</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先我们需要将几个元素排列成圆"><span class="toc-text"># 首先我们需要将几个元素排列成圆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#放扁，有立体感"><span class="toc-text"># 放扁，有立体感</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动起来"><span class="toc-text"># 动起来</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更完美的动起来"><span class="toc-text"># 更完美的动起来</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#再一次点击"><span class="toc-text">再一次点击</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#再再一次点击"><span class="toc-text">再再一次点击</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#再再再一次点击"><span class="toc-text">再再再一次点击</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#再再再再一次点击"><span class="toc-text">再再再再一次点击</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Over"><span class="toc-text">Over</span></a></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+
+  
+
+
+        </div>
+      </main>
+      <footer class="footer syuanpi fadeIn" id="footer">
+  <hr>
+  <div class="footer-wrapper">
+    <div class="left">
+      <div class="contact-icon">
+  
+  
+</div>
+
+    </div>
+    <div class="right">
+      <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>2019 ~ 2021</span>
+        <span style="color: red;">❤</span>
+        <span>Jayantxu</span>
+    </div>
+    <div class="theme">
+        <span>
+            404 NOT NOT NOT FOUND
+        </span>
+    </div>
+    
+</div>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <div class="tagcloud" id="tagcloud">
+  <div class="tagcloud-taglist">
+  
+    <div class="tagcloud-tag">
+      <button>JavaScript</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Axios</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Vue</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>CSS</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>HTML</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>布局</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Git</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>转载</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Gulp</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>源码</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>2019</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Node</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Express</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Element</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>优化</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>canvas</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>日常碎碎</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>踩坑</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Adv</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>算法</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Stylus</button>
+    </div>
+  
+  </div>
+  
+    <div class="tagcloud-postlist active">
+      <h2>JavaScript</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript创建对象/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript创建对象</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
+            <time class="tagcloud-posttime">2019 / 02 / 18</time>
+            <span>JavaScript深浅拷贝</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript继承/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript继承</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/03/30/2020/轮播/">
+            <time class="tagcloud-posttime">2020 / 03 / 30</time>
+            <span>轮播</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Axios</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Vue</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/01/17/2020/Vue-Diff/">
+            <time class="tagcloud-posttime">2020 / 01 / 17</time>
+            <span>Vue-Diff</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>CSS</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/CSS清除浮动/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>CSS清除浮动的几种方式</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/26/2020/stylus-media/">
+            <time class="tagcloud-posttime">2020 / 12 / 26</time>
+            <span>stylus_media</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/03/01/2021/column-count描述元素的列数/">
+            <time class="tagcloud-posttime">2021 / 03 / 01</time>
+            <span>column-count描述元素的列数</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/03/30/2020/轮播/">
+            <time class="tagcloud-posttime">2020 / 03 / 30</time>
+            <span>轮播</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>HTML</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>布局</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Git</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/Git相关命令/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>Git相关命令</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>转载</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/01/17/2020/Vue-Diff/">
+            <time class="tagcloud-posttime">2020 / 01 / 17</time>
+            <span>Vue-Diff</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Gulp</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>源码</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>2019</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Node</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Express</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>MySQL</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Bug</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Element</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>优化</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>canvas</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>日常碎碎</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/22/2019/hello-world/">
+            <time class="tagcloud-posttime">2019 / 01 / 22</time>
+            <span>Hello</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/01/2020/My/">
+            <time class="tagcloud-posttime">2020 / 12 / 01</time>
+            <span>My</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/05/2021/github的3D打印/">
+            <time class="tagcloud-posttime">2021 / 04 / 05</time>
+            <span>有趣-github的3D打印</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>踩坑</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/11/01/2019/踩坑eCharts参数/">
+            <time class="tagcloud-posttime">2019 / 11 / 01</time>
+            <span>踩坑eCharts参数</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Adv</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>算法</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Stylus</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/26/2020/stylus-media/">
+            <time class="tagcloud-posttime">2020 / 12 / 26</time>
+            <span>stylus_media</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+</div>
+
+  </div>
+  <div class="backtop syuanpi melt toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/script/scheme/banderole.js"></script>
+
+
+<script src="/script/bootstarp.js"></script>
+
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
+
+
+
+</body>
+</html>
