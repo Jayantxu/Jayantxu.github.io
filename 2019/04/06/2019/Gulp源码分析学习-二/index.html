@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="browsermode" content="application">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jayant Blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name="format-detection" content="telephone=no">
+
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/MyPic.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/MyPic.png">
+
+
+  <meta name="subtitle" content="你发现了盲点...😏">
+
+
+
+
+  <meta name="keywords" content="Gulp, 源码, nlvi">
+
+
+<link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
+<link rel="stylesheet" href="/style/style.css">
+<script>
+  var nlviconfig = {
+    title: "Jayant Blog",
+    author: "Jayantxu",
+    baseUrl: "/",
+    theme: {
+      scheme: "banderole",
+      lightbox: false,
+      animate: true,
+      search: false,
+      friends: false,
+      reward: false,
+      pjax: false,
+      lazy: false,
+      toc: true
+    }
+  }
+</script>
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+    <link rel="icon" href="/img/MyPic.png">
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@font-face {
+  font-family: "Allura";
+  src: url('/font/allura/allura.ttf');
+}
+</style>
+
+  <title> Gulp源码分析学习(二 · Jayant Blog </title>
+</head>
+<body>
+  <div class="container">
+    <header class="header" id="header">
+  <div class="header-wrapper">
+    <div class="logo">
+  <div class="logo-inner syuanpi tvIn" style="display:none;">
+    <h1><a href="/">Jayant Blog</a></h1>
+    
+      <span id="subtitle">你发现了盲点...😏</span>
+    
+  </div>
+</div>
+
+    <nav class="main-nav">
+  
+  <ul class="main-nav-list syuanpi tvIn">
+  
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/" id="主页">
+        <span class="base-name">
+          
+            主页
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/archives" id="文章">
+        <span class="base-name">
+          
+            文章
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="tags">
+        <span class="base-name">
+          
+            TAGS
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/about" id="关于我">
+        <span class="base-name">
+          
+            关于我
+          
+        </span>
+      </a>
+    </li>
+  
+  
+  </ul>
+  
+</nav>
+
+  </div>
+</header>
+<div class="mobile-header" id="mobile-header">
+  <div class="mobile-header-nav">
+    <div class="mobile-header-item" id="mobile-left">
+      <div class="header-menu-item">
+        <div class="header-menu-line"></div>
+      </div>
+    </div>
+    <h1 class="mobile-header-title">
+      <a href="/">Jayant Blog</a>
+    </h1>
+    <div class="mobile-header-item"></div>
+  </div>
+  <div class="mobile-header-body">
+    <ul class="mobile-header-list">
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-0">
+          <a href="/">
+            
+              主页
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
+          <a href="/archives">
+            
+              文章
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
+          <a href="javascript:;" id="mobile-tags">
+            
+              TAGS
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
+          <a href="/about">
+            
+              关于我
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="container-inner" style="display:none;">
+      <main class="main" id="main">
+        <div class="main-wrapper">
+          
+    
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2019-04-06</time>
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          Gulp源码分析学习(二
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <h2 id="undertaker模块文件分析"><a href="#undertaker模块文件分析" class="headerlink" title="undertaker模块文件分析"></a>undertaker模块文件分析</h2><p>我们从上一篇的入口文件分析可以得知，<strong>Gulp</strong>进行task、series、parallel等任务时，所执行的方法入口其实来源于<em>undertaker</em>模块</p>
+<p>因此我们也进入相应的<em>undertaker</em>模块一探究竟</p>
+<h2 id="一、undertaker-index-js"><a href="#一、undertaker-index-js" class="headerlink" title="一、undertaker-index.js"></a>一、undertaker-index.js</h2><a id="more"></a>
+<p>undertaker模块下的index.js方法 =&gt;</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Node工具函数中的继承</span></span><br><span class="line"><span class="keyword">var</span> inherits = <span class="keyword">require</span>(<span class="string">'util'</span>).inherits;</span><br><span class="line"><span class="comment">// Node中的事件触发器</span></span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="keyword">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> DefaultRegistry = <span class="keyword">require</span>(<span class="string">'undertaker-registry'</span>);</span><br><span class="line"><span class="keyword">var</span> tree = <span class="keyword">require</span>(<span class="string">'./lib/tree'</span>);</span><br><span class="line"><span class="keyword">var</span> task = <span class="keyword">require</span>(<span class="string">'./lib/task'</span>);</span><br><span class="line"><span class="keyword">var</span> series = <span class="keyword">require</span>(<span class="string">'./lib/series'</span>);</span><br><span class="line"><span class="keyword">var</span> lastRun = <span class="keyword">require</span>(<span class="string">'./lib/last-run'</span>);</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">parallel</span> = <span class="keyword">require</span>(<span class="string">'./lib/parallel'</span>);</span><br><span class="line"><span class="keyword">var</span> registry = <span class="keyword">require</span>(<span class="string">'./lib/registry'</span>);</span><br><span class="line"><span class="keyword">var</span> _getTask = <span class="keyword">require</span>(<span class="string">'./lib/get-task'</span>);</span><br><span class="line"><span class="keyword">var</span> _setTask = <span class="keyword">require</span>(<span class="string">'./lib/set-task'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">inherits(Undertaker, EventEmitter);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后继续看一下其他模块方法的具体作用</span></span><br><span class="line">Undertaker.prototype.tree = tree;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype.task = task;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype.series = series;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype.lastRun = lastRun;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype.parallel = parallel;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype.registry = registry;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype._getTask = _getTask;</span><br><span class="line"></span><br><span class="line">Undertaker.prototype._setTask = _setTask;</span><br></pre></td></tr></table></figure>
+<p>依旧采用核心工具函数的inherits方法进行构造函数的继承</p>
+<p>inherits(Undertaker, EventEmitter); 此处使得<strong>Undertake</strong>r构造函数继承自<strong>Node</strong>核心模块<strong>EventEmitter</strong> 的原型链上方法，以及将EventEmitter的构造函数绑定在Undertaker构造函数的<strong>super_</strong>上。</p>
+<p>并且将我们在开始部分所require进来的方法函数添加至原始链prototype上，以便调用</p>
+<font color="ffff00"><em>接下来我们来看一下其中还有一个主方法，当中又实现了什么呢 =&gt; ?</em></font>
+
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Undertaker</span><span class="params">(customRegistry)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  EventEmitter.call(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  我们来看一下DefaultRegistry(undertaker-registry)都干了什么</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">this</span>._registry = <span class="keyword">new</span> DefaultRegistry();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 允许用户自定义的寄存器任务</span></span><br><span class="line">  <span class="keyword">if</span> (customRegistry) &#123;</span><br><span class="line">    <span class="keyword">this</span>.registry(customRegistry);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// process.env =&gt; 包含对用户环境信息的 对象</span></span><br><span class="line">  <span class="keyword">this</span>._settle = (process.env.UNDERTAKER_SETTLE === <span class="string">'true'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EventEmitter.call(this); 将EventEmitter执行函数的this绑定</p>
+<p>this._registry = new DefaultRegistry(); new了一个DefaultRegistry的实例赋予this._registry属性</p>
+<p>// 后两句我们稍后处理</p>
+<p><em>DefaultRegistry</em>来源于<em>undertaker-registry</em></p>
+<p>好的，那让我们现在来看一下，<strong>undertaker-registry</strong> 都将干些什么事。</p>
+<h2 id="二、undertaker-registry-index-js"><a href="#二、undertaker-registry-index-js" class="headerlink" title="二、undertaker-registry - index.js"></a>二、undertaker-registry - index.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 提供了形如get、set的接口,充当寄存器的作用存放着那些任务队列</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DefaultRegistry</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> DefaultRegistry === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DefaultRegistry();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>._tasks = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可能是初始化的作用</span></span><br><span class="line">DefaultRegistry.prototype.init = <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">taker</span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从上边的_tasks对象中去key=name的那个</span></span><br><span class="line">DefaultRegistry.prototype.get = <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._tasks[name];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set的时候,针对传入的name作为key,存放相应的处理方法fn</span></span><br><span class="line">DefaultRegistry.prototype.set = <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._tasks[name] = fn;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">DefaultRegistry.prototype.tasks = <span class="function"><span class="keyword">function</span> <span class="title">tasks</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// 接收一个函数作为累加器-&gt;扩展-&gt;reduce()的用法</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="keyword">this</span>._tasks).reduce(<span class="function"><span class="keyword">function</span>(<span class="params">tasks, name</span>) </span>&#123;</span><br><span class="line">    tasks[name] = self.get(name);</span><br><span class="line">    <span class="keyword">return</span> tasks;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">  <span class="comment">// &#123;&#125;将作为tasks的初始值-&gt;也就是=&gt; 相当于令一开始的  tasks=&#123;&#125;,  最终返回</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = DefaultRegistry;</span><br></pre></td></tr></table></figure>
+<p>undertaker-registry方法，增加在其构造函数中创建一个空对象_tasks = {}</p>
+<p>并且在其原型链上提供了四个方法</p>
+<ul>
+<li>init</li>
+<li>get</li>
+<li>set</li>
+<li>tasks</li>
+</ul>
+<p>也就是定义了一个内部属性_registry作为寄存器<strong>注册/寄存器模式的实现，提供统一接口来存储和读取 tasks</strong></p>
+<h3 id="回到undertaker-index-js"><a href="#回到undertaker-index-js" class="headerlink" title="回到undertaker-index.js"></a>回到undertaker-index.js</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 允许用户自定义的寄存器任务</span></span><br><span class="line">  <span class="keyword">if</span> <span class="comment">(customRegistry)</span> &#123;</span><br><span class="line">    this.registry<span class="comment">(customRegistry)</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>接下来的这一句：</p>
+<p>是根据前部引入的来实现的，那么它具体实现了什么功能呢？<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">var registry</span> = require(<span class="string">'./lib/registry'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>我们接下来看一下 =&gt; </p>
+<h2 id="三、-lib-registry"><a href="#三、-lib-registry" class="headerlink" title="三、 ./lib/registry"></a>三、 ./lib/registry</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTasks</span></span>(inst, task, name) &#123;</span><br><span class="line">  inst.<span class="keyword">set</span>(name, task);</span><br><span class="line">  <span class="keyword">return</span> inst;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">registry</span></span>(<span class="keyword">new</span><span class="type">Registry</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">new</span><span class="type">Registry</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>._registry;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//验证是否有效，主要判断是否带有 .get/.set/.tasks/.init 接口，若不符合则抛出错误</span></span><br><span class="line">  validateRegistry(<span class="keyword">new</span><span class="type">Registry</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> tasks = <span class="built_in">this</span>._registry.tasks();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//将现有 tasks 拷贝到新的寄存器上</span></span><br><span class="line">  <span class="built_in">this</span>._registry = reduce(tasks, setTasks, <span class="keyword">new</span><span class="type">Registry</span>);</span><br><span class="line">  <span class="comment">//调用初始化接口（无论是否需要，寄存器务必带有一个init接口）</span></span><br><span class="line">  <span class="built_in">this</span>._registry.init(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = registry;</span><br></pre></td></tr></table></figure>
+<p>至此，将来逐步分析其余各任务方法模块的作用</p>
+<p>其中包括</p>
+<p>Undertaker.prototype.tree = tree; </p>
+<p>Undertaker.prototype.task = task; </p>
+<p>Undertaker.prototype.series = series;</p>
+<p>Undertaker.prototype.lastRun = lastRun;</p>
+<p>Undertaker.prototype.parallel = parallel;</p>
+<p>Undertaker.prototype.registry = registry;</p>
+<p>Undertaker.prototype._getTask = _getTask;</p>
+<p>Undertaker.prototype._setTask = _setTask;</p>
+<p>将按以下顺序进行 =&gt; </p>
+<p><strong>/lib/set-task</strong></p>
+<p><strong>/lib/get-task</strong></p>
+<p><strong>/lib/last-run</strong></p>
+<p><strong>/lib/task</strong></p>
+<p><strong>/lib/tree</strong></p>
+<p><strong>/lib/series</strong></p>
+<p><strong>/lib/parallel</strong></p>
+<h2 id="四、-lib-set-task"><a href="#四、-lib-set-task" class="headerlink" title="四、./lib/set-task"></a>四、./lib/set-task</h2><p>set-task</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> metadata = <span class="built_in">require</span>(<span class="string">'./helpers/metadata'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">var WM = require('es6-weak-map');</span></span><br><span class="line"><span class="comment">var metadata = new WM();</span></span><br><span class="line"><span class="comment">=&gt;ES6中的WeakMap新类型,在其中引用的对象不计入垃圾回收机制,例如书中讲可用于存放一些DOM相关对象</span></span><br><span class="line"><span class="comment">=&gt;此处为什么用WeakMap不用Map,可能是方便任务执行结束,有效清理内存</span></span><br><span class="line"><span class="comment">提供get、set等方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// set方法采用了map(WeakMap)的数据类型进行存放</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 暴露了一个set方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其中对task第一个参数的name进行类型判断=&gt;错误则报</span></span><br><span class="line">  assert(name, <span class="string">'Task name must be specified'</span>);</span><br><span class="line">  assert(<span class="keyword">typeof</span> name === <span class="string">'string'</span>, <span class="string">'Task name must be a string'</span>);</span><br><span class="line">  assert(<span class="keyword">typeof</span> fn === <span class="string">'function'</span>, <span class="string">'Task function must be specified'</span>);</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 绑定this, 在this中使用参数 fn 对象的方法以及参数</span></span><br><span class="line">  <span class="comment">// 因为WeakMap中要求的key对象不能被引用过</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">taskWrapper</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 返回一个新包装this后的函数</span></span><br><span class="line">    <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">unwrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 返回原本的fn函数方法</span></span><br><span class="line">    <span class="keyword">return</span> fn;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将name、fn包装</span></span><br><span class="line">  taskWrapper.unwrap = unwrap;</span><br><span class="line">  taskWrapper.displayName = name;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 打印一下输出是什么 =&gt; </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`taskWrapper： <span class="subst">$&#123;taskWrapper&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> meta = metadata.get(fn) || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 打印一下输出是什么 =&gt; </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`meta: <span class="subst">$&#123;meta&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> nodes = [];</span><br><span class="line">  <span class="keyword">if</span> (meta.branch) &#123;</span><br><span class="line">    nodes.push(meta.tree);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> task = <span class="keyword">this</span>._registry.set(name, taskWrapper) || taskWrapper;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 打印一下输出是什么 =&gt; </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`task: <span class="subst">$&#123;task&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 存入WeakMap对象</span></span><br><span class="line">  metadata.set(task, &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    orig: fn,</span><br><span class="line">    tree: &#123;</span><br><span class="line">      label: name,</span><br><span class="line">      type: <span class="string">'task'</span>,</span><br><span class="line">      nodes: nodes,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 打印一下输出是什么 =&gt; </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`metadata: <span class="subst">$&#123;metadata.get(task)&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">set</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="五、-lib-get-task"><a href="#五、-lib-get-task" class="headerlink" title="五、./lib/get-task"></a>五、./lib/get-task</h2><p>get-task方法模块代码很简单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也就是对undertaker-registry中的get方法提取</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 从_registry寄存器中get</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._registry.get(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">get</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="六、-lib-last-run"><a href="#六、-lib-last-run" class="headerlink" title="六、./lib/last-run"></a>六、./lib/last-run</h2><p>用来记录和获取针对某个方法的执行前/后时间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// npm中其介绍的功能为,记录函数的时间点 =&gt; 对metadata对象的属性一顿操作</span></span><br><span class="line"><span class="keyword">var</span> retrieveLastRun = <span class="built_in">require</span>(<span class="string">'last-run'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> metadata = <span class="built_in">require</span>(<span class="string">'./helpers/metadata'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lastRun</span>(<span class="params">task, timeResolution</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (timeResolution == <span class="literal">null</span>) &#123;</span><br><span class="line">    timeResolution = process.env.UNDERTAKER_TIME_RESOLUTION;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fn = task;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> task === <span class="string">'string'</span>) &#123;</span><br><span class="line">    fn = <span class="keyword">this</span>._getTask(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> meta = metadata.get(fn);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (meta) &#123;</span><br><span class="line">    fn = meta.orig || fn;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> retrieveLastRun(fn, timeResolution);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = lastRun;</span><br></pre></td></tr></table></figure>
+<h2 id="七、-lib-tree"><a href="#七、-lib-tree" class="headerlink" title="七、./lib/tree"></a>七、./lib/tree</h2><p>通过遍历metadata，获取当前注册过的所有任务的metadata</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'use strict'</span>;</span><br><span class="line"></span><br><span class="line">var defaults = <span class="built_in">require</span>(<span class="string">'object.defaults'</span>);</span><br><span class="line">var map = <span class="built_in">require</span>(<span class="string">'collection-map'</span>);</span><br><span class="line"></span><br><span class="line">var metadata = <span class="built_in">require</span>(<span class="string">'./helpers/metadata'</span>);</span><br><span class="line"></span><br><span class="line">// 可用于获取当前注册过的所有任务的metadata-WeakMap</span><br><span class="line">// 也就是说,可以获取到当前我们定义了那些任务,对应方法,任务间依赖等关系</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tree</span><span class="params">(opts)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">  // 此方法会覆盖判断是否存在opts,并覆盖其中的&#123;deep: <span class="literal">false</span>&#125;</span><br><span class="line">  opts = defaults(opts || &#123;&#125;, &#123;</span><br><span class="line">    deep: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  // 获取寄存器中的tasks</span><br><span class="line">  var tasks = this._registry.tasks();</span><br><span class="line">  </span><br><span class="line">  // 遍历tasks并且返回WeakMap(metadata)的“任务数组” </span><br><span class="line">  var nodes = map(tasks, <span class="function"><span class="keyword">function</span><span class="params">(task)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    var meta = metadata.get(task);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (opts.deep) &#123;</span><br><span class="line">      <span class="keyword">return</span> meta.tree;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> meta.tree.label;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    label: <span class="string">'Tasks'</span>,</span><br><span class="line">    nodes: nodes,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = tree;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">var undertaker = <span class="built_in">require</span>(<span class="string">'undertaker'</span>);</span><br><span class="line">ut = new undertaker();</span><br><span class="line"></span><br><span class="line">ut.task(<span class="string">'taskA'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cb)</span></span>&#123;console.<span class="built_in">log</span>(<span class="string">'A'</span>); cb()&#125;);</span><br><span class="line">ut.task(<span class="string">'taskB'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cb)</span></span>&#123;console.<span class="built_in">log</span>(<span class="string">'B'</span>); cb()&#125;);</span><br><span class="line">ut.task(<span class="string">'taskC'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cb)</span></span>&#123;console.<span class="built_in">log</span>(<span class="string">'C'</span>); cb()&#125;);</span><br><span class="line">ut.task(<span class="string">'taskD'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cb)</span></span>&#123;console.<span class="built_in">log</span>(<span class="string">'D'</span>); cb()&#125;);</span><br><span class="line">ut.task(<span class="string">'taskE'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cb)</span></span>&#123;console.<span class="built_in">log</span>(<span class="string">'E'</span>); cb()&#125;);</span><br><span class="line"></span><br><span class="line">ut.task(<span class="string">'taskC'</span>, ut.series(<span class="string">'taskA'</span>, <span class="string">'taskB'</span>));</span><br><span class="line">ut.task(<span class="string">'taskE'</span>, ut.parallel(<span class="string">'taskC'</span>, <span class="string">'taskD'</span>));</span><br><span class="line"></span><br><span class="line">var tree = ut.tree();</span><br><span class="line">console.<span class="built_in">log</span>(tree);</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h2 id="八、-lib-task"><a href="#八、-lib-task" class="headerlink" title="八、./lib/task"></a>八、./lib/task</h2><p>使用举例：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">gulp.task(<span class="string">'css_comm'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src([<span class="string">'1.css'</span>,<span class="string">'2.css'</span>])</span><br><span class="line">      .pipe(<span class="built_in">concat</span>(<span class="string">'common.css'</span>))</span><br><span class="line">      .pipe(gulp.dest(<span class="string">'./build/css'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">task</span>(<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 此处 if判断 写法为处理“新”打包写法</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  function uglify()&#123;</span></span><br><span class="line"><span class="comment">    return gulp.src(['src/*.js'])</span></span><br><span class="line"><span class="comment">        .pipe(uglify())</span></span><br><span class="line"><span class="comment">        .pipe(gulp.dest('dist'));</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">  gulp.task(uglify);</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> name === <span class="string">'function'</span>) &#123;</span><br><span class="line">    fn = name;</span><br><span class="line">    name = fn.displayName || fn.name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当第二个参数为为空不存在时，即是对相应任务的获取----配合上一段  if 一起看</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    gulp.task('css_comm', function() &#123;</span></span><br><span class="line"><span class="comment">    &#125;);</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">if</span> (!fn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._getTask(name);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调整好关系,再次存入task</span></span><br><span class="line">  <span class="keyword">this</span>._setTask(name, fn);</span><br><span class="line">  <span class="comment">// console.log(`name: $&#123;name&#125;, fn: $&#123;fn&#125;`)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*此两处的_getTask和_setTask=&gt;可以看一下,类似于一开始DefaultRegistry中对tasks中</span></span><br><span class="line"><span class="comment">    任务的操作(get\set)</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = task;</span><br></pre></td></tr></table></figure>
+<h2 id="九、-lib-parallel"><a href="#九、-lib-parallel" class="headerlink" title="九、./lib/parallel"></a>九、./lib/parallel</h2><p>this.parallel的使用 =&gt;</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var undertaker = <span class="built_in">require</span>(<span class="string">'undertaker'</span>);</span><br><span class="line">ut = new undertaker();</span><br><span class="line"></span><br><span class="line">  ut.task(<span class="string">'taskA'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskB'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskC'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskD'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line">// taskD 需要在 <span class="string">'taskA'</span>, <span class="string">'taskB'</span>, <span class="string">'taskC'</span> 执行完毕后才开始执行，</span><br><span class="line">// 其中 <span class="string">'taskA'</span>, <span class="string">'taskB'</span>, <span class="string">'taskC'</span> 的执行是异步的</span><br><span class="line">ut.task(<span class="string">'taskD'</span>, ut.parallel(<span class="string">'taskA'</span>, <span class="string">'taskB'</span>, <span class="string">'taskC'</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>那让我们来看一下parallel中分别实现了些什么吧！</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bach = <span class="built_in">require</span>(<span class="string">'bach'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> metadata = <span class="built_in">require</span>(<span class="string">'./helpers/metadata'</span>);</span><br><span class="line"><span class="keyword">var</span> buildTree = <span class="built_in">require</span>(<span class="string">'./helpers/buildTree'</span>);</span><br><span class="line"><span class="keyword">var</span> normalizeArgs = <span class="built_in">require</span>(<span class="string">'./helpers/normalizeArgs'</span>);</span><br><span class="line"><span class="keyword">var</span> createExtensions = <span class="built_in">require</span>(<span class="string">'./helpers/createExtensions'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parallel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> create = <span class="keyword">this</span>._settle ? bach.settleParallel : bach.parallel;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 根据“任务”数组从寄存器中获取展开的任务数组</span></span><br><span class="line">  <span class="keyword">var</span> args = normalizeArgs(<span class="keyword">this</span>._registry, <span class="built_in">arguments</span>);</span><br><span class="line">  <span class="comment">// 为对象扩展新“”对象</span></span><br><span class="line">  <span class="keyword">var</span> extensions = createExtensions(<span class="keyword">this</span>);</span><br><span class="line">  <span class="comment">// 将参数与扩展的对象(after,before,create,error)做关联</span></span><br><span class="line">  <span class="comment">// 所以我们来看一下它具体实现了些什么 =&gt; </span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// bach.settleParallel+</span></span><br><span class="line">  </span><br><span class="line">  (args, extensions) : bach.parallel(args, extensions)</span><br><span class="line">  <span class="keyword">var</span> fn = create(args, extensions);</span><br><span class="line"></span><br><span class="line">  fn.displayName = <span class="string">'&lt;parallel&gt;'</span>;</span><br><span class="line"></span><br><span class="line">  metadata.set(fn, &#123;</span><br><span class="line">    name: fn.displayName,</span><br><span class="line">    branch: <span class="literal">true</span>,</span><br><span class="line">    tree: &#123;</span><br><span class="line">      label: fn.displayName,</span><br><span class="line">      type: <span class="string">'function'</span>,</span><br><span class="line">      branch: <span class="literal">true</span>,</span><br><span class="line">      nodes: buildTree(args),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> fn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = parallel;</span><br></pre></td></tr></table></figure>
+<p>让我们从上到下的分析一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据“任务”数组从寄存器中获取展开的任务数组</span></span><br><span class="line"><span class="keyword">var</span> args = normalizeArgs(<span class="keyword">this</span>._registry, <span class="built_in">arguments</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>normalizeArgs</strong> 方法是来源于模块 <strong>./helpers/normalizeArgs</strong></p>
+<p>那让我们转向来看一下此模块</p>
+<h3 id="九-1-、normalizeArgs"><a href="#九-1-、normalizeArgs" class="headerlink" title="九(1)、normalizeArgs"></a>九(1)、normalizeArgs</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// nODE的断言测试</span></span><br><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类似于Array.map()的改进版本=&gt;最终返回的也是数组</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">:npm中的讲解</span></span><br><span class="line"><span class="comment">map(['a', 'b', 'c'], function(ele, i) &#123;</span></span><br><span class="line"><span class="comment">  return i + ele;</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">//=&gt; ['0a', '1b', '2c']</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> map = <span class="built_in">require</span>(<span class="string">'arr-map'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将数组展开为平面数组,解除嵌套</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">flatten(['a', ['b', ['c']], 'd', ['e']]);</span></span><br><span class="line"><span class="comment">//=&gt; ['a', 'b', 'c', 'd', 'e']*/</span></span><br><span class="line"><span class="keyword">var</span> flatten = <span class="built_in">require</span>(<span class="string">'arr-flatten'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收到寄存器以及相应的“任务数组”</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">normalizeArgs</span>(<span class="params">registry, args</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 传递入一个一个的“任务”方法</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getFunction</span>(<span class="params">task</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// task类型判断</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> task === <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> task;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从我们寄存器中找到有没有这个key的function,因为存在旧的写法----不知是否有理解错</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    gulp.task('uglify', function()&#123;</span></span><br><span class="line"><span class="comment">        return gulp.src(['src/*.js'])</span></span><br><span class="line"><span class="comment">            .pipe(uglify())</span></span><br><span class="line"><span class="comment">            .pipe(gulp.dest('dist'));</span></span><br><span class="line"><span class="comment">    &#125;);</span></span><br><span class="line"><span class="comment">    gulp.task('default', ['uglify']);</span></span><br><span class="line"><span class="comment">    =&gt;上面的一开始给registry传入的是一个uglify的key</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> fn = registry.get(task);</span><br><span class="line">    <span class="comment">// 错误处理</span></span><br><span class="line">    assert(fn, <span class="string">'Task never defined: '</span> + task);</span><br><span class="line">    <span class="comment">// 回</span></span><br><span class="line">    <span class="keyword">return</span> fn;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// “任务数组”展开</span></span><br><span class="line">  <span class="keyword">var</span> flattenArgs = flatten(args);</span><br><span class="line">  <span class="comment">// 根据长度,判断是否写空了</span></span><br><span class="line">  assert(flattenArgs.length, <span class="string">'One or more tasks should be combined using series or parallel'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对“任务数组”的任务进行方法的遍历</span></span><br><span class="line">  <span class="keyword">return</span> map(flattenArgs, getFunction);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = normalizeArgs;</span><br></pre></td></tr></table></figure>
+<p>//通过参数获取存在寄存器（registry）中的 taskFunctions（数组形式）<br>var args = normalizeArgs(this._registry, arguments);</p>
+<p><strong>接下来我们继续阅读下一句：</strong><br>var extensions = createExtensions(this);</p>
+<p>而<strong>createExtensions</strong>是来源于模块<strong>helpers/createExtensions</strong></p>
+<p>那么我们看一下其中实现了什么 = ?</p>
+<h3 id="九-2-、createExtensions"><a href="#九-2-、createExtensions" class="headerlink" title="九(2)、createExtensions"></a>九(2)、createExtensions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用某函数,并记录捕获当前时间戳或者传入时间戳</span></span><br><span class="line"><span class="keyword">var</span> captureLastRun = <span class="built_in">require</span>(<span class="string">'last-run'</span>).capture;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取一个function并删除最后一次运行时时间戳</span></span><br><span class="line"><span class="keyword">var</span> releaseLastRun = <span class="built_in">require</span>(<span class="string">'last-run'</span>).release;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> metadata = <span class="built_in">require</span>(<span class="string">'./metadata'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> uid = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Storage</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> meta = metadata.get(fn);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.fn = meta.orig || fn;</span><br><span class="line">  <span class="keyword">this</span>.uid = uid++;</span><br><span class="line">  <span class="keyword">this</span>.name = meta.name;</span><br><span class="line">  <span class="keyword">this</span>.branch = meta.branch || <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">this</span>.captureTime = <span class="built_in">Date</span>.now();</span><br><span class="line">  <span class="keyword">this</span>.startHr = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Storage.prototype.capture = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  captureLastRun(<span class="keyword">this</span>.fn, <span class="keyword">this</span>.captureTime);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Storage.prototype.release = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  releaseLastRun(<span class="keyword">this</span>.fn);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createExtensions</span>(<span class="params">ee</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    create: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 调用create时候,记录一下相关信息,并返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Storage(fn);</span><br><span class="line">    &#125;,</span><br><span class="line">    before: <span class="function"><span class="keyword">function</span>(<span class="params">storage</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// Node获取相对于过去某一刻的时间</span></span><br><span class="line">      storage.startHr = process.hrtime();</span><br><span class="line">      <span class="comment">// Node触发start事件,后面为参数</span></span><br><span class="line">      ee.emit(<span class="string">'start'</span>, &#123;</span><br><span class="line">        uid: storage.uid,</span><br><span class="line">        name: storage.name,</span><br><span class="line">        branch: storage.branch,</span><br><span class="line">        time: <span class="built_in">Date</span>.now(),</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    after: <span class="function"><span class="keyword">function</span>(<span class="params">result, storage</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 调用时判断是否有错,有则爆</span></span><br><span class="line">      <span class="keyword">if</span> (result &amp;&amp; result.state === <span class="string">'error'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.error(result.value, storage);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 记录当前时间戳</span></span><br><span class="line">      storage.capture();</span><br><span class="line">      <span class="comment">// Node触发stop事件</span></span><br><span class="line">      ee.emit(<span class="string">'stop'</span>, &#123;</span><br><span class="line">        uid: storage.uid,</span><br><span class="line">        name: storage.name,</span><br><span class="line">        branch: storage.branch,</span><br><span class="line">        duration: process.hrtime(storage.startHr),</span><br><span class="line">        time: <span class="built_in">Date</span>.now(),</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span>(<span class="params">error, storage</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(error)) &#123;</span><br><span class="line">        error = error[<span class="number">0</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 删除出错的此次执行时间戳</span></span><br><span class="line">      storage.release();</span><br><span class="line">      ee.emit(<span class="string">'error'</span>, &#123;</span><br><span class="line">        uid: storage.uid,</span><br><span class="line">        name: storage.name,</span><br><span class="line">        branch: storage.branch,</span><br><span class="line">        error: error,</span><br><span class="line">        duration: process.hrtime(storage.startHr),</span><br><span class="line">        time: <span class="built_in">Date</span>.now(),</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = createExtensions;</span><br></pre></td></tr></table></figure>
+<p>此方法扩展，为变量新增拥有<strong>create</strong>、<strong>before</strong>、<strong>after</strong>、<strong>error</strong>等方法的一个对象</p>
+<p>最终期望将扩展出来的对象与我们的“任务”task关联</p>
+<p><strong>接着我们来看下一句:</strong></p>
+<p>var fn = create(args, extensions);</p>
+<p>create =&gt; var create = this._settle ? bach.settleParallel : bach.parallel;</p>
+<p><strong>bach</strong>模块来源于<strong>bach</strong></p>
+<p>接下来我们再来看一下bach模块实现了些什么 =&gt; ?</p>
+<h3 id="九-3-、bach"><a href="#九-3-、bach" class="headerlink" title="九(3)、bach"></a>九(3)、bach</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  series: <span class="built_in">require</span>(<span class="string">'./lib/series'</span>),</span><br><span class="line">  parallel: <span class="built_in">require</span>(<span class="string">'./lib/parallel'</span>),</span><br><span class="line">  settleSeries: <span class="built_in">require</span>(<span class="string">'./lib/settleSeries'</span>),</span><br><span class="line">  settleParallel: <span class="built_in">require</span>(<span class="string">'./lib/settleParallel'</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>而我们所需要用的的parallel是来源于<strong>lib/parallel</strong></p>
+<p>而<strong>lib/parallel</strong>具体代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数组取值操作,取第一及最后一个</span></span><br><span class="line"><span class="keyword">var</span> initial = <span class="built_in">require</span>(<span class="string">'array-initial'</span>);</span><br><span class="line"><span class="keyword">var</span> last = <span class="built_in">require</span>(<span class="string">'array-last'</span>);</span><br><span class="line"><span class="comment">// 用于异步化函数</span></span><br><span class="line"><span class="keyword">var</span> asyncDone = <span class="built_in">require</span>(<span class="string">'async-done'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> nowAndLater = <span class="built_in">require</span>(<span class="string">'now-and-later'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> helpers = <span class="built_in">require</span>(<span class="string">'./helpers'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterator</span>(<span class="params">fn, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 那asyncDone又是做什么的呢 =&gt; ?</span></span><br><span class="line">  <span class="comment">// 传入一个方法与回调</span></span><br><span class="line">  <span class="keyword">return</span> asyncDone(fn, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildParallel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 校验传入参数(arguments的合法性)</span></span><br><span class="line">  <span class="keyword">var</span> args = helpers.verifyArguments(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 取到最后一个参数,即传入时的extensions,然后执行此方法</span></span><br><span class="line">  <span class="comment">// 如果最后一个参数!==function则return 回</span></span><br><span class="line">  <span class="keyword">var</span> extensions = helpers.getExtensions(last(args));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (extensions) &#123;</span><br><span class="line">    <span class="comment">// 如果扩展对象存在,取第一个参数</span></span><br><span class="line">    args = initial(args);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 我们具体来看一下nowAndLater.map做了什么 =&gt; </span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">parallel</span>(<span class="params">done</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    传入了四个值(args, function iterator(fn, key, cb) &#123;return asyncDone(fn, cb);&#125;, 扩展的对象, done)</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    nowAndLater.map(args, iterator, extensions, done);</span><br><span class="line">    <span class="comment">//遍历tasks数组，将其生命周期和extensions属性关联起来,且将每个task异步化，且并发执行</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> parallel;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = buildParallel;</span><br></pre></td></tr></table></figure>
+<p>这一段代码中所用的的重要方法函数有这些：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterator</span><span class="params">(fn, key, cb)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> asyncDone(fn, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*...省略*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parallel</span><span class="params">(done)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  nowAndLater.map(args, iterator, extensions, done);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先可以让我们来看一下<strong>async-Done</strong>分别做了什么 =&gt; ？</p>
+<h3 id="九-4-async-Done"><a href="#九-4-async-Done" class="headerlink" title="九(4)async-Done"></a>九(4)async-Done</h3><p>它可以把一个普通函数（传入的第一个参数）异步化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1</span></span><br><span class="line"><span class="keyword">var</span> asyncDone = <span class="built_in">require</span>(<span class="string">'async-done'</span>);</span><br><span class="line"></span><br><span class="line">asyncDone(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'测试AsyncDone---1--开始'</span>);</span><br><span class="line">    done(<span class="literal">null</span>, <span class="string">'测试AsyncDone---1--结束'</span>)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//  成功执行第一个函数时，``error`将为null。</span></span><br><span class="line">  <span class="comment">//  `result`将是第一个函数的结果。</span></span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">asyncDone(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'测试AsyncDone---2--开始'</span>);</span><br><span class="line">    setTimeout( done.bind(<span class="keyword">this</span>, <span class="literal">null</span>, <span class="string">'测试AsyncDone---2--结束'</span>), <span class="number">1000</span> )</span><br><span class="line"></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">asyncDone(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'测试AsyncDone---3--开始'</span>);</span><br><span class="line">    done(<span class="literal">null</span>, <span class="string">'测试AsyncDone---3--结束'</span>)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>执行的结果 :</strong></p>
+<ul>
+<li>测试AsyncDone—1–开始</li>
+<li>测试AsyncDone—1–结束</li>
+<li>测试AsyncDone—2–开始</li>
+<li>测试AsyncDone—3–开始</li>
+<li>测试AsyncDone—3–结束</li>
+<li>测试AsyncDone—2–结束</li>
+</ul>
+<p>其中第一个参数方法中的done将会提醒第二个参数(callback)去执行相关回调</p>
+<p><strong>接下来我们我们再来看一下parallel的重要部分 :</strong></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parallel</span><span class="params">(done)</span> </span>&#123;</span><br><span class="line">nowAndLater.map(args, iterator, extensions, done);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而nowAndLater的模块接口来源于<strong>now-and-later</strong></p>
+<p>那我们再来看一下<strong>now-and-later</strong>实现了些什么呢?</p>
+<h3 id="九-5-、now-and-later"><a href="#九-5-、now-and-later" class="headerlink" title="九(5)、now-and-later"></a>九(5)、now-and-later</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> once = <span class="built_in">require</span>(<span class="string">'once'</span>);</span><br><span class="line"><span class="keyword">var</span> helpers = <span class="built_in">require</span>(<span class="string">'./helpers'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">values, iterator, extensions, done</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> extensions === <span class="string">'function'</span>) &#123;</span><br><span class="line">        done = extensions;</span><br><span class="line">        extensions = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> done !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        done = helpers.noop;  <span class="comment">//没有传入done则赋予一个空函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//让 done 函数只执行一次</span></span><br><span class="line">    done = once(done);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(values);</span><br><span class="line">    <span class="keyword">var</span> length = keys.length;</span><br><span class="line">    <span class="keyword">var</span> count = length;</span><br><span class="line">    <span class="keyword">var</span> idx = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化一个空的、和values等长的数组</span></span><br><span class="line">    <span class="keyword">var</span> results = helpers.initializeResults(values);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * helpers.defaultExtensions(extensions) 返回如下对象：</span></span><br><span class="line"><span class="comment">     *  &#123;</span></span><br><span class="line"><span class="comment">            create: extensions.create || defaultExts.create,</span></span><br><span class="line"><span class="comment">            before: extensions.before || defaultExts.before,</span></span><br><span class="line"><span class="comment">            after: extensions.after || defaultExts.after,</span></span><br><span class="line"><span class="comment">            error: extensions.error || defaultExts.error,</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">var</span> exts = helpers.defaultExtensions(extensions);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (idx = <span class="number">0</span>; idx &lt; length; idx++) &#123;</span><br><span class="line">        <span class="keyword">var</span> key = keys[idx];</span><br><span class="line">        next(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value = values[key];</span><br><span class="line">        <span class="comment">//创建一个 Storage 实例</span></span><br><span class="line">        <span class="keyword">var</span> storage = exts.create(value, key) || &#123;&#125;;</span><br><span class="line">        <span class="comment">//触发'start'事件</span></span><br><span class="line">        exts.before(storage);</span><br><span class="line">        <span class="comment">//利用 async-done 将 taskFunction 转为异步方法并执行</span></span><br><span class="line">        iterator(value, once(handler));</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="comment">//触发'error'事件</span></span><br><span class="line">                exts.error(err, storage);</span><br><span class="line">                <span class="keyword">return</span> done(err, results);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//触发'stop'事件</span></span><br><span class="line">            exts.after(result, storage);</span><br><span class="line">            results[key] = result;</span><br><span class="line">            <span class="keyword">if</span> (--count === <span class="number">0</span>) &#123;</span><br><span class="line">                done(err, results);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = map;</span><br></pre></td></tr></table></figure>
+<p>在这段代码的 map 方法中，通过 for 循环遍历了每个传入 parallel 接口的 taskFunction，然后使用 iterator（async-done）将 taskFunction 异步化并执行（执行完毕会触发 hadler），并将 extensions 的各方法和 task 的生命周期关联起来（比如在任务开始时执行“start”事件、任务出错时执行“error”事件）。 ——[引用自vaoy博客说明]</p>
+<h2 id="十、-lib-series"><a href="#十、-lib-series" class="headerlink" title="十、./lib/series"></a>十、./lib/series</h2><p>series接口的使用:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ut.task(<span class="string">'taskA'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">/*略*/</span>&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskB'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">/*略*/</span>&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskC'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">/*略*/</span>&#125;);</span><br><span class="line">  ut.task(<span class="string">'taskD'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">/*略*/</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// taskD 需要在 'taskA', 'taskB', 'taskC' 执行完毕后才开始执行，</span></span><br><span class="line"><span class="comment">// 其中 'taskA', 'taskB', 'taskC' 的执行必须是按顺序一个接一个的</span></span><br><span class="line">  ut.task(<span class="string">'taskD'</span>, ut.series(<span class="string">'taskA'</span>, <span class="string">'taskB'</span>, <span class="string">'taskC'</span>));</span><br></pre></td></tr></table></figure>
+<p>其实现和parallel是基本一致的，但在series中使用的是nowAndlater的mapSeries接口</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">next</span><span class="built_in">(key</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="keyword">next</span><span class="built_in">(key</span>) &#123;</span><br><span class="line">        var <span class="keyword">value</span> = values<span class="built_in">[key</span>];</span><br><span class="line"></span><br><span class="line">        var storage = exts.create(<span class="keyword">value</span>,<span class="built_in"> key</span>) || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">        exts.before(storage);</span><br><span class="line">        iterator(<span class="keyword">value</span>, once(handler));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">function</span> handler(err, result) &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                exts<span class="built_in">.error</span>(err, storage);</span><br><span class="line">                <span class="keyword">return</span> done(err, results); //有任务出错，故所有任务应停止调用</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            exts.after(result, storage);</span><br><span class="line">            results<span class="built_in">[key</span>] = result;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (++idx &gt;= length) &#123;</span><br><span class="line">                done(err, results); //全部任务已经结束了</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">next</span>(keys[idx]);  //<span class="keyword">next</span>不在是放在外面的循环里，而是在任务的回调里</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>此处在series接口中通过改动 next 的位置，可以很好地要求传入的任务必须一个接一个去执行（后一个任务在前一个任务执行完毕的回调里才会开始执行）。</p>
+
+      
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/Gulp/">Gulp</a>
+      
+        <a href="/tags/源码/">源码</a>
+      
+      </div>
+    
+    
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>Jayantxu</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="http://www.essssss.com/2019/04/06/2019/Gulp源码分析学习-二/">http://www.essssss.com/2019/04/06/2019/Gulp源码分析学习-二/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="http://www.essssss.com">http://www.essssss.com</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2019/04/09/2019/Gulp源码分析学习-三/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>Gulp源码分析学习(三
+        </span>
+      </a>
+    
+    
+      <a href="/2019/04/05/2019/Gulp源码分析学习-一/" id="art-right" class="art-right">
+        <span class="prev-title">
+          Gulp源码分析学习(一<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
+  </nav>
+
+
+    
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>文章导航</span></div>
+    <div class="toc-inner">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undertaker模块文件分析"><span class="toc-text">undertaker模块文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、undertaker-index-js"><span class="toc-text">一、undertaker-index.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、undertaker-registry-index-js"><span class="toc-text">二、undertaker-registry - index.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回到undertaker-index-js"><span class="toc-text">回到undertaker-index.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-lib-registry"><span class="toc-text">三、 ./lib/registry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-lib-set-task"><span class="toc-text">四、./lib/set-task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、-lib-get-task"><span class="toc-text">五、./lib/get-task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、-lib-last-run"><span class="toc-text">六、./lib/last-run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、-lib-tree"><span class="toc-text">七、./lib/tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、-lib-task"><span class="toc-text">八、./lib/task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、-lib-parallel"><span class="toc-text">九、./lib/parallel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#九-1-、normalizeArgs"><span class="toc-text">九(1)、normalizeArgs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-2-、createExtensions"><span class="toc-text">九(2)、createExtensions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-3-、bach"><span class="toc-text">九(3)、bach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-4-async-Done"><span class="toc-text">九(4)async-Done</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-5-、now-and-later"><span class="toc-text">九(5)、now-and-later</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、-lib-series"><span class="toc-text">十、./lib/series</span></a></li></ol>
+    </div>
+  </aside>
+
+
+
+  
+
+
+        </div>
+      </main>
+      <footer class="footer syuanpi fadeIn" id="footer">
+  <hr>
+  <div class="footer-wrapper">
+    <div class="left">
+      <div class="contact-icon">
+  
+  
+</div>
+
+    </div>
+    <div class="right">
+      <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>2019 ~ 2021</span>
+        <span style="color: red;">❤</span>
+        <span>Jayantxu</span>
+    </div>
+    <div class="theme">
+        <span>
+            404 NOT NOT NOT FOUND
+        </span>
+    </div>
+    
+</div>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <div class="tagcloud" id="tagcloud">
+  <div class="tagcloud-taglist">
+  
+    <div class="tagcloud-tag">
+      <button>JavaScript</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Axios</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Vue</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>CSS</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>HTML</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Flex</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>布局</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Git</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Grid</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>转载</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Gulp</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>源码</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>2019</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Node</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Express</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Element</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>日常碎碎</button>
+    </div>
+  
+  </div>
+  
+    <div class="tagcloud-postlist active">
+      <h2>JavaScript</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript创建对象/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript创建对象</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
+            <time class="tagcloud-posttime">2019 / 02 / 18</time>
+            <span>JavaScript深浅拷贝</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript继承/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript继承</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Axios</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Vue</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>CSS</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/CSS清除浮动/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>CSS清除浮动的几种方式</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>HTML</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Flex</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>布局</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Git</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/Git相关命令/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>Git相关命令</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Grid</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>转载</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Gulp</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>源码</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
+            <time class="tagcloud-posttime">2019 / 04 / 06</time>
+            <span>Gulp源码分析学习(二</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>2019</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Node</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Express</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>MySQL</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Bug</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Element</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>日常碎碎</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/22/2019/hello-world/">
+            <time class="tagcloud-posttime">2019 / 01 / 22</time>
+            <span>Hello</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
+          </a>
+        </div>
+      
+    </div>
+  
+</div>
+
+  </div>
+  <div class="backtop syuanpi melt toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/script/scheme/banderole.js"></script>
+
+
+<script src="/script/bootstarp.js"></script>
+
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
+
+
+
+</body>
+</html>
