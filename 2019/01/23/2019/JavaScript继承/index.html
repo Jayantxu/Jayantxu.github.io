@@ -36,7 +36,7 @@
       scheme: "banderole",
       lightbox: false,
       animate: true,
-      search: false,
+      search: true,
       friends: false,
       reward: false,
       pjax: false,
@@ -95,6 +95,12 @@
     <nav class="main-nav">
   
   <ul class="main-nav-list syuanpi tvIn">
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="search-btn" aria-label="Search">
+        <i class="iconfont icon-search"></i>
+      </a>
+    </li>
   
   
   
@@ -236,16 +242,45 @@
     <div class="post-content syuanpi fadeInRightShort back-3">
       
         <p>前几天整理了有关<strong>JavaScript继承</strong>的几种方式，今天就一并的从印象笔记中整理上来。</p>
-<hr>
-<a id="more"></a>
-<font color="ff0000"><strong>原型链继承</strong></font><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.property</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subproperty = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处继承</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()                </span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处也在原型中写了自己的getSubValue方法</span></span><br><span class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;        </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.subproperty</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType()</span><br><span class="line">alert(instance.getSuperValue)        <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处重新定义了超类型中的该方法</span></span><br><span class="line">SubType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">alert(instance.getSuperValue())    <span class="comment">//false</span></span><br></pre></td></tr></table></figure><br><br>—<br><br><font color="ff0000"><strong>借用构造函数</strong></font><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function SuperType () &#123;</span><br><span class="line">    this<span class="selector-class">.colors</span> = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType() &#123;</span><br><span class="line">    <span class="comment">//继承SuperType，此处继承/借助构造函数</span></span><br><span class="line">    SuperType.call(this)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance1 = new SubType()</span><br><span class="line">instance1<span class="selector-class">.colors</span><span class="selector-class">.push</span>(<span class="string">'black'</span>)</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.colors)</span></span>    <span class="comment">//'red','blue','green','black'</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance2 = new SubType()</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance2.colors)</span></span>    <span class="comment">//'red','blue','green'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如何传递参数？？</span></span><br><span class="line"></span><br><span class="line">function SuperType(name) &#123;</span><br><span class="line">    this<span class="selector-class">.name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType() &#123;</span><br><span class="line">    <span class="comment">// 此处继承，并传递具体name值</span></span><br><span class="line">    SuperType.call(this, <span class="string">'Jayant'</span>)    </span><br><span class="line">    this<span class="selector-class">.age</span> = <span class="number">29</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance = new SubType()</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.name)</span></span>    <span class="comment">// Jayant</span></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.age)</span></span>    <span class="comment">//29</span></span><br></pre></td></tr></table></figure><br><br>—<br><br><font color="ff0000"><strong>组合继承</strong></font>
+<h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><a id="more"></a>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.property</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subproperty = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处继承</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()                </span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处也在原型中写了自己的getSubValue方法</span></span><br><span class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;        </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.subproperty</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType()</span><br><span class="line">alert(instance.getSuperValue)        <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 此处重新定义了超类型中的该方法</span></span><br><span class="line">SubType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">alert(instance.getSuperValue())    <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<ol>
+<li>多个实例对引用类型的操作会被篡改。</li>
+</ol>
+<h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function SuperType () &#123;</span><br><span class="line">    this<span class="selector-class">.colors</span> = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType() &#123;</span><br><span class="line">    <span class="comment">//继承SuperType，此处继承/借助构造函数</span></span><br><span class="line">    SuperType.call(this)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance1 = new SubType()</span><br><span class="line">instance1<span class="selector-class">.colors</span><span class="selector-class">.push</span>(<span class="string">'black'</span>)</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.colors)</span></span>    <span class="comment">//'red','blue','green','black'</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance2 = new SubType()</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance2.colors)</span></span>    <span class="comment">//'red','blue','green'</span></span><br></pre></td></tr></table></figure>
+<p><em>如何传递参数？</em></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function SuperType(name) &#123;</span><br><span class="line">    this<span class="selector-class">.name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType() &#123;</span><br><span class="line">    <span class="comment">// 此处继承，并传递具体name值</span></span><br><span class="line">    SuperType.call(this, <span class="string">'Jayant'</span>)    </span><br><span class="line">    this<span class="selector-class">.age</span> = <span class="number">29</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span> instance = new SubType()</span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.name)</span></span>    <span class="comment">// Jayant</span></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance.age)</span></span>    <span class="comment">//29</span></span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<ol>
+<li>只能继承父类的实例属性和方法，不能继承原型属性/方法</li>
+<li>无法实现复用，每个子类都有父类实例函数的副本，影响性能</li>
+</ol>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>结合原型链与构造函数，思路为：使用原型链实现对原型属性和方法的继承，又实用构造函数实现对实例属性的继承</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">function SuperType(name) &#123;</span><br><span class="line">    this<span class="selector-class">.name</span> = name</span><br><span class="line">    this<span class="selector-class">.colors</span> = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType<span class="selector-class">.prototype</span><span class="selector-class">.sayName</span> = function() &#123;</span><br><span class="line">    alert(this.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType(name, age) &#123;</span><br><span class="line">    <span class="comment">// 构造继承属性   第一次调用SuperType</span></span><br><span class="line">    SuperType.call(this,name)</span><br><span class="line">    this<span class="selector-class">.age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型链继承  第二次调用SuperType</span></span><br><span class="line">SubType<span class="selector-class">.prototype</span> = new SuperType()    </span><br><span class="line"></span><br><span class="line">SubType<span class="selector-class">.prototype</span><span class="selector-class">.constructor</span> = SubType</span><br><span class="line"></span><br><span class="line">SubType<span class="selector-class">.prototypr</span><span class="selector-class">.sayAge</span> = function() &#123;</span><br><span class="line">    alert(this.age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> instance1 = new SubType(<span class="string">'Jayant'</span>, <span class="number">23</span>)</span><br><span class="line">instance1<span class="selector-class">.colors</span><span class="selector-class">.push</span>(<span class="string">'black'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance1.colors)</span></span>    <span class="comment">//'red','blue','green',black'</span></span><br><span class="line">instance1.sayName()        <span class="comment">//Jayant</span></span><br><span class="line">instance1.sayAge()        <span class="comment">// 23</span></span><br><span class="line"></span><br><span class="line">vat instance2 = new SubType(<span class="string">'Grey'</span>, <span class="number">27</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance2.colors)</span></span>    <span class="comment">//'red','blue','green'</span></span><br><span class="line">instance2.sayName()       <span class="comment">// 'Grey'</span></span><br><span class="line">instance2.sayAge()        <span class="comment">//27</span></span><br></pre></td></tr></table></figure>
+<p>组合上述两种方法就是组合继承。用原型链实现对原型属性和方法的继承，用借用构造函数技术来实现实例属性的继承<br>缺点：</p>
+<ol>
+<li>第一次调用SuperType()，给SubType.prototype写入两个属性name，color；</li>
+<li>第二次调用SuperType()，给instance写入两个name，color</li>
+</ol>
+<h4 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'1'</span>,</span><br><span class="line">    friends: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> anotherPerson = object(person);</span><br><span class="line">anotherPerson.name = <span class="string">'Greg'</span>;</span><br><span class="line">anotherPerson.friends.push(<span class="string">'rob'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> secondPerson = object(person);</span><br><span class="line">secondPerson.name = <span class="string">'Sreg'</span>;</span><br><span class="line">secondPerson.friends.push(<span class="string">'Sob'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(anotherPerson.friends); <span class="comment">//  '1', '2', '3', 'rob', 'Sob'</span></span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<ol>
+<li>原型链继承多个实例的引用类型属性指向相同，存在篡改的可能。</li>
+<li>无法传递参数</li>
+</ol>
+<h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnthor</span><span class="params">(original)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">clone</span> = object(original)</span><br><span class="line">    <span class="comment">// 添加新方法</span></span><br><span class="line">    <span class="keyword">clone</span>.sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        alert(<span class="string">'Hi'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">clone</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上边例子中，createAnther()函数接收一个参数，将要作为新对象基础的对象，然后将对象(original)传递给object()函数，将返回的结果赋值给Clone<br>再为clone对象添加一个新方法sayHi()，最后返回给clone对象。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    friends: [<span class="string">'shelby'</span>, <span class="string">'court'</span>, <span class="string">'van'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> anthorPerson = createAnther(person)</span><br><span class="line">antherPerson.sayHi()        <span class="comment">//Hi</span></span><br></pre></td></tr></table></figure>
+<p>在原型式继承的基础上，增强对象，返回构造函数。</p>
+<h4 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h4><p>为避免如同组合继承的方式，会调用两次超类型构造函数，衍生出了寄生组合继承方式</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function inheritPrototype(subType, superType) &#123;</span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    <span class="selector-tag">var</span> prototype = object(superType.prototype)</span><br><span class="line">    <span class="comment">//增强对象</span></span><br><span class="line">    prototype<span class="selector-class">.constructor</span> = subType                 </span><br><span class="line">    <span class="comment">//指定对象</span></span><br><span class="line">    subType<span class="selector-class">.prototype</span> = prototype   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span><span class="params">(name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType, SuperType)</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="7f7f7f"><em><br>优势在于只调用一次父类构造函数，并且将子构造函数，父构造函数传入方法中，复制一遍父类型的原型，并为其添加constructor属性</em></font>
 
-<font color="7f7f7f"><em>结合原型链与构造函数，思路为：使用原型链实现对原型属性和方法的继承，又实用构造函数实现对实例属性的继承</em></font><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">function SuperType(name) &#123;</span><br><span class="line">    this<span class="selector-class">.name</span> = name</span><br><span class="line">    this<span class="selector-class">.colors</span> = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType<span class="selector-class">.prototype</span><span class="selector-class">.sayName</span> = function() &#123;</span><br><span class="line">    alert(this.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType(name, age) &#123;</span><br><span class="line">    <span class="comment">// 构造继承属性         ！第一次调用SuperType</span></span><br><span class="line">    SuperType.call(this,name)</span><br><span class="line">    this<span class="selector-class">.age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型链继承            ！第二次调用SuperType</span></span><br><span class="line">SubType<span class="selector-class">.prototype</span> = new SuperType()    </span><br><span class="line"></span><br><span class="line">SubType<span class="selector-class">.prototype</span><span class="selector-class">.constructor</span> = SubType</span><br><span class="line"></span><br><span class="line">SubType<span class="selector-class">.prototypr</span><span class="selector-class">.sayAge</span> = function() &#123;</span><br><span class="line">    alert(this.age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> instance1 = new SubType(<span class="string">'Jayant'</span>, <span class="number">23</span>)</span><br><span class="line">instance1<span class="selector-class">.colors</span><span class="selector-class">.push</span>(<span class="string">'black'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance1.colors)</span></span>    <span class="comment">//'red','blue','green',black'</span></span><br><span class="line">instance1.sayName()        <span class="comment">//Jayant</span></span><br><span class="line">instance1.sayAge()        <span class="comment">// 23</span></span><br><span class="line"></span><br><span class="line">vat instance2 = new SubType(<span class="string">'Grey'</span>, <span class="number">27</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">alert</span><span class="params">(instance2.colors)</span></span>    <span class="comment">//'red','blue','green'</span></span><br><span class="line">instance2.sayName()       <span class="comment">// 'Grey'</span></span><br><span class="line">instance2.sayAge()        <span class="comment">//27</span></span><br></pre></td></tr></table></figure><br><br>—<br><br><font color="ff0000"><strong>寄生式继承</strong></font><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnthor</span><span class="params">(original)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">clone</span> = object(original)</span><br><span class="line">    <span class="comment">// 添加新方法</span></span><br><span class="line">    <span class="keyword">clone</span>.sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        alert(<span class="string">'Hi'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">clone</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br><font color="7f7f7f"><em>在上边例子中，createAnther()函数接收一个参数，将要作为新对象基础的对象，然后将对象(original)传递给object()函数，将返回的结果赋值给Clone<br>再为clone对象添加一个新方法sayHi()，最后返回给clone对象。</em></font><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    friends: [<span class="string">'shelby'</span>, <span class="string">'court'</span>, <span class="string">'van'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> anthorPerson = createAnther(person)</span><br><span class="line">antherPerson.sayHi()        <span class="comment">//Hi</span></span><br></pre></td></tr></table></figure><br><br>—<br><br><font color="ff0000"><strong>寄生组合式继承</strong></font>
 
-<font color="7f7f7f"><em>为避免如同组合继承的方式，会调用两次超类型构造函数，衍生出了寄生组合继承方式<br><br>大致思路：</em></font><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function inheritPrototype(subType, superType) &#123;</span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    <span class="selector-tag">var</span> prototype = object(superType.prototype)</span><br><span class="line">    <span class="comment">//增强对象</span></span><br><span class="line">    prototype<span class="selector-class">.constructor</span> = subType                 </span><br><span class="line">    <span class="comment">//指定对象</span></span><br><span class="line">    subType<span class="selector-class">.prototype</span> = prototype   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br><font color="7f7f7f"><em>实例</em></font><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span><span class="params">(name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType, SuperType)</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br><font color="7f7f7f"><em><br>优势在于只调用一次父类构造函数，并且将子构造函数，父构造函数传入方法中，复制一遍父类型的原型，并为其添加constructor属性</em></font>
-
-<hr>
-
+<h4 id="ES6-Extends"><a href="#ES6-Extends" class="headerlink" title="ES6 Extends"></a>ES6 Extends</h4>
       
     
     </div>
@@ -323,7 +358,7 @@
   <aside class="post-toc">
     <div class="title"><span>文章导航</span></div>
     <div class="toc-inner">
-      
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#原型链继承"><span class="toc-text">原型链继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#借用构造函数"><span class="toc-text">借用构造函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合继承"><span class="toc-text">组合继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型式继承"><span class="toc-text">原型式继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#寄生式继承"><span class="toc-text">寄生式继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#寄生组合式继承"><span class="toc-text">寄生组合式继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6-Extends"><span class="toc-text">ES6 Extends</span></a></li></ol>
     </div>
   </aside>
 
@@ -368,10 +403,6 @@
   <div class="tagcloud-taglist">
   
     <div class="tagcloud-tag">
-      <button>CSS</button>
-    </div>
-  
-    <div class="tagcloud-tag">
       <button>JavaScript</button>
     </div>
   
@@ -384,7 +415,7 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>HTML</button>
+      <button>CSS</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -392,11 +423,15 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>转载</button>
+      <button>HTML</button>
     </div>
   
     <div class="tagcloud-tag">
       <button>Git</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>转载</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -409,6 +444,10 @@
   
     <div class="tagcloud-tag">
       <button>2019</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>JavaScipt</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -432,6 +471,10 @@
     </div>
   
     <div class="tagcloud-tag">
+      <button>日常碎碎</button>
+    </div>
+  
+    <div class="tagcloud-tag">
       <button>优化</button>
     </div>
   
@@ -440,11 +483,11 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>日常碎碎</button>
+      <button>踩坑</button>
     </div>
   
     <div class="tagcloud-tag">
-      <button>踩坑</button>
+      <button>HTTP</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -452,22 +495,255 @@
     </div>
   
     <div class="tagcloud-tag">
+      <button>Stylus</button>
+    </div>
+  
+    <div class="tagcloud-tag">
       <button>算法</button>
     </div>
   
     <div class="tagcloud-tag">
-      <button>Stylus</button>
+      <button>Web</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Interview</button>
     </div>
   
   </div>
   
     <div class="tagcloud-postlist active">
+      <h2>JavaScript</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/21/2019/Gulp增量编译优化/">
+            <time class="tagcloud-posttime">2019 / 02 / 21</time>
+            <span>Gulp增量编译优化</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JSapply模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JSapply模拟</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript创建对象/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript创建对象</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
+            <time class="tagcloud-posttime">2019 / 02 / 18</time>
+            <span>JavaScript深浅拷贝</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/23/2019/JavaScript继承/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript继承</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>margin重叠以及解决办法</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/17/2019/this指向/">
+            <time class="tagcloud-posttime">2019 / 10 / 17</time>
+            <span>this指向</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/09/28/2020/JS模块化演进/">
+            <time class="tagcloud-posttime">2020 / 09 / 28</time>
+            <span>JS模块化演进</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/06/12/2020/EventLoop/">
+            <time class="tagcloud-posttime">2020 / 06 / 12</time>
+            <span>EventLoop</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/08/11/2020/XSS-CSRF/">
+            <time class="tagcloud-posttime">2020 / 08 / 11</time>
+            <span>XSS-CSRF</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/06/30/2020/async-await原理/">
+            <time class="tagcloud-posttime">2020 / 06 / 30</time>
+            <span>async/await原理</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/09/23/2020/垃圾回收机制/">
+            <time class="tagcloud-posttime">2020 / 09 / 23</time>
+            <span>垃圾回收机制</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/05/11/2020/cors跨域/">
+            <time class="tagcloud-posttime">2020 / 05 / 11</time>
+            <span>跨域访问</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/03/30/2020/轮播/">
+            <time class="tagcloud-posttime">2020 / 03 / 30</time>
+            <span>轮播</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
+            <time class="tagcloud-posttime">2021 / 01 / 08</time>
+            <span>JS与stylus与CSSVar的相互作用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/01/2021/JS手写Promise/">
+            <time class="tagcloud-posttime">2021 / 04 / 01</time>
+            <span>JS手写Promise</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Axios</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Vue</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/31/2019/Axios使用/">
+            <time class="tagcloud-posttime">2019 / 01 / 31</time>
+            <span>Axios使用</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Vue父子通信/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Vue父子组件间的通信</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/01/17/2020/Vue-Diff/">
+            <time class="tagcloud-posttime">2020 / 01 / 17</time>
+            <span>Vue-Diff</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>CSS</h2>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/CSS清除浮动/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>CSS清除浮动的几种方式</span>
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
           </a>
         </div>
       
@@ -479,9 +755,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
+          <a href="/2019/03/03/2019/CSS清除浮动/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>CSS清除浮动的几种方式</span>
           </a>
         </div>
       
@@ -537,155 +813,19 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>JavaScript</h2>
+      <h2>布局</h2>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/21/2019/Gulp增量编译优化/">
-            <time class="tagcloud-posttime">2019 / 02 / 21</time>
-            <span>Gulp增量编译优化</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/24/2019/JSbind模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 24</time>
-            <span>JavaScript bind的模拟实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JScall模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript call的模拟实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JavaScript继承/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript继承</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
-            <time class="tagcloud-posttime">2019 / 02 / 18</time>
-            <span>JavaScript深浅拷贝</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JavaScript创建对象/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript创建对象</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Vue父子通信/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Vue父子组件间的通信</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>margin重叠以及解决办法</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>阻止冒泡、默认事件</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
-            <time class="tagcloud-posttime">2020 / 04 / 07</time>
-            <span>费舍尔.耶茨混洗</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/03/30/2020/轮播/">
-            <time class="tagcloud-posttime">2020 / 03 / 30</time>
-            <span>轮播</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
-            <time class="tagcloud-posttime">2021 / 01 / 08</time>
-            <span>JS与stylus与CSSVar的相互作用</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Axios</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Vue</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Vue父子通信/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Vue父子组件间的通信</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/09/26/2019/一个失焦指令的学习/">
-            <time class="tagcloud-posttime">2019 / 09 / 26</time>
-            <span>一个失焦指令的学习</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/01/17/2020/Vue-Diff/">
-            <time class="tagcloud-posttime">2020 / 01 / 17</time>
-            <span>Vue-Diff</span>
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
           </a>
         </div>
       
@@ -725,19 +865,12 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>布局</h2>
+      <h2>Git</h2>
       
         <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/26/2019/Grid布局/">
-            <time class="tagcloud-posttime">2019 / 03 / 26</time>
-            <span>Grid布局</span>
+          <a href="/2019/01/23/2019/Git相关命令/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>Git相关命令</span>
           </a>
         </div>
       
@@ -760,15 +893,10 @@
           </a>
         </div>
       
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Git</h2>
-      
         <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/Git相关命令/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>Git相关命令</span>
+          <a href="/2021/04/01/2021/JS手写Promise/">
+            <time class="tagcloud-posttime">2021 / 04 / 01</time>
+            <span>JS手写Promise</span>
           </a>
         </div>
       
@@ -785,16 +913,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
-            <time class="tagcloud-posttime">2019 / 04 / 05</time>
-            <span>Gulp源码分析学习(一</span>
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
           </a>
         </div>
       
@@ -811,16 +939,16 @@
       <h2>源码</h2>
       
         <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
+          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
+            <time class="tagcloud-posttime">2019 / 04 / 05</time>
+            <span>Gulp源码分析学习(一</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
-            <time class="tagcloud-posttime">2019 / 04 / 05</time>
-            <span>Gulp源码分析学习(一</span>
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
           </a>
         </div>
       
@@ -846,6 +974,18 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>JavaScipt</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/12/15/2019/JS原型链/">
+            <time class="tagcloud-posttime">2019 / 12 / 15</time>
+            <span>JS原型链</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>Node</h2>
       
         <div class="tagcloud-post">
@@ -856,16 +996,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
-            <time class="tagcloud-posttime">2019 / 03 / 30</time>
-            <span>Node读取图片并转Base64</span>
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
           </a>
         </div>
       
@@ -941,6 +1081,46 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>日常碎碎</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/22/2019/hello-world/">
+            <time class="tagcloud-posttime">2019 / 01 / 22</time>
+            <span>Hello</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/01/2020/My/">
+            <time class="tagcloud-posttime">2020 / 12 / 01</time>
+            <span>My</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/05/2021/github的3D打印/">
+            <time class="tagcloud-posttime">2021 / 04 / 05</time>
+            <span>有趣-github的3D打印</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>优化</h2>
       
         <div class="tagcloud-post">
@@ -965,46 +1145,6 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>日常碎碎</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/22/2019/hello-world/">
-            <time class="tagcloud-posttime">2019 / 01 / 22</time>
-            <span>Hello</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/06/27/2019/毕业了/">
-            <time class="tagcloud-posttime">2019 / 06 / 27</time>
-            <span>毕业了</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/08/2019/新年快乐/">
-            <time class="tagcloud-posttime">2019 / 02 / 08</time>
-            <span>新年快乐</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/12/01/2020/My/">
-            <time class="tagcloud-posttime">2020 / 12 / 01</time>
-            <span>My</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/05/2021/github的3D打印/">
-            <time class="tagcloud-posttime">2021 / 04 / 05</time>
-            <span>有趣-github的3D打印</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
       <h2>踩坑</h2>
       
         <div class="tagcloud-post">
@@ -1017,24 +1157,31 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>Adv</h2>
+      <h2>HTTP</h2>
       
         <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
+          <a href="/2020/08/11/2020/XSS-CSRF/">
+            <time class="tagcloud-posttime">2020 / 08 / 11</time>
+            <span>XSS-CSRF</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/05/11/2020/cors跨域/">
+            <time class="tagcloud-posttime">2020 / 05 / 11</time>
+            <span>跨域访问</span>
           </a>
         </div>
       
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>算法</h2>
+      <h2>Adv</h2>
       
         <div class="tagcloud-post">
-          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
-            <time class="tagcloud-posttime">2020 / 04 / 07</time>
-            <span>费舍尔.耶茨混洗</span>
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
           </a>
         </div>
       
@@ -1059,6 +1206,56 @@
       
     </div>
   
+    <div class="tagcloud-postlist ">
+      <h2>算法</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Web</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/interview/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>interview</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Interview</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/interview/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>interview</span>
+          </a>
+        </div>
+      
+    </div>
+  
 </div>
 
   </div>
@@ -1066,6 +1263,13 @@
     <i class="iconfont icon-up"></i>
     <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
 </div>
+
+  <div class="search" id="search">
+    <div class="input">
+      <input type="text" id="search-input" placeholder="别搜了, 404 !" autofocus>
+    </div>
+    <div id="search-result"></div>
+  </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
