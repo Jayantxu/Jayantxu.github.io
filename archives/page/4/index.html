@@ -225,7 +225,7 @@
   <div class="archive syuanpi fadeInRightShort" id="archive">
     
       <aside class="archive-title">Total</aside>
-      <span class="archive-num">一共有 49 篇文章</span>
+      <span class="archive-num">一共有 60 篇文章</span>
     
       
       
@@ -242,174 +242,18 @@
         <div class="archive-post">
           <div class="archive-post-content">
             
-              <p>取消冒泡：</p>
-<p>w3c的方法是e.stopPropagation，IE为e.cancelBubble = true<br>window.event ? window.event.cancelBubble = true : e.stopPropagation</p>
-<p>取消默认：</p>
-<p>w3c的方法是e.prcentDefault()，IE为e.returnValue = false<br>return false;</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">stopBubble</span> <span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span>(e &amp;&amp; e.stopPropagation) &#123;</span></span><br><span class="line"><span class="undefined">      e.stopPropagation();</span></span><br><span class="line"><span class="actionscript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="actionscript">  <span class="function"><span class="keyword">function</span> <span class="title">stopDefault</span> <span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span>(e &amp;&amp; e.prventDefault) &#123;</span></span><br><span class="line"><span class="undefined">      e.prventDefault();</span></span><br><span class="line"><span class="actionscript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.event.returnValue = <span class="literal">false</span>;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-03-03
-            </time>
-            <a class="archive-post-link" href="/2019/03/03/2019/阻止冒泡、默认事件/">
-              阻止冒泡、默认事件
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>2019-3-3更新<br></p>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-03-03
-            </time>
-            <a class="archive-post-link" href="/2019/03/03/2019/CSS清除浮动/">
-              CSS清除浮动的几种方式
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>先重现一遍两个块级元素在上下margin方向的重叠现象<br></p>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-03-01
-            </time>
-            <a class="archive-post-link" href="/2019/03/01/2019/margin重叠以及解决办法/">
-              margin重叠以及解决办法
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <font><strong>一</strong></font>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-03-01
-            </time>
-            <a class="archive-post-link" href="/2019/03/01/2019/CSS省略号实现/">
-              CSS省略号实现
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>总结18年12月Gulp增量编译优化</p>
-<p>实习时候，有一天，照常进行开发的时候，在等待项目运行gulp构建命令之后，等待着构建的完成…</p>
-<p>这时候导师看了一眼，说：“是不是觉得很慢咧，能优化一下就好了”。</p>
-<p>是呀，每次十几秒的等待，真的是很漫长的咧</p>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-02-21
-            </time>
-            <a class="archive-post-link" href="/2019/02/21/2019/Gulp增量编译优化/">
-              Gulp增量编译优化
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>我们首先稍微复习一下有关JS中的数据类型及相关知识点</p>
-<p>1-简单数据类型：Undefined，Null，Boolean，Symbol，Number，String</p>
-<p>2-复杂数据类型：对象</p>
-<p>简单数据类型保存在栈内存中</p>
-<p>复杂数据类型即引用类型，保存于堆内存中；引用的类型值实际为指向对象的指针</p>
-<p>这与我们今天所需要讲到的深浅拷贝有关😁</p>
-<p><img src="/2019/02/18/2019/JavaScript深浅拷贝/深浅拷贝.jpg" alt="&quot;深浅拷贝.jpg&quot;" title="深浅拷贝.jpg"></p>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-02-18
-            </time>
-            <a class="archive-post-link" href="/2019/02/18/2019/JavaScript深浅拷贝/">
-              JavaScript深浅拷贝
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>毕设的共享图书系统需要所运用到的，有关文件的上传、下载功能的实现，现在就总结一下记录在博客上：</p>
-<p><strong>上传功能</strong></p>
-<p><em>前端</em></p>
-<p>上传所使用的element的upload组件<br></p>
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2019-02-10
-            </time>
-            <a class="archive-post-link" href="/2019/02/10/2019/Node-express文件上传下载/">
-              Node+Express+Element实现文件上传下载
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>今天是大年初四了，过去几天在热烈的气氛中，迎来了农历猪年，我也面临着大学四年的最后一个学期，珍惜!，希望新的一年的来临可以为自己带来不错的好运，在工作上顺利，自己一切的规划，也可以顺利的进行与实现。<strong>加油！</strong></p>
-<p>也希望家人，朋友们，大家，新年快乐，心想事成，身体健康，万事如意。</p>
-<p><img src="/2019/02/08/2019/新年快乐/timg.gif" alt="2019" title="2019"></p>
+              <p><img src="/2019/11/01/2019/踩坑eCharts参数/NO0.png" alt="NO0" title="NO0"></p>
+<p>在echarts中，当对其中的option参数有所使用的时候，第二个参数是用于判断是否合并旧参数数据。<br>如果为true，则将完全替代，而不会在界面上出现“部分更新”的效果<br>如果为false，则是迭代进入新参数，会出现即使设置了新数据option，还会保留有 部分旧数据的情况。</p>
+<p>搞得我整了好一会不知道为啥数据没响应，也是自己蠢🤣</p>
 
             
           </div>
           <div class="archive-post-info">
             <time class="archive-post-time">
-              2019-02-08
+              2019-11-01
             </time>
-            <a class="archive-post-link" href="/2019/02/08/2019/新年快乐/">
-              新年快乐
+            <a class="archive-post-link" href="/2019/11/01/2019/踩坑eCharts参数/">
+              踩坑eCharts参数
             </a>
           </div>
         </div>
@@ -421,21 +265,16 @@
         <div class="archive-post">
           <div class="archive-post-content">
             
-              <p>今天做毕业设计时，在前端业务中向后台请求用户数据时，每当请求次数超过五次，及以上时，总会卡死，于是，用简单的console判断代码停止位置，发现每次运行到pool.getConnection时第五次连接查询就会卡住，如图</p>
-<p><img src="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/QQ截图20190202195830.png" alt="五次运行停1" title="五次运行停1"></p>
-<p>图一</p>
-<p><img src="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/QQ截图20190202195902.png" alt="五次运行停2" title="五次运行停2"></p>
-<p>图二</p>
-<p>于是乎就感觉是由于前次连接时的数据库连接没有释放的原因导致的，于是，在cmd中查看mysql的连接情况</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; mysqladmin -uroot -<span class="selector-tag">p</span> processlist</span><br></pre></td></tr></table></figure>
+              <h4 id="一图解"><a href="#一图解" class="headerlink" title="一图解"></a>一图解</h4><p><img src="/2019/10/17/2019/this指向/NO1.png" alt="NO1" title="NO1"></p>
+
             
           </div>
           <div class="archive-post-info">
             <time class="archive-post-time">
-              2019-02-02
+              2019-10-17
             </time>
-            <a class="archive-post-link" href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-              Node+MySQL释放数据库连接的Bug
+            <a class="archive-post-link" href="/2019/10/17/2019/this指向/">
+              this指向
             </a>
           </div>
         </div>
@@ -447,19 +286,178 @@
         <div class="archive-post">
           <div class="archive-post-content">
             
-              <p>在应用了属性transform的父元素上，若其拥有fixed属性的子元素，则该子元素的fixed属性讲失效，并将以其父元素为定位基准</p>
-<p>详情请看例子：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">	<span class="selector-class">.outer</span> &#123;</span></span><br><span class="line"><span class="undefined">	  overflow: hidden;</span></span><br><span class="line"><span class="undefined">	  width: 300px;</span></span><br><span class="line"><span class="undefined">	  height: 300px;</span></span><br><span class="line"><span class="undefined">	  background: yellow;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="css">	<span class="selector-class">.mid</span> &#123;</span></span><br><span class="line"><span class="undefined">	  margin: 20px;</span></span><br><span class="line"><span class="undefined">	  width: 200px;</span></span><br><span class="line"><span class="undefined">	  height: 200px;</span></span><br><span class="line"><span class="undefined">	  transform: translate(0, 0);</span></span><br><span class="line"><span class="undefined">	  background: greenyellow;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="css">	<span class="selector-class">.inner</span> &#123;</span></span><br><span class="line"><span class="undefined">	  position: fixed;</span></span><br><span class="line"><span class="undefined">	  top: 0;</span></span><br><span class="line"><span class="undefined">	  left: 0;</span></span><br><span class="line"><span class="undefined">	  width: 100px;</span></span><br><span class="line"><span class="undefined">	  height: 100px;</span></span><br><span class="line"><span class="undefined">	  background: pink;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mid"</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以上代码所呈现的布局样式：</p>
-<p><img src="/2019/02/02/2019/transform对fixed/20181120224139596.png" alt="transform" title="transform"></p>
+              <h4 id="一、canvas的处理小技巧"><a href="#一、canvas的处理小技巧" class="headerlink" title="一、canvas的处理小技巧"></a>一、canvas的处理小技巧</h4><p>在保障的业务监控里，遇到这么一个难题，需要在场馆保障的同时，对现场的采集的指标进行不同门限预警进行颜色区分…，并且画出来</p>
+<p>这可…<br><img src="/2019/10/08/2019/canvas进行图像像素点着色/NO0.png" alt="NO0" title="NO0"></p>
+<p>UI给了如下两张图片：</p>
+<h6 id="图一："><a href="#图一：" class="headerlink" title="图一："></a>图一：</h6><p><img src="/2019/10/08/2019/canvas进行图像像素点着色/NO1.png" alt="NO1" title="NO1"><br></p>
             
           </div>
           <div class="archive-post-info">
             <time class="archive-post-time">
-              2019-02-02
+              2019-10-08
             </time>
-            <a class="archive-post-link" href="/2019/02/02/2019/transform对fixed/">
-              transform父元素对fixed子元素的影响
+            <a class="archive-post-link" href="/2019/10/08/2019/canvas进行图像像素点着色/">
+              canvas进行图像像素点着色
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h4 id="前情"><a href="#前情" class="headerlink" title="前情"></a>前情</h4><p>前情，山西项目中由于选择等条件增多，于是抽离出来一个简单的单选多选组件。样式的话，普通极了，也没与完全按照最初UI给的设置稿。当然这是另外的话。<br>遇到的其中一个问题就是:<br>我希望可以有失焦时得回弹，首先就是我想到得是利用指令进行初始加载时候对各组件实例绑定上这么个事件逻辑。<br>于是我写下了这么一串代码：<br></p>
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-09-26
+            </time>
+            <a class="archive-post-link" href="/2019/09/26/2019/一个失焦指令的学习/">
+              一个失焦指令的学习
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h5 id="毕业了"><a href="#毕业了" class="headerlink" title="毕业了"></a>毕业了</h5><p>诸多不舍，学生时代多好😔</p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-06-27
+            </time>
+            <a class="archive-post-link" href="/2019/06/27/2019/毕业了/">
+              毕业了
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h4 id="flex的布局定义："><a href="#flex的布局定义：" class="headerlink" title="flex的布局定义："></a>flex的布局定义：</h4><ul>
+<li>display： flex；</li>
+</ul>
+<p>有所区分出，主轴（main-axis）与交叉轴(cross-axis)</p>
+<p><img src="/2019/05/13/2019/Flex布局的基本属性介绍/bg2015071004.png" alt="1" title="1"></p>
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-05-13
+            </time>
+            <a class="archive-post-link" href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+              Flex布局的基本属性介绍
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h1 id="vinyl-fs部分"><a href="#vinyl-fs部分" class="headerlink" title="vinyl-fs部分"></a>vinyl-fs部分</h1><p>当我们进入vinyl-fs的根目录index.js下，我们可以看到vinyl-fs所实现的src、dest接口是被分属于了几个外部模块 =&gt;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让我们来看一下各自所属的文件</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 文件的处理上</span></span><br><span class="line">  src: <span class="built_in">require</span>(<span class="string">'./lib/src'</span>),</span><br><span class="line">  dest: <span class="built_in">require</span>(<span class="string">'./lib/dest'</span>),</span><br><span class="line">  symlink: <span class="built_in">require</span>(<span class="string">'./lib/symlink'</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="一、glob"><a href="#一、glob" class="headerlink" title="一、glob"></a>一、glob</h2><p>在进入相应的模块方法分析之前，我们先来看一下什么是glob；</p>
+<p>node的glob是指允许你使用一些正则表达式，用于匹配对应规则的文件，</p>
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-04-09
+            </time>
+            <a class="archive-post-link" href="/2019/04/09/2019/Gulp源码分析学习-三/">
+              Gulp源码分析学习(三
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h2 id="undertaker模块文件分析"><a href="#undertaker模块文件分析" class="headerlink" title="undertaker模块文件分析"></a>undertaker模块文件分析</h2><p>我们从上一篇的入口文件分析可以得知，<strong>Gulp</strong>进行task、series、parallel等任务时，所执行的方法入口其实来源于<em>undertaker</em>模块</p>
+<p>因此我们也进入相应的<em>undertaker</em>模块一探究竟</p>
+<h2 id="一、undertaker-index-js"><a href="#一、undertaker-index-js" class="headerlink" title="一、undertaker-index.js"></a>一、undertaker-index.js</h2>
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-04-06
+            </time>
+            <a class="archive-post-link" href="/2019/04/06/2019/Gulp源码分析学习-二/">
+              Gulp源码分析学习(二
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <p align="center"><br>  <a href="https://gulpjs.com" target="_blank" rel="noopener"><br>    <img height="257" width="114" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png"><br>  </a><br></p>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>目前工作会依赖于Gulp进行项目的构建打包，也为了可以有更深入的学习心得与收获。因此在此记录对于<em>Gulp</em>源码的阅读、及个人理解</p>
+<p>在总结的markdown 与 <strong>个人博客</strong> 有相关系列文章，在此项目各文件夹的源码中也有相应的源码分析的注释</p>
+<p><em>版本 </em><br><strong>gulp： ^4.0.0 版本为例</strong></p>
+<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2>
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-04-05
+            </time>
+            <a class="archive-post-link" href="/2019/04/05/2019/Gulp源码分析学习-一/">
+              Gulp源码分析学习(一
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <p>Node作为后端开发时，可以采用读取图片文件，并转为base64编码，使得前端得到展示</p>
+<p>运用到的模块分别有<strong>fs</strong>、<strong>path</strong>、<strong>mime-types</strong></p>
+<p>mime-type需要额外安装，可于项目根目录运行：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --<span class="keyword">save</span> mime-<span class="keyword">type</span></span><br></pre></td></tr></table></figure></p>
+<p>并且考虑到后续的读取转化的需要，可将方法使用promise异步，并且在数量不定时可以使用<em>promise.all()</em>进行异步等待</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> mineType = <span class="built_in">require</span>(<span class="string">'mime-types'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  base64img: <span class="function"><span class="keyword">function</span> (<span class="params">file</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> base64imgpromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> result</span><br><span class="line">      <span class="comment">// 判断传入路径是否为空，空即不存在</span></span><br><span class="line">      <span class="keyword">if</span> (!file) &#123;</span><br><span class="line">        result = <span class="string">''</span></span><br><span class="line">        resolve(result)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 转换路径</span></span><br><span class="line">      file = path.join(__dirname, <span class="string">'../'</span>, file)</span><br><span class="line">      <span class="keyword">let</span> filePath = path.resolve(file)</span><br><span class="line">      fs.readFile(path.resolve(filePath), <span class="string">'base64'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err + <span class="string">'读取错误'</span>)</span><br><span class="line">          result = &#123;</span><br><span class="line">            code: <span class="string">'1'</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">            &#125;,</span><br><span class="line">            msg: <span class="string">'服务器出错'</span></span><br><span class="line">          &#125;</span><br><span class="line">          reject(result)</span><br><span class="line">        &#125;</span><br><span class="line">        result = <span class="string">'data:'</span> + mineType.lookup(filePath) + <span class="string">';base64,'</span> + data</span><br><span class="line">        resolve(result)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> base64imgpromise</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当最终我们得到了base64编码的图片后，既可以发送回前端，对img标签的src进行绑定base64，从而在前端页面展示</p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2019-03-30
+            </time>
+            <a class="archive-post-link" href="/2019/03/30/2019/Node读取图片并转Base64/">
+              Node读取图片并转Base64
             </a>
           </div>
         </div>
@@ -470,7 +468,7 @@
   </div>
   
   <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/3/"><i class="iconfont icon-doubleleft"></i>上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/5/">下一页<i class="iconfont icon-doubleright"></i></a>
+      <a class="extend prev" rel="prev" href="/archives/page/3/"><i class="iconfont icon-doubleleft"></i>上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/">下一页<i class="iconfont icon-doubleright"></i></a>
   </nav>
 
 
@@ -528,11 +526,11 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>布局</button>
+      <button>HTML</button>
     </div>
   
     <div class="tagcloud-tag">
-      <button>HTML</button>
+      <button>布局</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -568,23 +566,7 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>MySQL</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Bug</button>
-    </div>
-  
-    <div class="tagcloud-tag">
       <button>Element</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>日常碎碎</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>踩坑</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -593,6 +575,22 @@
   
     <div class="tagcloud-tag">
       <button>canvas</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>日常碎碎</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>踩坑</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -667,16 +665,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
-            <time class="tagcloud-posttime">2019 / 02 / 18</time>
-            <span>JavaScript深浅拷贝</span>
+          <a href="/2019/01/23/2019/JavaScript继承/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript继承</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JavaScript继承/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript继承</span>
+          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
+            <time class="tagcloud-posttime">2019 / 02 / 18</time>
+            <span>JavaScript深浅拷贝</span>
           </a>
         </div>
       
@@ -737,13 +735,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/06/30/2020/async-await原理/">
-            <time class="tagcloud-posttime">2020 / 06 / 30</time>
-            <span>async/await原理</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2020/05/11/2020/cors跨域/">
             <time class="tagcloud-posttime">2020 / 05 / 11</time>
             <span>跨域访问</span>
@@ -751,9 +742,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
-            <time class="tagcloud-posttime">2020 / 04 / 07</time>
-            <span>费舍尔.耶茨混洗</span>
+          <a href="/2020/06/30/2020/async-await原理/">
+            <time class="tagcloud-posttime">2020 / 06 / 30</time>
+            <span>async/await原理</span>
           </a>
         </div>
       
@@ -765,9 +756,37 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
+            <time class="tagcloud-posttime">2020 / 04 / 07</time>
+            <span>费舍尔.耶茨混洗</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2020/03/30/2020/轮播/">
             <time class="tagcloud-posttime">2020 / 03 / 30</time>
             <span>轮播</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/09/29/2020/JS设计模式/">
+            <time class="tagcloud-posttime">2020 / 09 / 29</time>
+            <span>JS设计模式</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/03/2020/重绘回流/">
+            <time class="tagcloud-posttime">2020 / 02 / 03</time>
+            <span>重绘回流</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
           </a>
         </div>
       
@@ -786,9 +805,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
+          <a href="/2021/04/12/2021/浏览器的多线程/">
+            <time class="tagcloud-posttime">2021 / 04 / 12</time>
+            <span>浏览器的多线程</span>
           </a>
         </div>
       
@@ -857,16 +876,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
+          <a href="/2019/03/01/2019/CSS省略号实现/">
+            <time class="tagcloud-posttime">2019 / 03 / 01</time>
+            <span>CSS省略号实现</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/CSS省略号实现/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>CSS省略号实现</span>
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
           </a>
         </div>
       
@@ -906,6 +925,20 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2021/01/01/web/CSS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>CSS&HTML</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/03/2020/重绘回流/">
+            <time class="tagcloud-posttime">2020 / 02 / 03</time>
+            <span>重绘回流</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
             <time class="tagcloud-posttime">2021 / 01 / 08</time>
             <span>JS与stylus与CSSVar的相互作用</span>
@@ -916,25 +949,6 @@
           <a href="/2021/03/01/2021/column-count描述元素的列数/">
             <time class="tagcloud-posttime">2021 / 03 / 01</time>
             <span>column-count描述元素的列数</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>布局</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/26/2019/Grid布局/">
-            <time class="tagcloud-posttime">2019 / 03 / 26</time>
-            <span>Grid布局</span>
           </a>
         </div>
       
@@ -968,6 +982,32 @@
           <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
             <time class="tagcloud-posttime">2019 / 03 / 03</time>
             <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/03/2020/重绘回流/">
+            <time class="tagcloud-posttime">2020 / 02 / 03</time>
+            <span>重绘回流</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>布局</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
+            <time class="tagcloud-posttime">2019 / 05 / 13</time>
+            <span>Flex布局的基本属性介绍</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/03/26/2019/Grid布局/">
+            <time class="tagcloud-posttime">2019 / 03 / 26</time>
+            <span>Grid布局</span>
           </a>
         </div>
       
@@ -1022,6 +1062,13 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
             <time class="tagcloud-posttime">2019 / 04 / 05</time>
             <span>Gulp源码分析学习(一</span>
@@ -1032,13 +1079,6 @@
           <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
             <time class="tagcloud-posttime">2019 / 04 / 06</time>
             <span>Gulp源码分析学习(二</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
           </a>
         </div>
       
@@ -1048,6 +1088,13 @@
       <h2>源码</h2>
       
         <div class="tagcloud-post">
+          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
+            <time class="tagcloud-posttime">2019 / 04 / 09</time>
+            <span>Gulp源码分析学习(三</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
             <time class="tagcloud-posttime">2019 / 04 / 05</time>
             <span>Gulp源码分析学习(一</span>
@@ -1058,13 +1105,6 @@
           <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
             <time class="tagcloud-posttime">2019 / 04 / 06</time>
             <span>Gulp源码分析学习(二</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
           </a>
         </div>
       
@@ -1098,13 +1138,6 @@
       <h2>Node</h2>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2019/02/10/2019/Node-express文件上传下载/">
             <time class="tagcloud-posttime">2019 / 02 / 10</time>
             <span>Node+Express+Element实现文件上传下载</span>
@@ -1118,10 +1151,24 @@
           </a>
         </div>
       
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
     </div>
   
     <div class="tagcloud-postlist ">
       <h2>Express</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/10/2019/Node-express文件上传下载/">
+            <time class="tagcloud-posttime">2019 / 02 / 10</time>
+            <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
       
         <div class="tagcloud-post">
           <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
@@ -1130,10 +1177,86 @@
           </a>
         </div>
       
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Element</h2>
+      
         <div class="tagcloud-post">
           <a href="/2019/02/10/2019/Node-express文件上传下载/">
             <time class="tagcloud-posttime">2019 / 02 / 10</time>
             <span>Node+Express+Element实现文件上传下载</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/09/26/2019/一个失焦指令的学习/">
+            <time class="tagcloud-posttime">2019 / 09 / 26</time>
+            <span>一个失焦指令的学习</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>优化</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>canvas</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
+            <time class="tagcloud-posttime">2019 / 10 / 08</time>
+            <span>canvas进行图像像素点着色</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>日常碎碎</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/01/22/2019/hello-world/">
+            <time class="tagcloud-posttime">2019 / 01 / 22</time>
+            <span>Hello</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/12/01/2020/My/">
+            <time class="tagcloud-posttime">2020 / 12 / 01</time>
+            <span>My</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/05/2021/github的3D打印/">
+            <time class="tagcloud-posttime">2021 / 04 / 05</time>
+            <span>有趣-github的3D打印</span>
           </a>
         </div>
       
@@ -1171,65 +1294,6 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>Element</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/09/26/2019/一个失焦指令的学习/">
-            <time class="tagcloud-posttime">2019 / 09 / 26</time>
-            <span>一个失焦指令的学习</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>日常碎碎</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/22/2019/hello-world/">
-            <time class="tagcloud-posttime">2019 / 01 / 22</time>
-            <span>Hello</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/08/2019/新年快乐/">
-            <time class="tagcloud-posttime">2019 / 02 / 08</time>
-            <span>新年快乐</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/06/27/2019/毕业了/">
-            <time class="tagcloud-posttime">2019 / 06 / 27</time>
-            <span>毕业了</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/12/01/2020/My/">
-            <time class="tagcloud-posttime">2020 / 12 / 01</time>
-            <span>My</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/05/2021/github的3D打印/">
-            <time class="tagcloud-posttime">2021 / 04 / 05</time>
-            <span>有趣-github的3D打印</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
       <h2>踩坑</h2>
       
         <div class="tagcloud-post">
@@ -1242,31 +1306,21 @@
     </div>
   
     <div class="tagcloud-postlist ">
-      <h2>优化</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
-            <time class="tagcloud-posttime">2019 / 10 / 08</time>
-            <span>canvas进行图像像素点着色</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>canvas</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
-            <time class="tagcloud-posttime">2019 / 10 / 08</time>
-            <span>canvas进行图像像素点着色</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
       <h2>HTTP</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/07/09/2020/HTTPS连接过程/">
+            <time class="tagcloud-posttime">2020 / 07 / 09</time>
+            <span>HTTPS连接过程</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/10/28/2020/HTTP常见状态码/">
+            <time class="tagcloud-posttime">2020 / 10 / 28</time>
+            <span>HTTP常见状态码</span>
+          </a>
+        </div>
       
         <div class="tagcloud-post">
           <a href="/2020/08/11/2020/XSS-CSRF/">
@@ -1279,6 +1333,34 @@
           <a href="/2020/05/11/2020/cors跨域/">
             <time class="tagcloud-posttime">2020 / 05 / 11</time>
             <span>跨域访问</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/07/09/2020/三次握手四次挥手/">
+            <time class="tagcloud-posttime">2020 / 07 / 09</time>
+            <span>三次握手四次挥手</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/HTTP/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>HTTP</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/02/26/2021/HTTP缓存/">
+            <time class="tagcloud-posttime">2021 / 02 / 26</time>
+            <span>HTTP缓存</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/12/2021/浏览器的多线程/">
+            <time class="tagcloud-posttime">2021 / 04 / 12</time>
+            <span>浏览器的多线程</span>
           </a>
         </div>
       
@@ -1325,10 +1407,45 @@
           </a>
         </div>
       
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/04/12/2021/最长回文子串/">
+            <time class="tagcloud-posttime">2021 / 04 / 12</time>
+            <span>最长回文子串</span>
+          </a>
+        </div>
+      
     </div>
   
     <div class="tagcloud-postlist ">
       <h2>Web</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/CSS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>CSS&HTML</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/HTTP/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>HTTP</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
+          </a>
+        </div>
       
         <div class="tagcloud-post">
           <a href="/2021/01/01/web/JS/">
@@ -1348,6 +1465,20 @@
   
     <div class="tagcloud-postlist ">
       <h2>Interview</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/CSS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>CSS&HTML</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/HTTP/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>HTTP</span>
+          </a>
+        </div>
       
         <div class="tagcloud-post">
           <a href="/2021/01/01/web/JS/">
