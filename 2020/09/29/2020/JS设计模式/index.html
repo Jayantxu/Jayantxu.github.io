@@ -267,9 +267,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model, year, miles</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">    <span class="keyword">this</span>.year = year;</span><br><span class="line">    <span class="keyword">this</span>.miles = miles;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.model&#125;</span> + <span class="subst">$&#123;<span class="keyword">this</span>.year&#125;</span> + <span class="subst">$&#123;<span class="keyword">this</span>.miles&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> civic = <span class="keyword">new</span> Car( <span class="string">"Honda Civic"</span>, <span class="number">2009</span>, <span class="number">20000</span> );</span><br><span class="line"><span class="keyword">var</span> mondeo = <span class="keyword">new</span> Car( <span class="string">"Ford Mondeo"</span>, <span class="number">2010</span>, <span class="number">5000</span> );</span><br><span class="line"><span class="built_in">console</span>.log(civic.toString());</span><br></pre></td></tr></table></figure>
 <p>缺陷: 每个对象都会带上 <code>toString</code> 之类的函数</p>
 <ol start="2">
-<li>原型链版构造器<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car_prop</span>(<span class="params"> model, year, miles </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">    <span class="keyword">this</span>.year = year;</span><br><span class="line">    <span class="keyword">this</span>.miles = miles;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">Car_prop.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">" has done "</span> + <span class="keyword">this</span>.miles + <span class="string">" miles"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> civic_prop = <span class="keyword">new</span> Car_prop( <span class="string">"Honda Civic"</span>, <span class="number">2009</span>, <span class="number">20000</span> );</span><br><span class="line"><span class="keyword">var</span> mondeo_prop = <span class="keyword">new</span> Car_prop( <span class="string">"Ford Mondeo"</span>, <span class="number">2010</span>, <span class="number">5000</span> );</span><br><span class="line"><span class="built_in">console</span>.log(civic_prop.toString());</span><br></pre></td></tr></table></figure>
-</li>
+<li>原型链版构造器</li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car_prop</span>(<span class="params"> model, year, miles </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">    <span class="keyword">this</span>.year = year;</span><br><span class="line">    <span class="keyword">this</span>.miles = miles;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">Car_prop.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">" has done "</span> + <span class="keyword">this</span>.miles + <span class="string">" miles"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> civic_prop = <span class="keyword">new</span> Car_prop( <span class="string">"Honda Civic"</span>, <span class="number">2009</span>, <span class="number">20000</span> );</span><br><span class="line"><span class="keyword">var</span> mondeo_prop = <span class="keyword">new</span> Car_prop( <span class="string">"Ford Mondeo"</span>, <span class="number">2010</span>, <span class="number">5000</span> );</span><br><span class="line"><span class="built_in">console</span>.log(civic_prop.toString());</span><br></pre></td></tr></table></figure>
 <h4 id="模块化模式"><a href="#模块化模式" class="headerlink" title="模块化模式"></a>模块化模式</h4><ol>
 <li>模块化模式最初被定义为一种对传统软件工程中的类提供私有和公共封装的方法。</li>
 <li>通过这种方式 可以在单一对象中包含公共/私有方法和变量</li>
@@ -603,6 +603,14 @@
     </div>
   
     <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
       <button>优化</button>
     </div>
   
@@ -615,14 +623,6 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>MySQL</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Bug</button>
-    </div>
-  
-    <div class="tagcloud-tag">
       <button>踩坑</button>
     </div>
   
@@ -631,11 +631,11 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>Adv</button>
+      <button>Stylus</button>
     </div>
   
     <div class="tagcloud-tag">
-      <button>Stylus</button>
+      <button>Adv</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -677,16 +677,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/24/2019/JSbind模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 24</time>
-            <span>JavaScript bind的模拟实现</span>
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JScall模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript call的模拟实现</span>
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
           </a>
         </div>
       
@@ -733,9 +733,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>阻止冒泡、默认事件</span>
+          <a href="/2019/01/24/2019/手写new/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>手写new</span>
           </a>
         </div>
       
@@ -747,9 +747,23 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2020/09/28/2020/JS模块化演进/">
             <time class="tagcloud-posttime">2020 / 09 / 28</time>
             <span>JS模块化演进</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/09/29/2020/JS设计模式/">
+            <time class="tagcloud-posttime">2020 / 09 / 29</time>
+            <span>JS设计模式</span>
           </a>
         </div>
       
@@ -761,9 +775,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
+          <a href="/2020/06/30/2020/async-await原理/">
+            <time class="tagcloud-posttime">2020 / 06 / 30</time>
+            <span>async/await原理</span>
           </a>
         </div>
       
@@ -775,9 +789,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/06/30/2020/async-await原理/">
-            <time class="tagcloud-posttime">2020 / 06 / 30</time>
-            <span>async/await原理</span>
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
           </a>
         </div>
       
@@ -803,23 +817,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/09/29/2020/JS设计模式/">
-            <time class="tagcloud-posttime">2020 / 09 / 29</time>
-            <span>JS设计模式</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2020/02/03/2020/重绘回流/">
             <time class="tagcloud-posttime">2020 / 02 / 03</time>
             <span>重绘回流</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
           </a>
         </div>
       
@@ -838,9 +838,23 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2021/04/14/2021/实现对象给for-of遍历/">
+            <time class="tagcloud-posttime">2021 / 04 / 14</time>
+            <span>实现对象给for...of遍历</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2021/04/12/2021/浏览器的多线程/">
             <time class="tagcloud-posttime">2021 / 04 / 12</time>
             <span>浏览器的多线程</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
           </a>
         </div>
       
@@ -958,13 +972,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/CSS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>CSS&HTML</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2020/02/03/2020/重绘回流/">
             <time class="tagcloud-posttime">2020 / 02 / 03</time>
             <span>重绘回流</span>
@@ -982,6 +989,13 @@
           <a href="/2021/03/01/2021/column-count描述元素的列数/">
             <time class="tagcloud-posttime">2021 / 03 / 01</time>
             <span>column-count描述元素的列数</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/CSS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>CSS&HTML</span>
           </a>
         </div>
       
@@ -1178,16 +1192,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
-            <time class="tagcloud-posttime">2019 / 03 / 30</time>
-            <span>Node读取图片并转Base64</span>
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
           </a>
         </div>
       
@@ -1232,6 +1246,37 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>MySQL</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Bug</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>优化</h2>
       
         <div class="tagcloud-post">
@@ -1266,16 +1311,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/06/27/2019/毕业了/">
-            <time class="tagcloud-posttime">2019 / 06 / 27</time>
-            <span>毕业了</span>
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/08/2019/新年快乐/">
-            <time class="tagcloud-posttime">2019 / 02 / 08</time>
-            <span>新年快乐</span>
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
           </a>
         </div>
       
@@ -1290,37 +1335,6 @@
           <a href="/2021/04/05/2021/github的3D打印/">
             <time class="tagcloud-posttime">2021 / 04 / 05</time>
             <span>有趣-github的3D打印</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>MySQL</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Bug</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/transform对fixed/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>transform父元素对fixed子元素的影响</span>
           </a>
         </div>
       
@@ -1377,13 +1391,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/HTTP/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>HTTP</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2021/02/26/2021/HTTP缓存/">
             <time class="tagcloud-posttime">2021 / 02 / 26</time>
             <span>HTTP缓存</span>
@@ -1397,15 +1404,10 @@
           </a>
         </div>
       
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Adv</h2>
-      
         <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
+          <a href="/2021/01/01/web/HTTP/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>HTTP</span>
           </a>
         </div>
       
@@ -1431,6 +1433,18 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>Adv</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>算法</h2>
       
         <div class="tagcloud-post">
@@ -1441,16 +1455,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
+          <a href="/2021/04/12/2021/最长回文子串/">
+            <time class="tagcloud-posttime">2021 / 04 / 12</time>
+            <span>最长回文子串</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/04/12/2021/最长回文子串/">
-            <time class="tagcloud-posttime">2021 / 04 / 12</time>
-            <span>最长回文子串</span>
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
           </a>
         </div>
       
@@ -1474,13 +1488,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2021/01/01/web/JS/">
             <time class="tagcloud-posttime">2021 / 01 / 01</time>
             <span>JS</span>
@@ -1491,6 +1498,13 @@
           <a href="/2021/01/01/web/interview/">
             <time class="tagcloud-posttime">2021 / 01 / 01</time>
             <span>interview</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
           </a>
         </div>
       

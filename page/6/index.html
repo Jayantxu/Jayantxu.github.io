@@ -242,6 +242,67 @@
       </div>
       <h1 class="post-title syuanpi fadeInRightShort back-2">
         
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">Node+MySQL释放数据库连接的Bug</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        
+          <p>今天做毕业设计时，在前端业务中向后台请求用户数据时，每当请求次数超过五次，及以上时，总会卡死，于是，用简单的console判断代码停止位置，发现每次运行到pool.getConnection时第五次连接查询就会卡住，如图</p>
+<p><img src="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/QQ截图20190202195830.png" alt="五次运行停1" title="五次运行停1"></p>
+<p>图一</p>
+<p><img src="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/QQ截图20190202195902.png" alt="五次运行停2" title="五次运行停2"></p>
+<p>图二</p>
+<p>于是乎就感觉是由于前次连接时的数据库连接没有释放的原因导致的，于是，在cmd中查看mysql的连接情况</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; mysqladmin -uroot -<span class="selector-tag">p</span> processlist</span><br></pre></td></tr></table></figure>
+        
+      
+    
+      <p class="content-link">
+        <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/Node/">Node</a>
+      
+        <a href="/tags/Express/">Express</a>
+      
+        <a href="/tags/MySQL/">MySQL</a>
+      
+        <a href="/tags/Bug/">Bug</a>
+      
+      </div>
+    
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2019-02-02</time>
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
           <a href="/2019/02/02/2019/transform对fixed/">transform父元素对fixed子元素的影响</a>
         
       </h1>
@@ -377,6 +438,55 @@
         <a href="/tags/Axios/">Axios</a>
       
         <a href="/tags/Vue/">Vue</a>
+      
+      </div>
+    
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2019-01-24</time>
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          <a href="/2019/01/24/2019/手写new/">手写new</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        
+          <h4 id="手写new"><a href="#手写new" class="headerlink" title="手写new"></a>手写new</h4>
+        
+      
+    
+      <p class="content-link">
+        <a href="/2019/01/24/2019/手写new/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/JavaScript/">JavaScript</a>
       
       </div>
     
@@ -638,107 +748,11 @@
   
 
   
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInRightShort back-1">
-        <div class="post-time-wrapper">
-          
-          <time>2019-01-23</time>
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInRightShort back-2">
-        
-          <a href="/2019/01/23/2019/Git相关命令/">Git相关命令</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInRightShort back-3">
-      
-        
-          <p>将自己工作中所整理出来的常用Git命令于此总结一下</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/23/2019/Git相关命令/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
-    </div>
-    
-      <div class="post-tags syuanpi fadeInRightShort back-3">
-      
-        <a href="/tags/Git/">Git</a>
-      
-      </div>
-    
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInRightShort back-1">
-        <div class="post-time-wrapper">
-          
-          <time>2019-01-22</time>
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInRightShort back-2">
-        
-          <a href="/2019/01/22/2019/hello-world/">Hello</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInRightShort back-3">
-      
-        
-          <p>欢迎来到JAYANT BLOG! .</p>
-<h2 id="开头语"><a href="#开头语" class="headerlink" title="开头语"></a>开头语</h2><p>跟随着网上的多种搭建方式，搭建除了属于自己的hexo博客，兴奋之余也非常期待我能给予这个博客不同的“知识”生命力，也期待我所记录下的多种多样，各方各面的博文内容可以给来到这个网站上的朋友们带来帮助</p>
-<p>之后也将陆陆续续将之前的博文迁移过来；</p>
-<p><img src="/2019/01/22/2019/hello-world/MyPic.png" alt="心中藏之无日忘之" title="心中藏之，无日忘之"></p>
-
-        
-      
-    
-    </div>
-    
-      <div class="post-tags syuanpi fadeInRightShort back-3">
-      
-        <a href="/tags/日常碎碎/">日常碎碎</a>
-      
-      </div>
-    
-    
-  </article>
-  
-  
-    
-  
-
-  
 </section>
 
   
   <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="iconfont icon-doubleleft"></i>上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="iconfont icon-doubleleft"></i>上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">下一页<i class="iconfont icon-doubleright"></i></a>
   </nav>
 
 
@@ -839,6 +853,14 @@
     </div>
   
     <div class="tagcloud-tag">
+      <button>MySQL</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Bug</button>
+    </div>
+  
+    <div class="tagcloud-tag">
       <button>优化</button>
     </div>
   
@@ -851,14 +873,6 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>MySQL</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Bug</button>
-    </div>
-  
-    <div class="tagcloud-tag">
       <button>踩坑</button>
     </div>
   
@@ -867,11 +881,11 @@
     </div>
   
     <div class="tagcloud-tag">
-      <button>Adv</button>
+      <button>Stylus</button>
     </div>
   
     <div class="tagcloud-tag">
-      <button>Stylus</button>
+      <button>Adv</button>
     </div>
   
     <div class="tagcloud-tag">
@@ -913,16 +927,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/24/2019/JSbind模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 24</time>
-            <span>JavaScript bind的模拟实现</span>
+          <a href="/2019/01/23/2019/JScall模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 23</time>
+            <span>JavaScript call的模拟实现</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JScall模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript call的模拟实现</span>
+          <a href="/2019/01/24/2019/JSbind模拟/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>JavaScript bind的模拟实现</span>
           </a>
         </div>
       
@@ -969,9 +983,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>阻止冒泡、默认事件</span>
+          <a href="/2019/01/24/2019/手写new/">
+            <time class="tagcloud-posttime">2019 / 01 / 24</time>
+            <span>手写new</span>
           </a>
         </div>
       
@@ -983,9 +997,23 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
+            <time class="tagcloud-posttime">2019 / 03 / 03</time>
+            <span>阻止冒泡、默认事件</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2020/09/28/2020/JS模块化演进/">
             <time class="tagcloud-posttime">2020 / 09 / 28</time>
             <span>JS模块化演进</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/09/29/2020/JS设计模式/">
+            <time class="tagcloud-posttime">2020 / 09 / 29</time>
+            <span>JS设计模式</span>
           </a>
         </div>
       
@@ -997,9 +1025,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
+          <a href="/2020/06/30/2020/async-await原理/">
+            <time class="tagcloud-posttime">2020 / 06 / 30</time>
+            <span>async/await原理</span>
           </a>
         </div>
       
@@ -1011,9 +1039,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/06/30/2020/async-await原理/">
-            <time class="tagcloud-posttime">2020 / 06 / 30</time>
-            <span>async/await原理</span>
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
           </a>
         </div>
       
@@ -1039,23 +1067,9 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2020/09/29/2020/JS设计模式/">
-            <time class="tagcloud-posttime">2020 / 09 / 29</time>
-            <span>JS设计模式</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2020/02/03/2020/重绘回流/">
             <time class="tagcloud-posttime">2020 / 02 / 03</time>
             <span>重绘回流</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
           </a>
         </div>
       
@@ -1074,9 +1088,23 @@
         </div>
       
         <div class="tagcloud-post">
+          <a href="/2021/04/14/2021/实现对象给for-of遍历/">
+            <time class="tagcloud-posttime">2021 / 04 / 14</time>
+            <span>实现对象给for...of遍历</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
           <a href="/2021/04/12/2021/浏览器的多线程/">
             <time class="tagcloud-posttime">2021 / 04 / 12</time>
             <span>浏览器的多线程</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/JS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>JS</span>
           </a>
         </div>
       
@@ -1194,13 +1222,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/CSS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>CSS&HTML</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2020/02/03/2020/重绘回流/">
             <time class="tagcloud-posttime">2020 / 02 / 03</time>
             <span>重绘回流</span>
@@ -1218,6 +1239,13 @@
           <a href="/2021/03/01/2021/column-count描述元素的列数/">
             <time class="tagcloud-posttime">2021 / 03 / 01</time>
             <span>column-count描述元素的列数</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/CSS/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>CSS&HTML</span>
           </a>
         </div>
       
@@ -1414,16 +1442,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
-            <time class="tagcloud-posttime">2019 / 03 / 30</time>
-            <span>Node读取图片并转Base64</span>
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
+          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
+            <time class="tagcloud-posttime">2019 / 03 / 30</time>
+            <span>Node读取图片并转Base64</span>
           </a>
         </div>
       
@@ -1468,6 +1496,37 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>MySQL</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Bug</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>Node+MySQL释放数据库连接的Bug</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/02/02/2019/transform对fixed/">
+            <time class="tagcloud-posttime">2019 / 02 / 02</time>
+            <span>transform父元素对fixed子元素的影响</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>优化</h2>
       
         <div class="tagcloud-post">
@@ -1502,16 +1561,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/06/27/2019/毕业了/">
-            <time class="tagcloud-posttime">2019 / 06 / 27</time>
-            <span>毕业了</span>
+          <a href="/2019/02/08/2019/新年快乐/">
+            <time class="tagcloud-posttime">2019 / 02 / 08</time>
+            <span>新年快乐</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2019/02/08/2019/新年快乐/">
-            <time class="tagcloud-posttime">2019 / 02 / 08</time>
-            <span>新年快乐</span>
+          <a href="/2019/06/27/2019/毕业了/">
+            <time class="tagcloud-posttime">2019 / 06 / 27</time>
+            <span>毕业了</span>
           </a>
         </div>
       
@@ -1526,37 +1585,6 @@
           <a href="/2021/04/05/2021/github的3D打印/">
             <time class="tagcloud-posttime">2021 / 04 / 05</time>
             <span>有趣-github的3D打印</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>MySQL</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Bug</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/transform对fixed/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>transform父元素对fixed子元素的影响</span>
           </a>
         </div>
       
@@ -1613,13 +1641,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/HTTP/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>HTTP</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2021/02/26/2021/HTTP缓存/">
             <time class="tagcloud-posttime">2021 / 02 / 26</time>
             <span>HTTP缓存</span>
@@ -1633,15 +1654,10 @@
           </a>
         </div>
       
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Adv</h2>
-      
         <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
+          <a href="/2021/01/01/web/HTTP/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>HTTP</span>
           </a>
         </div>
       
@@ -1667,6 +1683,18 @@
     </div>
   
     <div class="tagcloud-postlist ">
+      <h2>Adv</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2020/02/15/2020/adv/">
+            <time class="tagcloud-posttime">2020 / 02 / 15</time>
+            <span>adv</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
       <h2>算法</h2>
       
         <div class="tagcloud-post">
@@ -1677,16 +1705,16 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
+          <a href="/2021/04/12/2021/最长回文子串/">
+            <time class="tagcloud-posttime">2021 / 04 / 12</time>
+            <span>最长回文子串</span>
           </a>
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/04/12/2021/最长回文子串/">
-            <time class="tagcloud-posttime">2021 / 04 / 12</time>
-            <span>最长回文子串</span>
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
           </a>
         </div>
       
@@ -1710,13 +1738,6 @@
         </div>
       
         <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
           <a href="/2021/01/01/web/JS/">
             <time class="tagcloud-posttime">2021 / 01 / 01</time>
             <span>JS</span>
@@ -1727,6 +1748,13 @@
           <a href="/2021/01/01/web/interview/">
             <time class="tagcloud-posttime">2021 / 01 / 01</time>
             <span>interview</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2021/01/01/web/每日一题/">
+            <time class="tagcloud-posttime">2021 / 01 / 01</time>
+            <span>每日一题</span>
           </a>
         </div>
       
