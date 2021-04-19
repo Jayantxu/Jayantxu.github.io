@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>leetCode-3-无重复字符的最长子串</title>
+      <link href="/2021/04/19/2021/leetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/"/>
+      <url>/2021/04/19/2021/leetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
+      
+        <content type="html"><![CDATA[<p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">无重复字符的最长子串</a></em></p><p>题目描述：</p><ol><li>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</li></ol><p>示例：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">输入: s = "abcabcbb"</span></span><br><span class="line"><span class="section">输出: 3 </span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。</span></span><br></pre></td></tr></table></figure></p><blockquote><p>很早之前就看过几次这个题，采用滑动窗口</p></blockquote><p>意思是什么呢？我们维护一个窗口，从<code>idx=0</code>开始，遍历数组，每次遍历到的新值都要与窗口内的字符相比较是否出现过</p><ol><li>如果没用出现过，则此新字符可以增加进窗口。</li><li>如果出现过，则需要将窗口内出现的索引值前的字符，均移除。</li></ol><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span><span class="params">(s)</span> &#123;</span></span><br><span class="line">    let index = <span class="number">0</span>, <span class="built_in">max</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(let <span class="built_in">i</span> = <span class="number">0</span>, <span class="built_in">j</span> = <span class="number">0</span>; <span class="built_in">j</span> &lt; s.<span class="built_in">length</span>; <span class="built_in">j</span>++) &#123;</span><br><span class="line">        index = s.substring(<span class="built_in">i</span>, <span class="built_in">j</span>).indexOf(s[<span class="built_in">j</span>]) </span><br><span class="line">        <span class="keyword">if</span>(index !== <span class="number">-1</span>) &#123; </span><br><span class="line">            <span class="built_in">i</span> = <span class="built_in">i</span> + index + <span class="number">1</span> </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="built_in">max</span> = Math.<span class="built_in">max</span>(<span class="built_in">max</span>, <span class="built_in">j</span> - <span class="built_in">i</span> + <span class="number">1</span>) </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetCode-2-两数相加</title>
+      <link href="/2021/04/19/2021/leetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
+      <url>/2021/04/19/2021/leetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
+      
+        <content type="html"><![CDATA[<p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">两数相加</a></em></p><p>题目描述:</p><ol><li>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</li><li>请你将两个数相加，并以相同形式返回一个表示和的链表。</li><li>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</li></ol><p>示例：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>], l2 = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>]</span><br><span class="line">输出：[<span class="number">7</span>,<span class="number">0</span>,<span class="number">8</span>]</span><br><span class="line">解释：<span class="number">342</span> + <span class="number">465</span> = <span class="number">807</span></span><br></pre></td></tr></table></figure></p><p>思路</p><blockquote><p>两个指针，遍历链表，然后每一位相加，大于10的部分，进一位。<br>即个位数相加，必定是最大也就<code>9 + 9</code>的情况，例如<code>9 + 8 = 17</code>，17 % 10，余<code>7</code>，新的个数为<code>7</code>，将<code>1</code>进一位。</p></blockquote><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var <span class="attr">addTwoNumbers</span> = function(l1, l2) &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">head</span> = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">nodeIdx</span> = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">lastCarry</span> = <span class="number">0</span>;</span><br><span class="line">    while(l1 || l2) &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="attr">nodeVal1</span> = l1 ? l1.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="attr">nodeVal2</span> = l2 ? l2.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="attr">nodeUnitSum</span> = nodeVal1 + nodeVal2 + lastCarry;</span><br><span class="line">        <span class="attr">lastCarry</span> = nodeUnitSum % <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(!head) &#123;</span><br><span class="line">            <span class="attr">tail</span> = <span class="attr">head</span> = new ListNode(lastCarry);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tail.<span class="attr">next</span> = new ListNode(lastCarry);</span><br><span class="line">            <span class="attr">tail</span> = tail.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="attr">lastCarry</span> = Math.floor(nodeUnitSum / <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">if</span>(l1) &#123;</span><br><span class="line">            <span class="attr">l1</span> = l1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l2) &#123;</span><br><span class="line">            <span class="attr">l2</span> = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 最后的最后如果有多余的，需要记住进一位</span><br><span class="line">    <span class="keyword">if</span>(lastCarry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        tail.<span class="attr">next</span> = new ListNode(lastCarry);</span><br><span class="line">    &#125;</span><br><span class="line">    return head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组数据结构-trie树</title>
       <link href="/2021/04/18/2021/%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-trie%E6%A0%91/"/>
       <url>/2021/04/18/2021/%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-trie%E6%A0%91/</url>
@@ -90,9 +128,9 @@
       
         <tags>
             
-            <tag> HTTP </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> HTTP </tag>
             
         </tags>
       
@@ -200,6 +238,27 @@
     
     
     <entry>
+      <title>TCP与UDP的区别</title>
+      <link href="/2021/02/21/2021/TCP%E4%B8%8EUDP%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/2021/02/21/2021/TCP%E4%B8%8EUDP%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><p>TCP（Transmission Control Protocol，传输控制协议）是面向连接的协议，也就是说，在收发数据前，必须和对方建立可靠的连接。<br>一个TCP连接必须要经过三次“对话”才能建立起来，其中的过程非常复杂， 只简单的描述下这三次对话的简单过程：</p><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><a id="more"></a><h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><ol><li>UDP是一个非连接的协议，传输数据之前源头与终端不建立连接，当它想传送时就简单的抓取来自应用的程序的数据，并尽可能快的扔向网络；</li><li>在发送端，UDP传送数据的速度仅仅是受程序生成数据的速度，计算机能力及带宽的限制，在接收端，UDP将消息放在队列中，并每次从队列中读一个消息段；</li><li>UDP信息包标题很短，只有8个字节，相对于TCP的20个字节，开销小；</li><li>UDP尽最大努力交付，不保证可靠交付，因此主机不需要维持复制的连接状态；</li><li>UDP面向报文，发送方的应用程序交下来的报文，添加首部后就交付给IP层，不拆分也不合并。</li></ol><p><em>我们时常使用：ping命令，就是向对方发送UDP数据包，然后确认对方是否接收到数据包，来确认网络是否联通。</em></p><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol><li>TCP是基于连接的，而UDP则是无连接的。</li><li>对系统资源的要求，TCP较多，UDP较少。</li><li>UDP程序简单。</li><li>TCP保证数据正确定，UDP可能丢包。</li><li>TCP保证数据顺序，UDP不保证。</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JS与stylus与CSSVar的相互作用</title>
       <link href="/2021/01/08/2021/JS%E4%B8%8Estylus%E4%B8%8ECSSVar%E7%9A%84%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8/"/>
       <url>/2021/01/08/2021/JS%E4%B8%8Estylus%E4%B8%8ECSSVar%E7%9A%84%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8/</url>
@@ -223,17 +282,17 @@
     
     
     <entry>
-      <title>CSS&amp;HTML</title>
-      <link href="/2021/01/01/web/CSS/"/>
-      <url>/2021/01/01/web/CSS/</url>
+      <title>HTTP</title>
+      <link href="/2021/01/01/web/HTTP/"/>
+      <url>/2021/01/01/web/HTTP/</url>
       
-        <content type="html"><![CDATA[<h4 id="重绘回流"><a href="#重绘回流" class="headerlink" title="重绘回流"></a>重绘回流</h4><p>👉： <a href="/2020/02/03/2020/重绘回流">浏览器重绘回流复习</a> </p>]]></content>
+        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>👉： <a href="/2021/02/21/2021/TCP与UDP的区别">TCP与UDP的区别</a> </p>]]></content>
       
       
       
         <tags>
             
-            <tag> CSS </tag>
+            <tag> HTTP </tag>
             
             <tag> Web </tag>
             
@@ -246,17 +305,17 @@
     
     
     <entry>
-      <title>HTTP</title>
-      <link href="/2021/01/01/web/HTTP/"/>
-      <url>/2021/01/01/web/HTTP/</url>
+      <title>CSS&amp;HTML</title>
+      <link href="/2021/01/01/web/CSS/"/>
+      <url>/2021/01/01/web/CSS/</url>
       
-        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p>]]></content>
+        <content type="html"><![CDATA[<h4 id="重绘回流"><a href="#重绘回流" class="headerlink" title="重绘回流"></a>重绘回流</h4><p>👉： <a href="/2020/02/03/2020/重绘回流">浏览器重绘回流复习</a> </p>]]></content>
       
       
       
         <tags>
             
-            <tag> HTTP </tag>
+            <tag> CSS </tag>
             
             <tag> Web </tag>
             
@@ -317,7 +376,7 @@
       <link href="/2021/01/01/web/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
       <url>/2021/01/01/web/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<p>打算开多一个目录，收录遇到的题目，包含算法或者数据结构或者Web的各方面</p><p>加油吧，少年！</p><p>当然不是严格上的每日一题🤣，积少成多吧</p><p><img src="/2021/01/01/web/每日一题/learning.jpg" alt="NO2" title="NO2"></p><a id="more"></a><h4 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h4><p>👉： <a href="/2021/04/12/2021/最长回文子串">最长回文子串</a> </p><h4 id="leetCode-1-两数之和"><a href="#leetCode-1-两数之和" class="headerlink" title="leetCode.1.两数之和"></a>leetCode.1.两数之和</h4><p>👉： <a href="/2021/04/17/2021/leetCode-1-两数之和">leetCode.1.两数之和</a> </p><h4 id="数组数据结构转换-trie树"><a href="#数组数据结构转换-trie树" class="headerlink" title="数组数据结构转换-trie树"></a>数组数据结构转换-trie树</h4><p>👉： <a href="/2021/04/18/2021/数组数据结构-trie树">Trie树</a> </p>]]></content>
+        <content type="html"><![CDATA[<p>打算开多一个目录，收录遇到的题目，包含算法或者数据结构或者Web的各方面</p><p>加油吧，少年！</p><p>当然不是严格上的每日一题🤣，积少成多吧</p><p><img src="/2021/01/01/web/每日一题/learning.jpg" alt="NO2" title="NO2"></p><a id="more"></a><h4 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h4><p>👉： <a href="/2021/04/12/2021/最长回文子串">最长回文子串</a> </p><h4 id="leetCode-1-两数之和"><a href="#leetCode-1-两数之和" class="headerlink" title="leetCode.1.两数之和"></a>leetCode.1.两数之和</h4><p>👉： <a href="/2021/04/17/2021/leetCode-1-两数之和">leetCode.1.两数之和</a> </p><h4 id="数组数据结构转换-trie树"><a href="#数组数据结构转换-trie树" class="headerlink" title="数组数据结构转换-trie树"></a>数组数据结构转换-trie树</h4><p>👉： <a href="/2021/04/18/2021/数组数据结构-trie树">Trie树</a> </p><h4 id="leetCode-2-两数相加"><a href="#leetCode-2-两数相加" class="headerlink" title="leetCode.2.两数相加"></a>leetCode.2.两数相加</h4><p>👉： <a href="/2021/04/19/2021/leetCode-2-两数相加">leetCode.2.两数相和</a> </p><h4 id="leetCode-3-无重复字符的最长子串"><a href="#leetCode-3-无重复字符的最长子串" class="headerlink" title="leetCode.3.无重复字符的最长子串"></a>leetCode.3.无重复字符的最长子串</h4><p>👉： <a href="/2021/04/19/2021/leetCode-3-无重复字符的最长子串">leetCode-3-无重复字符的最长子串</a> </p>]]></content>
       
       
       
@@ -462,9 +521,9 @@
       
         <tags>
             
-            <tag> HTTP </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> HTTP </tag>
             
         </tags>
       
@@ -477,7 +536,7 @@
       <link href="/2020/07/09/2020/HTTPS%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B/"/>
       <url>/2020/07/09/2020/HTTPS%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<p>我们前面分析了HTTP的握手与挥手，到了HTTPS这一步，涉及一些加密及证书，我们再单独复习一下。</p><p><img src="/2020/07/09/2020/HTTPS连接过程/NO1.png" alt="NO1" title="NO1"></p><a id="more"></a><h4 id="客户端访问HTTPS连接"><a href="#客户端访问HTTPS连接" class="headerlink" title="客户端访问HTTPS连接"></a>客户端访问HTTPS连接</h4><ol><li>我们在浏览器输入url并且回车，这个时候客户端会将客户端支持的加密算法套件（CIpher）发给服务端。</li></ol><h4 id="服务端发送证书（公钥）给客户端"><a href="#服务端发送证书（公钥）给客户端" class="headerlink" title="服务端发送证书（公钥）给客户端"></a>服务端发送证书（公钥）给客户端</h4><ol><li>服务端接收到Cipher后，和自己支持的加密算法对比，如果不符合则断开连接，否则，服务端把符合的算法和证书发送给客户端，包括证书时间、日期、机构。</li></ol><h4 id="客户端验证服务端证书"><a href="#客户端验证服务端证书" class="headerlink" title="客户端验证服务端证书"></a>客户端验证服务端证书</h4><ol><li>客户端验证证书，包括颁发证书的机构<code>是否合法</code>与<code>过期</code>，证书中包含的网站地址是否与正访问的地址一致等；</li><li>验证通过后，客户端会生成一个随机字符串，然后用服务端的公钥进行加密，这里就保证只有服务端可以看到这串字符串；</li><li>生成握手信息，用约定好的HASH，对握手信息进行取HASH，然后用随机字符串加密握手信息和握手信息的签名HASH，把结果发给服务端，这里要带上握手HASH是因为防止信息篡改，如果信息被篡改，那么服务端接收到信息进行HASH后，会发现HASH和客户端传回来的不一样。</li></ol><h4 id="服务端接收加密信息，解密得到客户端提供的随机字符串"><a href="#服务端接收加密信息，解密得到客户端提供的随机字符串" class="headerlink" title="服务端接收加密信息，解密得到客户端提供的随机字符串"></a>服务端接收加密信息，解密得到客户端提供的随机字符串</h4><ol><li>服务端接收到加密信息后，首先使用私钥解密得到随机字符串，然后使用随机字符串解密握手信息，获得握手信息和握手信息的HASH值，服务端对握手信息进行HASH，对比传回来的HASH，如果相同，则说明信息没有被篡改。</li><li>服务端验证完客户端后，同样用随机字符串加密握手信息和握手信息的HASH值发给客户端。</li></ol><h4 id="客户端验证服务端返回的握手信息，完成握手"><a href="#客户端验证服务端返回的握手信息，完成握手" class="headerlink" title="客户端验证服务端返回的握手信息，完成握手"></a>客户端验证服务端返回的握手信息，完成握手</h4><ol><li>客户端接收到服务端发回来的握手信息后，用一开始生成的随机字符串对密文进行解密，得到握手信息和握手HASH值，校验通过后，握手完毕，从这开始，客户端和服务端的通信就使用那串随机字符串进行AES对称加密。</li></ol><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol><li>使用RSA非对称算法，服务端向客户端发送公钥证书等；</li><li>客户端向第三方验证公钥合法性，验证通过后向服务端约定对称加密的随机字符串，保证随机字符串只有通信双方知道。</li><li>接下来通信就使用这个随机符串串进行加密通信，因为随机字符串只有双方知道，所有信息不会被截获。</li></ol><p><img src="/2020/07/09/2020/HTTPS连接过程/NO2.png" alt="NO2" title="NO2"></p><ul><li>在使用HTTPS是需要保证服务端配置正确了对应的安全证书</li><li>客户端发送请求到服务端</li><li>服务端返回公钥和证书到客户端</li><li>客户端接收后会验证证书的安全性,如果通过则会随机生成一个随机数,用公钥对其加密,发送到服务端</li><li>服务端接受到这个加密后的随机数后会用私钥对其解密得到真正的随机数,随后用这个随机数当做私钥对需要发送的数据进行对称加密</li><li>客户端在接收到加密后的数据使用私钥(即生成的随机值)对数据进行解密并且解析数据呈现结果给客户</li><li>SSL加密建立</li></ul><p><em>所以因此HTTP前期是非对称加密，后期是堆成加密？</em></p><p><img src="/2020/07/09/2020/HTTPS连接过程/NO3.png" alt="NO3" title="NO3"></p>]]></content>
+        <content type="html"><![CDATA[<p>我们前面分析了HTTP的握手与挥手，到了HTTPS这一步，涉及一些加密及证书，我们再单独复习一下。</p><p><img src="/2020/07/09/2020/HTTPS连接过程/NO1.png" alt="NO1" title="NO1"></p><a id="more"></a><h4 id="客户端访问HTTPS连接"><a href="#客户端访问HTTPS连接" class="headerlink" title="客户端访问HTTPS连接"></a>客户端访问HTTPS连接</h4><ol><li>我们在浏览器输入url并且回车，这个时候客户端会将客户端支持的加密算法套件（CIpher）发给服务端。</li></ol><h4 id="服务端发送证书（公钥）给客户端"><a href="#服务端发送证书（公钥）给客户端" class="headerlink" title="服务端发送证书（公钥）给客户端"></a>服务端发送证书（公钥）给客户端</h4><ol><li>服务端接收到Cipher后，和自己支持的加密算法对比，如果不符合则断开连接，否则，服务端把符合的算法和证书发送给客户端，包括证书时间、日期、机构。</li></ol><h4 id="客户端验证服务端证书"><a href="#客户端验证服务端证书" class="headerlink" title="客户端验证服务端证书"></a>客户端验证服务端证书</h4><ol><li>客户端验证证书，包括颁发证书的机构<code>是否合法</code>与<code>过期</code>，证书中包含的网站地址是否与正访问的地址一致等；</li><li>验证通过后，客户端会生成一个随机字符串，然后用服务端的公钥进行加密，这里就保证只有服务端可以看到这串字符串；</li><li>生成握手信息，用约定好的HASH，对握手信息进行取HASH，然后用随机字符串加密握手信息和握手信息的签名HASH，把结果发给服务端，这里要带上握手HASH是因为防止信息篡改，如果信息被篡改，那么服务端接收到信息进行HASH后，会发现HASH和客户端传回来的不一样。</li></ol><h4 id="服务端接收加密信息，解密得到客户端提供的随机字符串"><a href="#服务端接收加密信息，解密得到客户端提供的随机字符串" class="headerlink" title="服务端接收加密信息，解密得到客户端提供的随机字符串"></a>服务端接收加密信息，解密得到客户端提供的随机字符串</h4><ol><li>服务端接收到加密信息后，首先使用私钥解密得到随机字符串，然后使用随机字符串解密握手信息，获得握手信息和握手信息的HASH值，服务端对握手信息进行HASH，对比传回来的HASH，如果相同，则说明信息没有被篡改。</li><li>服务端验证完客户端后，同样用随机字符串加密握手信息和握手信息的HASH值发给客户端。</li></ol><h4 id="客户端验证服务端返回的握手信息，完成握手"><a href="#客户端验证服务端返回的握手信息，完成握手" class="headerlink" title="客户端验证服务端返回的握手信息，完成握手"></a>客户端验证服务端返回的握手信息，完成握手</h4><ol><li>客户端接收到服务端发回来的握手信息后，用一开始生成的随机字符串对密文进行解密，得到握手信息和握手HASH值，校验通过后，握手完毕，从这开始，客户端和服务端的通信就使用那串随机字符串进行AES对称加密。</li></ol><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol><li>使用RSA非对称算法，服务端向客户端发送公钥证书等；</li><li>客户端向第三方验证公钥合法性，验证通过后向服务端约定对称加密的随机字符串，保证随机字符串只有通信双方知道。</li><li>接下来通信就使用这个随机符串串进行加密通信，因为随机字符串只有双方知道，所有信息不会被截获。</li></ol><p><img src="/2020/07/09/2020/HTTPS连接过程/NO2.png" alt="NO2" title="NO2"></p><ul><li>在使用HTTPS是需要保证服务端配置正确了对应的安全证书</li><li>客户端发送请求到服务端</li><li>服务端返回公钥和证书到客户端</li><li>客户端接收后会验证证书的安全性,如果通过则会随机生成一个随机数,用公钥对其加密,发送到服务端</li><li>服务端接受到这个加密后的随机数后会用私钥对其解密得到真正的随机数,随后用这个随机数当做私钥对需要发送的数据进行对称加密</li><li>客户端在接收到加密后的数据使用私钥(即生成的随机值)对数据进行解密并且解析数据呈现结果给客户</li><li>SSL加密建立</li></ul><p><em>所以因此HTTP前期是非对称加密，后期是堆成加密？</em></p><p><img src="/2020/07/09/2020/HTTPS连接过程/NO3.png" alt="NO3" title="NO3"></p><h4 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h4><ol><li>HTTP使用80端口，HTTPS使用443端口；</li><li>HTTPS需要申请证书；</li><li>HTTP是超文本传输协议，是明文。HTTPS需要经过SSL加密的协议；</li><li>HTTPS比HTTP慢<ul><li>通信慢：HTTPS和HTTP相比，还多了SSL通信</li><li>加密处理的运算</li></ul></li></ol>]]></content>
       
       
       
@@ -559,9 +618,9 @@
       
         <tags>
             
-            <tag> HTTP </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> HTTP </tag>
             
         </tags>
       
@@ -912,11 +971,11 @@
       
         <tags>
             
-            <tag> 转载 </tag>
-            
             <tag> CSS </tag>
             
             <tag> 布局 </tag>
+            
+            <tag> 转载 </tag>
             
         </tags>
       
@@ -1172,9 +1231,9 @@
             
             <tag> JavaScript </tag>
             
-            <tag> Vue </tag>
-            
             <tag> Axios </tag>
+            
+            <tag> Vue </tag>
             
         </tags>
       
