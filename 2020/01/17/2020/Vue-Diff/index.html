@@ -1,245 +1,771 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="browsermode" content="application">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Jayant Blog">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="msapplication-navbutton-color" content="#666666">
-<meta name="format-detection" content="telephone=no">
-
-  <link rel="apple-touch-icon" sizes="72x72" href="/img/MyPic.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/MyPic.png">
-
-
-  <meta name="subtitle" content="互联网盲区...😏">
-
-
+  <meta charset="utf-8">
+  <title>Vue-Diff | Jayant Blog</title>
+  <meta name="keywords" content=" Vue , 转载 ">
+  <meta name="description" content="Vue-Diff | Jayant Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="http://jayantxu.cn/about/index.html">
+<meta property="og:site_name" content="Jayant Blog">
+<meta property="og:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-10T08:59:12.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
 
 
-  <meta name="keywords" content="Vue, 转载, nlvi">
+<link rel="icon" href="/img/MyPic.png">
 
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
-<link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
-<link rel="stylesheet" href="/style/style.css">
+<link href="/css/hl_theme/gruvbox-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
 <script>
-  var nlviconfig = {
-    title: "Jayant Blog",
-    author: "Jayantxu",
-    baseUrl: "/",
-    theme: {
-      scheme: "banderole",
-      lightbox: false,
-      animate: true,
-      search: true,
-      friends: false,
-      reward: false,
-      pjax: false,
-      lazy: false,
-      toc: true
-    }
-  }
+    hljs.initHighlightingOnLoad();
 </script>
 
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
 
+<script src="/js/iconfont.js?v=1.1.0"></script>
 
-
-    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
-
-
-
-
-    <link rel="icon" href="/img/MyPic.png">
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-@font-face {
-  font-family: "Allura";
-  src: url('/font/allura/allura.ttf');
-}
-</style>
-
-  <title> Vue-Diff · Jayant Blog </title>
 </head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
 <body>
-  <div class="container">
-    <header class="header" id="header">
-  <div class="header-wrapper">
-    <div class="logo">
-  <div class="logo-inner syuanpi tvIn" style="display:none;">
-    <h1><a href="/">Jayant Blog</a></h1>
-    
-      <span id="subtitle">互联网盲区...😏</span>
-    
-  </div>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/MyPic.png">
+</a>
+<div class="author">
+    <span>Jayantxu</span>
 </div>
 
-    <nav class="main-nav">
-  
-  <ul class="main-nav-list syuanpi tvIn">
-  
-    <li class="menu-item">
-      <a href="javascript:;" id="search-btn" aria-label="Search">
-        <i class="iconfont icon-search"></i>
-      </a>
-    </li>
-  
-  
-  
+<div class="icon">
     
-  
-    <li class="menu-item">
-      <a href="/" id="主页">
-        <span class="base-name">
-          
-            主页
-          
-        </span>
-      </a>
-    </li>
-  
-  
+        
+            <a title="github" href="https://github.com/Jayantxu" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                
+            </a>
+        
     
-  
-    <li class="menu-item">
-      <a href="/archives" id="文章">
-        <span class="base-name">
-          
-            文章
-          
-        </span>
-      </a>
-    </li>
-  
-  
+        
+            <a title="email" href="mailto:Jayant_xu@qq.com" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"/>
+                    </svg>
+                
+            </a>
+        
     
-  
-    <li class="menu-item">
-      <a href="javascript:;" id="tags">
-        <span class="base-name">
-          
-            TAGS
-          
-        </span>
-      </a>
-    </li>
-  
-  
+        
+            <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=591060601&site=qq&menu=yes" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"/>
+                    </svg>
+                
+            </a>
+        
     
-  
-    <li class="menu-item">
-      <a href="/about" id="关于我">
-        <span class="base-name">
-          
-            关于我
-          
-        </span>
-      </a>
-    </li>
-  
-  
-  </ul>
-  
-</nav>
-
-  </div>
-</header>
-<div class="mobile-header" id="mobile-header">
-  <div class="mobile-header-nav">
-    <div class="mobile-header-item" id="mobile-left">
-      <div class="header-menu-item">
-        <div class="header-menu-line"></div>
-      </div>
-    </div>
-    <h1 class="mobile-header-title">
-      <a href="/">Jayant Blog</a>
-    </h1>
-    <div class="mobile-header-item"></div>
-  </div>
-  <div class="mobile-header-body">
-    <ul class="mobile-header-list">
-      
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-0">
-          <a href="/">
-            
-              主页
-            
-          </a>
-        </li>
-      
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
-          <a href="/archives">
-            
-              文章
-            
-          </a>
-        </li>
-      
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
-          <a href="javascript:;" id="mobile-tags">
-            
-              TAGS
-            
-          </a>
-        </li>
-      
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
-          <a href="/about">
-            
-              关于我
-            
-          </a>
-        </li>
-      
-    </ul>
-  </div>
 </div>
 
 
 
-    <div class="container-inner" style="display:none;">
-      <main class="main" id="main">
-        <div class="main-wrapper">
-          
-    
-  
-  <article class="
-  post
-   is_post 
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInRightShort back-1">
-        <div class="post-time-wrapper">
-          
-          <time>2020-01-17</time>
-          
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(69)</small>
+            
         </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInRightShort back-2">
+    </li>
+    
         
-          Vue-Diff
+            
+                <li>
+                    <div data-rel="前端">
+                        
+                        前端
+                        <small>(52)</small>
+                        
+                    </div>
+                    
+                </li>
+            
         
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInRightShort back-3">
+    
+        
+            
+                <li>
+                    <div data-rel="后端">
+                        
+                        后端
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="读书V生活">
+                        
+                        读书V生活
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url" href="/about">关于</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="69">
+<input type="hidden" id="yelog_site_word_count" value="53.5k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off">
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search">
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Adv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Axios</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bug</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>canvas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CSS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Element</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gulp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTTP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interview</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScipt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Stylus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>布局</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>日常碎碎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>源码</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>踩坑</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>转载</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a class="全部文章 " href="/2021/04/21/2021/leetCode-4-寻找两个正序数组的中位数/" data-tag="算法" data-author>
+            <span class="post-title" title="leetCode-4-寻找两个正序数组的中位数">leetCode-4-寻找两个正序数组的中位数</span>
+            <span class="post-date" title="2021-04-21 20:17:57">2021/04/21</span>
+        </a>
+        
+        <a class="全部文章 " href="/2021/04/19/2021/leetCode-3-无重复字符的最长子串/" data-tag="算法" data-author>
+            <span class="post-title" title="leetCode-3-无重复字符的最长子串">leetCode-3-无重复字符的最长子串</span>
+            <span class="post-date" title="2021-04-19 21:23:51">2021/04/19</span>
+        </a>
+        
+        <a class="全部文章 " href="/2021/04/19/2021/leetCode-2-两数相加/" data-tag="算法" data-author>
+            <span class="post-title" title="leetCode-2-两数相加">leetCode-2-两数相加</span>
+            <span class="post-date" title="2021-04-19 20:52:15">2021/04/19</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/18/2021/数组数据结构-trie树/" data-tag="数据结构" data-author>
+            <span class="post-title" title="数组数据结构-trie树">数组数据结构-trie树</span>
+            <span class="post-date" title="2021-04-18 11:02:50">2021/04/18</span>
+        </a>
+        
+        <a class="全部文章 " href="/2021/04/17/2021/leetCode-1-两数之和/" data-tag="算法" data-author>
+            <span class="post-title" title="leetCode.1.两数之和">leetCode.1.两数之和</span>
+            <span class="post-date" title="2021-04-17 09:21:50">2021/04/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/14/2021/实现对象给for-of遍历/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="实现对象给for...of遍历">实现对象给for...of遍历</span>
+            <span class="post-date" title="2021-04-14 23:19:20">2021/04/14</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/12/2021/浏览器的多线程/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="浏览器的多线程">浏览器的多线程</span>
+            <span class="post-date" title="2021-04-12 19:10:48">2021/04/12</span>
+        </a>
+        
+        <a class="全部文章 " href="/2021/04/12/2021/最长回文子串/" data-tag="算法" data-author>
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2021-04-12 00:00:00">2021/04/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定">HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
+            <span class="post-date" title="2021-04-07 14:45:27">2021/04/07</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2021/04/05/2021/github的3D打印/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="有趣-github的3D打印">有趣-github的3D打印</span>
+            <span class="post-date" title="2021-04-05 00:00:00">2021/04/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/02/2021/十大排序/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="十大排序">十大排序</span>
+            <span class="post-date" title="2021-04-02 11:10:07">2021/04/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/01/2021/JS手写Promise/" data-tag="JavaScript,转载" data-author>
+            <span class="post-title" title="JS手写Promise">JS手写Promise</span>
+            <span class="post-date" title="2021-04-01 20:08:55">2021/04/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/03/01/2021/column-count描述元素的列数/" data-tag="CSS" data-author>
+            <span class="post-title" title="column-count描述元素的列数">column-count描述元素的列数</span>
+            <span class="post-date" title="2021-03-01 00:00:00">2021/03/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/26/2021/HTTP缓存/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP缓存">HTTP缓存</span>
+            <span class="post-date" title="2021-02-26 00:00:00">2021/02/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/21/2021/TCP与UDP的区别/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="TCP与UDP的区别">TCP与UDP的区别</span>
+            <span class="post-date" title="2021-02-21 22:23:03">2021/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="JavaScript,CSS,Stylus" data-author>
+            <span class="post-title" title="JS与stylus与CSSVar的相互作用">JS与stylus与CSSVar的相互作用</span>
+            <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/CSS/" data-tag="CSS,Web,Interview" data-author>
+            <span class="post-title" title="CSS&amp;HTML">CSS&amp;HTML</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="HTTP,Web,Interview" data-author>
+            <span class="post-title" title="HTTP">HTTP</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/interview/" data-tag="Web,Interview" data-author>
+            <span class="post-title" title="interview">interview</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/每日一题/" data-tag="算法,Web,数据结构" data-author>
+            <span class="post-title" title="每日一题">每日一题</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/12/26/2020/stylus-media/" data-tag="CSS,Stylus" data-author>
+            <span class="post-title" title="stylus_media">stylus_media</span>
+            <span class="post-date" title="2020-12-26 11:30:02">2020/12/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2020/12/01/2020/My/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="My">My</span>
+            <span class="post-date" title="2020-12-01 20:09:10">2020/12/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/11/05/2020/网络七层结构/" data-tag="HTTP" data-author>
+            <span class="post-title" title="网络七层结构">网络七层结构</span>
+            <span class="post-date" title="2020-11-05 11:20:37">2020/11/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/10/28/2020/HTTP常见状态码/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP常见状态码">HTTP常见状态码</span>
+            <span class="post-date" title="2020-10-28 09:29:34">2020/10/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/29/2020/JS设计模式/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS设计模式">JS设计模式</span>
+            <span class="post-date" title="2020-09-29 21:56:10">2020/09/29</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/28/2020/JS模块化演进/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS模块化演进">JS模块化演进</span>
+            <span class="post-date" title="2020-09-28 09:21:32">2020/09/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/23/2020/垃圾回收机制/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="垃圾回收机制">垃圾回收机制</span>
+            <span class="post-date" title="2020-09-23 22:39:54">2020/09/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="XSS-CSRF">XSS-CSRF</span>
+            <span class="post-date" title="2020-08-11 21:57:03">2020/08/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/三次握手四次挥手/" data-tag="HTTP" data-author>
+            <span class="post-title" title="三次握手四次挥手">三次握手四次挥手</span>
+            <span class="post-date" title="2020-07-09 21:09:28">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/HTTPS连接过程/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTPS连接过程">HTTPS连接过程</span>
+            <span class="post-date" title="2020-07-09 00:00:00">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/30/2020/async-await原理/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="async/await原理">async/await原理</span>
+            <span class="post-date" title="2020-06-30 20:03:07">2020/06/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/21/2020/Vue数据双向绑定原理/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue数据双向绑定原理">Vue数据双向绑定原理</span>
+            <span class="post-date" title="2020-06-21 20:02:10">2020/06/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/12/2020/EventLoop/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="EventLoop">EventLoop</span>
+            <span class="post-date" title="2020-06-12 12:20:39">2020/06/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="跨域访问">跨域访问</span>
+            <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/04/07/2020/费舍尔-耶茨混洗/" data-tag="JavaScript,算法" data-author>
+            <span class="post-title" title="费舍尔.耶茨混洗">费舍尔.耶茨混洗</span>
+            <span class="post-date" title="2020-04-07 00:00:00">2020/04/07</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="JavaScript,CSS" data-author>
+            <span class="post-title" title="轮播">轮播</span>
+            <span class="post-date" title="2020-03-30 17:30:29">2020/03/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/02/15/2020/adv/" data-tag="JavaScript,Vue,Adv" data-author>
+            <span class="post-title" title="adv">adv</span>
+            <span class="post-date" title="2020-02-15 00:00:00">2020/02/15</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="JavaScript,CSS,HTML" data-author>
+            <span class="post-title" title="重绘回流">重绘回流</span>
+            <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/01/17/2020/Vue-Diff/" data-tag="Vue,转载" data-author>
+            <span class="post-title" title="Vue-Diff">Vue-Diff</span>
+            <span class="post-date" title="2020-01-17 20:17:56">2020/01/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/12/15/2019/JS原型链/" data-tag="JavaScipt" data-author>
+            <span class="post-title" title="JS原型链">JS原型链</span>
+            <span class="post-date" title="2019-12-15 22:48:23">2019/12/15</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/11/01/2019/踩坑eCharts参数/" data-tag="踩坑" data-author>
+            <span class="post-title" title="踩坑eCharts参数">踩坑eCharts参数</span>
+            <span class="post-date" title="2019-11-01 18:51:02">2019/11/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/10/17/2019/this指向/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="this指向">this指向</span>
+            <span class="post-date" title="2019-10-17 22:33:39">2019/10/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/10/08/2019/canvas进行图像像素点着色/" data-tag="canvas" data-author>
+            <span class="post-title" title="canvas进行图像像素点着色">canvas进行图像像素点着色</span>
+            <span class="post-date" title="2019-10-08 18:35:35">2019/10/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/09/26/2019/一个失焦指令的学习/" data-tag="Vue,Element" data-author>
+            <span class="post-title" title="一个失焦指令的学习">一个失焦指令的学习</span>
+            <span class="post-date" title="2019-09-26 17:41:35">2019/09/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/06/27/2019/毕业了/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="毕业了">毕业了</span>
+            <span class="post-date" title="2019-06-27 19:48:20">2019/06/27</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/05/13/2019/Flex布局的基本属性介绍/" data-tag="CSS,布局" data-author>
+            <span class="post-title" title="Flex布局的基本属性介绍">Flex布局的基本属性介绍</span>
+            <span class="post-date" title="2019-05-13 13:22:26">2019/05/13</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/09/2019/Gulp源码分析学习-三/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(三">Gulp源码分析学习(三</span>
+            <span class="post-date" title="2019-04-09 08:51:45">2019/04/09</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/06/2019/Gulp源码分析学习-二/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(二">Gulp源码分析学习(二</span>
+            <span class="post-date" title="2019-04-06 13:47:27">2019/04/06</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/05/2019/Gulp源码分析学习-一/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(一">Gulp源码分析学习(一</span>
+            <span class="post-date" title="2019-04-05 16:41:26">2019/04/05</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/03/30/2019/Node读取图片并转Base64/" data-tag="Node" data-author>
+            <span class="post-title" title="Node读取图片并转Base64">Node读取图片并转Base64</span>
+            <span class="post-date" title="2019-03-30 00:12:42">2019/03/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/26/2019/Grid布局/" data-tag="CSS,布局,转载" data-author>
+            <span class="post-title" title="Grid布局">Grid布局</span>
+            <span class="post-date" title="2019-03-26 10:50:48">2019/03/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/阻止冒泡、默认事件/" data-tag="JavaScript,HTML" data-author>
+            <span class="post-title" title="阻止冒泡、默认事件">阻止冒泡、默认事件</span>
+            <span class="post-date" title="2019-03-03 20:30:42">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/CSS清除浮动/" data-tag="CSS" data-author>
+            <span class="post-title" title="CSS清除浮动的几种方式">CSS清除浮动的几种方式</span>
+            <span class="post-date" title="2019-03-03 19:29:44">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="JavaScript,CSS,HTML" data-author>
+            <span class="post-title" title="margin重叠以及解决办法">margin重叠以及解决办法</span>
+            <span class="post-date" title="2019-03-01 23:15:21">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/CSS省略号实现/" data-tag="CSS,HTML" data-author>
+            <span class="post-title" title="CSS省略号实现">CSS省略号实现</span>
+            <span class="post-date" title="2019-03-01 16:09:35">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/02/21/2019/Gulp增量编译优化/" data-tag="JavaScript,Gulp" data-author>
+            <span class="post-title" title="Gulp增量编译优化">Gulp增量编译优化</span>
+            <span class="post-date" title="2019-02-21 20:14:45">2019/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/18/2019/JavaScript深浅拷贝/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript深浅拷贝">JavaScript深浅拷贝</span>
+            <span class="post-date" title="2019-02-18 20:06:36">2019/02/18</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/10/2019/Node-express文件上传下载/" data-tag="HTML,Node,Express,Element" data-author>
+            <span class="post-title" title="Node+Express+Element实现文件上传下载">Node+Express+Element实现文件上传下载</span>
+            <span class="post-date" title="2019-02-10 20:59:42">2019/02/10</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/02/08/2019/新年快乐/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="新年快乐">新年快乐</span>
+            <span class="post-date" title="2019-02-08 22:41:02">2019/02/08</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/" data-tag="Node,Express,MySQL,Bug" data-author>
+            <span class="post-title" title="Node+MySQL释放数据库连接的Bug">Node+MySQL释放数据库连接的Bug</span>
+            <span class="post-date" title="2019-02-02 19:42:07">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/transform对fixed/" data-tag="CSS,Bug" data-author>
+            <span class="post-title" title="transform父元素对fixed子元素的影响">transform父元素对fixed子元素的影响</span>
+            <span class="post-date" title="2019-02-02 10:16:34">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/Vue父子通信/" data-tag="JavaScript,Vue" data-author>
+            <span class="post-title" title="Vue父子组件间的通信">Vue父子组件间的通信</span>
+            <span class="post-date" title="2019-02-02 09:45:31">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/31/2019/Axios使用/" data-tag="JavaScript,Axios,Vue" data-author>
+            <span class="post-title" title="Axios使用">Axios使用</span>
+            <span class="post-date" title="2019-01-31 15:14:03">2019/01/31</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/24/2019/手写new-call-apply-bind/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="手写new、call、apply、bind">手写new、call、apply、bind</span>
+            <span class="post-date" title="2019-01-24 19:21:39">2019/01/24</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript继承/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript继承">JavaScript继承</span>
+            <span class="post-date" title="2019-01-23 15:29:41">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript创建对象/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript创建对象">JavaScript创建对象</span>
+            <span class="post-date" title="2019-01-23 14:10:25">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/01/23/2019/Git相关命令/" data-tag="Git" data-author>
+            <span class="post-title" title="Git相关命令">Git相关命令</span>
+            <span class="post-date" title="2019-01-23 09:45:11">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/22/2019/hello-world/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="Hello">Hello</span>
+            <span class="post-date" title="2019-01-22 21:45:11">2019/01/22</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-2020/Vue-Diff" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Vue-Diff</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">Vue</a>
+            
+            <a class="color3">转载</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title="最后更新: 2021-04-23 14:09:36">2020-01-17 20:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.9k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#虚拟DOM"><span class="toc-text">虚拟DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Diff算法"><span class="toc-text">Diff算法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#key的作用"><span class="toc-text">key的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移动节点"><span class="toc-text">移动节点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加新元素"><span class="toc-text">添加新元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移除不存在了的元素"><span class="toc-text">移除不存在了的元素</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#VUE的对比？：双端比较"><span class="toc-text">VUE的对比？：双端比较</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#双端比较优势"><span class="toc-text">双端比较优势</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#非理想情况的处理方式"><span class="toc-text">非理想情况的处理方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加新元素-1"><span class="toc-text">添加新元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移除不存在的元素"><span class="toc-text">移除不存在的元素</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <p>大部分内容引用自此博客：<a href="http://hcysun.me/vue-design/zh/renderer-diff.html" target="_blank" rel="noopener">vue-design</a>， 内容更全面和易懂，推荐大家看原文。</p>
 <h5 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h5><p><strong>什么是虚拟DOM？：</strong></p>
@@ -248,8 +774,78 @@
 <p><img src="/2020/01/17/2020/Vue-Diff/NO1.png" alt="NO1" title="NO1"><br><img src="/2020/01/17/2020/Vue-Diff/NO2.png" alt="NO2" title="NO2"></p>
 <p><strong>起因：</strong><br><em>浏览器DOM树太多庞杂，具备的属性十分复杂，更新渲染所耗费的性能多、大。</em></p>
 <p><strong>实际上的的作用？：</strong><br><img src="/2020/01/17/2020/Vue-Diff/NO3.png" alt="NO3" title="NO3"></p>
-<p><strong>VDOM定义的位置：</strong><br><em>src/core/vdom/vnode.js   是一个构造函数</em><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 定义了VNode</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> VNode &#123;</span><br><span class="line">  tag: <span class="built_in">string</span> | <span class="built_in">void</span>; <span class="comment">/** 最终得vnode标签属性 */</span></span><br><span class="line">  data: VNodeData | <span class="built_in">void</span>; <span class="comment">/** 包含最终节点上的style class attr */</span></span><br><span class="line">  children: ?<span class="built_in">Array</span>&lt;VNode&gt;; <span class="comment">/** 子节点 */</span></span><br><span class="line">  text: <span class="built_in">string</span> | <span class="built_in">void</span>; <span class="comment">/** 文本属性 */</span></span><br><span class="line">  elm: Node | <span class="built_in">void</span>; <span class="comment">/** 对应得真是dom */</span></span><br><span class="line">  ns: <span class="built_in">string</span> | <span class="built_in">void</span>;</span><br><span class="line">  context: Component | <span class="built_in">void</span>; <span class="comment">// rendered in this component's scope</span></span><br><span class="line">  key: <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">void</span>; <span class="comment">/** key值， diff时可以提高效率， 具体入v-for时 需要声明 :key */</span></span><br><span class="line">  componentOptions: VNodeComponentOptions | <span class="built_in">void</span>;</span><br><span class="line">  componentInstance: Component | <span class="built_in">void</span>; <span class="comment">// component instance</span></span><br><span class="line">  parent: VNode | <span class="built_in">void</span>; <span class="comment">// component placeholder node</span></span><br><span class="line">  <span class="comment">// strictly internal</span></span><br><span class="line">  raw: <span class="built_in">boolean</span>; <span class="comment">// contains raw HTML? (server only)</span></span><br><span class="line">  isStatic: <span class="built_in">boolean</span>; <span class="comment">// hoisted static node</span></span><br><span class="line">  isRootInsert: <span class="built_in">boolean</span>; <span class="comment">// necessary for enter transition check</span></span><br><span class="line">  isComment: <span class="built_in">boolean</span>; <span class="comment">// empty comment placeholder?</span></span><br><span class="line">  isCloned: <span class="built_in">boolean</span>; <span class="comment">// is a cloned node?</span></span><br><span class="line">  isOnce: <span class="built_in">boolean</span>; <span class="comment">// is a v-once node?</span></span><br><span class="line">  asyncFactory: <span class="built_in">Function</span> | <span class="built_in">void</span>; <span class="comment">// async component factory function</span></span><br><span class="line">  asyncMeta: <span class="built_in">Object</span> | <span class="built_in">void</span>;</span><br><span class="line">  isAsyncPlaceholder: <span class="built_in">boolean</span>;</span><br><span class="line">  ssrContext: <span class="built_in">Object</span> | <span class="built_in">void</span>;</span><br><span class="line">  fnContext: Component | <span class="built_in">void</span>; <span class="comment">// real context vm for functional nodes</span></span><br><span class="line">  fnOptions: ?ComponentOptions; <span class="comment">// for SSR caching</span></span><br><span class="line">  devtoolsMeta: ?<span class="built_in">Object</span>; <span class="comment">// used to store functional render context for devtools</span></span><br><span class="line">  fnScopeId: ?<span class="built_in">string</span>; <span class="comment">// functional scope id support</span></span><br><span class="line">  <span class="keyword">constructor</span> (<span class="params"></span></span><br><span class="line"><span class="params">    tag?: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">    data?: VNodeData,</span></span><br><span class="line"><span class="params">    children?: ?<span class="built_in">Array</span>&lt;VNode&gt;,</span></span><br><span class="line"><span class="params">    text?: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">    elm?: Node,</span></span><br><span class="line"><span class="params">    context?: Component,</span></span><br><span class="line"><span class="params">    componentOptions?: VNodeComponentOptions,</span></span><br><span class="line"><span class="params">    asyncFactory?: <span class="built_in">Function</span></span></span><br><span class="line"><span class="params">  </span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.tag = tag</span><br><span class="line">    <span class="keyword">this</span>.data = data</span><br><span class="line">    <span class="keyword">this</span>.children = children</span><br><span class="line">    <span class="keyword">this</span>.text = text</span><br><span class="line">    <span class="keyword">this</span>.elm = elm</span><br><span class="line">    <span class="keyword">this</span>.ns = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.context = context</span><br><span class="line">    <span class="keyword">this</span>.fnContext = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.fnOptions = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.fnScopeId = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.key = data &amp;&amp; data.key</span><br><span class="line">    <span class="keyword">this</span>.componentOptions = componentOptions</span><br><span class="line">    <span class="keyword">this</span>.componentInstance = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.parent = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.raw = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.isStatic = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.isRootInsert = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">this</span>.isComment = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.isCloned = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.isOnce = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.asyncFactory = asyncFactory</span><br><span class="line">    <span class="keyword">this</span>.asyncMeta = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.isAsyncPlaceholder = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// DEPRECATED: alias for componentInstance for backwards compat.</span></span><br><span class="line">  <span class="comment">/* istanbul ignore next */</span></span><br><span class="line">  <span class="keyword">get</span> child (): Component | <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.componentInstance</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>那我们要定义多少种类型的VNODE呢？</strong></p>
+<p><strong>VDOM定义的位置：</strong><br><em>src/core/vdom/vnode.js   是一个构造函数</em></p>
+<pre><code>
+// 定义了VNode
+export default class VNode {
+  tag: string | void; /** 最终得vnode标签属性 */
+  data: VNodeData | void; /** 包含最终节点上的style class attr */
+  children: ?Array&lt;VNode&gt;; /** 子节点 */
+  text: string | void; /** 文本属性 */
+  elm: Node | void; /** 对应得真是dom */
+  ns: string | void;
+  context: Component | void; // rendered in this component&#39;s scope
+  key: string | number | void; /** key值， diff时可以提高效率， 具体入v-for时 需要声明 :key */
+  componentOptions: VNodeComponentOptions | void;
+  componentInstance: Component | void; // component instance
+  parent: VNode | void; // component placeholder node
+  // strictly internal
+  raw: boolean; // contains raw HTML? (server only)
+  isStatic: boolean; // hoisted static node
+  isRootInsert: boolean; // necessary for enter transition check
+  isComment: boolean; // empty comment placeholder?
+  isCloned: boolean; // is a cloned node?
+  isOnce: boolean; // is a v-once node?
+  asyncFactory: Function | void; // async component factory function
+  asyncMeta: Object | void;
+  isAsyncPlaceholder: boolean;
+  ssrContext: Object | void;
+  fnContext: Component | void; // real context vm for functional nodes
+  fnOptions: ?ComponentOptions; // for SSR caching
+  devtoolsMeta: ?Object; // used to store functional render context for devtools
+  fnScopeId: ?string; // functional scope id support
+  constructor (
+    tag?: string,
+    data?: VNodeData,
+    children?: ?Array&lt;VNode&gt;,
+    text?: string,
+    elm?: Node,
+    context?: Component,
+    componentOptions?: VNodeComponentOptions,
+    asyncFactory?: Function
+  ) {
+    this.tag = tag
+    this.data = data
+    this.children = children
+    this.text = text
+    this.elm = elm
+    this.ns = undefined
+    this.context = context
+    this.fnContext = undefined
+    this.fnOptions = undefined
+    this.fnScopeId = undefined
+    this.key = data &amp;&amp; data.key
+    this.componentOptions = componentOptions
+    this.componentInstance = undefined
+    this.parent = undefined
+    this.raw = false
+    this.isStatic = false
+    this.isRootInsert = true
+    this.isComment = false
+    this.isCloned = false
+    this.isOnce = false
+    this.asyncFactory = asyncFactory
+    this.asyncMeta = undefined
+    this.isAsyncPlaceholder = false
+  }
+  // DEPRECATED: alias for componentInstance for backwards compat.
+  /* istanbul ignore next */
+  get child (): Component | void {
+    return this.componentInstance
+  }
+}
+
+</code></pre><p><strong>那我们要定义多少种类型的VNODE呢？</strong></p>
 <ul>
 <li>注释节点</li>
 <li>文本节点</li>
@@ -262,8 +858,21 @@
 <p><strong>而VNODE更新的这个过程？</strong><br><em>DOM-Diff、patch：</em> 打补丁</p>
 <p>简而言之，就是对旧的VNODE根据新的VNODE进行修补的这么一个过程，使得最终新旧VNODE保持一致。<strong>以newVNODE为基准，改造oldVNODE，这就是patch干的事，当然的前提是相同类型的VNODE才有对比的意义。</strong></p>
 <p><strong>当新旧的VNODE类型不同时：</strong>调用一些replace将新的Vnode替换了旧Vnode。</p>
-<p><strong>更新标签元素的基本规则，更新相同标签的VNode时：</strong>例如都为div<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旧的 VNodeconst prevVNode = h('div', &#123;</span></span><br><span class="line">  <span class="attribute">style</span>: &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="string">'100px'</span>,</span><br><span class="line">    <span class="attribute">height</span>: <span class="string">'100px'</span>,</span><br><span class="line">    <span class="attribute">backgroundColor</span>: <span class="string">'red'</span></span><br><span class="line">  &#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新的 VNodeconst nextVNode = h('div', &#123;</span></span><br><span class="line">  <span class="attribute">style</span>: &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="string">'100px'</span>,</span><br><span class="line">    <span class="attribute">height</span>: <span class="string">'100px'</span>,</span><br><span class="line">    <span class="attribute">border</span>: <span class="string">'1px solid green'</span></span><br><span class="line">  &#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<ul>
+<p><strong>更新标签元素的基本规则，更新相同标签的VNode时：</strong>例如都为div</p>
+<pre><code>// 旧的 VNodeconst prevVNode = h(&#39;div&#39;, {
+  style: {
+    width: &#39;100px&#39;,
+    height: &#39;100px&#39;,
+    backgroundColor: &#39;red&#39;
+  }})
+
+// 新的 VNodeconst nextVNode = h(&#39;div&#39;, {
+  style: {
+    width: &#39;100px&#39;,
+    height: &#39;100px&#39;,
+    border: &#39;1px solid green&#39;
+  }})
+</code></pre><ul>
 <li>第 1 步：当新的 VNodeData 存在时，遍历新的 VNodeData。</li>
 <li>第 2 步：根据新 VNodeData 中的 key，分别尝试读取旧值和新值，即 prevValue 和 nextValue。</li>
 <li>第 3 步：使用 switch…case 语句匹配不同的数据进行不同的更新操作</li>
@@ -272,14 +881,11 @@
 <p><img src="/2020/01/17/2020/Vue-Diff/NO4.png" alt="NO4" title="NO4"></p>
 <p><strong>3 x 3 种组合</strong></p>
 <ul>
-<li><p>一、新旧节点都是单子节点，那我们对比他们替换不同即可</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">patch</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>二、旧节点一个子节点，新节点无子节点，我们将旧节点子节点移除即可</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">removeChild()</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>三、旧节点有一个子节点，新节点有多个子节点的情况，我们可以移除旧节点子节点，再将新节点子节点遍历挂载上去。</p>
-</li>
+<li>一、新旧节点都是单子节点，那我们对比他们替换不同即可<pre><code>patch()
+</code></pre></li>
+<li>二、旧节点一个子节点，新节点无子节点，我们将旧节点子节点移除即可<pre><code>removeChild()
+</code></pre></li>
+<li>三、旧节点有一个子节点，新节点有多个子节点的情况，我们可以移除旧节点子节点，再将新节点子节点遍历挂载上去。</li>
 </ul>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO5.png" alt="NO5" title="NO5"></p>
 <ul>
@@ -297,14 +903,41 @@
 <p><img src="/2020/01/17/2020/Vue-Diff/NO8.png" alt="NO8" title="NO8"></p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO9.png" alt="NO9" title="NO9"></p>
 <p>如果新的VNode列表相较于旧的VNode是长的，那么最后的节点我们依然要创建节点，旧的VNode节点相较于新的VNode节点是短的，那么我们最后要删除销毁多余的DOM节点。</p>
-<h6 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h6><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">假设 第三个参数是<span class="built_in">key</span>标识</span><br><span class="line"><span class="comment">// 旧</span></span><br><span class="line">[</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">1</span>),</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">2</span>),</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">3</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新</span></span><br><span class="line">[</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">3</span>),</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">1</span>),</span><br><span class="line">  h(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="number">2</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>如果我们按照之前的对比。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">h</span><span class="params">(<span class="string">'li'</span>, null, <span class="number">1</span>)</span></span></span><br><span class="line"><span class="comment">// vs</span></span><br><span class="line"><span class="function"><span class="title">h</span><span class="params">(<span class="string">'li'</span>, null, <span class="number">3</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<p>毫无疑问我们可能三次对比中都会去执行一下对比方法，但是根据我们直接观察，我们是可以通过移动他们的顺序从而达到更新DOM的效果的。</p>
+<h6 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h6><pre><code>假设 第三个参数是key标识
+// 旧
+[
+  h(&#39;li&#39;, null, 1),
+  h(&#39;li&#39;, null, 2),
+  h(&#39;li&#39;, null, 3)
+]
+
+// 新
+[
+  h(&#39;li&#39;, null, 3),
+  h(&#39;li&#39;, null, 1),
+  h(&#39;li&#39;, null, 2)
+]
+</code></pre><p>如果我们按照之前的对比。</p>
+<pre><code>h(&#39;li&#39;, null, 1)
+// vs
+h(&#39;li&#39;, null, 3)
+</code></pre><p>毫无疑问我们可能三次对比中都会去执行一下对比方法，但是根据我们直接观察，我们是可以通过移动他们的顺序从而达到更新DOM的效果的。</p>
 <p>为了方便通过key进行对比的过程，我们在创建VNode的时候还需要保留对它的key的记录。</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO10.png" alt="NO10" title="NO10"></p>
 <p><strong>我们通过key知道了他们之间的映射关系</strong>，我们只需要遍历新的children中的每一个节点，去旧的children中寻找是否有相同的key值节点即可。</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历新的 childrenfor (let i = 0; i &lt; nextChildren.length; i++) &#123;</span></span><br><span class="line">  <span class="keyword">const</span> nextVNode = nextChildren[i]</span><br><span class="line">  let j = <span class="number">0</span></span><br><span class="line">  <span class="comment">// 遍历旧的 children</span></span><br><span class="line">  <span class="keyword">for</span> (j; j &lt; prevChildren.<span class="built_in">length</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">const</span> prevVNode = prevChildren[j]</span><br><span class="line">    <span class="comment">// 如果找到了具有相同 key 值的两个节点，则调用 `patch` 函数更</span></span><br><span class="line">    <span class="keyword">if</span> (nextVNode.key === prevVNode.key) &#123;</span><br><span class="line">      <span class="keyword">patch</span>(prevVNode, nextVNode, container)</span><br><span class="line">      <span class="keyword">break</span> </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>用key标记后又怎么找到需要移动的节点呢？</strong></p>
+<pre><code>// 遍历新的 childrenfor (let i = 0; i &lt; nextChildren.length; i++) {
+  const nextVNode = nextChildren[i]
+  let j = 0
+  // 遍历旧的 children
+  for (j; j &lt; prevChildren.length; j++) {
+    const prevVNode = prevChildren[j]
+    // 如果找到了具有相同 key 值的两个节点，则调用 `patch` 函数更
+    if (nextVNode.key === prevVNode.key) {
+      patch(prevVNode, nextVNode, container)
+      break 
+    }
+  }}
+</code></pre><p><strong>用key标记后又怎么找到需要移动的节点呢？</strong></p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO11.png" alt="NO11" title="NO11"></p>
 <p>我们对新的Vnode节点进行遍历，去旧节点找寻所在的索引位置，例如：我们在新节点中找到li-a，发现在旧节点中所对应的索引是0，依次类推，最后的索引就是0-1-2。<br>这个索引对我们有什么帮助呢？<br><strong>这是一个递增的顺序，这说明如果在寻找的过程中遇到的索引呈现递增趋势，则说明新旧 children 中节点顺序相同，不需要移动操作。相反的，如果在寻找的过程中遇到的索引值不呈现递增趋势，则说明需要移动操作</strong></p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO12.png" alt="NO12" title="NO12"></p>
@@ -314,37 +947,187 @@
 <p><img src="/2020/01/17/2020/Vue-Diff/NO13.png" alt="NO13" title="NO13"></p>
 <p><strong>我们需要怎么移动元素呢？</strong><br>li-c作为第一各元素，我们完成对它的内部的对比更新即可</p>
 <p>我们遍历到li-a的时候，我们知道它在旧DOMchildren中的索引是0，所以0 &lt; 2，我们需要移动li-a元素<br>而此时我们遍历的为新节点数组的li-a位置，我们拿到el真实DOM之后，在上一个元素之后插入即可。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const refNode = nextChildren[<span class="selector-tag">i</span> - <span class="number">1</span>]<span class="selector-class">.el</span><span class="selector-class">.nextSibling</span> <span class="comment">// 上一个元素原本的下一个元素</span></span><br><span class="line"><span class="comment">// 调用 insertBefore 函数移动 DOM</span></span><br><span class="line">container.insertBefore(prevVNode<span class="selector-class">.el</span>, refNode)</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/01/17/2020/Vue-Diff/NO14.png" alt="NO14" title="NO14"></p>
+<pre><code>const refNode = nextChildren[i - 1].el.nextSibling // 上一个元素原本的下一个元素
+// 调用 insertBefore 函数移动 DOM
+container.insertBefore(prevVNode.el, refNode)
+</code></pre><p><img src="/2020/01/17/2020/Vue-Diff/NO14.png" alt="NO14" title="NO14"></p>
 <h6 id="添加新元素"><a href="#添加新元素" class="headerlink" title="添加新元素"></a>添加新元素</h6><p><img src="/2020/01/17/2020/Vue-Diff/NO15.png" alt="NO15" title="NO15"></p>
 <p>我们可以找到，在旧的children中li-d是不存在的。<br>我们只需要将新的此节点挂载在正确位置上即可。<br><strong>如何知道此节点不存在？</strong><br>我们添加一个标志变量，在遍历新的children是声明为false，在旧的内部遍历时，找到此key节点，则置为true，最终验证此变量即可</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> (let i = <span class="number">0</span>; i &lt; nextChildren.<span class="built_in">length</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> nextVNode = nextChildren[i]</span><br><span class="line">  let j = <span class="number">0</span>,</span><br><span class="line">    find = <span class="literal">false</span> <span class="comment">//   &lt;== 这</span></span><br><span class="line">  <span class="keyword">for</span> (j; j &lt; prevChildren.<span class="built_in">length</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">const</span> prevVNode = prevChildren[j]</span><br><span class="line">    <span class="keyword">if</span> (nextVNode.key === prevVNode.key) &#123;</span><br><span class="line">      find = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">patch</span>(prevVNode, nextVNode, container)</span><br><span class="line">      <span class="keyword">if</span> (j &lt; lastIndex) &#123;</span><br><span class="line">        <span class="keyword">const</span> refNode = nextChildren[i - <span class="number">1</span>].el.nextSibling</span><br><span class="line">        container.insertBefore(prevVNode.el, refNode)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 更新 lastIndex</span></span><br><span class="line">        lastIndex = j</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!find) &#123;</span><br><span class="line">    <span class="comment">// 挂载新节点</span></span><br><span class="line">    <span class="keyword">const</span> refNode =</span><br><span class="line">          i - <span class="number">1</span> &lt; <span class="number">0</span></span><br><span class="line">            ? prevChildren[<span class="number">0</span>].el</span><br><span class="line">            : nextChildren[i - <span class="number">1</span>].el.nextSibling</span><br><span class="line">        mount(nextVNode, container, <span class="literal">false</span>, refNode)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>这个i-1&lt;0 是因为当前一个子节点为第一个节点的时候，我们把它插在最前面即可。</p>
+<pre><code>
+for (let i = 0; i &lt; nextChildren.length; i++) {
+  const nextVNode = nextChildren[i]
+  let j = 0,
+    find = false //   &lt;== 这
+  for (j; j &lt; prevChildren.length; j++) {
+    const prevVNode = prevChildren[j]
+    if (nextVNode.key === prevVNode.key) {
+      find = true
+      patch(prevVNode, nextVNode, container)
+      if (j &lt; lastIndex) {
+        const refNode = nextChildren[i - 1].el.nextSibling
+        container.insertBefore(prevVNode.el, refNode)
+        break
+      } else {
+        // 更新 lastIndex
+        lastIndex = j
+      }
+    }
+  }
+  if (!find) {
+    // 挂载新节点
+    const refNode =
+          i - 1 &lt; 0
+            ? prevChildren[0].el
+            : nextChildren[i - 1].el.nextSibling
+        mount(nextVNode, container, false, refNode)
+  }
+</code></pre><p>这个i-1&lt;0 是因为当前一个子节点为第一个节点的时候，我们把它插在最前面即可。</p>
 <h6 id="移除不存在了的元素"><a href="#移除不存在了的元素" class="headerlink" title="移除不存在了的元素"></a>移除不存在了的元素</h6><p><img src="/2020/01/17/2020/Vue-Diff/NO16.png" alt="NO16" title="NO16"></p>
 <p>我们用什么方法去移除寻找需要移除的DOM节点？<br>还记得我们一开始遍历的即是新的children吗，在内部才遍历旧children的吗？我们只会执行两次，第一次解决li-a、第二次解决li-b，然后就退出循环了</p>
 <p>**所以我们需要在新的children遍历结束后，在进行一遍旧children的遍历，并且用旧children节点去新的children中寻找相同节点，如果找不到，则说明已经没有这个DOM了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移除已经不存在的节点</span></span><br><span class="line"><span class="comment">// 遍历旧的节点</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; prevChildren.length; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> prevVNode = prevChildren[i]</span><br><span class="line">  <span class="comment">// 拿着旧 VNode 去新 children 中寻找相同的节点</span></span><br><span class="line">  <span class="keyword">const</span> has = nextChildren.find(</span><br><span class="line">    nextVNode =&gt; nextVNode.key === prevVNode.key</span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">if</span> (!has) &#123;</span><br><span class="line">    <span class="comment">// 如果没有找到相同的节点，则移除</span></span><br><span class="line">    container.removeChild(prevVNode.el)</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的对比缺陷？</p>
+<pre><code>// 移除已经不存在的节点
+// 遍历旧的节点
+for (let i = 0; i &lt; prevChildren.length; i++) {
+  const prevVNode = prevChildren[i]
+  // 拿着旧 VNode 去新 children 中寻找相同的节点
+  const has = nextChildren.find(
+    nextVNode =&gt; nextVNode.key === prevVNode.key
+  )
+  if (!has) {
+    // 如果没有找到相同的节点，则移除
+    container.removeChild(prevVNode.el)
+  }}
+</code></pre><p>上面的对比缺陷？</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO17.png" alt="NO17" title="NO17"></p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO18.png" alt="NO18" title="NO18"></p>
 <h5 id="VUE的对比？：双端比较"><a href="#VUE的对比？：双端比较" class="headerlink" title="VUE的对比？：双端比较"></a>VUE的对比？：双端比较</h5><p><img src="/2020/01/17/2020/Vue-Diff/NO19.png" alt="NO19" title="NO19"></p>
 <p>我们使用四个索引指向着 old 与 new 的开始与结束，即双端</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">oldStartIdx</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">oldEndIdx</span> = prevChildren.length - <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">newStartIdx</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">newEndIdx</span> = nextChildren.length - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">// 同时</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">oldStartVNode</span> = prevChildren[oldStartIdx]</span><br><span class="line"><span class="keyword">let</span> <span class="attr">oldEndVNode</span> = prevChildren[oldEndIdx]</span><br><span class="line"><span class="keyword">let</span> <span class="attr">newStartVNode</span> = nextChildren[newStartIdx]</span><br><span class="line"><span class="keyword">let</span> <span class="attr">newEndVNode</span> = nextChildren[newEndIdx]</span><br></pre></td></tr></table></figure>
-<p><strong>每一次的对比都会执行以下四步：</strong><br>newStartIndex - oldStartIndex<br>newEndIndex - oldEndIndex<br>oldStartIndex - newEndIndex<br>newStartIndex - oldEndIndex</p>
+<pre><code>let oldStartIdx = 0
+let oldEndIdx = prevChildren.length - 1
+let newStartIdx = 0
+let newEndIdx = nextChildren.length - 1
+
+// 同时
+
+let oldStartVNode = prevChildren[oldStartIdx]
+let oldEndVNode = prevChildren[oldEndIdx]
+let newStartVNode = nextChildren[newStartIdx]
+let newEndVNode = nextChildren[newEndIdx]
+
+</code></pre><p><strong>每一次的对比都会执行以下四步：</strong><br>newStartIndex - oldStartIndex<br>newEndIndex - oldEndIndex<br>oldStartIndex - newEndIndex<br>newStartIndex - oldEndIndex</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO20.png" alt="NO20" title="NO20"></p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤一：oldStartVNode 和 newStartVNode 比对&#125; </span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤二：oldEndVNode 和 newEndVNode 比对&#125; </span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤三：oldStartVNode 和 newEndVNode 比对&#125;</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤四：oldEndVNode 和 newStartVNode 比对&#125;</span></span><br></pre></td></tr></table></figure>
-<p> 在第四步中我们可以得到可以复用的节点<br> 我们将li-d移动到开头</p>
- <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤一：oldStartVNode 和 newStartVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤二：oldEndVNode 和 newEndVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">  <span class="comment">// 步骤三：oldStartVNode 和 newEndVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">   * * * * * * * *  * * * * * * * * * * * * * 这 * * * * * * * * * *</span><br><span class="line">      <span class="comment">// 步骤四：oldEndVNode 和 newStartVNode 比对</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 先调用 patch 函数完成更新</span></span><br><span class="line">      patch(oldEndVNode, <span class="keyword">new</span><span class="type">StartVNode</span>, container)</span><br><span class="line">      <span class="comment">// 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点</span></span><br><span class="line">      container.insertBefore(oldEndVNode.el, oldStartVNode.el)</span><br><span class="line">      <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">      oldEndVNode = prevChildren[--oldEndIdx]</span><br><span class="line">      <span class="keyword">new</span><span class="type">StartVNode</span> = nextChildren[++<span class="keyword">new</span><span class="type">StartIdx</span>]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p> 而后我们进行下一次的对比：</p>
+<pre><code>
+if (oldStartVNode.key === newStartVNode.key) {
+  // 步骤一：oldStartVNode 和 newStartVNode 比对} 
+else if (oldEndVNode.key === newEndVNode.key) {
+  // 步骤二：oldEndVNode 和 newEndVNode 比对} 
+else if (oldStartVNode.key === newEndVNode.key) {
+  // 步骤三：oldStartVNode 和 newEndVNode 比对}
+else if (oldEndVNode.key === newStartVNode.key) {
+  // 步骤四：oldEndVNode 和 newStartVNode 比对}
+</code></pre><p> 在第四步中我们可以得到可以复用的节点<br> 我们将li-d移动到开头</p>
+<pre><code>
+if (oldStartVNode.key === newStartVNode.key) {
+  // 步骤一：oldStartVNode 和 newStartVNode 比对
+  } else if (oldEndVNode.key === newEndVNode.key) {
+  // 步骤二：oldEndVNode 和 newEndVNode 比对
+  } else if (oldStartVNode.key === newEndVNode.key) {
+  // 步骤三：oldStartVNode 和 newEndVNode 比对
+  } else if (oldEndVNode.key === newStartVNode.key) {
+   * * * * * * * *  * * * * * * * * * * * * * 这 * * * * * * * * * *
+      // 步骤四：oldEndVNode 和 newStartVNode 比对
+
+      // 先调用 patch 函数完成更新
+      patch(oldEndVNode, newStartVNode, container)
+      // 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点
+      container.insertBefore(oldEndVNode.el, oldStartVNode.el)
+      // 更新索引，指向下一个位置
+      oldEndVNode = prevChildren[--oldEndIdx]
+      newStartVNode = nextChildren[++newStartIdx]
+    }
+</code></pre><p> 而后我们进行下一次的对比：</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO21.png" alt="NO21" title="NO21"></p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO22.png" alt="NO22" title="NO22"></p>
-<p><strong>什么时候可以结束呢？</strong><br> <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤一：oldStartVNode 和 newStartVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤二：oldEndVNode 和 newEndVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤三：oldStartVNode 和 newEndVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤四：oldEndVNode 和 newStartVNode 比对</span></span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p> 当oldStartIndex 大于 olaEndIndex 或者 newStartIndex 大于 newEndIndex的时候</p>
+<p><strong>什么时候可以结束呢？</strong></p>
+<pre><code>
+while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  if (oldStartVNode.key === newStartVNode.key) {
+    // 步骤一：oldStartVNode 和 newStartVNode 比对
+  } else if (oldEndVNode.key === newEndVNode.key) {
+    // 步骤二：oldEndVNode 和 newEndVNode 比对
+  } else if (oldStartVNode.key === newEndVNode.key) {
+    // 步骤三：oldStartVNode 和 newEndVNode 比对
+  } else if (oldEndVNode.key === newStartVNode.key) {
+    // 步骤四：oldEndVNode 和 newStartVNode 比对
+  }
+  }
+</code></pre><p> 当oldStartIndex 大于 olaEndIndex 或者 newStartIndex 大于 newEndIndex的时候</p>
 <p> <em>第二轮中，我们找到了li-c，而它是最后一个节点，DOM顺序的话不需要移动</em></p>
- <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤一：oldStartVNode 和 newStartVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    * * * * * * * * * * * * * * * * * * * * * 这 * * * * * * * * * *</span><br><span class="line">    <span class="comment">// 步骤二：oldEndVNode 和 newEndVNode 比对</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 patch 函数更新</span></span><br><span class="line">    patch(oldEndVNode, <span class="keyword">new</span><span class="type">EndVNode</span>, container)</span><br><span class="line">    <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">    oldEndVNode = prevChildren[--oldEndIdx]</span><br><span class="line">    <span class="keyword">new</span><span class="type">EndVNode</span> = nextChildren[--<span class="keyword">new</span><span class="type">EndIdx</span>]</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤三：oldStartVNode 和 newEndVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤四：oldEndVNode 和 newStartVNode 比对</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先调用 patch 函数完成更新</span></span><br><span class="line">    patch(oldEndVNode, <span class="keyword">new</span><span class="type">StartVNode</span>, container)</span><br><span class="line">    <span class="comment">// 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点</span></span><br><span class="line">    container.insertBefore(oldEndVNode.el, oldStartVNode.el)</span><br><span class="line">    <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">    oldEndVNode = prevChildren[--oldEndIdx]</span><br><span class="line">    <span class="keyword">new</span><span class="type">StartVNode</span> = nextChildren[++<span class="keyword">new</span><span class="type">StartIdx</span>]</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/01/17/2020/Vue-Diff/NO23.png" alt="NO23" title="NO23"> </p>
-<p> 我们执行第三步的时候在li-a处，满足了<br>oldStartVNode.key === newEndVNode.key<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤一：oldStartVNode 和 newStartVNode 比对</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤二：oldEndVNode 和 newEndVNode 比对</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 patch 函数更新</span></span><br><span class="line">    patch(oldEndVNode, <span class="keyword">new</span><span class="type">EndVNode</span>, container)</span><br><span class="line">    <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">    oldEndVNode = prevChildren[--oldEndIdx]</span><br><span class="line">    <span class="keyword">new</span><span class="type">EndVNode</span> = <span class="keyword">new</span><span class="type">EndVNode</span>[--<span class="keyword">new</span><span class="type">EndIdx</span>]</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    * * * * * * * * * 这 * * * * * * * * *</span><br><span class="line">    <span class="comment">// 步骤三：oldStartVNode 和 newEndVNode 比对</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 patch 函数更新</span></span><br><span class="line">    patch(oldStartVNode, <span class="keyword">new</span><span class="type">EndVNode</span>, container)</span><br><span class="line">    <span class="comment">// 将 oldStartVNode.el 移动到 oldEndVNode.el 的后面，也就是 oldEndVNode.el.nextSibling 的前面</span></span><br><span class="line">    container.insertBefore(</span><br><span class="line">      oldStartVNode.el,</span><br><span class="line">      oldEndVNode.el.nextSibling</span><br><span class="line">    )</span><br><span class="line">    <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">    oldStartVNode = prevChildren[++oldStartIdx]</span><br><span class="line">    <span class="keyword">new</span><span class="type">EndVNode</span> = nextChildren[--<span class="keyword">new</span><span class="type">EndIdx</span>]</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 步骤四：oldEndVNode 和 newStartVNode 比对</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先调用 patch 函数完成更新</span></span><br><span class="line">    patch(oldEndVNode, <span class="keyword">new</span><span class="type">StartVNode</span>, container)</span><br><span class="line">    <span class="comment">// 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点</span></span><br><span class="line">    container.insertBefore(oldEndVNode.el, oldStartVNode.el)</span><br><span class="line">    <span class="comment">// 更新索引，指向下一个位置</span></span><br><span class="line">    oldEndVNode = prevChildren[--oldEndIdx]</span><br><span class="line">    <span class="keyword">new</span><span class="type">StartVNode</span> = nextChildren[++<span class="keyword">new</span><span class="type">StartIdx</span>]</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>最后一轮</strong><br><img src="/2020/01/17/2020/Vue-Diff/NO24.png" alt="NO24" title="NO24"> </p>
+<pre><code>while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  if (oldStartVNode.key === newStartVNode.key) {
+    // 步骤一：oldStartVNode 和 newStartVNode 比对
+  } else if (oldEndVNode.key === newEndVNode.key) {
+    * * * * * * * * * * * * * * * * * * * * * 这 * * * * * * * * * *
+    // 步骤二：oldEndVNode 和 newEndVNode 比对
+
+    // 调用 patch 函数更新
+    patch(oldEndVNode, newEndVNode, container)
+    // 更新索引，指向下一个位置
+    oldEndVNode = prevChildren[--oldEndIdx]
+    newEndVNode = nextChildren[--newEndIdx]
+  } else if (oldStartVNode.key === newEndVNode.key) {
+    // 步骤三：oldStartVNode 和 newEndVNode 比对
+  } else if (oldEndVNode.key === newStartVNode.key) {
+    // 步骤四：oldEndVNode 和 newStartVNode 比对
+
+    // 先调用 patch 函数完成更新
+    patch(oldEndVNode, newStartVNode, container)
+    // 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点
+    container.insertBefore(oldEndVNode.el, oldStartVNode.el)
+    // 更新索引，指向下一个位置
+    oldEndVNode = prevChildren[--oldEndIdx]
+    newStartVNode = nextChildren[++newStartIdx]
+  }}
+</code></pre><p><img src="/2020/01/17/2020/Vue-Diff/NO23.png" alt="NO23" title="NO23"> </p>
+<p> 我们执行第三步的时候在li-a处，满足了<br>oldStartVNode.key === newEndVNode.key</p>
+<pre><code>
+while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  if (oldStartVNode.key === newStartVNode.key) {
+    // 步骤一：oldStartVNode 和 newStartVNode 比对
+  } else if (oldEndVNode.key === newEndVNode.key) {
+    // 步骤二：oldEndVNode 和 newEndVNode 比对
+
+    // 调用 patch 函数更新
+    patch(oldEndVNode, newEndVNode, container)
+    // 更新索引，指向下一个位置
+    oldEndVNode = prevChildren[--oldEndIdx]
+    newEndVNode = newEndVNode[--newEndIdx]
+  } else if (oldStartVNode.key === newEndVNode.key) {
+    * * * * * * * * * 这 * * * * * * * * *
+    // 步骤三：oldStartVNode 和 newEndVNode 比对
+
+    // 调用 patch 函数更新
+    patch(oldStartVNode, newEndVNode, container)
+    // 将 oldStartVNode.el 移动到 oldEndVNode.el 的后面，也就是 oldEndVNode.el.nextSibling 的前面
+    container.insertBefore(
+      oldStartVNode.el,
+      oldEndVNode.el.nextSibling
+    )
+    // 更新索引，指向下一个位置
+    oldStartVNode = prevChildren[++oldStartIdx]
+    newEndVNode = nextChildren[--newEndIdx]
+  } else if (oldEndVNode.key === newStartVNode.key) {
+    // 步骤四：oldEndVNode 和 newStartVNode 比对
+
+    // 先调用 patch 函数完成更新
+    patch(oldEndVNode, newStartVNode, container)
+    // 更新完成后，将容器中最后一个子节点移动到最前面，使其成为第一个子节点
+    container.insertBefore(oldEndVNode.el, oldStartVNode.el)
+    // 更新索引，指向下一个位置
+    oldEndVNode = prevChildren[--oldEndIdx]
+    newStartVNode = nextChildren[++newStartIdx]
+  }}
+</code></pre><p><strong>最后一轮</strong><br><img src="/2020/01/17/2020/Vue-Diff/NO24.png" alt="NO24" title="NO24"> </p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO25.png" alt="NO25" title="NO25"> </p>
 <p>patch li-b 即可</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO26.png" alt="NO26" title="NO26"> </p>
@@ -361,8 +1144,24 @@
 </ul>
 <h6 id="非理想情况的处理方式"><a href="#非理想情况的处理方式" class="headerlink" title="非理想情况的处理方式"></a>非理想情况的处理方式</h6><p>有这么一种情况，当①②③④都无法进行匹配上的时候</p>
 <p><img src="/2020/01/17/2020/Vue-Diff/NO31.png" alt="NO31" title="NO31"> </p>
-<p>那只能通过newStartIndex的这节点去oldChildren中寻找出来了<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldStartVNode.key === <span class="keyword">new</span><span class="type">EndVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldEndVNode.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key) &#123;</span><br><span class="line">    <span class="comment">// 省略...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  * * * * * * * 这 * * * * * * * * *</span><br><span class="line">    <span class="comment">// 遍历旧 children，试图寻找与 newStartVNode 拥有相同 key 值的元素</span></span><br><span class="line">    const idxInOld = prevChildren.findIndex(</span><br><span class="line">      node =&gt; node.key === <span class="keyword">new</span><span class="type">StartVNode</span>.key</span><br><span class="line">    )</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2020/01/17/2020/Vue-Diff/NO32.png" alt="NO32" title="NO32"> </p>
+<p>那只能通过newStartIndex的这节点去oldChildren中寻找出来了</p>
+<pre><code>while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  if (oldStartVNode.key === newStartVNode.key) {
+    // 省略...
+  } else if (oldEndVNode.key === newEndVNode.key) {
+    // 省略...
+  } else if (oldStartVNode.key === newEndVNode.key) {
+    // 省略...
+  } else if (oldEndVNode.key === newStartVNode.key) {
+    // 省略...
+  } else {
+  * * * * * * * 这 * * * * * * * * *
+    // 遍历旧 children，试图寻找与 newStartVNode 拥有相同 key 值的元素
+    const idxInOld = prevChildren.findIndex(
+      node =&gt; node.key === newStartVNode.key
+    )
+  }}
+</code></pre><p><img src="/2020/01/17/2020/Vue-Diff/NO32.png" alt="NO32" title="NO32"> </p>
 <p>else 的关键在于，找到了在oldChildren中的这个DOM，并且明白它已经在newChildren中被移动到了最前面。</p>
 <ul>
 <li>oldChildren 中的DOM被移动到最前面</li>
@@ -379,8 +1178,30 @@
 <p><img src="/2020/01/17/2020/Vue-Diff/NO35.png" alt="NO35" title="NO35"> </p>
 <p>大家模拟一下：自由思考</p>
 <p>刷</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">刷</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+刷
+</code></pre><ul>
 <li>②中找到可复用的节点，同时因为是最后，所以DOM不移动，patch即可</li>
 </ul>
 <p><strong>下一步</strong></p>
@@ -394,11 +1215,44 @@
 </ul>
 <p>所以我们发现 li-d 并没有被处理到<br>所以我们需要增加多一个判断，oldEndIndex 小于 oldStartIndex的话，就存在没有被处理到的全新节点</p>
 <p><strong>我们需要把这些全新的节点挂载在oldStartIndex前面</strong></p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="comment">// 省略...&#125;</span></span><br><span class="line">  * * * * * * * * 这 * * * * * * </span><br><span class="line">  <span class="keyword">if</span> (oldEndIdx &lt; oldStartIdx) &#123;</span><br><span class="line">      <span class="comment">// 添加新节点</span></span><br><span class="line">      <span class="keyword">for</span> (let i = <span class="keyword">new</span><span class="type">StartIdx</span>; i &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>; i++) &#123;</span><br><span class="line">        mount(nextChildren[i], container, <span class="literal">false</span>, oldStartVNode.el)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h6 id="移除不存在的元素"><a href="#移除不存在的元素" class="headerlink" title="移除不存在的元素"></a>移除不存在的元素</h6><p>  <img src="/2020/01/17/2020/Vue-Diff/NO39.png" alt="NO39" title="NO39"> </p>
+<pre><code>
+while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  // 省略...}
+  * * * * * * * * 这 * * * * * * 
+  if (oldEndIdx &lt; oldStartIdx) {
+      // 添加新节点
+      for (let i = newStartIdx; i &lt;= newEndIdx; i++) {
+        mount(nextChildren[i], container, false, oldStartVNode.el)
+      }
+   }
+</code></pre><h6 id="移除不存在的元素"><a href="#移除不存在的元素" class="headerlink" title="移除不存在的元素"></a>移除不存在的元素</h6><p>  <img src="/2020/01/17/2020/Vue-Diff/NO39.png" alt="NO39" title="NO39"> </p>
 <p>  <strong>自由思考一下：</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="/2020/01/17/2020/Vue-Diff/NO41.png" alt="NO41" title="NO41"> </p>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre><p><img src="/2020/01/17/2020/Vue-Diff/NO41.png" alt="NO41" title="NO41"> </p>
 <ul>
 <li>①中 patch 了 li-a</li>
 </ul>
@@ -408,1267 +1262,171 @@
 </ul>
 <p><strong>结束</strong></p>
 <p>条件 newEndIndex &lt; newStartIndex 了<br>所以以此条件说明有元素被移除了</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (oldStartIdx &lt;= oldEndIdx &amp;&amp; <span class="keyword">new</span><span class="type">StartIdx</span> &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>) &#123;</span><br><span class="line">  <span class="comment">// 省略...&#125;</span></span><br><span class="line">      <span class="keyword">if</span> (oldEndIdx &lt; oldStartIdx) &#123;</span><br><span class="line">      <span class="comment">// 添加新节点</span></span><br><span class="line">      <span class="keyword">for</span> (let i = <span class="keyword">new</span><span class="type">StartIdx</span>; i &lt;= <span class="keyword">new</span><span class="type">EndIdx</span>; i++) &#123;</span><br><span class="line">        mount(nextChildren[i], container, <span class="literal">false</span>, oldStartVNode.el)</span><br><span class="line">      &#125;&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">new</span><span class="type">EndIdx</span> &lt; <span class="keyword">new</span><span class="type">StartIdx</span>) &#123;</span><br><span class="line">      <span class="comment">// 移除操作</span></span><br><span class="line">      <span class="keyword">for</span> (let i = oldStartIdx; i &lt;= oldEndIdx; i++) &#123;</span><br><span class="line">        container.removeChild(prevChildren[i].el)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre><code>while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+  // 省略...}
+      if (oldEndIdx &lt; oldStartIdx) {
+      // 添加新节点
+      for (let i = newStartIdx; i &lt;= newEndIdx; i++) {
+        mount(nextChildren[i], container, false, oldStartVNode.el)
+      }} else if (newEndIdx &lt; newStartIdx) {
+      // 移除操作
+      for (let i = oldStartIdx; i &lt;= oldEndIdx; i++) {
+        container.removeChild(prevChildren[i].el)
+      }
+  }
+</code></pre>
       
-    
+       
     </div>
-    
-      <div class="post-tags syuanpi fadeInRightShort back-3">
-      
-        <a href="/tags/Vue/">Vue</a>
-      
-        <a href="/tags/转载/">转载</a>
-      
-      </div>
-    
-    
-      
+</article>
 
-      
-  <hr class="copy-line">
-  <div class="post-copyright">
-    <div class="copy-author">
-      <span>作者 :</span>
-      <span>Jayantxu</span>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
-    <div class="copy-url">
-      <span>地址 :</span>
-      <a href="http://jayantxu.cn/2020/01/17/2020/Vue-Diff/">http://jayantxu.cn/2020/01/17/2020/Vue-Diff/</a>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2019-2021 Jayant
+</p>
+
     </div>
-    <div class="copy-origin">
-      <span>来源 :</span>
-      <a href="http://jayantxu.cn">http://jayantxu.cn</a>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class id="rocket"></a>
+
     </div>
-    <div class="copy-license">
-      
-      著作权归作者所有，转载请联系作者获得授权。
-    </div>
-  </div>
-
-    
-  </article>
-  
-    
-  <nav class="article-page">
-    
-      <a href="/2020/02/03/2020/重绘回流/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>重绘回流
-        </span>
-      </a>
-    
-    
-      <a href="/2019/12/15/2019/JS原型链/" id="art-right" class="art-right">
-        <span class="prev-title">
-          JS原型链<i class="iconfont icon-right"></i>
-        </span>
-      </a>
-    
-  </nav>
-
-
-    
-  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
-  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
-    
-
-    
-    
-
-    
-
-  </div>
-
-
-
-  
-  
-    
-  
-  <aside class="post-toc">
-    <div class="title"><span>文章导航</span></div>
-    <div class="toc-inner">
-      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#虚拟DOM"><span class="toc-text">虚拟DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Diff算法"><span class="toc-text">Diff算法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#key的作用"><span class="toc-text">key的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移动节点"><span class="toc-text">移动节点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加新元素"><span class="toc-text">添加新元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移除不存在了的元素"><span class="toc-text">移除不存在了的元素</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#VUE的对比？：双端比较"><span class="toc-text">VUE的对比？：双端比较</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#双端比较优势"><span class="toc-text">双端比较优势</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#非理想情况的处理方式"><span class="toc-text">非理想情况的处理方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加新元素-1"><span class="toc-text">添加新元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#移除不存在的元素"><span class="toc-text">移除不存在的元素</span></a></li></ol></li></ol>
-    </div>
-  </aside>
-
-
-
-  
-
-
-        </div>
-      </main>
-      <footer class="footer syuanpi fadeIn" id="footer">
-  <hr>
-  <div class="footer-wrapper">
-    <div class="left">
-      <div class="contact-icon">
-  
-  
 </div>
-
-    </div>
-    <div class="right">
-      <div class="copyright">
-    <div class="info">
-        <span>&copy;</span>
-        <span>2019 ~ 2021</span>
-        <span style="color: red;">❤</span>
-        <span>Jayantxu</span>
-    </div>
-    <div class="theme">
-        <span>
-            404 NOT NOT NOT FOUND
-        </span>
-    </div>
-    
-</div>
-
-    </div>
-  </div>
-</footer>
-    </div>
-    <div class="tagcloud" id="tagcloud">
-  <div class="tagcloud-taglist">
-  
-    <div class="tagcloud-tag">
-      <button>JavaScript</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Axios</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Vue</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>CSS</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>HTML</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>布局</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>转载</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Git</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Gulp</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>源码</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>2019</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>JavaScipt</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Node</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Express</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>MySQL</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Bug</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Element</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>日常碎碎</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>优化</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>canvas</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>踩坑</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>HTTP</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Adv</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Stylus</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>算法</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Web</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>数据结构</button>
-    </div>
-  
-    <div class="tagcloud-tag">
-      <button>Interview</button>
-    </div>
-  
-  </div>
-  
-    <div class="tagcloud-postlist active">
-      <h2>JavaScript</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/21/2019/Gulp增量编译优化/">
-            <time class="tagcloud-posttime">2019 / 02 / 21</time>
-            <span>Gulp增量编译优化</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JSapply模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JSapply模拟</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/24/2019/JSbind模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 24</time>
-            <span>JavaScript bind的模拟实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JScall模拟/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript call的模拟实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JavaScript创建对象/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript创建对象</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/18/2019/JavaScript深浅拷贝/">
-            <time class="tagcloud-posttime">2019 / 02 / 18</time>
-            <span>JavaScript深浅拷贝</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/JavaScript继承/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>JavaScript继承</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Vue父子通信/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Vue父子组件间的通信</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>margin重叠以及解决办法</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/10/17/2019/this指向/">
-            <time class="tagcloud-posttime">2019 / 10 / 17</time>
-            <span>this指向</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/24/2019/手写new/">
-            <time class="tagcloud-posttime">2019 / 01 / 24</time>
-            <span>手写new</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>阻止冒泡、默认事件</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/06/12/2020/EventLoop/">
-            <time class="tagcloud-posttime">2020 / 06 / 12</time>
-            <span>EventLoop</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/09/28/2020/JS模块化演进/">
-            <time class="tagcloud-posttime">2020 / 09 / 28</time>
-            <span>JS模块化演进</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/09/29/2020/JS设计模式/">
-            <time class="tagcloud-posttime">2020 / 09 / 29</time>
-            <span>JS设计模式</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/08/11/2020/XSS-CSRF/">
-            <time class="tagcloud-posttime">2020 / 08 / 11</time>
-            <span>XSS-CSRF</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/05/11/2020/cors跨域/">
-            <time class="tagcloud-posttime">2020 / 05 / 11</time>
-            <span>跨域访问</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/06/30/2020/async-await原理/">
-            <time class="tagcloud-posttime">2020 / 06 / 30</time>
-            <span>async/await原理</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/09/23/2020/垃圾回收机制/">
-            <time class="tagcloud-posttime">2020 / 09 / 23</time>
-            <span>垃圾回收机制</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/03/2020/重绘回流/">
-            <time class="tagcloud-posttime">2020 / 02 / 03</time>
-            <span>重绘回流</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
-            <time class="tagcloud-posttime">2020 / 04 / 07</time>
-            <span>费舍尔.耶茨混洗</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/03/30/2020/轮播/">
-            <time class="tagcloud-posttime">2020 / 03 / 30</time>
-            <span>轮播</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
-            <time class="tagcloud-posttime">2021 / 01 / 08</time>
-            <span>JS与stylus与CSSVar的相互作用</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/01/2021/JS手写Promise/">
-            <time class="tagcloud-posttime">2021 / 04 / 01</time>
-            <span>JS手写Promise</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/14/2021/实现对象给for-of遍历/">
-            <time class="tagcloud-posttime">2021 / 04 / 14</time>
-            <span>实现对象给for...of遍历</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/02/2021/十大排序/">
-            <time class="tagcloud-posttime">2021 / 04 / 02</time>
-            <span>十大排序</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/12/2021/浏览器的多线程/">
-            <time class="tagcloud-posttime">2021 / 04 / 12</time>
-            <span>浏览器的多线程</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Axios</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Vue</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/31/2019/Axios使用/">
-            <time class="tagcloud-posttime">2019 / 01 / 31</time>
-            <span>Axios使用</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Vue父子通信/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Vue父子组件间的通信</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/09/26/2019/一个失焦指令的学习/">
-            <time class="tagcloud-posttime">2019 / 09 / 26</time>
-            <span>一个失焦指令的学习</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/01/17/2020/Vue-Diff/">
-            <time class="tagcloud-posttime">2020 / 01 / 17</time>
-            <span>Vue-Diff</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>CSS</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/CSS省略号实现/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>CSS省略号实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/CSS清除浮动/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>CSS清除浮动的几种方式</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/26/2019/Grid布局/">
-            <time class="tagcloud-posttime">2019 / 03 / 26</time>
-            <span>Grid布局</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>margin重叠以及解决办法</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/transform对fixed/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>transform父元素对fixed子元素的影响</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/12/26/2020/stylus-media/">
-            <time class="tagcloud-posttime">2020 / 12 / 26</time>
-            <span>stylus_media</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/03/2020/重绘回流/">
-            <time class="tagcloud-posttime">2020 / 02 / 03</time>
-            <span>重绘回流</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/03/30/2020/轮播/">
-            <time class="tagcloud-posttime">2020 / 03 / 30</time>
-            <span>轮播</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
-            <time class="tagcloud-posttime">2021 / 01 / 08</time>
-            <span>JS与stylus与CSSVar的相互作用</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/03/01/2021/column-count描述元素的列数/">
-            <time class="tagcloud-posttime">2021 / 03 / 01</time>
-            <span>column-count描述元素的列数</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/CSS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>CSS&HTML</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>HTML</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/CSS省略号实现/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>CSS省略号实现</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/01/2019/margin重叠以及解决办法/">
-            <time class="tagcloud-posttime">2019 / 03 / 01</time>
-            <span>margin重叠以及解决办法</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/03/2019/阻止冒泡、默认事件/">
-            <time class="tagcloud-posttime">2019 / 03 / 03</time>
-            <span>阻止冒泡、默认事件</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/03/2020/重绘回流/">
-            <time class="tagcloud-posttime">2020 / 02 / 03</time>
-            <span>重绘回流</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>布局</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/05/13/2019/Flex布局的基本属性介绍/">
-            <time class="tagcloud-posttime">2019 / 05 / 13</time>
-            <span>Flex布局的基本属性介绍</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/26/2019/Grid布局/">
-            <time class="tagcloud-posttime">2019 / 03 / 26</time>
-            <span>Grid布局</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>转载</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/26/2019/Grid布局/">
-            <time class="tagcloud-posttime">2019 / 03 / 26</time>
-            <span>Grid布局</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/01/17/2020/Vue-Diff/">
-            <time class="tagcloud-posttime">2020 / 01 / 17</time>
-            <span>Vue-Diff</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/01/2021/JS手写Promise/">
-            <time class="tagcloud-posttime">2021 / 04 / 01</time>
-            <span>JS手写Promise</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Git</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/23/2019/Git相关命令/">
-            <time class="tagcloud-posttime">2019 / 01 / 23</time>
-            <span>Git相关命令</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Gulp</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/21/2019/Gulp增量编译优化/">
-            <time class="tagcloud-posttime">2019 / 02 / 21</time>
-            <span>Gulp增量编译优化</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
-            <time class="tagcloud-posttime">2019 / 04 / 05</time>
-            <span>Gulp源码分析学习(一</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
-            <time class="tagcloud-posttime">2019 / 04 / 06</time>
-            <span>Gulp源码分析学习(二</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>源码</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
-            <time class="tagcloud-posttime">2019 / 04 / 05</time>
-            <span>Gulp源码分析学习(一</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/09/2019/Gulp源码分析学习-三/">
-            <time class="tagcloud-posttime">2019 / 04 / 09</time>
-            <span>Gulp源码分析学习(三</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/06/2019/Gulp源码分析学习-二/">
-            <time class="tagcloud-posttime">2019 / 04 / 06</time>
-            <span>Gulp源码分析学习(二</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>2019</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/04/05/2019/Gulp源码分析学习-一/">
-            <time class="tagcloud-posttime">2019 / 04 / 05</time>
-            <span>Gulp源码分析学习(一</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>JavaScipt</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/12/15/2019/JS原型链/">
-            <time class="tagcloud-posttime">2019 / 12 / 15</time>
-            <span>JS原型链</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Node</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/03/30/2019/Node读取图片并转Base64/">
-            <time class="tagcloud-posttime">2019 / 03 / 30</time>
-            <span>Node读取图片并转Base64</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Express</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>MySQL</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Bug</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>Node+MySQL释放数据库连接的Bug</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/02/2019/transform对fixed/">
-            <time class="tagcloud-posttime">2019 / 02 / 02</time>
-            <span>transform父元素对fixed子元素的影响</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Element</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/10/2019/Node-express文件上传下载/">
-            <time class="tagcloud-posttime">2019 / 02 / 10</time>
-            <span>Node+Express+Element实现文件上传下载</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/09/26/2019/一个失焦指令的学习/">
-            <time class="tagcloud-posttime">2019 / 09 / 26</time>
-            <span>一个失焦指令的学习</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>日常碎碎</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/01/22/2019/hello-world/">
-            <time class="tagcloud-posttime">2019 / 01 / 22</time>
-            <span>Hello</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/06/27/2019/毕业了/">
-            <time class="tagcloud-posttime">2019 / 06 / 27</time>
-            <span>毕业了</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/02/08/2019/新年快乐/">
-            <time class="tagcloud-posttime">2019 / 02 / 08</time>
-            <span>新年快乐</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/12/01/2020/My/">
-            <time class="tagcloud-posttime">2020 / 12 / 01</time>
-            <span>My</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/05/2021/github的3D打印/">
-            <time class="tagcloud-posttime">2021 / 04 / 05</time>
-            <span>有趣-github的3D打印</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>优化</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
-            <time class="tagcloud-posttime">2019 / 10 / 08</time>
-            <span>canvas进行图像像素点着色</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>canvas</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/10/08/2019/canvas进行图像像素点着色/">
-            <time class="tagcloud-posttime">2019 / 10 / 08</time>
-            <span>canvas进行图像像素点着色</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>踩坑</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2019/11/01/2019/踩坑eCharts参数/">
-            <time class="tagcloud-posttime">2019 / 11 / 01</time>
-            <span>踩坑eCharts参数</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>HTTP</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/10/28/2020/HTTP常见状态码/">
-            <time class="tagcloud-posttime">2020 / 10 / 28</time>
-            <span>HTTP常见状态码</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/07/09/2020/HTTPS连接过程/">
-            <time class="tagcloud-posttime">2020 / 07 / 09</time>
-            <span>HTTPS连接过程</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/08/11/2020/XSS-CSRF/">
-            <time class="tagcloud-posttime">2020 / 08 / 11</time>
-            <span>XSS-CSRF</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/05/11/2020/cors跨域/">
-            <time class="tagcloud-posttime">2020 / 05 / 11</time>
-            <span>跨域访问</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/07/09/2020/三次握手四次挥手/">
-            <time class="tagcloud-posttime">2020 / 07 / 09</time>
-            <span>三次握手四次挥手</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/11/05/2020/网络七层结构/">
-            <time class="tagcloud-posttime">2020 / 11 / 05</time>
-            <span>网络七层结构</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/">
-            <time class="tagcloud-posttime">2021 / 04 / 07</time>
-            <span>HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/02/21/2021/TCP与UDP的区别/">
-            <time class="tagcloud-posttime">2021 / 02 / 21</time>
-            <span>TCP与UDP的区别</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/02/26/2021/HTTP缓存/">
-            <time class="tagcloud-posttime">2021 / 02 / 26</time>
-            <span>HTTP缓存</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/12/2021/浏览器的多线程/">
-            <time class="tagcloud-posttime">2021 / 04 / 12</time>
-            <span>浏览器的多线程</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/HTTP/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>HTTP</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Adv</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/02/15/2020/adv/">
-            <time class="tagcloud-posttime">2020 / 02 / 15</time>
-            <span>adv</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Stylus</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/12/26/2020/stylus-media/">
-            <time class="tagcloud-posttime">2020 / 12 / 26</time>
-            <span>stylus_media</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/">
-            <time class="tagcloud-posttime">2021 / 01 / 08</time>
-            <span>JS与stylus与CSSVar的相互作用</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>算法</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2020/04/07/2020/费舍尔-耶茨混洗/">
-            <time class="tagcloud-posttime">2020 / 04 / 07</time>
-            <span>费舍尔.耶茨混洗</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/19/2021/leetCode-2-两数相加/">
-            <time class="tagcloud-posttime">2021 / 04 / 19</time>
-            <span>leetCode-2-两数相加</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/17/2021/leetCode-1-两数之和/">
-            <time class="tagcloud-posttime">2021 / 04 / 17</time>
-            <span>leetCode.1.两数之和</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/19/2021/leetCode-3-无重复字符的最长子串/">
-            <time class="tagcloud-posttime">2021 / 04 / 19</time>
-            <span>leetCode-3-无重复字符的最长子串</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/12/2021/最长回文子串/">
-            <time class="tagcloud-posttime">2021 / 04 / 12</time>
-            <span>最长回文子串</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Web</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/">
-            <time class="tagcloud-posttime">2021 / 04 / 07</time>
-            <span>HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/02/21/2021/TCP与UDP的区别/">
-            <time class="tagcloud-posttime">2021 / 02 / 21</time>
-            <span>TCP与UDP的区别</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/CSS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>CSS&HTML</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/HTTP/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>HTTP</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/interview/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>interview</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>数据结构</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/04/18/2021/数组数据结构-trie树/">
-            <time class="tagcloud-posttime">2021 / 04 / 18</time>
-            <span>数组数据结构-trie树</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/每日一题/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>每日一题</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
-      <h2>Interview</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/CSS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>CSS&HTML</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/JS/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>JS</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/HTTP/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>HTTP</span>
-          </a>
-        </div>
-      
-        <div class="tagcloud-post">
-          <a href="/2021/01/01/web/interview/">
-            <time class="tagcloud-posttime">2021 / 01 / 01</time>
-            <span>interview</span>
-          </a>
-        </div>
-      
-    </div>
-  
-</div>
-
-  </div>
-  <div class="backtop syuanpi melt toTop" id="backtop">
-    <i class="iconfont icon-up"></i>
-    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
-</div>
-
-  <div class="search" id="search">
-    <div class="input">
-      <input type="text" id="search-input" placeholder="别搜了, 404 !" autofocus>
-    </div>
-    <div id="search-result"></div>
-  </div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="/script/scheme/banderole.js"></script>
-
-
-<script src="/script/bootstarp.js"></script>
-
-
-<script>
-if (nlviconfig.theme.toc) {
-  setTimeout(function() {
-    if (nlviconfig.theme.scheme === 'balance') {
-      $("#header").addClass("show_toc");
-    } else if (nlviconfig.theme.scheme === 'banderole') {
-      $(".container-inner").addClass("has_toc");
-      $(".post-toc .title").addClass("show");
-      $(".toc-inner").addClass("show");
-    }
-  }, 1000);
-}
-</script>
-
-
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0"></script>
+
+<script src="/js/script.js?v=1.1.0"></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>
