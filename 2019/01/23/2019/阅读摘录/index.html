@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Gulp源码分析学习(三 | Jayant Blog</title>
-  <meta name="keywords" content=" Gulp , 源码 ">
-  <meta name="description" content="Gulp源码分析学习(三 | Jayant Blog">
+  <title>阅读摘录 | Jayant Blog</title>
+  <meta name="keywords" content=" 书籍摘录 ">
+  <meta name="description" content="阅读摘录 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
 <meta property="og:type" content="website">
@@ -707,9 +707,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-2019/Gulp源码分析学习-三" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2019/阅读摘录" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Gulp源码分析学习(三</h1>
+        <h1 class="article-title">阅读摘录</h1>
     
     <div class="article-meta">
         
@@ -719,7 +719,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a data-rel="工具">工具</a>
+            <a data-rel="读书V生活">读书V生活</a>
             
         </span>
         
@@ -727,21 +727,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">Gulp</a>
-            
-            <a class="color3">源码</a>
+            <a class="color5">书籍摘录</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-04-23 14:03:52">2019-04-09 08:51</time>
+            发布时间 : <time class="date" title="最后更新: 2021-04-24 11:22:51">2019-01-23 08:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:3.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -760,7 +758,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vinyl-fs部分"><span class="toc-text">vinyl-fs部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、glob"><span class="toc-text">一、glob</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、src"><span class="toc-text">二、src</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、dest"><span class="toc-text">三、dest</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#《罗生门》"><span class="toc-text">《罗生门》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《挪威的森林》"><span class="toc-text">《挪威的森林》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《瓦尔登湖》"><span class="toc-text">《瓦尔登湖》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《百年孤独》"><span class="toc-text">《百年孤独》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《了不起的盖茨比》"><span class="toc-text">《了不起的盖茨比》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《岛上书店》"><span class="toc-text">《岛上书店》</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -776,154 +774,151 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vinyl-fs部分"><a href="#vinyl-fs部分" class="headerlink" title="vinyl-fs部分"></a>vinyl-fs部分</h1><p>当我们进入vinyl-fs的根目录index.js下，我们可以看到vinyl-fs所实现的src、dest接口是被分属于了几个外部模块 =&gt; </p>
-<pre><code>&#39;use strict&#39;;
-
-// 让我们来看一下各自所属的文件
-module.exports = {
-  // 文件的处理上
-  src: require(&#39;./lib/src&#39;),
-  dest: require(&#39;./lib/dest&#39;),
-  symlink: require(&#39;./lib/symlink&#39;),
-};
-
-</code></pre><h2 id="一、glob"><a href="#一、glob" class="headerlink" title="一、glob"></a>一、glob</h2><p>在进入相应的模块方法分析之前，我们先来看一下什么是glob；</p>
-<p>node的glob是指允许你使用一些正则表达式，用于匹配对应规则的文件，</p>
-<a id="more"></a>
-<p>类似于我们通常在gulp打包配置中所写的一样：</p>
-<pre><code>
-gulp.src([&#39;./lib/images/*&#39;, &#39;./lib/images/*/*&#39;])
-
-</code></pre><p>而这其中即是我们的glob模式，也是如此我们可以匹配我们相应的传入文件。</p>
-<p><strong>接下来，我们将陆续的来看一下
-</strong>src<strong> 、 </strong>dest<strong> 的具体实现。</strong></p>
-<h2 id="二、src"><a href="#二、src" class="headerlink" title="二、src"></a>二、src</h2><p>我们进入 ./lib/src/index.js 中查看相应的入口文件</p>
-<pre><code>&#39;use strict&#39;;
-
-var gs = require(&#39;glob-stream&#39;);
-// 结合流的阵列成使用单个双工流泵和duplexify
-// 如果其中一个流关闭/错误，管道中的所有流都将被销毁。
-var pumpify = require(&#39;pumpify&#39;);
-// 在transformStream中包装ReadableStream
-var toThrough = require(&#39;to-through&#39;);
-var isValidGlob = require(&#39;is-valid-glob&#39;);
-var createResolver = require(&#39;resolve-options&#39;);
-
-// 以下各导入模块可以进入相应文件中查看注释分析
-var config = require(&#39;./options&#39;);
-var prepare = require(&#39;./prepare&#39;);
-var wrapVinyl = require(&#39;./wrap-vinyl&#39;);
-var sourcemap = require(&#39;./sourcemap&#39;);
-var readContents = require(&#39;./read-contents&#39;);
-var resolveSymlinks = require(&#39;./resolve-symlinks&#39;);
-
-function src(glob, opt) {
-  // 此处进行默认的配置与传入的配置进行解析配置，详情可见vintl-fs-Test\createResolverTest.js
-  // 类似合并默认配置项与用户传入配置项
-  var optResolver = createResolver(config, opt);
-
-  // 判断是否有效的glob(简化的正则表达式)
-  if (!isValidGlob(glob)) {
-    throw new Error(&#39;Invalid glob argument: &#39; + glob);
-  }
-
-
-  var streams = [
-    // 使用了glob-stream模块，传入一个(简化的正则表达式)做为第一个参数，opt对象作为第二个参数，
-    // 返回创建glob流
-    gs(glob, opt),
-    // 传入上述的解析配置，创建一个vinly文件对象
-    wrapVinyl(optResolver),
-    // glob的stat为symlink的情况下，转为硬链接
-    resolveSymlinks(optResolver),
-    // 进行文件stat以及与optResolver配置选项上进行时间的比较
-    prepare(optResolver),
-    // 对流进行操作，获取文件内容，写入file.content属性
-    // 预设为Buffer是通过readBuffer获取
-    // 否则则通过readStream获取
-    readContents(optResolver),
-    // 对文件的映射，是否开启 sourcemap
-    sourcemap(optResolver),
-    /*
-    一步步的加工成streams
-    传于pumpify
-    */
-  ];
-
-  var outputStream = pumpify.obj(streams);
-  // 返回outputStream作为参数的toThrough流
-  return toThrough(outputStream);
-}
-
-
-module.exports = src;
-
-</code></pre><p>至此，简单的将即是我们的gulp.src便是使用于将匹配的文件转换为流的形式进而通过各项处理</p>
-<p><strong>接下来，让我们看一下dest中对stream的处理</strong></p>
-<h2 id="三、dest"><a href="#三、dest" class="headerlink" title="三、dest"></a>三、dest</h2><p>我们依旧进入相应的 ./lib/dest/index.js 中查看其入口文件</p>
-<pre><code>&#39;use strict&#39;;
-/*
-dest主要作用是根据src接口接收透过来的输出流，并生成文件于指定文件夹
-*/
-// 将流信息转为
-var lead = require(&#39;lead&#39;);
-// 结合流的阵列成使用单个双工流泵和duplexify
-// 如果其中一个流关闭/错误，管道中的所有流都将被销毁。
-var pumpify = require(&#39;pumpify&#39;);
-// 在写入文件前确认目标文件夹存在
-var mkdirpStream = require(&#39;fs-mkdirp-stream&#39;);
-// 配置选项的解析
-var createResolver = require(&#39;resolve-options&#39;);
-// 配置
-var config = require(&#39;./options&#39;);
-// 用于比较
-var prepare = require(&#39;./prepare&#39;);
-// 生成sourcemap
-var sourcemap = require(&#39;./sourcemap&#39;);
-var writeContents = require(&#39;./write-contents&#39;);
-
-var folderConfig = {
-  outFolder: {
-    type: &#39;string&#39;,
-  },
-};
-
-function dest(outFolder, opt) {
-  // 如果目标outFolder为空---&gt;报错
-  if (!outFolder) {
-    throw new Error(&#39;Invalid dest() folder argument.&#39; +
-      &#39; Please specify a non-empty string or a function.&#39;);
-  }
-  // 配置与用户传入配置的解析
-  var optResolver = createResolver(config, opt);
-  // 文件路径的配置解析---地址
-  var folderResolver = createResolver(folderConfig, { outFolder: outFolder });
-  // 
-  function dirpath(file, callback) {
-    var dirMode = optResolver.resolve(&#39;dirMode&#39;, file);
-
-    callback(null, file.dirname, dirMode);
-  }
-  // 流
-  var saveStream = pumpify.obj(
-    // 提取以及校验流信息
-    prepare(folderResolver, optResolver),
-    // 生成sourcemap地图
-    sourcemap(optResolver),
-    // 传入解析dirMode的以下方法，...
-    mkdirpStream.obj(dirpath),
-    // 想合后的相应配置传入writeContents，然后写入相应文件
-    writeContents(optResolver)
-  );
-
-  // Sink the output stream to start flowing
-  // 流沉淀为文件
-  return lead(saveStream);
-}
-
-module.exports = dest;
-
-</code></pre><p>依据着相应的模块指示，我们也可以大致的清楚了gulp进行打包操作的流程</p>
+        <p>大部分都是从印象笔记中搬运过来的，想着也是记录在这边比较的方便…</p>
+<h2 id="《罗生门》"><a href="#《罗生门》" class="headerlink" title="《罗生门》"></a>《罗生门》</h2><ul>
+<li>【罗生门】<br>我们为人起初的恶意是会因为社会的理论…善恶一念之间…</li>
+<li>【竹林中】<br>真相并不可得呀，每个人都为着自己的供词或多或少的撒着慌，真理，事实的真相又要从哪儿考据呢？</li>
+<li>【地狱变】<br>大公，人人称颂的角色，正面光鲜，可却会做下卑劣的事，其心内核，也是肮脏的灵魂。<br>灵秀，猴子，温情，女儿成了他恋世的惟一，人人不喜欢灵秀，可也唯独对女儿百般疼爱，最终，完成了自己的作品，也无再牵挂。</li>
+<li>【鼻子】<br>内心嫌弃自己的缺陷，因为它与众不同<br>有时候改变了它，它也改变了你，内心越来越暴躁与焦虑<br>我们要克服自身的缺陷，更重要的是心里这一关。</li>
+<li>【山药粥】<br>幻想与希望中的东西，是最得我们意的吧？<br>最终接受着的那一刻，就已经不在那么如蜃楼那么般开心吧。</li>
+<li>【河童】<br>很讽刺着现实社会，以及人类生活…思想上…生活习惯上…种种…</li>
+</ul>
+<h2 id="《挪威的森林》"><a href="#《挪威的森林》" class="headerlink" title="《挪威的森林》"></a>《挪威的森林》</h2><ol>
+<li>尽管如此，记忆到底还是一步步远离开去了，我忘却的东西实在太多了。</li>
+<li>我不禁再次感到敬佩：世上果然有多种多样的希望，人生的目的也各所不同。</li>
+<li>既然话已出口，就该说清楚才是。</li>
+<li>死并非生的对立面，而作为生的一部分永存。</li>
+<li>或许我的心包有一层硬壳，能破壳而入的东西是极其有限的，所以我才不能对人一往情深。</li>
+<li>我几次朝夜幕伸出手去。指尖毫无所触，那小小的光电总是同指尖保持着一点不可触及的距离。</li>
+<li>一个扛着睡袋，满腮胡子，疲于奔命的人哪里找什么浪漫情调呢？</li>
+<li>哪里有人喜欢孤独，不过是不乱交朋友罢了，那样只能落的失望。</li>
+<li>也许等过久了，我追求的是十二分完美无缺的东西，所以才这么难。</li>
+<li>我是个比你想的要不健全的人。</li>
+<li>那不是努力，是劳动。</li>
+<li>不要同情自己，同情自己是卑劣懦夫干的勾当。</li>
+<li>春天里的熊；整个世界的森林的树都为之倾倒；整个世界森林里的老虎全都融化成黄油。</li>
+<li>我们是生息在不健全世界上不健全的人。</li>
+<li>我们唯一能做的，就是从这片悲哀中挣脱出来，并从中领悟某种哲理。</li>
+<li>我已成为过去的人，你眼前存在的不过是我往日的记忆残片，我心目中最宝贵的东西在很久以前就已寿终正寝。</li>
+</ol>
+<h2 id="《瓦尔登湖》"><a href="#《瓦尔登湖》" class="headerlink" title="《瓦尔登湖》"></a>《瓦尔登湖》</h2><ul>
+<li>【生计】<ol>
+<li>人只有在举目无亲的远方才能够真诚的活着。</li>
+<li>人对自己的看法，决定或者影响着他的命运。</li>
+<li>所谓的委曲求全其实是积重难返的绝望。</li>
+<li>因为岁月让他得不偿失。</li>
+<li>有许多遥远而不同的生灵正在同时凝望着同一颗星星呢！</li>
+<li>痛苦本身就是一种回报。（在哪里我好像也看过相同的一种说法…在哪本书里来着…）</li>
+<li>我们总是想要学会如何得到更多的东西，但有时候应该学学如何满足于更少的东西。</li>
+<li>房屋有如贝壳，让他们变得秀丽的，是寄居在内者的生活。（斯是陋室，唯吾德馨，的意思吧，哈哈哈哈哈中文博大精深！）</li>
+<li>人世间本没有两全其美的事物。</li>
+<li>民族想要千古流芳，靠的应该不是建筑，而是强大的抽象思想。</li>
+<li>但我盼望每个人都能非常清醒地去发现和追求他自己的生活方式，而不是模仿他的父亲，母亲活着邻居。</li>
+<li>我们也许没法依照预定的日子如期抵达我们的港口，但终归航行在正确的线路上。（终归在正确的道路上…）</li>
+<li>独行的人今天就可以上路！</li>
+<li>你现在是什么人，就做什么人，别想着要让自己变的更有价值，而是要怀着善意努力去做好事。</li>
+<li>安抚人们的恐惧，而不是肯定人们的希望。</li>
+<li>如果你手上很宽裕，想枣树那样慷慨大方吧；如果你没有可以送出去的余财，那么就像效访柏树，当一个自由的人吧！（穷则独善其身 达则兼济天下。）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>【居所和生活的目标】</p>
+<ol>
+<li>早晨让人回到英雄时代。</li>
+<li>因为星期天很适合对虚度的一周进行总结，而不是让人精神抖擞地去迎接新的一周的日子。</li>
+<li>儿童把生活当作游戏，反而能更清楚地认识生活的真实规则和各种关系。（just play！）</li>
+</ol>
+</li>
+<li><p>【阅读】</p>
+<ol>
+<li>我们花了许多钱来治疗身体的病疼，对精神的疾患却不管不顾。</li>
+</ol>
+</li>
+<li><p>【声音】</p>
+<ol>
+<li>人的路，要亲自去走，这是千真万确的。</li>
+</ol>
+</li>
+<li><p>【孤寂】</p>
+<ol>
+<li>每个毛孔都洋溢着快乐。</li>
+<li>人们在世间的日子真的很短促。</li>
+<li>我已经发想，两个人的腿再怎么走，也无法让两颗心靠得更近。</li>
+<li>衡量孤寂的标准，并不是一个人和其他同类之间隔了多少英里。</li>
+</ol>
+</li>
+<li><p>【镇区】</p>
+<ol>
+<li>只有到了失去这个世界之后，我们才能找到我们自己。</li>
+</ol>
+</li>
+<li><p>【湖泊】</p>
+<ol>
+<li>别再向往天堂，那是对大地的侮辱。</li>
+</ol>
+</li>
+<li><p>【贝克尔农场】</p>
+<ol>
+<li>尽管去更远的地方，尽管在许多溪流和炉膛旁边休息，完全无需担心。趁着年轻，你要纪念你的造物主。尽管无忧无虑地在黎明醒来，踏上探险的征途。</li>
+<li>别让谋生成为苦差事，而是让它成为娱乐活动。</li>
+</ol>
+</li>
+<li><p>【更高的法则】</p>
+<ol>
+<li>我认为白水是唯一适合智者的饮料。（哈哈哈，我也在尝试，因为听说那样对皮肤好。）</li>
+<li>心智尚处于胚胎期的成年人要当过猎人才能真正的成熟。</li>
+<li>我们都知道自己内心有只猛兽，我们的高尚本性越是昏昏欲睡，它就越是清醒。（孩子成为大人，我们做过错事，才懂得成为正途上的人儿；我们要学会控制内心的欲望深渊。）</li>
+</ol>
+</li>
+<li><p>【冬天的湖】</p>
+<ol>
+<li>我们对规律与和谐的了解，往往局限于那些我们已经掌握的事例。</li>
+</ol>
+</li>
+<li><p>【春天】</p>
+<ol>
+<li>其实幸福的人应该永远生活在此刻，好好利用每件事落到我们身上的琐事。</li>
+<li>别把时间用于挽回从前失去的机会，并美其名曰承担责任。明明春天已经来临，我们却还在冬天里流连。</li>
+</ol>
+</li>
+<li><p>【结】</p>
+<ol>
+<li>将目光转向内部吧，你将会发现，你的精神世界有数以千计的区域，尚未被发现。去游览这些区域吧，要成为精通内在宇宙情况的专家。</li>
+<li>去探索你内心偏远的地方。</li>
+<li>但人生的目标并非自己持有这种敌视社会的态度，而是始终能够做他自己，遵从自己的原则。</li>
+<li>如果人自信地朝着梦想的地方前进，努力去过上他事先设想的生活，他将会取的普通人想象不到的成功。</li>
+<li>我们应该抱着开放的态度，顺其自然，别明确地限定我们将来应该是什么模样；至于过去活着从前，那就像我们的影子，无非是表明我们还在阳光下活着而已，应该将其抛在身后。</li>
+<li>让每个人去管他自己的事吧。</li>
+<li>去找旧东西吧，回去找他们。事物不会改变，变的是我们。</li>
+</ol>
+</li>
+</ul>
+<h2 id="《百年孤独》"><a href="#《百年孤独》" class="headerlink" title="《百年孤独》"></a>《百年孤独》</h2><ol>
+<li>过去都是假的，回忆是一条没有归途的路，以往的一切春天都无法复原，即使最狂热最坚贞的爱情，归根结底也不过是一种瞬息即逝的现实，唯有孤独永恒。</li>
+<li>生命中真正重要的不是你遭遇了什么，而是你记住了哪些事，又是如何铭记。</li>
+<li>所有人都显得很寂寞，用自己的方式想尽办法，排遣寂寞，事实上仍是延续自己的寂寞，寂寞是造化对群居者的诅咒，孤独才是寂寞的唯一出口。</li>
+<li>或许不久之后，或者不用多久，个把月时间，马孔多的居民们就像忘记香蕉公司的存在过那般，忘记那某一个家族的存在过，忘记了那最豪华的宅屋曾经的主人，以及由来，被人遗忘，作为鬼魂也孤独，频频出现的灵魂，似乎只是在印证第一代的精神继承。</li>
+</ol>
+<h2 id="《了不起的盖茨比》"><a href="#《了不起的盖茨比》" class="headerlink" title="《了不起的盖茨比》"></a>《了不起的盖茨比》</h2><ol>
+<li>每逢你想要批评任何人的时候，你就要记住，这个世界上的人，并不是个个都有过你拥有的那些优越条件。（这里的批评，换成了质疑，以及其他各种情况都行；并不是所有人都经历了你的经历，想法都是自然有所不同的呀。）</li>
+<li>盖茨比从年轻时起就一心要追求“一个绚丽得无法形容的宇宙”。实际上长岛西卵的杰伊.盖茨比来自他对自己柏拉图式的理念。他是上帝的儿子…因此他必须为他的天父效命，献身于一种博大庸俗，华而不实的美。</li>
+<li>一旦爱上了“黄金女郎”，他那些无法形容的憧憬和她短暂的呼吸就结合在一起了，她成为他理想的化身，尽管黛西早已移情别恋，尽管他清楚的听出“她的声音充满了金钱”，他仍不改初衷，固执地追求重温旧梦。</li>
+<li>黛西远不如他的梦想，并不是她本人的过错，而是由于他的幻梦有巨大的活力。他的幻梦超越了她，超越了一切，他以一种创造性的热情投入了这个幻梦，不断地添枝加叶，用飘来的每一根羽毛加以缀饰。</li>
+<li>因此，他对理想的执着追求和献身精神也超越了世俗的男欢女爱的恩怨。为了抱着一个梦太久而付出很高的代价，’他一定透过可怕的树叶仰视过一片陌生的天空而感到毛骨悚然，同时发觉一朵玫瑰花是多么丑恶的东西，阳光照在刚刚露头的小草上又是多么残酷。</li>
+<li>他的灵魂在受难，但是他无怨无悔，从一而终。</li>
+</ol>
+<h2 id="《岛上书店》"><a href="#《岛上书店》" class="headerlink" title="《岛上书店》"></a>《岛上书店》</h2><ol>
+<li>来吧，亲爱的，且让我们来相爱，趁你我尚在人世。</li>
+<li>无人为孤岛。</li>
+<li>我们在二十岁时有共鸣的东西到了四十岁的时候不一定能产生共鸣。</li>
+<li>生活中每一桩糟糕事，几乎都是时机不当的结果，每件好事，都是时机恰到好处的结果。</li>
+<li>“亲爱的阿米莉亚，如果你要一直等到奈特利的秋季书目出来才会再来爱丽丝岛，我真觉得我会无法忍受”。——（全书最佳）</li>
+<li>因为从心底害怕自己不值得被爱，我们独来独往，“然而就是因为独来独往，才让我们以为自己不值得被爱。有一天，你不知道是什么时候，你会驱车上路。有一天，你不知道是什么时候，你会遇上他。你会被爱，因为你今生第一次真正不再孤单。你会选择不再孤单下去。</li>
+<li>我的一部分也死了，很可能直到我遇见你。</li>
+<li>为什么我们写我们不喜欢，讨厌，承认有缺点的事物，要比我们喜爱的事物容易得多？</li>
+<li>我不是为你哭，我为我自己哭。你知道我花了多久才找到你？你知道我经历了多少次糟糕的约会？</li>
+</ol>
 
       
        
