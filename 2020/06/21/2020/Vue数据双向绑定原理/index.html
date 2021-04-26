@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Vue数据双向绑定原理 | Jayant Blog</title>
+  <title>Vue响应式原理 | Jayant Blog</title>
   <meta name="keywords" content=" Vue ">
-  <meta name="description" content="Vue数据双向绑定原理 | Jayant Blog">
+  <meta name="description" content="Vue响应式原理 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
 <meta property="og:type" content="website">
@@ -117,7 +117,7 @@
                     <div data-rel="前端">
                         
                         前端
-                        <small>(50)</small>
+                        <small>(49)</small>
                         
                     </div>
                     
@@ -145,7 +145,7 @@
                     <div data-rel="工具">
                         
                         工具
-                        <small>(7)</small>
+                        <small>(8)</small>
                         
                     </div>
                     
@@ -181,7 +181,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="70">
-<input type="hidden" id="yelog_site_word_count" value="56.6k">
+<input type="hidden" id="yelog_site_word_count" value="60.3k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -404,11 +404,6 @@
             <span class="post-date" title="2021-04-01 20:08:55">2021/04/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/03/01/2021/column-count描述元素的列数/" data-tag="CSS" data-author>
-            <span class="post-title" title="column-count描述元素的列数">column-count描述元素的列数</span>
-            <span class="post-date" title="2021-03-01 00:00:00">2021/03/01</span>
-        </a>
-        
         <a class="全部文章 前端 " href="/2021/02/26/2021/HTTP缓存/" data-tag="HTTP" data-author>
             <span class="post-title" title="HTTP缓存">HTTP缓存</span>
             <span class="post-date" title="2021-02-26 00:00:00">2021/02/26</span>
@@ -424,23 +419,23 @@
             <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/CSS/" data-tag="CSS,Web,Interview" data-author>
-            <span class="post-title" title="CSS&amp;HTML">CSS&amp;HTML</span>
-            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
-        </a>
-        
         <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="HTTP,Web,Interview" data-author>
             <span class="post-title" title="HTTP">HTTP</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
-            <span class="post-title" title="JS">JS</span>
+        <a class="全部文章 前端 " href="/2021/01/01/web/CSS/" data-tag="CSS,Web,Interview" data-author>
+            <span class="post-title" title="CSS&amp;HTML">CSS&amp;HTML</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
         <a class="全部文章 前端 " href="/2021/01/01/web/interview/" data-tag="Web,Interview" data-author>
             <span class="post-title" title="interview">interview</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
@@ -505,7 +500,7 @@
         </a>
         
         <a class="全部文章 工具 " href="/2020/06/21/2020/Vue数据双向绑定原理/" data-tag="Vue" data-author>
-            <span class="post-title" title="Vue数据双向绑定原理">Vue数据双向绑定原理</span>
+            <span class="post-title" title="Vue响应式原理">Vue响应式原理</span>
             <span class="post-date" title="2020-06-21 20:02:10">2020/06/21</span>
         </a>
         
@@ -517,11 +512,6 @@
         <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="JavaScript,HTTP" data-author>
             <span class="post-title" title="跨域访问">跨域访问</span>
             <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
-        </a>
-        
-        <a class="全部文章 前端 " href="/2020/04/07/2020/费舍尔-耶茨混洗/" data-tag="JavaScript,算法" data-author>
-            <span class="post-title" title="费舍尔.耶茨混洗">费舍尔.耶茨混洗</span>
-            <span class="post-date" title="2020-04-07 00:00:00">2020/04/07</span>
         </a>
         
         <a class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="JavaScript,CSS" data-author>
@@ -539,9 +529,19 @@
             <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
         </a>
         
+        <a class="全部文章 工具 " href="/2020/01/23/2020/Vue的nextTick剖析/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue的nextTick剖析">Vue的nextTick剖析</span>
+            <span class="post-date" title="2020-01-23 16:42:30">2020/01/23</span>
+        </a>
+        
         <a class="全部文章 工具 " href="/2020/01/17/2020/Vue-Diff/" data-tag="Vue,转载" data-author>
             <span class="post-title" title="Vue虚拟节点VNodeDiff算法">Vue虚拟节点VNodeDiff算法</span>
             <span class="post-date" title="2020-01-17 20:17:56">2020/01/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/01/07/2020/费舍尔-耶茨混洗/" data-tag="JavaScript,算法" data-author>
+            <span class="post-title" title="借鉴费舍尔.耶茨混洗优化公司年会抽奖">借鉴费舍尔.耶茨混洗优化公司年会抽奖</span>
+            <span class="post-date" title="2020-01-07 00:00:00">2020/01/07</span>
         </a>
         
         <a class="全部文章 前端 " href="/2019/12/15/2019/JS原型链/" data-tag="JavaScipt" data-author>
@@ -709,7 +709,7 @@
     <div class="pjax">
         <article id="post-2020/Vue数据双向绑定原理" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Vue数据双向绑定原理</h1>
+        <h1 class="article-title">Vue响应式原理</h1>
     
     <div class="article-meta">
         
@@ -734,12 +734,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-04-23 17:22:55">2020-06-21 20:02</time>
+            发布时间 : <time class="date" title="最后更新: 2021-04-26 22:48:20">2020-06-21 20:02</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:88</span>
+        <span>字数:2.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -758,7 +758,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue2"><span class="toc-text">Vue2</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue2"><span class="toc-text">Vue2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象变响应式"><span class="toc-text">对象变响应式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#index入口"><span class="toc-text">index入口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initJS"><span class="toc-text">initJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stateJS"><span class="toc-text">stateJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initPorps"><span class="toc-text">initPorps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initData"><span class="toc-text">initData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy"><span class="toc-text">proxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#observe"><span class="toc-text">observe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Observer"><span class="toc-text">Observer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defineReactive"><span class="toc-text">defineReactive</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get收集依赖"><span class="toc-text">get收集依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dep"><span class="toc-text">Dep</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Watcher"><span class="toc-text">Watcher</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -774,9 +774,561 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前看过几回<code>Vue</code>的响应式原理剖析，但是几乎总是不久就忘记了，仅仅是依稀记得<code>defineProperty</code>做<code>get</code>和<code>set</code>的数据劫持，然后在此基础上做一些发布，说到底还是可能不够深入，不够理解，特此希望借此总结一下，将一些点做下记录。</p>
-<a id="more"></a>
-<h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3>
+        <h2 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h2><p>之前看过几回<code>Vue</code>的响应式原理剖析，但是几乎总是不久就忘记了，仅仅是依稀记得<code>defineProperty</code>做<code>get</code>和<code>set</code>的数据劫持，然后在此基础上做一些发布，说到底还是可能不够深入，不够理解，特此希望借此总结一下，将一些点做下记录，顺便对源码做一些回顾。<br>我们从三个部分来介绍<code>Vue</code>的响应式原理的实现：</p>
+<ul>
+<li>对象变响应式</li>
+<li>get收集依赖</li>
+<li>set发布更新</li>
+</ul>
+<h3 id="对象变响应式"><a href="#对象变响应式" class="headerlink" title="对象变响应式"></a>对象变响应式</h3><p>我们都知道<code>Vue</code>中是通过<code>defineProperty</code>进行数据劫持，但是他具体是如何进行到劫持这一步的呢？<br>我们一起从<code>Vue</code>的源码中开始了解一下吧！</p>
+<h4 id="index入口"><a href="#index入口" class="headerlink" title="index入口"></a>index入口</h4><ul>
+<li><code>src\core\instance\index.js</code></li>
+</ul>
+<p>Vue的源码入口，其中通过<code>Function</code>实现的<code>Vue</code>这个类，并且还执行了一些方法，</p>
+<pre><code>initMixin(Vue) 
+stateMixin(Vue)
+eventsMixin(Vue)
+lifecycleMixin(Vue)
+renderMixin(Vue)
+</code></pre><p>从字面意思上来看，我们很容易理解，<code>Mixin</code>，什么event，lifecycleMixin，大概应该都是对Vue这个进行的扩展。这个以后有机会的话一起详细看看，本单元我们的主角，就是<code>initMixin(Vue)</code>，我们看看它实现了什么呢。</p>
+<h4 id="initJS"><a href="#initJS" class="headerlink" title="initJS"></a>initJS</h4><ul>
+<li><code>src\core\instance\init.js</code></li>
+</ul>
+<p>我们看看<code>init</code>方法倒是实现了什么，我会去除掉部分代码，我们本单元关键是寻找如何变成响应式对象的。</p>
+<pre><code>export function initMixin (Vue: Class&lt;Component&gt;) {
+  Vue.prototype._init = function (options?: Object) {
+    const vm: Component = this
+    vm._uid = uid++
+    // ...
+
+    initLifecycle(vm)
+    initEvents(vm)
+    initRender(vm)
+    // ...
+    callHook(vm, &#39;beforeCreate&#39;)
+    initInjections(vm)
+    initState(vm)
+    initProvide(vm)
+    callHook(vm, &#39;created&#39;)
+
+    // ...
+    if (vm.$options.el) {
+      vm.$mount(vm.$options.el)
+    }
+  }
+}
+</code></pre><p>将<code>vm</code>变量赋值为<code>this</code>，这就是我们常见的<code>vm.xxx</code>写法，其中这就是<code>vm = this</code>的由来，这其中是对<code>生命周期</code>，<code>事件</code>的一些初始化，以及调用了两个生命<code>钩子</code>函数。而最主要的对<code>data</code>和<code>prop</code>的处理，则是在<code>initState</code>中。</p>
+<h4 id="stateJS"><a href="#stateJS" class="headerlink" title="stateJS"></a>stateJS</h4><ul>
+<li><code>src\core\instance\state.js</code></li>
+</ul>
+<pre><code>export function initState (vm: Component) {
+  vm._watchers = []
+  const opts = vm.$options
+  if (opts.props) initProps(vm, opts.props)
+  if (opts.methods) initMethods(vm, opts.methods)
+  if (opts.data) {
+    initData(vm) // 初始化数据
+  } else {
+    observe(vm._data = {}, true /* asRootData */)
+  }
+  if (opts.computed) initComputed(vm, opts.computed)
+  if (opts.watch &amp;&amp; opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch) // 初始化 Watch
+  }
+}
+</code></pre><p><code>initState</code>主要对<code>prop</code>，<code>methods</code>，<code>data</code>，<code>computed</code>，<code>watch</code>都分别做一些处理，其中<code>prop</code>和<code>data</code>是我们要下一步查看的。</p>
+<h4 id="initPorps"><a href="#initPorps" class="headerlink" title="initPorps"></a>initPorps</h4><ol>
+<li><code>initPorps</code></li>
+</ol>
+<pre><code>function initProps (vm: Component, propsOptions: Object) {
+  const propsData = vm.$options.propsData || {}
+  const props = vm._props = {}
+  const keys = vm.$options._propKeys = []
+  const isRoot = !vm.$parent
+  for (const key in propsOptions) {
+    keys.push(key)
+    const value = validateProp(key, propsOptions, propsData, vm)
+    if (process.env.NODE_ENV !== &#39;production&#39;) {
+      // ...
+    } else {
+      defineReactive(props, key, value)
+    }
+    // ...
+    if (!(key in vm)) {
+      proxy(vm, `_props`, key)
+    }
+  }
+  toggleObserving(true)
+}
+</code></pre><p>先从定义的props中遍历，调用了<code>validateProp</code>校验<code>props</code>是否符合规范。然后遍历<code>propsOptions</code>调用<code>defineReactive</code>方法把每个<code>prop</code>变成响应式，然后执行<code>proxy</code>方法，这个方法又是干什么的呢？</p>
+<p>在这里我们先记住留下两个点需要解决，需要去跟踪：</p>
+<ol>
+<li><code>defineReactive</code>方法；</li>
+<li><code>proxy</code>方法；</li>
+</ol>
+<p>我们需要再回头看看刚刚的<code>initData(vm)</code>。</p>
+<h4 id="initData"><a href="#initData" class="headerlink" title="initData"></a>initData</h4><pre><code>function initData (vm: Component) {
+  let data = vm.$options.data
+
+  data = vm._data = typeof data === &#39;function&#39;
+    ? getData(data, vm)
+    : data || {}
+
+  // ...
+  const keys = Object.keys(data)
+
+  const props = vm.$options.props
+
+  const methods = vm.$options.methods
+  let i = keys.length
+
+  while (i--) {
+    const key = keys[i]
+    if (process.env.NODE_ENV !== &#39;production&#39;) {
+      if (methods &amp;&amp; hasOwn(methods, key)) {
+        warn(
+          `Method &quot;${key}&quot; has already been defined as a data property.`,
+          vm
+        )
+      }
+    }
+    if (props &amp;&amp; hasOwn(props, key)) {
+      process.env.NODE_ENV !== &#39;production&#39; &amp;&amp; warn(
+        `The data property &quot;${key}&quot; is already declared as a prop. ` +
+        `Use prop default value instead.`,
+        vm
+      )
+    } else if (!isReserved(key)) {
+      proxy(vm, `_data`, key)
+    }
+  }
+  observe(data, true /* asRootData */)
+}
+</code></pre><p><code>initData</code>这一段代码做了啥呢？先判断了一下<code>data</code>是不是一个方法，是的话使用<code>getData</code>拿到手。然后取出<code>data</code>中的数据，与<code>methods</code>，<code>props</code>中的数据做判断，判断是否存在键值重复！所有这里这一步就是我们再Vue组件中定义了键值重复时抛出警告的地方。</p>
+<p>我们继续，诶，很眼熟，又是<code>proxy方法</code>，然后往下执行，是一个<code>observe</code>新方法，它们又是做什么的呢？</p>
+<p>我们在记录一下，然后可以往下跟踪，我们现在有三个未接之谜了：</p>
+<ol>
+<li><code>defineReactive</code>方法；</li>
+<li><code>proxy</code>方法；</li>
+<li><code>observe</code>方法。</li>
+</ol>
+<h4 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h4><ul>
+<li><code>src\core\instance\state.js</code></li>
+</ul>
+<p>还记得怎么使用<code>proxy</code>的吗？</p>
+<pre><code>proxy(vm, `_props`, key)
+</code></pre><pre><code>const sharedPropertyDefinition = {
+  enumerable: true,
+  configurable: true,
+  get: noop,
+  set: noop
+}
+export function proxy (target: Object, sourceKey: string, key: string) {
+  sharedPropertyDefinition.get = function proxyGetter () {
+    return this[sourceKey][key]
+  }
+  sharedPropertyDefinition.set = function proxySetter (val) {
+    this[sourceKey][key] = val
+  }
+  Object.defineProperty(target, key, sharedPropertyDefinition)
+}
+</code></pre><p>简单几句，传入得三个参数分别为<code>vm(this)</code>，<code>sourceKey</code>，<code>key</code>，这一步操作，其实还是利用了<code>get</code>，<code>set</code>将<code>props</code>上的参数代理到<code>vm(this)</code>上。仅此而已，也是因为这样，我们在<code>Vue</code>中才可以使用<code>this.xxx</code>去访问<code>props</code>上的传入的参数。好了，我们消灭了一个疑问<code>proxy</code>。</p>
+<h4 id="observe"><a href="#observe" class="headerlink" title="observe"></a>observe</h4><ul>
+<li>src\core\observer\index.js</li>
+</ul>
+<pre><code>export function observe (value: any, asRootData: ?boolean): Observer | void {
+  if (!isObject(value) || value instanceof VNode) {
+    return
+  }
+  let ob: Observer | void
+  if (hasOwn(value, &#39;__ob__&#39;) &amp;&amp; value.__ob__ instanceof Observer) {
+    ob = value.__ob__
+  } else if (
+    shouldObserve &amp;&amp;
+    !isServerRendering() &amp;&amp;
+    (Array.isArray(value) || isPlainObject(value)) &amp;&amp;
+    Object.isExtensible(value) &amp;&amp;
+    !value._isVue
+  ) {
+    ob = new Observer(value)
+  }
+  if (asRootData &amp;&amp; ob) {
+    ob.vmCount++
+  }
+  return ob
+}
+</code></pre><p><code>observe</code>方法，首先先判断了一下传入的对象是不是<code>vnode</code>，对于非<code>VNODE</code>的对象类型才添加一个<code>Observer</code>，new出来的实例，那这个<code>Observer</code>又是啥，现在又有两个问题需要解决了。</p>
+<ol>
+<li><code>Observer</code>方法；</li>
+<li><code>defineReactive</code>方法；</li>
+</ol>
+<h4 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h4><ul>
+<li>src\core\observer\index.js</li>
+</ul>
+<pre><code>export class Observer {
+  // ...
+  constructor (value: any) {
+    this.value = value
+    this.dep = new Dep()
+    this.vmCount = 0
+    def(value, &#39;__ob__&#39;, this)
+
+    if (Array.isArray(value)) {
+      // ...
+      this.observeArray(value) // 依然会遍历数组，然后observe
+    } else {
+      // ...
+      this.walk(value)
+    }
+  }
+  walk (obj: Object) {
+    const keys = Object.keys(obj)
+    for (let i = 0; i &lt; keys.length; i++) {
+      defineReactive(obj, keys[i])
+    }
+  }
+
+  observeArray (items: Array&lt;any&gt;) {
+    for (let i = 0, l = items.length; i &lt; l; i++) {
+      observe(items[i])
+    }
+  }
+}
+</code></pre><p><code>Observer</code>是一个类，其中似乎创建了一个什么实例<code>new Dep</code>，这个我们先留下观察，继续向下，然后调用了<code>def</code>这么一个方法，这个方法是做什么呢？</p>
+<ul>
+<li><code>src\core\util\lang.js</code></li>
+</ul>
+<pre><code>export function def (obj: Object, key: string, val: any, enumerable?: boolean) {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true
+  })
+}
+</code></pre><pre><code>def(value, &#39;__ob__&#39;, this)
+</code></pre><p>其实<code>def</code>封装了defineProperty，调用此方法可以在传入的<code>obj</code>上绑定一个<code>value</code>的<code>key</code>，在这一块，就是在我们data上绑定一个<strong>ob</strong>的属性。</p>
+<p>然后继续向下走，使用<code>isArray</code>判断value是不是数组，如果是数组，则调用了<code>observeArray</code>，否则则调用<code>walk</code>方法。</p>
+<ul>
+<li><code>observeArray</code></li>
+</ul>
+<pre><code>observeArray (items: Array&lt;any&gt;) {
+    for (let i = 0, l = items.length; i &lt; l; i++) {
+      observe(items[i])
+    }
+}
+</code></pre><p>这就是遍历调用observe方法。</p>
+<ul>
+<li><code>walk</code><pre><code>walk (obj: Object) {
+  const keys = Object.keys(obj)
+  for (let i = 0; i &lt; keys.length; i++) {
+    defineReactive(obj, keys[i])
+  }
+}
+</code></pre><code>walk</code>是在对象的情况下，遍历对象，对每一个key-value调用<code>defineReactive</code>方法，好家伙，兜兜转转又回来了。</li>
+</ul>
+<p>剩余跟踪问题：</p>
+<ol>
+<li><code>defineReactive</code>方法；</li>
+</ol>
+<h4 id="defineReactive"><a href="#defineReactive" class="headerlink" title="defineReactive"></a>defineReactive</h4><ul>
+<li><code>src\core\observer\index.js</code></li>
+</ul>
+<pre><code>export function defineReactive (
+  obj: Object,
+  key: string,
+  val: any,
+  customSetter?: ?Function,
+  shallow?: boolean // 如果 shallow  为 true
+) {
+  // 对每一个属性对new一个Dep依赖
+  const dep = new Dep()
+  // ...
+  const getter = property &amp;&amp; property.get
+  const setter = property &amp;&amp; property.set
+
+  if ((!getter || setter) &amp;&amp; arguments.length === 2) {
+    val = obj[key]
+  }
+  // ...
+  let childOb = !shallow &amp;&amp; observe(val)
+
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get: function reactiveGetter () {
+      // ...
+    },
+    set: function reactiveSetter (newVal) {
+      // ...
+    }
+  })
+}
+</code></pre><p>是不是有点熟悉，这不就是我们经常背的<code>Vue</code>响应式原理吗？通过<code>defineProperty</code>进行数据劫持啥啥啥的，最终我们还是走到了这里。<br>是的，在<code>defineProperty</code>中，通过<code>defineProperty</code>进行对对象的属性添加<code>getter</code>和<code>setter</code>进行数据劫持。<br>而这里面就深藏了我们的后续动作：<strong>收集依赖</strong>，<strong>发布更新</strong>。</p>
+<h3 id="get收集依赖"><a href="#get收集依赖" class="headerlink" title="get收集依赖"></a>get收集依赖</h3><p>我们继续看看<code>defineProperty</code>中的<code>get</code>怎么做的依赖收集？</p>
+<pre><code>export function defineReactive (
+  obj: Object,
+  key: string,
+  val: any,
+  customSetter?: ?Function,
+  shallow?: boolean // 如果 shallow  为 true
+) {
+  // 对每一个属性对new一个Dep依赖
+  const dep = new Dep()
+
+  const property = Object.getOwnPropertyDescriptor(obj, key)
+  if (property &amp;&amp; property.configurable === false) {
+    return
+  }
+
+  // 拿到其原本的getter与setter方法
+  const getter = property &amp;&amp; property.get
+  const setter = property &amp;&amp; property.set
+
+  if ((!getter || setter) &amp;&amp; arguments.length === 2) {
+    val = obj[key]
+  }
+  // 迭代其子属性
+  let childOb = !shallow &amp;&amp; observe(val)
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get: function reactiveGetter () {
+      const value = getter ? getter.call(obj) : val
+      if (Dep.target) {
+        dep.depend()
+        if (childOb) {
+          childOb.dep.depend() 
+          if (Array.isArray(value)) {
+            dependArray(value)
+          }
+        }
+      }
+      return value
+    },
+    set: function reactiveSetter (newVal) {
+      // ...
+    }
+  })
+}
+</code></pre><p>这里面分别有这么三步，是重要的：</p>
+<ol>
+<li>const dep = new Dep()；</li>
+<li>dep.depend()；</li>
+<li>childOb的处理。<pre><code>if (childOb) {
+ childOb.dep.depend() 
+ if (Array.isArray(value)) {
+   dependArray(value)
+ }
+}
+</code></pre></li>
+</ol>
+<p>在了解这些之前，我们应该需要看看<code>new Dep</code>，究竟创建了个啥？</p>
+<h4 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a>Dep</h4><ul>
+<li><code>src\core\observer\dep.js</code></li>
+</ul>
+<pre><code>export default class Dep {
+  static target: ?Watcher;
+  id: number;
+  subs: Array&lt;Watcher&gt;;
+
+  constructor () {
+    this.id = uid++
+    this.subs = []
+  }
+  addSub (sub: Watcher) {
+    this.subs.push(sub)
+  }
+  removeSub (sub: Watcher) {
+    remove(this.subs, sub)
+  }
+  depend () {
+    if (Dep.target) {
+      Dep.target.addDep(this)
+    }
+  }
+  notify () {
+    const subs = this.subs.slice()
+    if (process.env.NODE_ENV !== &#39;production&#39; &amp;&amp; !config.async) {
+      subs.sort((a, b) =&gt; a.id - b.id)
+    }
+    // 循环更新
+    for (let i = 0, l = subs.length; i &lt; l; i++) {
+      subs[i].update()
+    }
+  }
+}
+</code></pre><p>嗯，很眼熟有没有，这就是一个<code>addSub</code>，<code>removeSub</code>，这就是一个发布订阅呀有没有，好吧，我们继续来看。<br>这个<code>this.subs</code>是一个<code>Watcher</code>的数组，那它发布订阅管理的是<code>Watcher</code>吗？</p>
+<p>那这个<code>Watcher</code>又是啥？</p>
+<h4 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a>Watcher</h4><ul>
+<li><code>src\core\observer\watcher.js</code></li>
+</ul>
+<pre><code>export default class Watcher {
+  // ...
+  constructor (
+    vm: Component,
+    expOrFn: string | Function,
+    cb: Function,
+    options?: ?Object,
+    isRenderWatcher?: boolean
+  ) {
+    this.vm = vm
+    if (isRenderWatcher) {
+      vm._watcher = this
+    }
+    vm._watchers.push(this)
+    // options
+    if (options) {
+      this.deep = !!options.deep
+      this.user = !!options.user
+      this.lazy = !!options.lazy
+      this.sync = !!options.sync
+      this.before = options.before
+    } else {
+      this.deep = this.user = this.lazy = this.sync = false
+    }
+    this.cb = cb
+    this.id = ++uid // uid for batching
+    this.active = true
+    this.dirty = this.lazy // for lazy watchers
+    this.deps = []
+    this.newDeps = []
+    this.depIds = new Set()
+    this.newDepIds = new Set()
+    this.expression = process.env.NODE_ENV !== &#39;production&#39;
+      ? expOrFn.toString()
+      : &#39;&#39;
+    // parse expression for getter
+    if (typeof expOrFn === &#39;function&#39;) {
+      this.getter = expOrFn
+    } else {
+      this.getter = parsePath(expOrFn)
+      if (!this.getter) {
+        this.getter = noop
+        process.env.NODE_ENV !== &#39;production&#39; &amp;&amp; warn(
+          `Failed watching path: &quot;${expOrFn}&quot; ` +
+          &#39;Watcher only accepts simple dot-delimited paths. &#39; +
+          &#39;For full control, use a function instead.&#39;,
+          vm
+        )
+      }
+    }
+    this.value = this.lazy
+      ? undefined
+      : this.get()
+  }
+
+  /**
+   * Evaluate the getter, and re-collect dependencies.
+   */
+  get () {
+    pushTarget(this)，
+    let value
+    const vm = this.vm
+    try {
+      value = this.getter.call(vm, vm)
+    } catch (e) {
+      if (this.user) {
+        handleError(e, vm, `getter for watcher &quot;${this.expression}&quot;`)
+      } else {
+        throw e
+      }
+    } finally {
+      if (this.deep) {
+        traverse(value)
+      }
+      popTarget()
+      this.cleanupDeps()
+    }
+    return value
+  }
+  addDep (dep: Dep) {
+    const id = dep.id
+    if (!this.newDepIds.has(id)) {
+      this.newDepIds.add(id)
+      this.newDeps.push(dep)
+      if (!this.depIds.has(id)) {
+        dep.addSub(this) //  addSub 为 sub 队列，添加一个Watcher 实例化对象
+      }
+    }
+  }
+  // 清理观察者依赖项集合
+  cleanupDeps () {
+    let i = this.deps.length
+    while (i--) {
+      const dep = this.deps[i]
+      if (!this.newDepIds.has(dep.id)) {
+        dep.removeSub(this)
+      }
+    }
+    let tmp = this.depIds
+    this.depIds = this.newDepIds
+    this.newDepIds = tmp
+    this.newDepIds.clear()
+    tmp = this.deps
+    this.deps = this.newDeps
+    this.newDeps = tmp
+    this.newDeps.length = 0
+  }
+  update () {
+    /* istanbul ignore else */
+    if (this.lazy) {
+      this.dirty = true
+    } else if (this.sync) { 
+      this.run()
+    } else {
+      queueWatcher(this)
+    }
+  }
+  run () {
+    if (this.active) {
+      const value = this.get()
+      if (
+        value !== this.value ||
+        isObject(value) ||
+        this.deep
+      ) {
+        const oldValue = this.value
+        this.value = value
+        if (this.user) {
+          try {
+            this.cb.call(this.vm, value, oldValue)
+          } catch (e) {
+            handleError(e, this.vm, `callback for watcher &quot;${this.expression}&quot;`)
+          }
+        } else {
+          this.cb.call(this.vm, value, oldValue)
+        }
+      }
+    }
+  }
+  evaluate () {
+    this.value = this.get()
+    this.dirty = false
+  }
+  depend () {
+    let i = this.deps.length
+    while (i--) {
+      this.deps[i].depend()
+    }
+  }
+  teardown () {
+    if (this.active) {
+      // remove self from vm&#39;s watcher list
+      // this is a somewhat expensive operation so we skip it
+      // if the vm is being destroyed.
+      if (!this.vm._isBeingDestroyed) {
+        remove(this.vm._watchers, this)
+      }
+      let i = this.deps.length
+      while (i--) {
+        this.deps[i].removeSub(this)
+      }
+      this.active = false
+    }
+  }
+}
+</code></pre>
       
        
     </div>
