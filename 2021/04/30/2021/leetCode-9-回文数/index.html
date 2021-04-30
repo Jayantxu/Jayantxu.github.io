@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>有趣-github的3D打印 | Jayant Blog</title>
-  <meta name="keywords" content=" 日常碎碎 ">
-  <meta name="description" content="有趣-github的3D打印 | Jayant Blog">
+  <title>leetCode-9-回文数 | Jayant Blog</title>
+  <meta name="keywords" content=" 算法 ">
+  <meta name="description" content="leetCode-9-回文数 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
 <meta property="og:type" content="website">
@@ -727,39 +727,31 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-2021/github的3D打印" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2021/leetCode-9-回文数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">有趣-github的3D打印</h1>
+        <h1 class="article-title">leetCode-9-回文数</h1>
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a data-rel="读书V生活">读书V生活</a>
-            
-        </span>
         
         
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">日常碎碎</a>
+            <a class="color3">算法</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-04-23 14:12:32">2021-04-05 00:00</time>
+            发布时间 : <time class="date" title="最后更新: 2021-04-30 14:10:13">2021-04-30 13:58</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:74</span>
+        <span>字数:669</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -794,10 +786,87 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>github开放了一个平台，支持导出自己github账户的年度提交量，生成一个3D模型文件</p>
-<p>尝试了一下，导出自己2020年的数据，😂还好不是只是一个平底座…<br>淘宝下单打印了，放在桌子上，提醒自己吧。</p>
-<p><img src="/2021/04/05/2021/github的3D打印/NO1.png" alt="NO1" title="NO1"></p>
+        <p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/palindrome-number/submissions/" target="_blank" rel="noopener">回文数</a></em></p>
+<p>题目描述:</p>
+<ol>
+<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。</li>
+<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是</li>
+</ol>
+<p>示例：</p>
+<pre><code>输入：x = 121
+输出：true
+</code></pre><p>示例：</p>
+<pre><code>输入：x = 10
+输出：false
+</code></pre><p>示例：</p>
+<pre><code>输入：x = -121
+输出：false
+</code></pre><a id="more"></a>
+<p>思路：</p>
+<blockquote>
+<p>注意一些边界情况，例如负数，小于10，两位数的情况<br>创建左右指针，一次<code>+1</code>、<code>-1</code>做对比<br>估计这种解法也还是暴力吧😂</p>
+<pre><code>var isPalindrome = function(x) {
+    if(x &lt; 0) {
+        return false;
+    }
+    if(x &lt;= 9) return true;
+    x = &#39;&#39; + x;
+    if(x.length === 2 &amp;&amp;  x.charAt(0) === x.charAt(1)){
+        return true;
+    }
+    let arrowIdx1 = Math.floor(x.length / 2);
+    let arrowIdx2 = &#39;&#39;;
+    if(x.length % 2 === 0) {
+        arrowIdx2 = arrowIdx1 - 1;
+    } else {
+        arrowIdx2 = arrowIdx1;
+    }
+    let flag = true;
+    while(arrowIdx1 &gt;= 0) {
+        if(x[arrowIdx1] !== x[arrowIdx2]) {
+            flag = false;
+        }
+        arrowIdx1 -= 1;
+        arrowIdx2 += 1;
+    }
+    return flag;
+};
+</code></pre></blockquote>
+<ul>
+<li>官方</li>
+</ul>
+<p>官方写法太强了，果然没这个思路</p>
+<ol>
+<li>取出后半段数字进行翻转。</li>
+<li>这里需要注意的一个点就是由于回文数的位数可奇可偶，所以当它的长度是偶数时，它对折过来应该是相等的；当它的长度是奇数时，那么它对折过来后，有一个的长度需要去掉一位数（除以 10 并取整）。<br>具体做法如下：</li>
+<li>每次进行取余操作 （ %10），取出最低的数字：y = x % 10</li>
+<li>将最低的数字加到取出数的末尾：revertNum = revertNum * 10 + y</li>
+<li>每取一个最低位数字，x 都要自除以 10</li>
+<li>判断 x 是不是小于 revertNum ，当它小于的时候，说明数字已经对半或者过半了</li>
+<li>最后，判断奇偶数情况：如果是偶数的话，revertNum 和 x 相等；如果是奇数的话，最中间的数字就在revertNum 的最低位上，将它除以 10 以后应该和 x 相等。</li>
+</ol>
+<pre><code>var isPalindrome = function(x: number): boolean {
+    // 特殊情况：
+    // 如上所述，当 x &lt; 0 时，x 不是回文数。
+    // 同样地，如果数字的最后一位是 0，为了使该数字为回文，
+    // 则其第一位数字也应该是 0
+    // 只有 0 满足这一属性
+    if (x &lt; 0 || (x % 10 === 0 &amp;&amp; x !== 0)) {
+        return false;
+    }
 
+    let revertedNumber: number = 0;
+    while (x &gt; revertedNumber) {
+        revertedNumber = revertedNumber * 10 + x % 10;
+        x = Math.floor(x / 10);
+    }
+
+    // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。
+    // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，
+    // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。
+    return x === revertedNumber || x === Math.floor(revertedNumber / 10);
+};
+</code></pre>
       
        
     </div>

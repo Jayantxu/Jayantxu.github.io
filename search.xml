@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>leetCode-9-回文数</title>
+      <link href="/2021/04/30/2021/leetCode-9-%E5%9B%9E%E6%96%87%E6%95%B0/"/>
+      <url>/2021/04/30/2021/leetCode-9-%E5%9B%9E%E6%96%87%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/palindrome-number/submissions/" target="_blank" rel="noopener">回文数</a></em></p><p>题目描述:</p><ol><li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。</li><li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是</li></ol><p>示例：</p><pre><code>输入：x = 121输出：true</code></pre><p>示例：</p><pre><code>输入：x = 10输出：false</code></pre><p>示例：</p><pre><code>输入：x = -121输出：false</code></pre><a id="more"></a><p>思路：</p><blockquote><p>注意一些边界情况，例如负数，小于10，两位数的情况<br>创建左右指针，一次<code>+1</code>、<code>-1</code>做对比<br>估计这种解法也还是暴力吧😂</p><pre><code>var isPalindrome = function(x) {    if(x &lt; 0) {        return false;    }    if(x &lt;= 9) return true;    x = &#39;&#39; + x;    if(x.length === 2 &amp;&amp;  x.charAt(0) === x.charAt(1)){        return true;    }    let arrowIdx1 = Math.floor(x.length / 2);    let arrowIdx2 = &#39;&#39;;    if(x.length % 2 === 0) {        arrowIdx2 = arrowIdx1 - 1;    } else {        arrowIdx2 = arrowIdx1;    }    let flag = true;    while(arrowIdx1 &gt;= 0) {        if(x[arrowIdx1] !== x[arrowIdx2]) {            flag = false;        }        arrowIdx1 -= 1;        arrowIdx2 += 1;    }    return flag;};</code></pre></blockquote><ul><li>官方</li></ul><p>官方写法太强了，果然没这个思路</p><ol><li>取出后半段数字进行翻转。</li><li>这里需要注意的一个点就是由于回文数的位数可奇可偶，所以当它的长度是偶数时，它对折过来应该是相等的；当它的长度是奇数时，那么它对折过来后，有一个的长度需要去掉一位数（除以 10 并取整）。<br>具体做法如下：</li><li>每次进行取余操作 （ %10），取出最低的数字：y = x % 10</li><li>将最低的数字加到取出数的末尾：revertNum = revertNum * 10 + y</li><li>每取一个最低位数字，x 都要自除以 10</li><li>判断 x 是不是小于 revertNum ，当它小于的时候，说明数字已经对半或者过半了</li><li>最后，判断奇偶数情况：如果是偶数的话，revertNum 和 x 相等；如果是奇数的话，最中间的数字就在revertNum 的最低位上，将它除以 10 以后应该和 x 相等。</li></ol><pre><code>var isPalindrome = function(x: number): boolean {    // 特殊情况：    // 如上所述，当 x &lt; 0 时，x 不是回文数。    // 同样地，如果数字的最后一位是 0，为了使该数字为回文，    // 则其第一位数字也应该是 0    // 只有 0 满足这一属性    if (x &lt; 0 || (x % 10 === 0 &amp;&amp; x !== 0)) {        return false;    }    let revertedNumber: number = 0;    while (x &gt; revertedNumber) {        revertedNumber = revertedNumber * 10 + x % 10;        x = Math.floor(x / 10);    }    // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。    // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，    // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。    return x === revertedNumber || x === Math.floor(revertedNumber / 10);};</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetCode-8-字符串转换整数</title>
       <link href="/2021/04/29/2021/leetCode-8-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/"/>
       <url>/2021/04/29/2021/leetCode-8-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">字符串转换整数</a></em></p><p>题目描述:</p><ol><li>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</li></ol><p>示例：</p><pre><code>输入：s = &quot;42&quot;输出：42</code></pre><p>示例：</p><pre><code>输入：s = &quot;4193 with words&quot;输出：4193</code></pre><a id="more"></a><p>思路</p><blockquote><p>额…很久很久以前我看过一次题目，parseInt…</p></blockquote><pre><code>var myAtoi = function(s) {    // ...还需要判断第一字符     let num = parseInt(s);    if(num &gt; Math.pow(2, 31) - 1) {        return Math.pow(2, 31) -1;        }    if(num &lt; Math.pow(-2,31)) {        return Math.pow(-2, 31);    }    return num;};</code></pre>]]></content>
+        <content type="html"><![CDATA[<p><em>原题链接：👉：<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">字符串转换整数</a></em></p><p>题目描述:</p><ol><li>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</li></ol><p>示例：</p><pre><code>输入：s = &quot;42&quot;输出：42</code></pre><p>示例：</p><pre><code>输入：s = &quot;4193 with words&quot;输出：4193</code></pre><a id="more"></a><p>思路</p><blockquote><p>额…很久很久以前我看过一次题目，parseInt…</p></blockquote><pre><code>var myAtoi = function(s) {    // ...还需要判断第一字符     let num = parseInt(s);    if(num &gt; Math.pow(2, 31) - 1) {        return Math.pow(2, 31) -1;        }    if(num &lt; Math.pow(-2,31)) {        return Math.pow(-2, 31);    }    return num;};</code></pre><ul><li>官方</li></ul><blockquote><p>看了一下官方，状态机，本步得出状态用于后续一步。👍</p></blockquote>]]></content>
       
       
       
@@ -447,35 +466,6 @@
     
     
     <entry>
-      <title>HTTP</title>
-      <link href="/2021/01/01/web/HTTP/"/>
-      <url>/2021/01/01/web/HTTP/</url>
-      
-        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP缓存机制"><a href="#HTTP缓存机制" class="headerlink" title="HTTP缓存机制"></a>HTTP缓存机制</h4><p>👉： <a href="/2021/02/26/2021/HTTP缓存">HTTP缓存机制</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>👉： <a href="/2021/02/21/2021/TCP与UDP的区别">TCP与UDP的区别</a> </p><h4 id="网络的七层结构"><a href="#网络的七层结构" class="headerlink" title="网络的七层结构"></a>网络的七层结构</h4><p>👉： <a href="/2020/11/05/2020/网络七层结构">网络的七层结构</a> </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> HTTP </tag>
-            
-            <tag> Web </tag>
-            
-            <tag> Interview </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>interview</title>
       <link href="/2021/01/01/web/interview/"/>
       <url>/2021/01/01/web/interview/</url>
@@ -524,6 +514,35 @@
             <tag> Web </tag>
             
             <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTTP</title>
+      <link href="/2021/01/01/web/HTTP/"/>
+      <url>/2021/01/01/web/HTTP/</url>
+      
+        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP缓存机制"><a href="#HTTP缓存机制" class="headerlink" title="HTTP缓存机制"></a>HTTP缓存机制</h4><p>👉： <a href="/2021/02/26/2021/HTTP缓存">HTTP缓存机制</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>👉： <a href="/2021/02/21/2021/TCP与UDP的区别">TCP与UDP的区别</a> </p><h4 id="网络的七层结构"><a href="#网络的七层结构" class="headerlink" title="网络的七层结构"></a>网络的七层结构</h4><p>👉： <a href="/2020/11/05/2020/网络七层结构">网络的七层结构</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> Interview </tag>
             
         </tags>
       
