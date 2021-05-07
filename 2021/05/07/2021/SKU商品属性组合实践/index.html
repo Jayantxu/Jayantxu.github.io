@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>SKU商品属性组合实践 | Jayant Blog</title>
+  <meta name="keywords" content=" JavaScript ">
+  <meta name="description" content="SKU商品属性组合实践 | Jayant Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="http://jayantxu.cn/about/index.html">
+<meta property="og:site_name" content="Jayant Blog">
+<meta property="og:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-10T08:59:12.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+
+
+<link rel="icon" href="/img/MyPic.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/gruvbox-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/MyPic.png">
+</a>
+<div class="author">
+    <span>Jayantxu</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github" href="https://github.com/Jayantxu" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email" href="mailto:Jayant_xu@qq.com" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"/>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=591060601&site=qq&menu=yes" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"/>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <!-- <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(65)</small>
+            
+        </div> -->
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        
+                        前端
+                        <small>(49)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="后端">
+                        
+                        后端
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="读书V生活">
+                        
+                        读书V生活
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url" href="/about">关于</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="65">
+<input type="hidden" id="yelog_site_word_count" value="63.8k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off">
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search">
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Adv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Axios</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bug</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>canvas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CSS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Element</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gulp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTTP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interview</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScipt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Stylus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>书籍摘录</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>布局</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>日常碎碎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>源码</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>踩坑</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>转载</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="全部文章 前端 " href="/2019/01/22/2019/hello-world/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="Hello">Hello</span>
+            <span class="post-date" title="2019-01-22 21:45:11">2019/01/22</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/05/07/2021/SKU商品属性组合实践/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="SKU商品属性组合实践">SKU商品属性组合实践</span>
+            <span class="post-date" title="2021-05-07 16:22:31">2021/05/07</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/18/2021/数组数据结构-trie树/" data-tag="数据结构" data-author>
+            <span class="post-title" title="数组数据结构-trie树">数组数据结构-trie树</span>
+            <span class="post-date" title="2021-04-18 11:02:50">2021/04/18</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/14/2021/实现对象给for-of遍历/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="实现对象给for...of遍历">实现对象给for...of遍历</span>
+            <span class="post-date" title="2021-04-14 23:19:20">2021/04/14</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/12/2021/浏览器的多线程/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="浏览器的多线程">浏览器的多线程</span>
+            <span class="post-date" title="2021-04-12 19:10:48">2021/04/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定">HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
+            <span class="post-date" title="2021-04-07 14:45:27">2021/04/07</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2021/04/05/2021/github的3D打印/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="有趣-github的3D打印">有趣-github的3D打印</span>
+            <span class="post-date" title="2021-04-05 00:00:00">2021/04/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/02/2021/十大排序/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="十大排序">十大排序</span>
+            <span class="post-date" title="2021-04-02 11:10:07">2021/04/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/01/2021/JS手写Promise/" data-tag="JavaScript,转载" data-author>
+            <span class="post-title" title="JS手写Promise">JS手写Promise</span>
+            <span class="post-date" title="2021-04-01 20:08:55">2021/04/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/26/2021/HTTP缓存/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP缓存">HTTP缓存</span>
+            <span class="post-date" title="2021-02-26 00:00:00">2021/02/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/21/2021/TCP与UDP的区别/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="TCP与UDP的区别">TCP与UDP的区别</span>
+            <span class="post-date" title="2021-02-21 22:23:03">2021/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="CSS,JavaScript,Stylus" data-author>
+            <span class="post-title" title="JS与stylus与CSSVar的相互作用">JS与stylus与CSSVar的相互作用</span>
+            <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/CSS/" data-tag="CSS,Web,Interview" data-author>
+            <span class="post-title" title="CSS&amp;HTML">CSS&amp;HTML</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="HTTP,Web,Interview" data-author>
+            <span class="post-title" title="HTTP">HTTP</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/interview/" data-tag="Web,Interview" data-author>
+            <span class="post-title" title="interview">interview</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/12/26/2020/stylus-media/" data-tag="CSS,Stylus" data-author>
+            <span class="post-title" title="stylus_media">stylus_media</span>
+            <span class="post-date" title="2020-12-26 11:30:02">2020/12/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2020/12/01/2020/My/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="My">My</span>
+            <span class="post-date" title="2020-12-01 20:09:10">2020/12/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/11/05/2020/网络七层结构/" data-tag="HTTP" data-author>
+            <span class="post-title" title="网络七层结构">网络七层结构</span>
+            <span class="post-date" title="2020-11-05 11:20:37">2020/11/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/10/28/2020/HTTP常见状态码/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP常见状态码">HTTP常见状态码</span>
+            <span class="post-date" title="2020-10-28 09:29:34">2020/10/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/29/2020/JS设计模式/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS设计模式">JS设计模式</span>
+            <span class="post-date" title="2020-09-29 21:56:10">2020/09/29</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/28/2020/JS模块化演进/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS模块化演进">JS模块化演进</span>
+            <span class="post-date" title="2020-09-28 09:21:32">2020/09/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/23/2020/垃圾回收机制/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="垃圾回收机制">垃圾回收机制</span>
+            <span class="post-date" title="2020-09-23 22:39:54">2020/09/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="XSS-CSRF">XSS-CSRF</span>
+            <span class="post-date" title="2020-08-11 21:57:03">2020/08/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/三次握手四次挥手/" data-tag="HTTP" data-author>
+            <span class="post-title" title="三次握手四次挥手">三次握手四次挥手</span>
+            <span class="post-date" title="2020-07-09 21:09:28">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/HTTPS连接过程/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTPS连接过程">HTTPS连接过程</span>
+            <span class="post-date" title="2020-07-09 00:00:00">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/30/2020/async-await原理/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="async/await原理">async/await原理</span>
+            <span class="post-date" title="2020-06-30 20:03:07">2020/06/30</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/06/21/2020/Vue数据双向绑定原理/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue响应式原理">Vue响应式原理</span>
+            <span class="post-date" title="2020-06-21 20:02:10">2020/06/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/12/2020/EventLoop/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="EventLoop">EventLoop</span>
+            <span class="post-date" title="2020-06-12 12:20:39">2020/06/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="跨域访问">跨域访问</span>
+            <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="CSS,JavaScript" data-author>
+            <span class="post-title" title="模拟生成虚拟3D轮播结构">模拟生成虚拟3D轮播结构</span>
+            <span class="post-date" title="2020-03-30 17:30:29">2020/03/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/02/15/2020/adv/" data-tag="JavaScript,Vue,Adv" data-author>
+            <span class="post-title" title="adv">adv</span>
+            <span class="post-date" title="2020-02-15 00:00:00">2020/02/15</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="CSS,HTML,JavaScript" data-author>
+            <span class="post-title" title="重绘回流">重绘回流</span>
+            <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/23/2020/Vue的nextTick剖析/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue的nextTick剖析">Vue的nextTick剖析</span>
+            <span class="post-date" title="2020-01-23 16:42:30">2020/01/23</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/17/2020/Vue-Diff/" data-tag="Vue,转载" data-author>
+            <span class="post-title" title="Vue虚拟节点VNodeDiff算法">Vue虚拟节点VNodeDiff算法</span>
+            <span class="post-date" title="2020-01-17 20:17:56">2020/01/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/01/07/2020/费舍尔-耶茨混洗/" data-tag="JavaScript,算法" data-author>
+            <span class="post-title" title="借鉴费舍尔.耶茨混洗优化公司年会抽奖">借鉴费舍尔.耶茨混洗优化公司年会抽奖</span>
+            <span class="post-date" title="2020-01-07 00:00:00">2020/01/07</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/12/15/2019/JS原型链/" data-tag="JavaScipt" data-author>
+            <span class="post-title" title="JS原型链">JS原型链</span>
+            <span class="post-date" title="2019-12-15 22:48:23">2019/12/15</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/11/01/2019/踩坑eCharts参数/" data-tag="踩坑" data-author>
+            <span class="post-title" title="踩坑eCharts参数">踩坑eCharts参数</span>
+            <span class="post-date" title="2019-11-01 18:51:02">2019/11/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/10/17/2019/this指向/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="this指向">this指向</span>
+            <span class="post-date" title="2019-10-17 22:33:39">2019/10/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/10/08/2019/canvas进行图像像素点着色/" data-tag="canvas" data-author>
+            <span class="post-title" title="基于Canvas进行像素分析，结合数据进行实时着色">基于Canvas进行像素分析，结合数据进行实时着色</span>
+            <span class="post-date" title="2019-10-08 18:35:35">2019/10/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/09/26/2019/一个失焦指令的学习/" data-tag="Vue,Element" data-author>
+            <span class="post-title" title="一个失焦指令的学习">一个失焦指令的学习</span>
+            <span class="post-date" title="2019-09-26 17:41:35">2019/09/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/06/27/2019/毕业了/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="毕业了">毕业了</span>
+            <span class="post-date" title="2019-06-27 19:48:20">2019/06/27</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/05/13/2019/Flex布局的基本属性介绍/" data-tag="CSS,布局" data-author>
+            <span class="post-title" title="Flex布局的基本属性介绍">Flex布局的基本属性介绍</span>
+            <span class="post-date" title="2019-05-13 13:22:26">2019/05/13</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/09/2019/Gulp源码分析学习-三/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(三">Gulp源码分析学习(三</span>
+            <span class="post-date" title="2019-04-09 08:51:45">2019/04/09</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/06/2019/Gulp源码分析学习-二/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(二">Gulp源码分析学习(二</span>
+            <span class="post-date" title="2019-04-06 13:47:27">2019/04/06</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/05/2019/Gulp源码分析学习-一/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(一">Gulp源码分析学习(一</span>
+            <span class="post-date" title="2019-04-05 16:41:26">2019/04/05</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/03/30/2019/Node读取图片并转Base64/" data-tag="Node" data-author>
+            <span class="post-title" title="Node读取图片并转Base64">Node读取图片并转Base64</span>
+            <span class="post-date" title="2019-03-30 00:12:42">2019/03/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/26/2019/Grid布局/" data-tag="CSS,布局,转载" data-author>
+            <span class="post-title" title="Grid布局">Grid布局</span>
+            <span class="post-date" title="2019-03-26 10:50:48">2019/03/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/阻止冒泡、默认事件/" data-tag="HTML,JavaScript" data-author>
+            <span class="post-title" title="阻止冒泡、默认事件">阻止冒泡、默认事件</span>
+            <span class="post-date" title="2019-03-03 20:30:42">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/CSS清除浮动/" data-tag="CSS" data-author>
+            <span class="post-title" title="CSS清除浮动的几种方式">CSS清除浮动的几种方式</span>
+            <span class="post-date" title="2019-03-03 19:29:44">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="CSS,HTML,JavaScript" data-author>
+            <span class="post-title" title="margin重叠以及解决办法">margin重叠以及解决办法</span>
+            <span class="post-date" title="2019-03-01 23:15:21">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/CSS省略号实现/" data-tag="CSS,HTML" data-author>
+            <span class="post-title" title="CSS省略号实现">CSS省略号实现</span>
+            <span class="post-date" title="2019-03-01 16:09:35">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/02/21/2019/Gulp增量编译优化/" data-tag="JavaScript,Gulp" data-author>
+            <span class="post-title" title="Gulp增量编译优化">Gulp增量编译优化</span>
+            <span class="post-date" title="2019-02-21 20:14:45">2019/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/18/2019/JavaScript深浅拷贝/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript深浅拷贝">JavaScript深浅拷贝</span>
+            <span class="post-date" title="2019-02-18 20:06:36">2019/02/18</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/10/2019/Node-express文件上传下载/" data-tag="HTML,Node,Express,Element" data-author>
+            <span class="post-title" title="Node+Express+Element实现文件上传下载">Node+Express+Element实现文件上传下载</span>
+            <span class="post-date" title="2019-02-10 20:59:42">2019/02/10</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/02/08/2019/新年快乐/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="新年快乐">新年快乐</span>
+            <span class="post-date" title="2019-02-08 22:41:02">2019/02/08</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/" data-tag="Node,Express,MySQL,Bug" data-author>
+            <span class="post-title" title="Node+MySQL释放数据库连接的Bug">Node+MySQL释放数据库连接的Bug</span>
+            <span class="post-date" title="2019-02-02 19:42:07">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/transform对fixed/" data-tag="CSS,Bug" data-author>
+            <span class="post-title" title="transform父元素对fixed子元素的影响">transform父元素对fixed子元素的影响</span>
+            <span class="post-date" title="2019-02-02 10:16:34">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/Vue父子通信/" data-tag="JavaScript,Vue" data-author>
+            <span class="post-title" title="Vue父子组件间的通信">Vue父子组件间的通信</span>
+            <span class="post-date" title="2019-02-02 09:45:31">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/31/2019/Axios使用/" data-tag="JavaScript,Axios,Vue" data-author>
+            <span class="post-title" title="Axios使用">Axios使用</span>
+            <span class="post-date" title="2019-01-31 15:14:03">2019/01/31</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/24/2019/手写new-call-apply-bind/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="手写new、call、apply、bind">手写new、call、apply、bind</span>
+            <span class="post-date" title="2019-01-24 19:21:39">2019/01/24</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript继承/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript继承">JavaScript继承</span>
+            <span class="post-date" title="2019-01-23 15:29:41">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript创建对象/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript创建对象">JavaScript创建对象</span>
+            <span class="post-date" title="2019-01-23 14:10:25">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/01/23/2019/Git相关命令/" data-tag="Git" data-author>
+            <span class="post-title" title="Git相关命令">Git相关命令</span>
+            <span class="post-date" title="2019-01-23 09:45:11">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/01/23/2019/阅读摘录/" data-tag="书籍摘录" data-author>
+            <span class="post-title" title="阅读摘录">阅读摘录</span>
+            <span class="post-date" title="2019-01-23 08:56:01">2019/01/23</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-2021/SKU商品属性组合实践" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">SKU商品属性组合实践</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">JavaScript</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title="最后更新: 2021-05-07 21:15:55">2021-05-07 16:22</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#需求背景"><span class="toc-text">需求背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求分析"><span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求实现"><span class="toc-text">需求实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#稀里糊涂-￥-🤒"><span class="toc-text">稀里糊涂@#￥@#🤒</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重整思路🙋‍♂️"><span class="toc-text">重整思路🙋‍♂️</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题外话"><span class="toc-text">题外话</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h4><p>最近有一个内部购买页面有如下gif所示逻辑的业务需求。</p>
+<p><img src="/2021/05/07/2021/SKU商品属性组合实践/GIF.gif" alt="“硬”处理" title="GIF"></p>
+<p>最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是<code>too young</code>🤦‍♂️…</p>
+<p>后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么<code>购买商品</code>、<code>淘宝商品页</code>等等等，毕竟还是知道这个应该是电商业务会处理到的。</p>
+<p>后来知道这个是叫做<code>SKU</code>，查阅记录一下</p>
+<blockquote>
+<p>存货单位（英语：stock keeping unit，SKU/ˌɛsˌkeɪˈjuː/）[1]，也翻译为库存单元，是一个会计学名词，定义为库存管理中的最小可用单元，例如纺织品中一个SKU通常表示规格、颜色、款式，而在连锁零售门店中有时称单品为一个SKU。最小库存管理单元可以区分不同商品销售的最小单元，是科学管理商品的采购、销售、物流和财务管理以及POS和MIS系统的数据统计的需求，通常对应一个管理信息系统的编码。（来自维基百科👉：<a href="https://zh.wikipedia.org/zh-hans/%E5%AD%98%E8%B4%A7%E5%8D%95%E4%BD%8D" target="_blank" rel="noopener">SKU</a> ）</p>
+</blockquote>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>一共有几种待选类型：<code>计费方式,付费类型,购买次数,购买时长,并发性能</code>；</p>
+<p>每种类型各有以下选项（选项经过删减）：</p>
+<ul>
+<li>计费方式<ol>
+<li>按量计费</li>
+<li>按时计费</li>
+</ol>
+</li>
+<li>付费类型<ol>
+<li>预付费</li>
+<li>后付费</li>
+</ol>
+</li>
+<li>购买时长<ol>
+<li>1个月</li>
+<li>2个月</li>
+<li>3个月</li>
+<li>…</li>
+<li>按实际使用时长计算</li>
+</ol>
+</li>
+<li>购买次数<ol>
+<li>100000</li>
+<li>200000</li>
+<li>…</li>
+<li>按实际使用量计算</li>
+</ol>
+</li>
+<li>并发性能<ol>
+<li>10QPS</li>
+<li>50QPS</li>
+<li>100QPS</li>
+<li>无限</li>
+</ol>
+</li>
+</ul>
+<p>好了，现在来分析一下这个需求<code>SKU</code>的一些更细致的部分。</p>
+<ol>
+<li>组合的库存无限，不需要组合判断是增加库存的判断，<strong>因此只需要进行商品组合的判断即可</strong>；</li>
+<li>购买时长、购买次数分别对应的是计费方式中的按量计费、按时计费，即按量计费只可以选择购买次数，按时计费只能选择购买时长；</li>
+<li>后付费与预付费则对应的是<em>按实际使用</em>与<em>具体值</em>，即<em>预付费</em>只能选择具体的<em>购买次数</em>或者<em>购买时长</em>，<em>后付费</em>则只能选择<em>按实际使用</em>；</li>
+<li>组合金额等，通过后期接口后台同事查询，因此也减少了增加金额的组合判断；</li>
+</ol>
+<h4 id="需求实现"><a href="#需求实现" class="headerlink" title="需求实现"></a>需求实现</h4><p>前期数据，可以从后台拿到配置的类型选项以及存在的配置商品项：</p>
+<ul>
+<li>类型配置数据：</li>
+</ul>
+<pre><code>[
+    { title: &quot;计费方式&quot;, list: [
+        { &quot;id&quot;: 1, &quot;desc&quot;: &quot;按量计费&quot;, &quot;name&quot;: &quot;按量计费&quot; },
+        { &quot;id&quot;: 2, &quot;desc&quot;: &quot;按时计费&quot;, &quot;name&quot;: &quot;按时计费&quot; }
+      ]
+    },
+    { title: &quot;付费类型&quot;, list: [
+        { &quot;name&quot;: &quot;预付费&quot;, &quot;desc&quot;: &quot;预付费&quot;, &quot;id&quot;: 1 },
+        { &quot;name&quot;: &quot;后付费&quot;, &quot;desc&quot;: &quot;后付费&quot;, &quot;id&quot;: 2 }
+      ] 
+    },
+    { title: &quot;购买次数&quot;, list: [
+        { &quot;id&quot;: 1, &quot;name&quot;: &quot;100000&quot;, &quot;desc&quot;: &quot;10W&quot; },
+        { &quot;id&quot;: 2, &quot;name&quot;: &quot;200000&quot;, &quot;desc&quot;: &quot;20W&quot; },
+        { &quot;id&quot;: 3, &quot;name&quot;: &quot;按实际使用量计算&quot;, &quot;desc&quot;: &quot;按实际使用量计算&quot; }
+      ] 
+    },
+    { title: &quot;购买时长&quot;, list: [
+        { &quot;desc&quot;: &quot;1个月&quot;, &quot;name&quot;: &quot;1个月&quot;, &quot;id&quot;: 1 },
+        { &quot;desc&quot;: &quot;2个月&quot;, &quot;name&quot;: &quot;2个月&quot;, &quot;id&quot;: 2 },
+        { &quot;desc&quot;: &quot;3个月&quot;, &quot;name&quot;: &quot;3个月&quot;, &quot;id&quot;: 3 },
+        { &quot;id&quot;: 4, &quot;name&quot;: &quot;按实际使用时长计算&quot;, &quot;desc&quot;: &quot;按实际使用时长计算&quot; }
+      ]
+    },
+    { title: &quot;并发性能&quot;, list: [
+        { &quot;id&quot;: 1, &quot;name&quot;: &quot;10 QPS&quot;, &quot;desc&quot;: &quot;10 QPS&quot; },
+        { &quot;id&quot;: 2, &quot;name&quot;: &quot;50 QPS&quot;, &quot;desc&quot;: &quot;50 QPS&quot; },
+        { &quot;id&quot;: 3, &quot;name&quot;: &quot;100 QPS&quot;, &quot;desc&quot;: &quot;100 QPS&quot; },
+        { &quot;id&quot;: 4, &quot;name&quot;: &quot;无限&quot;, &quot;desc&quot;: &quot;无限&quot; }
+      ]
+    },
+]
+</code></pre><ul>
+<li>商品组合数据：</li>
+</ul>
+<pre><code>skuList = [
+    { id: 1, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;100000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 2, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;200000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 3, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;100000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 4, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;200000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 5, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;100000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 6, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;200000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 7, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;100000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 8, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;200000&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 9, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;按实际使用量计算&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 10, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;按实际使用量计算&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 11, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;按实际使用量计算&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 12, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按量计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;按实际使用量计算&quot;, &quot;购买时长&quot;: &quot;&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 13, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;1个月&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 14, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;1个月&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 15, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;1个月&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 16, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;1个月&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 17, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;2个月&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 18, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;2个月&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 19, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;2个月&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 20, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;2个月&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 21, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;3个月&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 22, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;3个月&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 23, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;3个月&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 24, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;预付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;3个月&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+    { id: 25, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;按实际使用时长计算&quot;, &quot;并发性能&quot;: &quot;10 QPS&quot; },
+    { id: 26, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;按实际使用时长计算&quot;, &quot;并发性能&quot;: &quot;50 QPS&quot; },
+    { id: 27, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;按实际使用时长计算&quot;, &quot;并发性能&quot;: &quot;100 QPS&quot; },
+    { id: 28, &quot;购买类型&quot;: &quot;创建实例&quot;, &quot;计费方式&quot;: &quot;按时计费&quot;, &quot;付费类型&quot;: &quot;后付费&quot;, &quot;购买次数&quot;: &quot;&quot;, &quot;购买时长&quot;: &quot;按实际使用时长计算&quot;, &quot;并发性能&quot;: &quot;无限&quot; },
+]
+</code></pre><p>因为在后台及关系型数据库中保存的配置数据，从后台拿到返回的组合形式即如此，Web端需要再进行加工处理。</p>
+<h5 id="稀里糊涂-￥-🤒"><a href="#稀里糊涂-￥-🤒" class="headerlink" title="稀里糊涂@#￥@#🤒"></a>稀里糊涂@#￥@#🤒</h5><p>一开始，稀里糊涂的不知道为啥，想着将他们全部组合处理出来，简化一下数据：</p>
+<pre><code>this.baseConfigInfo = [
+    { title: &quot;计费方式&quot;, list: [
+        { &quot;id&quot;: 1, &quot;desc&quot;: &quot;按量计费&quot;, &quot;name&quot;: &quot;按量计费&quot; },
+        { &quot;id&quot;: 2, &quot;desc&quot;: &quot;按时计费&quot;, &quot;name&quot;: &quot;按时计费&quot; }
+      ]
+    },
+    { title: &quot;付费类型&quot;, list: [
+        { &quot;name&quot;: &quot;预付费&quot;, &quot;desc&quot;: &quot;预付费&quot;, &quot;id&quot;: 1 },
+        { &quot;name&quot;: &quot;后付费&quot;, &quot;desc&quot;: &quot;后付费&quot;, &quot;id&quot;: 2 }
+      ] 
+    },
+];
+</code></pre><p><img src="/2021/05/07/2021/SKU商品属性组合实践/NO5.png" alt title="NO5"></p>
+<p>想通过组合成这种形式</p>
+<pre><code>按量计费,预付费
+按量计费,后付费
+按量计费,
+,预付费
+,
+,后付费
+按时计费,预付费
+按时计费,后付费
+按时计费,
+</code></pre><p>这种形式，通过一些组合匹配达到筛选数据的目的（后续坑了自己，因为短路了忘记要做什么了🤷‍♂️）</p>
+<p>然后就开始emmm…递归求组合</p>
+<pre><code>this.dfsAllItem(&#39;&#39;, 0);
+</code></pre><pre><code>dfsAllItem(str, idx, bool = false) {
+    if(idx &gt;= this.baseConfigInfo.length) {
+    this.dfsAllRes.add(str); // 去重
+    return ;
+    }
+    let letterArr = this.baseConfigInfo[idx].list;
+    for(let iTem of letterArr) {
+    let iTemStr = iTem.desc;
+    let newSpaceStr, newStr = str;
+    if(idx === 0) {
+        newSpaceStr = `${iTemStr}`;
+    } else {
+        newSpaceStr = `${newStr},${iTemStr}`;
+        newStr = `${newStr},`;
+    }
+    this.dfsAllItem(newSpaceStr, idx + 1);
+    this.dfsAllItem(newStr, idx + 1);
+    }
+},
+</code></pre><p><em>递归这个注意项就是</em>，<strong>逗号</strong>，<em>的位置</em>，其他的问题及逻辑难度不大，时间空间也会因为维度和层数而变得复杂😢，索性还好，这边得划分没有那么多。</p>
+<p><img src="/2021/05/07/2021/SKU商品属性组合实践/NO6.png" alt title="NO6"></p>
+<p>进行到这里，等到递归写完，我就忘记后面得思路以及逻辑应该怎么整了，失忆🤦‍♂️</p>
+<h5 id="重整思路🙋‍♂️"><a href="#重整思路🙋‍♂️" class="headerlink" title="重整思路🙋‍♂️"></a>重整思路🙋‍♂️</h5><p>因为前面忘记最初的思路是什么样的，后面重新想了一下新的方式。</p>
+<p>以<code>skuList</code>数据为例子，过程如下：</p>
+<ol>
+<li>我选中了<code>按量付费</code><br>可以从<code>skuList</code>中过滤出12条<em>计费方式为按量付费</em>的数据</li>
+</ol>
+<p><img src="/2021/05/07/2021/SKU商品属性组合实践/NO7.png" alt title="NO7"></p>
+<p>再通过过滤这十二条数据的<code>付费类型</code>，<code>购买次数</code>，<code>购买时长</code>，<code>并发性能</code>，就可以得到如下这样一个对象</p>
+<pre><code>filterSkuSelect = {
+    付费类型: [&#39;预付费&#39;, &#39;后付费&#39;],
+    并发性能: [&#39;10QPS&#39;, &#39;50QPS&#39;, &#39;100QPS&#39;, &#39;无限&#39;],
+    计费方式: [&#39;按量计费&#39;],
+    购买时长: [],
+    购买次数: [100000, 200000, 按实际使用量计算]
+}
+</code></pre><p>是的，我们可以发现，所有有可能的组合状态似乎已经给筛选出来了，我们先继续看一下下一步：</p>
+<ol start="2">
+<li>再选中<code>预付费</code><br>因此可以从<code>skuList</code>数组中选出<em>计费方式为按量计费</em>与<em>付费类型为预付费</em>的数据，8条数据。</li>
+</ol>
+<p><img src="/2021/05/07/2021/SKU商品属性组合实践/NO8.png" alt title="NO8"></p>
+<p>再次通过过滤得到一个新的对象：</p>
+<pre><code>filterSkuSelect = {
+    付费类型: [&#39;预付费&#39;],
+    并发性能: [&#39;10QPS&#39;, &#39;50QPS&#39;, &#39;100QPS&#39;, &#39;无限&#39;],
+    计费方式: [&#39;按量计费&#39;],
+    购买时长: [],
+    购买次数: [100000, 200000 ]
+}
+</code></pre><p>至此，我们可以通过选项对<code>skuList</code>的过滤，再选出可能的类型组合数组。</p>
+<p>而这些类型对应的数组，即是每一中类型可选的值，因此，我们在据此进行判断即可。</p>
+<p>🆗！</p>
+<p>切换效果，样式和逻辑还是有后续优化：</p>
+<p><img src="/2021/05/07/2021/SKU商品属性组合实践/NO9.gif" alt title="NO9"></p>
+<blockquote>
+<p>code</p>
+</blockquote>
+<pre><code>choUnitSku(iTem, jTem, bool) {
+    if(!bool) return;
+    if(this.recordChoSkuUnit[iTem.title] === jTem.name) {
+        this.recordChoSkuUnit[iTem.title] = &#39;&#39;;
+    } else {
+        this.recordChoSkuUnit[iTem.title] = jTem.name;
+    }
+    let arr = this.skuIndexText;
+    let nowChoSkuUnitArr = [];
+    for(let iKey of arr) {
+        nowChoSkuUnitArr.push(`${this.recordChoSkuUnit[iKey]}`);
+    }
+    this.nowChoSkuUnitStr = nowChoSkuUnitArr.join(&#39;,&#39;);
+},
+skuChoChange() {
+    let filterArr = [];
+    let skuListArr = skuList;
+    for(let iKey in this.recordChoSkuUnit) {
+        let iTem = this.recordChoSkuUnit[iKey];
+        if(iTem === &#39;&#39;) continue;
+        filterArr = [];
+        for(let skuUnit of skuListArr) {
+            if(skuUnit[iKey] === iTem) {
+                filterArr.push(skuUnit);
+                }
+        }
+        skuListArr = filterArr;
+    }
+    this.filterSkuSelect = {
+        &#39;计费方式&#39;: [],
+        &#39;付费类型&#39;: [],
+        &#39;购买次数&#39;: [],
+        &#39;购买时长&#39;: [],
+        &#39;并发性能&#39;: [],
+    }
+    if(filterArr.length === 0) {
+        filterArr = skuList;
+    }
+    for(let item of filterArr) {
+        for(let ikey of this.skuIndexText) {
+            let itemVal = item[ikey];
+            if(!this.filterSkuSelect[ikey].includes(itemVal) &amp;&amp; itemVal) {
+                this.filterSkuSelect[ikey].push(itemVal);
+            }
+        }
+    }
+},
+</code></pre><h4 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h4><p>当然这种方式其实也不好，内部有太多重循环了，还有很多更好的方式去实现，巧妙利用数据结构等…<br>我还看到有大佬使用了一些<code>图</code>等结构去实现了</p>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2019-2021 Jayant
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class id="rocket"></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0"></script>
+
+<script src="/js/script.js?v=1.1.0"></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
