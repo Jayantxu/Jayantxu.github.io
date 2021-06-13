@@ -305,9 +305,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
             
             <tag> Stylus </tag>
             
@@ -347,35 +347,6 @@
     
     
     <entry>
-      <title>HTTP</title>
-      <link href="/2021/01/01/web/HTTP/"/>
-      <url>/2021/01/01/web/HTTP/</url>
-      
-        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP缓存机制"><a href="#HTTP缓存机制" class="headerlink" title="HTTP缓存机制"></a>HTTP缓存机制</h4><p>👉： <a href="/2021/02/26/2021/HTTP缓存">HTTP缓存机制</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>👉： <a href="/2021/02/21/2021/TCP与UDP的区别">TCP与UDP的区别</a> </p><h4 id="网络的七层结构"><a href="#网络的七层结构" class="headerlink" title="网络的七层结构"></a>网络的七层结构</h4><p>👉： <a href="/2020/11/05/2020/网络七层结构">网络的七层结构</a> </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> HTTP </tag>
-            
-            <tag> Web </tag>
-            
-            <tag> Interview </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>JS</title>
       <link href="/2021/01/01/web/JS/"/>
       <url>/2021/01/01/web/JS/</url>
@@ -393,6 +364,35 @@
         <tags>
             
             <tag> JavaScript </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> Interview </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTTP</title>
+      <link href="/2021/01/01/web/HTTP/"/>
+      <url>/2021/01/01/web/HTTP/</url>
+      
+        <content type="html"><![CDATA[<h4 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h4><p>👉： <a href="/2020/07/09/2020/三次握手四次挥手">三次握手四次挥手复习</a> </p><h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><p>👉： <a href="/2020/10/28/2020/HTTP常见状态码">HTTP常见状态码</a> </p><h4 id="输入URL到页面构建"><a href="#输入URL到页面构建" class="headerlink" title="输入URL到页面构建"></a>输入URL到页面构建</h4><p>👉： <a href="/2021/04/12/2021/浏览器的多线程">输入URL到页面构建，向后翻一点</a> </p><h4 id="HTTPS连接过程"><a href="#HTTPS连接过程" class="headerlink" title="HTTPS连接过程"></a>HTTPS连接过程</h4><p>👉： <a href="/2020/07/09/2020/HTTPS连接过程">HTTPS连接过程</a> </p><h4 id="HTTP缓存机制"><a href="#HTTP缓存机制" class="headerlink" title="HTTP缓存机制"></a>HTTP缓存机制</h4><p>👉： <a href="/2021/02/26/2021/HTTP缓存">HTTP缓存机制</a> </p><h4 id="HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定"><a href="#HTTP1、HTTP1-1、HTTP2、HTTPS、HTTP3的区别及特定" class="headerlink" title="HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定"></a>HTTP1、HTTP1.1、HTTP2、HTTPS、HTTP3的区别及特定</h4><p>👉： <a href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点">HTTP</a> </p><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>👉： <a href="/2021/02/21/2021/TCP与UDP的区别">TCP与UDP的区别</a> </p><h4 id="网络的七层结构"><a href="#网络的七层结构" class="headerlink" title="网络的七层结构"></a>网络的七层结构</h4><p>👉： <a href="/2020/11/05/2020/网络七层结构">网络的七层结构</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
             
             <tag> Web </tag>
             
@@ -804,9 +804,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -860,9 +860,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
             
             <tag> HTML </tag>
             
@@ -1334,9 +1334,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
             
             <tag> HTML </tag>
             
