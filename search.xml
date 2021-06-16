@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> HTML </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -332,11 +332,40 @@
       
         <tags>
             
+            <tag> CSS </tag>
+            
             <tag> JavaScript </tag>
+            
+            <tag> Stylus </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS&amp;HTML</title>
+      <link href="/2021/01/01/web/CSS/"/>
+      <url>/2021/01/01/web/CSS/</url>
+      
+        <content type="html"><![CDATA[<h4 id="重绘回流"><a href="#重绘回流" class="headerlink" title="重绘回流"></a>重绘回流</h4><p>👉： <a href="/2020/02/03/2020/重绘回流">浏览器重绘回流复习</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
             
             <tag> CSS </tag>
             
-            <tag> Stylus </tag>
+            <tag> Web </tag>
+            
+            <tag> Interview </tag>
             
         </tags>
       
@@ -391,35 +420,6 @@
         <tags>
             
             <tag> JavaScript </tag>
-            
-            <tag> Web </tag>
-            
-            <tag> Interview </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>CSS&amp;HTML</title>
-      <link href="/2021/01/01/web/CSS/"/>
-      <url>/2021/01/01/web/CSS/</url>
-      
-        <content type="html"><![CDATA[<h4 id="重绘回流"><a href="#重绘回流" class="headerlink" title="重绘回流"></a>重绘回流</h4><p>👉： <a href="/2020/02/03/2020/重绘回流">浏览器重绘回流复习</a> </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS </tag>
             
             <tag> Web </tag>
             
@@ -831,9 +831,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -887,11 +887,11 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
             
             <tag> HTML </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -1309,9 +1309,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> HTML </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -1361,11 +1361,11 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> CSS </tag>
             
             <tag> HTML </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
