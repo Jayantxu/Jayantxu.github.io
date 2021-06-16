@@ -83,31 +83,6 @@
     
     
     <entry>
-      <title>数组数据结构-trie树</title>
-      <link href="/2021/04/18/2021/%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-trie%E6%A0%91/"/>
-      <url>/2021/04/18/2021/%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-trie%E6%A0%91/</url>
-      
-        <content type="html"><![CDATA[<p><em>来源：👉 <a href="https://github.com/LeuisKen/leuisken.github.io/issues/2" target="_blank" rel="noopener">Trie</a></em></p><p>之所以会找到这个，是因为我最近也遇到这样的题了。</p><p>这个对于前端来说是挺常见的，因为后端是关系型的数据库，这样的数据结构要么是后台同事转换，要么是前端这边自己转，因此在这个转换上，我们是需要去学习的。</p><a id="more"></a><p>题目描述：</p><ol><li>给定一个<code>data</code>数组，例如：</li></ol><pre><code>var data = [{  &quot;province&quot;: &quot;浙江&quot;,  &quot;city&quot;: &quot;杭州&quot;,  &quot;name&quot;: &quot;西湖&quot;}, {  &quot;province&quot;: &quot;四川&quot;,  &quot;city&quot;: &quot;成都&quot;,  &quot;name&quot;: &quot;锦里&quot;}, {  &quot;province&quot;: &quot;四川&quot;,  &quot;city&quot;: &quot;成都&quot;,  &quot;name&quot;: &quot;方所&quot;}, {  &quot;province&quot;: &quot;四川&quot;,  &quot;city&quot;: &quot;阿坝&quot;,  &quot;name&quot;: &quot;九寨沟&quot;}]</code></pre><ol start="2"><li>给定一个层级关系<code>level</code>，例如：</li></ol><pre><code>let keys = [&#39;province&#39;, &#39;city&#39;, &#39;name&#39;]</code></pre><ol start="3"><li>要求输出以下示例的数据结构：</li></ol><pre><code>var data = [{  &quot;value&quot;: &quot;浙江&quot;,  &quot;children&quot;: [{    &quot;value&quot;: &quot;杭州&quot;,    &quot;children&quot;: [{      &quot;value&quot;: &quot;西湖&quot;    }]  }]}, {  &quot;value&quot;: &quot;四川&quot;,  &quot;children&quot;: [{    &quot;value&quot;: &quot;成都&quot;,    &quot;children&quot;: [{      &quot;value&quot;: &quot;锦里&quot;    }, {      &quot;value&quot;: &quot;方所&quot;    }]  }, {    &quot;value&quot;: &quot;阿坝&quot;,    &quot;children&quot;: [{      &quot;value&quot;: &quot;九寨沟&quot;    }]  }]}]</code></pre><p>起初认为基本结构是相同的，都是<code>value: xx, children: {}</code>的形式，所以以为用递归之类的可以完成，后来实际上着手写代码的时候才发现too young。<br><em>正解：感慨数据结构的精妙</em></p><p>debugger跟着浏览器执行一遍~</p><pre><code>var transObject = function(tableData, keys) {    let hashTable = {}, res = []; debugger      for (let i = 0; i &lt; tableData.length; i++) {        let arr = res, cur = hashTable        for (let j = 0; j &lt; keys.length; j++) {          let key = keys[j], filed = tableData[i][key]          if (!cur[filed]) {            let pusher = {              value: filed            }, tmp            if (j !== (keys.length - 1)) {              tmp = []              pusher.children = tmp            }            cur[filed] = { $$pos: arr.push(pusher) - 1 }            cur = cur[filed]            arr = tmp          } else {            cur = cur[filed]            arr = arr[cur.$$pos].children          }        }    }    console.log(res);    console.log(hashTable);    return res;}</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>实现对象给for...of遍历</title>
       <link href="/2021/04/14/2021/%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%BB%99for-of%E9%81%8D%E5%8E%86/"/>
       <url>/2021/04/14/2021/%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%BB%99for-of%E9%81%8D%E5%8E%86/</url>
@@ -374,6 +349,33 @@
     
     
     <entry>
+      <title>interview</title>
+      <link href="/2021/01/01/web/interview/"/>
+      <url>/2021/01/01/web/interview/</url>
+      
+        <content type="html"><![CDATA[<p>收集整理的前端面试相关…</p><p><img src="/2021/01/01/web/interview/MO1.png" alt="NO1" title="NO1"></p><a id="more"></a><h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><p>👉： <a href="/2021/01/01/web/JS">JS面试相关</a></p><h2 id="CSS-amp-HTML"><a href="#CSS-amp-HTML" class="headerlink" title="CSS&amp;HTML"></a>CSS&amp;HTML</h2><p>👉： <a href="/2021/01/01/web/CSS">CSS、HTML面试相关</a></p><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>👉： <a href="/2021/01/01/web/HTTP">HTTP面试相关</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+            <tag> Interview </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP</title>
       <link href="/2021/01/01/web/HTTP/"/>
       <url>/2021/01/01/web/HTTP/</url>
@@ -391,33 +393,6 @@
         <tags>
             
             <tag> HTTP </tag>
-            
-            <tag> Web </tag>
-            
-            <tag> Interview </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>interview</title>
-      <link href="/2021/01/01/web/interview/"/>
-      <url>/2021/01/01/web/interview/</url>
-      
-        <content type="html"><![CDATA[<p>收集整理的前端面试相关…</p><p><img src="/2021/01/01/web/interview/MO1.png" alt="NO1" title="NO1"></p><a id="more"></a><h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><p>👉： <a href="/2021/01/01/web/JS">JS面试相关</a></p><h2 id="CSS-amp-HTML"><a href="#CSS-amp-HTML" class="headerlink" title="CSS&amp;HTML"></a>CSS&amp;HTML</h2><p>👉： <a href="/2021/01/01/web/CSS">CSS、HTML面试相关</a></p><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>👉： <a href="/2021/01/01/web/HTTP">HTTP面试相关</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
             
             <tag> Web </tag>
             
