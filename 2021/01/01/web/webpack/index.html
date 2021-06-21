@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>stylus_media | Jayant Blog</title>
-  <meta name="keywords" content=" CSS , Stylus ">
-  <meta name="description" content="stylus_media | Jayant Blog">
+  <title>WebPack | Jayant Blog</title>
+  <meta name="keywords" content=" Web , Interview , WebPack ">
+  <meta name="description" content="WebPack | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
 <meta name="keywords" content="JavaScript">
@@ -695,9 +695,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-2020/stylus-media" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-web/webpack" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">stylus_media</h1>
+        <h1 class="article-title">WebPack</h1>
     
     <div class="article-meta">
         
@@ -715,21 +715,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">CSS</a>
+            <a class="color4">Web</a>
             
-            <a class="color2">Stylus</a>
+            <a class="color5">Interview</a>
+            
+            <a class="color3">WebPack</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-06-13 23:17:55">2020-12-26 11:30</time>
+            发布时间 : <time class="date" title="最后更新: 2021-06-21 12:57:06">2021-01-01 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:83</span>
+        <span>字数:781</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -748,7 +750,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#tree-Shaking"><span class="toc-text">tree Shaking</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#借助Webpack优化前端性能"><span class="toc-text">借助Webpack优化前端性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高webpack的构建速度（dev）"><span class="toc-text">提高webpack的构建速度（dev）</span></a></li>
     
 <style>
     .left-col .switch-btn,
@@ -764,39 +766,136 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>渲染字体响应</p>
-<pre><code>media_queries = {
-  small: &quot;only screen and (width: 1366px)&quot;,
-  big: &quot;only screen and (width: 1920px)&quot;
-}
-fontSizeIter(smallSize, bigSize)
-    +for_fontSize(small)
-        fontSize(smallSize)
-    +for_fontSize(big)
-        fontSize(bigSize)
+        <h3 id="tree-Shaking"><a href="#tree-Shaking" class="headerlink" title="tree Shaking"></a>tree Shaking</h3><p>树摇，在保持代码运行结果不变的情况下，去除无用代码。<code>webpack</code>生产模式下会自动启用</p>
+<ul>
+<li>借助了<code>ES6</code>模块的静态编译，在编译时确定模块的依赖关系。</li>
+</ul>
+<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><ol>
+<li>只能作为模块顶层语句出现；</li>
+<li><code>import</code>的模块名只能是字符串常量；</li>
+<li>依赖<code>ES6 Module</code>特性。</li>
+</ol>
+<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><ol>
+<li>编译阶段利用<code>es6 Module</code>判断哪些模块已经加载；</li>
+<li>判断那些模块和变量未被使用或者引用，进而删除对应代码。</li>
+</ol>
+<h3 id="借助Webpack优化前端性能"><a href="#借助Webpack优化前端性能" class="headerlink" title="借助Webpack优化前端性能"></a>借助Webpack优化前端性能</h3><ol>
+<li>JS代码压缩<ul>
+<li>webpack可以默认使用<code>TerserPlugin</code>处理</li>
+</ul>
+</li>
+<li>CSS代码压缩<ul>
+<li>可以使用<code>css-minimizer-webpack-plugin</code>插件去除无用空格</li>
+</ul>
+</li>
+<li>HTML文件代码压缩</li>
+<li>文件大小压缩<ul>
+<li>使用<code>compression-webpack-plugin</code>文件的压缩，压缩方式，大小等</li>
+</ul>
+</li>
+<li>图片压缩<ul>
+<li><code>image-webpack-loader</code>图片压缩也较为重要，一般图片都比较大</li>
+</ul>
+</li>
+<li>TreeShaking<ul>
+<li>webpack实现<code>tree shaking</code>有两种方案<ul>
+<li><code>usedExports</code>: 通过标记某些函数是否被使用，之后通过Terser来进行优化的；</li>
+<li><code>sideEffects</code>: 跳过整个模块/文件，直接查看该文件是否有副作用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代码分离<ul>
+<li>可以通过配置<code>splitChunksPlugin</code>实现，分割例如element呀之类的…<pre><code>  config.optimization.splitChunks({
+      cacheGroups: {
+          elementUI: {
+              name: &#39;element&#39;,
+              priority: 20,
+              test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
+              chunks: &#39;all&#39;
+          },
+          highcharts: {
+              name: &#39;highcharts&#39;,
+              priority: 20,
+              test: /[\\/]node_modules[\\/]_?highcharts(.*)/,
+              chunks: &#39;all&#39;
+          }
+      }
+  })
+</code></pre></li>
+<li>splitChunks主要有以下属性:<ul>
+<li><code>Chunks</code>: 对同步代码还是异步代码进行处理；</li>
+<li><code>minSize</code>: 拆分包的大小, 至少为minSize，如何包的大小不超过minSize，这个包不会拆分；</li>
+<li><code>maxSize</code>:  将大于maxSize的包，拆分为不小于minSize的包；</li>
+<li><code>minChunks</code>: 被引入的次数，默认是1。</li>
+<li><code>cacheGroups</code>: 包含<code>name</code>、<code>chunks</code>两个属性：<ul>
+<li>name：提取出来的公共模块将会以这个来命名，可以不配置；</li>
+<li>chunks：指定哪些类型的chunk参与拆分，<code>all</code>、<code>async</code>、<code>initial</code>。</li>
+<li>priority：priority属性的值为数字，可以为负数。作用是当缓存组中设置有多个拆分规则，而某个模块同时符合好几个规则的时候，则需要通过优先级属性priority来决定使用哪个拆分规则</li>
+<li>test: test的值可以是一个正则表达式，也可以是一个函数。它可以匹配模块的绝对资源路径或chunk名称</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内联chunk</li>
+</ol>
+<h3 id="提高webpack的构建速度（dev）"><a href="#提高webpack的构建速度（dev）" class="headerlink" title="提高webpack的构建速度（dev）"></a>提高webpack的构建速度（dev）</h3><ol>
+<li>优化loader配置<ul>
+<li>通过<code>include</code>、<code>exclude</code>、<code>test</code>属性配置文件，优化loader的一些查找</li>
+</ul>
+</li>
+<li>合理使用<code>resolve.extensions</code><ul>
+<li>通过配置合适的文件扩展名，加快文件寻找匹配的速度</li>
+</ul>
+</li>
+<li>优化<code>resolve.modules</code><ul>
+<li>默认是<code>node_modules</code>，配置的目录也可以减少寻找</li>
+</ul>
+</li>
+<li>优化<code>resolve.alias</code><ul>
+<li><code>alias</code>可以给常用路径起别名，可以减少查找过程</li>
+</ul>
+</li>
+<li>使用<code>cache-loader</code><ul>
+<li>可以在loader之前添加<code>cache-loader</code>，将结果缓存在磁盘中，显著提升二次构建速度<pre><code>  module.exports = {
+      module: {
+          rules: [
+              {
+                  test: /\.ext$/,
+                  use: [&#39;cache-loader&#39;, ...loaders],
+                  include: path.resolve(&#39;src&#39;),
+              },
+          ],
+      },
+  };
+</code></pre></li>
+</ul>
+</li>
+<li><code>terser</code>启动多线程<ul>
+<li><code>terser</code>启动多线程<pre><code>  module.exports = {
+      optimization: {
+          minimizer: [
+              new TerserPlugin({
+                  parallel: true,
+              }),
+          ],
+      },
+  };
+</code></pre></li>
+</ul>
+</li>
+<li>合理使用<code>sourceMap</code><ul>
+<li>source-map(build)</li>
+<li>inline-source-map(dev)</li>
+<li>none(build)</li>
+<li>eval(dev)</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
 
-for_fontSize(breakpoints)
-  conditions = ()
-  for breakpoint in breakpoints
-    push(conditions, media_queries[breakpoint])
-  conditions = join(&quot;&quot;, conditions)
-  @media conditions
-    {block}
-
-fontSize($size)
-  font-size $size
-
-
-#unicomView
-    .font-12-17
-        fontSizeIter(12px, 17px)
-    .font-14-20
-        fontSizeIter(14px, 20px)
-    .font-16-22
-        fontSizeIter(16px, 22px)
-    .font-24-34
-        fontSizeIter(24px, 34px)
-</code></pre>
       
        
     </div>

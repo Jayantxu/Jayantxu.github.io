@@ -6,17 +6,25 @@
   <meta name="keywords" content=" 日常碎碎 ">
   <meta name="description" content="毕业了 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://jayantxu.cn/about/index.html">
+<meta name="description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SKU商品属性组合实践">
+<meta property="og:url" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/index.html">
 <meta property="og:site_name" content="Jayant Blog">
-<meta property="og:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-13T15:17:55.993Z">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/GIF.gif">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO5.png">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO6.png">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO7.png">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO8.png">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO9.gif">
+<meta property="og:updated_time" content="2021-06-13T15:17:55.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta name="twitter:title" content="SKU商品属性组合实践">
+<meta name="twitter:description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
+<meta name="twitter:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/GIF.gif">
 
 
 <link rel="icon" href="/img/MyPic.png">
@@ -106,7 +114,7 @@
     <li>
         <!-- <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(65)</small>
+                <small>(66)</small>
             
         </div> -->
     </li>
@@ -117,7 +125,7 @@
                     <div data-rel="前端">
                         
                         前端
-                        <small>(49)</small>
+                        <small>(50)</small>
                         
                     </div>
                     
@@ -180,8 +188,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="65">
-<input type="hidden" id="yelog_site_word_count" value="65.6k">
+<input type="hidden" id="yelog_site_posts_number" value="66">
+<input type="hidden" id="yelog_site_word_count" value="67.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -301,6 +309,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>WebPack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>书籍摘录</a>
             </li>
         
@@ -345,7 +357,7 @@
             <span class="post-date" title="2021-06-01 22:23:03">2021/06/01</span>
         </a>
         
-        <a id="top" class="全部文章 前端 " href="/2021/05/26/2021/批量数据绘制心得/" data-tag="Web,JavaScript" data-author>
+        <a id="top" class="全部文章 前端 " href="/2021/05/26/2021/批量数据绘制心得/" data-tag="JavaScript,Web" data-author>
             <span class="post-title" title="大量/批量数据优化总结">大量/批量数据优化总结</span>
             <span class="post-date" title="2021-05-26 20:23:03">2021/05/26</span>
         </a>
@@ -355,7 +367,7 @@
             <span class="post-date" title="2021-05-07 16:22:31">2021/05/07</span>
         </a>
         
-        <a id="top" class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="CSS,JavaScript" data-author>
+        <a id="top" class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="JavaScript,CSS" data-author>
             <span class="post-title" title="模拟生成虚拟3D轮播结构">模拟生成虚拟3D轮播结构</span>
             <span class="post-date" title="2020-03-30 17:30:29">2020/03/30</span>
         </a>
@@ -375,12 +387,12 @@
             <span class="post-date" title="2019-10-08 18:35:35">2019/10/08</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/04/12/2021/浏览器的多线程/" data-tag="HTTP,JavaScript" data-author>
+        <a class="全部文章 前端 " href="/2021/04/12/2021/浏览器的多线程/" data-tag="JavaScript,HTTP" data-author>
             <span class="post-title" title="浏览器的多线程">浏览器的多线程</span>
             <span class="post-date" title="2021-04-12 19:10:48">2021/04/12</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/" data-tag="Web,HTTP" data-author>
+        <a class="全部文章 前端 " href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/" data-tag="HTTP,Web" data-author>
             <span class="post-title" title="HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定">HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
             <span class="post-date" title="2021-04-07 14:45:27">2021/04/07</span>
         </a>
@@ -405,12 +417,12 @@
             <span class="post-date" title="2021-02-26 00:00:00">2021/02/26</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/02/21/2021/TCP与UDP的区别/" data-tag="Web,HTTP" data-author>
+        <a class="全部文章 前端 " href="/2021/02/21/2021/TCP与UDP的区别/" data-tag="HTTP,Web" data-author>
             <span class="post-title" title="TCP与UDP的区别">TCP与UDP的区别</span>
             <span class="post-date" title="2021-02-21 22:23:03">2021/02/21</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="CSS,JavaScript,Stylus" data-author>
+        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="JavaScript,CSS,Stylus" data-author>
             <span class="post-title" title="JS与stylus与CSSVar的相互作用">JS与stylus与CSSVar的相互作用</span>
             <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
         </a>
@@ -420,18 +432,23 @@
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="Web,Interview,HTTP" data-author>
+        <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="HTTP,Web,Interview" data-author>
             <span class="post-title" title="HTTP">HTTP</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="Web,Interview,JavaScript" data-author>
-            <span class="post-title" title="JS">JS</span>
+        <a class="全部文章 前端 " href="/2021/01/01/web/webpack/" data-tag="Web,Interview,WebPack" data-author>
+            <span class="post-title" title="WebPack">WebPack</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
         <a class="全部文章 前端 " href="/2021/01/01/web/interview/" data-tag="Web,Interview" data-author>
             <span class="post-title" title="interview">interview</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
@@ -470,7 +487,7 @@
             <span class="post-date" title="2020-09-23 22:39:54">2020/09/23</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="HTTP,JavaScript" data-author>
+        <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="JavaScript,HTTP" data-author>
             <span class="post-title" title="XSS-CSRF">XSS-CSRF</span>
             <span class="post-date" title="2020-08-11 21:57:03">2020/08/11</span>
         </a>
@@ -500,12 +517,12 @@
             <span class="post-date" title="2020-06-12 12:20:39">2020/06/12</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="HTTP,JavaScript" data-author>
+        <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="JavaScript,HTTP" data-author>
             <span class="post-title" title="跨域访问">跨域访问</span>
             <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="CSS,JavaScript,HTML" data-author>
+        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="JavaScript,CSS,HTML" data-author>
             <span class="post-title" title="重绘回流">重绘回流</span>
             <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
         </a>
@@ -515,7 +532,7 @@
             <span class="post-date" title="2020-01-23 16:42:30">2020/01/23</span>
         </a>
         
-        <a class="全部文章 工具 " href="/2020/01/17/2020/Vue-Diff/" data-tag="转载,Vue" data-author>
+        <a class="全部文章 工具 " href="/2020/01/17/2020/Vue-Diff/" data-tag="Vue,转载" data-author>
             <span class="post-title" title="Vue虚拟节点VNodeDiff算法">Vue虚拟节点VNodeDiff算法</span>
             <span class="post-date" title="2020-01-17 20:17:56">2020/01/17</span>
         </a>
@@ -570,7 +587,7 @@
             <span class="post-date" title="2019-03-30 00:12:42">2019/03/30</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2019/03/26/2019/Grid布局/" data-tag="CSS,转载,布局" data-author>
+        <a class="全部文章 前端 " href="/2019/03/26/2019/Grid布局/" data-tag="CSS,布局,转载" data-author>
             <span class="post-title" title="Grid布局">Grid布局</span>
             <span class="post-date" title="2019-03-26 10:50:48">2019/03/26</span>
         </a>
@@ -585,7 +602,7 @@
             <span class="post-date" title="2019-03-03 19:29:44">2019/03/03</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="CSS,JavaScript,HTML" data-author>
+        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="JavaScript,CSS,HTML" data-author>
             <span class="post-title" title="margin重叠以及解决办法">margin重叠以及解决办法</span>
             <span class="post-date" title="2019-03-01 23:15:21">2019/03/01</span>
         </a>
@@ -630,7 +647,7 @@
             <span class="post-date" title="2019-02-02 09:45:31">2019/02/02</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2019/01/31/2019/Axios使用/" data-tag="JavaScript,Vue,Axios" data-author>
+        <a class="全部文章 前端 " href="/2019/01/31/2019/Axios使用/" data-tag="JavaScript,Axios,Vue" data-author>
             <span class="post-title" title="Axios使用">Axios使用</span>
             <span class="post-date" title="2019-01-31 15:14:03">2019/01/31</span>
         </a>
