@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>WebPack | Jayant Blog</title>
-  <meta name="keywords" content=" Web , Interview , WebPack ">
-  <meta name="description" content="WebPack | Jayant Blog">
+  <title>Vue的Keep-alive组件 | Jayant Blog</title>
+  <meta name="keywords" content=" Vue ">
+  <meta name="description" content="Vue的Keep-alive组件 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="还没开始写，就感觉真的是将要呕心沥血（拖拖拉拉）的一篇，其实写东西真的好不容易😂，虽然有时候，心灵深处一扑通，特别想总结某一样东西，但是总是顶不住拖延或者又被工作或者什么其他优先级更高的事给挤走了。 今天就总结一下，在日常开发中，面对Gis的数据渲染，大量或者批量所采用过的渲染策略🐱‍🏍 全文分了几个部分方式：  简单粗暴，直接渲染； 视域内diff增量； 建立简易LRU缓存队列； 通用辅助">
 <meta name="keywords" content="JavaScript,Web">
@@ -704,9 +704,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-web/webpack" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2020/Vue的Keep-alive" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">WebPack</h1>
+        <h1 class="article-title">Vue的Keep-alive组件</h1>
     
     <div class="article-meta">
         
@@ -716,7 +716,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a data-rel="前端">前端</a>
+            <a data-rel="工具">工具</a>
             
         </span>
         
@@ -724,23 +724,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Web</a>
-            
-            <a class="color5">Interview</a>
-            
-            <a class="color3">WebPack</a>
+            <a class="color4">Vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-06-21 15:53:26">2021-01-01 00:00</time>
+            发布时间 : <time class="date" title="最后更新: 2021-06-22 09:50:35">2020-01-27 20:17</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:784</span>
+        <span>字数:651</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -759,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、tree-Shaking"><span class="toc-text">一、tree Shaking</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、借助Webpack优化前端性能"><span class="toc-text">二、借助Webpack优化前端性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、提高webpack的构建速度（dev）"><span class="toc-text">三、提高webpack的构建速度（dev）</span></a></li>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -775,136 +771,124 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、tree-Shaking"><a href="#一、tree-Shaking" class="headerlink" title="一、tree Shaking"></a>一、tree Shaking</h2><p>树摇，在保持代码运行结果不变的情况下，去除无用代码。<code>webpack</code>生产模式下会自动启用</p>
+        <p><code>keep-alive</code>是<code>vue</code>的内置组件，在组件切换过程中可以将状态保留在内存里，防止重复渲染，<code>keep-alive</code>可以设置以下属性：</p>
 <ul>
-<li>借助了<code>ES6</code>模块的静态编译，在编译时确定模块的依赖关系。</li>
+<li>include</li>
+<li>exclude</li>
+<li>max</li>
 </ul>
-<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><ol>
-<li>只能作为模块顶层语句出现；</li>
-<li><code>import</code>的模块名只能是字符串常量；</li>
-<li>依赖<code>ES6 Module</code>特性。</li>
-</ol>
-<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><ol>
-<li>编译阶段利用<code>es6 Module</code>判断哪些模块已经加载；</li>
-<li>判断那些模块和变量未被使用或者引用，进而删除对应代码。</li>
-</ol>
-<h2 id="二、借助Webpack优化前端性能"><a href="#二、借助Webpack优化前端性能" class="headerlink" title="二、借助Webpack优化前端性能"></a>二、借助Webpack优化前端性能</h2><ol>
-<li>JS代码压缩<ul>
-<li>webpack可以默认使用<code>TerserPlugin</code>处理</li>
-</ul>
-</li>
-<li>CSS代码压缩<ul>
-<li>可以使用<code>css-minimizer-webpack-plugin</code>插件去除无用空格</li>
-</ul>
-</li>
-<li>HTML文件代码压缩</li>
-<li>文件大小压缩<ul>
-<li>使用<code>compression-webpack-plugin</code>文件的压缩，压缩方式，大小等</li>
-</ul>
-</li>
-<li>图片压缩<ul>
-<li><code>image-webpack-loader</code>图片压缩也较为重要，一般图片都比较大</li>
-</ul>
-</li>
-<li>TreeShaking<ul>
-<li>webpack实现<code>tree shaking</code>有两种方案<ul>
-<li><code>usedExports</code>: 通过标记某些函数是否被使用，之后通过Terser来进行优化的；</li>
-<li><code>sideEffects</code>: 跳过整个模块/文件，直接查看该文件是否有副作用。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>代码分离<ul>
-<li>可以通过配置<code>splitChunksPlugin</code>实现，分割例如element呀之类的…<pre><code>  config.optimization.splitChunks({
-      cacheGroups: {
-          elementUI: {
-              name: &#39;element&#39;,
-              priority: 20,
-              test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
-              chunks: &#39;all&#39;
-          },
-          highcharts: {
-              name: &#39;highcharts&#39;,
-              priority: 20,
-              test: /[\\/]node_modules[\\/]_?highcharts(.*)/,
-              chunks: &#39;all&#39;
-          }
-      }
-  })
-</code></pre></li>
-<li>splitChunks主要有以下属性:<ul>
-<li><code>Chunks</code>: 对同步代码还是异步代码进行处理；</li>
-<li><code>minSize</code>: 拆分包的大小, 至少为minSize，如何包的大小不超过minSize，这个包不会拆分；</li>
-<li><code>maxSize</code>:  将大于maxSize的包，拆分为不小于minSize的包；</li>
-<li><code>minChunks</code>: 被引入的次数，默认是1。</li>
-<li><code>cacheGroups</code>: 包含<code>name</code>、<code>chunks</code>两个属性：<ul>
-<li>name：提取出来的公共模块将会以这个来命名，可以不配置；</li>
-<li>chunks：指定哪些类型的chunk参与拆分，<code>all</code>、<code>async</code>、<code>initial</code>。</li>
-<li>priority：priority属性的值为数字，可以为负数。作用是当缓存组中设置有多个拆分规则，而某个模块同时符合好几个规则的时候，则需要通过优先级属性priority来决定使用哪个拆分规则</li>
-<li>test: test的值可以是一个正则表达式，也可以是一个函数。它可以匹配模块的绝对资源路径或chunk名称</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>内联chunk</li>
-</ol>
-<h2 id="三、提高webpack的构建速度（dev）"><a href="#三、提高webpack的构建速度（dev）" class="headerlink" title="三、提高webpack的构建速度（dev）"></a>三、提高webpack的构建速度（dev）</h2><ol>
-<li>优化loader配置<ul>
-<li>通过<code>include</code>、<code>exclude</code>、<code>test</code>属性配置文件，优化loader的一些查找</li>
-</ul>
-</li>
-<li>合理使用<code>resolve.extensions</code><ul>
-<li>通过配置合适的文件扩展名，加快文件寻找匹配的速度</li>
-</ul>
-</li>
-<li>优化<code>resolve.modules</code><ul>
-<li>默认是<code>node_modules</code>，配置的目录也可以减少寻找</li>
-</ul>
-</li>
-<li>优化<code>resolve.alias</code><ul>
-<li><code>alias</code>可以给常用路径起别名，可以减少查找过程</li>
-</ul>
-</li>
-<li>使用<code>cache-loader</code><ul>
-<li>可以在loader之前添加<code>cache-loader</code>，将结果缓存在磁盘中，显著提升二次构建速度<pre><code>  module.exports = {
-      module: {
-          rules: [
-              {
-                  test: /\.ext$/,
-                  use: [&#39;cache-loader&#39;, ...loaders],
-                  include: path.resolve(&#39;src&#39;),
-              },
-          ],
-      },
-  };
-</code></pre></li>
-</ul>
-</li>
-<li><code>terser</code>启动多线程<ul>
-<li><code>terser</code>启动多线程<pre><code>  module.exports = {
-      optimization: {
-          minimizer: [
-              new TerserPlugin({
-                  parallel: true,
-              }),
-          ],
-      },
-  };
-</code></pre></li>
-</ul>
-</li>
-<li>合理使用<code>sourceMap</code><ul>
-<li>source-map(build)</li>
-<li>inline-source-map(dev)</li>
-<li>none(build)</li>
-<li>eval(dev)</li>
-<li>…</li>
-</ul>
-</li>
-</ol>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><code>LRU缓存</code>，源码：<em>src/core/components/keep-alive.js</em>。</p>
+<p><code>LRU缓存</code>，源码：<em>src/core/components/keep-alive.js</em>。</p>
+<p>这个的应用及讲解有很多，leetCode上也有相关的题目。<br>简单的说就是简历了一个特殊队列，及时更新过久未使用或者新使用的对象。</p>
+<p>源码</p>
+<pre><code>export default {
+  name: &#39;keep-alive&#39;,
+  abstract: true,
 
+  props: {
+    include: [String, RegExp, Array],
+    exclude: [String, RegExp, Array],
+    max: [String, Number]
+  },
+
+  created () {
+    this.cache = Object.create(null)
+    this.keys = []
+  },
+
+  destroyed () {
+    for (const key in this.cache) {
+      pruneCacheEntry(this.cache, key, this.keys)
+    }
+  },
+
+  mounted () {
+    this.$watch(&#39;include&#39;, val =&gt; {
+      pruneCache(this, name =&gt; matches(val, name))
+    })
+    this.$watch(&#39;exclude&#39;, val =&gt; {
+      pruneCache(this, name =&gt; !matches(val, name))
+    })
+  },
+
+  render() {
+    /* 获取默认插槽中的第一个组件节点 */
+    const slot = this.$slots.default
+    const vnode = getFirstComponentChild(slot)
+    /* 获取该组件节点的componentOptions */
+    const componentOptions = vnode &amp;&amp; vnode.componentOptions
+
+    if (componentOptions) {
+      /* 获取该组件节点的名称，优先获取组件的name字段，如果name不存在则获取组件的tag */
+      const name = getComponentName(componentOptions)
+
+      const { include, exclude } = this
+      /* 如果name不在inlcude中或者存在于exlude中则表示不缓存，直接返回vnode */
+      if (
+        (include &amp;&amp; (!name || !matches(include, name))) ||
+        // excluded
+        (exclude &amp;&amp; name &amp;&amp; matches(exclude, name))
+      ) {
+        return vnode
+      }
+
+      const { cache, keys } = this
+      /* 获取组件的key值 */
+      const key = vnode.key == null
+        // same constructor may get registered as different local components
+        // so cid alone is not enough (#3269)
+        ? componentOptions.Ctor.cid + (componentOptions.tag ? `::${componentOptions.tag}` : &#39;&#39;)
+        : vnode.key
+     /*  拿到key值后去this.cache对象中去寻找是否有该值，如果有则表示该组件有缓存，即命中缓存 */
+      if (cache[key]) {
+        vnode.componentInstance = cache[key].componentInstance
+        // make current key freshest
+        remove(keys, key)
+        keys.push(key)
+      }
+        /* 如果没有命中缓存，则将其设置进缓存 */
+        else {
+        cache[key] = vnode
+        keys.push(key)
+        // prune oldest entry
+        /* 如果配置了max并且缓存的长度超过了this.max，则从缓存中删除第一个 */
+        if (this.max &amp;&amp; keys.length &gt; parseInt(this.max)) {
+          pruneCacheEntry(cache, keys[0], keys, this._vnode)
+        }
+      }
+
+      vnode.data.keepAlive = true
+    }
+    return vnode || (slot &amp;&amp; slot[0])
+  }
+}
+</code></pre><p><code>cache</code>作为存储的对象:</p>
+<pre><code>this.cache = {
+    &#39;key1&#39;:&#39;组件1&#39;,
+    &#39;key2&#39;:&#39;组件2&#39;,
+    // ...
+}
+</code></pre><p><code>key</code>的获取：</p>
+<pre><code>const key = vnode.key == null? 
+componentOptions.Ctor.cid + (componentOptions.tag ? `::${componentOptions.tag}` : &#39;&#39;)
+: vnode.key
+</code></pre><p>如果命中缓存</p>
+<pre><code>if (cache[key]) {
+    vnode.componentInstance = cache[key].componentInstance
+    /* 调整该组件key的顺序，将其从原来的地方删掉并重新放在最后一个 */
+    remove(keys, key)
+    keys.push(key)
+} 
+</code></pre><p>如果没有命中</p>
+<pre><code>else {
+    cache[key] = vnode
+    keys.push(key)
+    /* 如果配置了max并且缓存的长度超过了this.max，则从缓存中删除第一个 */
+    if (this.max &amp;&amp; keys.length &gt; parseInt(this.max)) {
+        pruneCacheEntry(cache, keys[0], keys, this._vnode)
+    }
+}
+</code></pre>
       
        
     </div>

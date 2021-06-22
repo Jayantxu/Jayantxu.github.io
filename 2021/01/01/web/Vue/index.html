@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>WebPack | Jayant Blog</title>
-  <meta name="keywords" content=" Web , Interview , WebPack ">
-  <meta name="description" content="WebPack | Jayant Blog">
+  <title>Vue | Jayant Blog</title>
+  <meta name="keywords" content=" Vue , Web , Interview ">
+  <meta name="description" content="Vue | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="还没开始写，就感觉真的是将要呕心沥血（拖拖拉拉）的一篇，其实写东西真的好不容易😂，虽然有时候，心灵深处一扑通，特别想总结某一样东西，但是总是顶不住拖延或者又被工作或者什么其他优先级更高的事给挤走了。 今天就总结一下，在日常开发中，面对Gis的数据渲染，大量或者批量所采用过的渲染策略🐱‍🏍 全文分了几个部分方式：  简单粗暴，直接渲染； 视域内diff增量； 建立简易LRU缓存队列； 通用辅助">
 <meta name="keywords" content="JavaScript,Web">
@@ -704,9 +704,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-web/webpack" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-web/Vue" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">WebPack</h1>
+        <h1 class="article-title">Vue</h1>
     
     <div class="article-meta">
         
@@ -724,23 +724,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
+            <a class="color4">Vue</a>
+            
             <a class="color4">Web</a>
             
             <a class="color5">Interview</a>
-            
-            <a class="color3">WebPack</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-06-21 15:53:26">2021-01-01 00:00</time>
+            发布时间 : <time class="date" title="最后更新: 2021-06-22 10:01:18">2021-01-01 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:784</span>
+        <span>字数:820</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -759,7 +759,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、tree-Shaking"><span class="toc-text">一、tree Shaking</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、借助Webpack优化前端性能"><span class="toc-text">二、借助Webpack优化前端性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、提高webpack的构建速度（dev）"><span class="toc-text">三、提高webpack的构建速度（dev）</span></a></li>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、首屏加载，性能优化"><span class="toc-text">一、首屏加载，性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首屏时间"><span class="toc-text">1. 首屏时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-如何计算"><span class="toc-text">2. 如何计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-加载慢的可能"><span class="toc-text">3. 加载慢的可能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-解决方法"><span class="toc-text">4. 解决方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、vue-diff"><span class="toc-text">二、vue-diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、defineProperty和Proxy"><span class="toc-text">三、defineProperty和Proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#defineProperty"><span class="toc-text">defineProperty</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Proxy"><span class="toc-text">Proxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、keep-alive"><span class="toc-text">四、keep-alive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、父子组件的生命周期"><span class="toc-text">五、父子组件的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、Vue组件间的通信"><span class="toc-text">六、Vue组件间的通信</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -775,134 +775,146 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、tree-Shaking"><a href="#一、tree-Shaking" class="headerlink" title="一、tree Shaking"></a>一、tree Shaking</h2><p>树摇，在保持代码运行结果不变的情况下，去除无用代码。<code>webpack</code>生产模式下会自动启用</p>
+        <h3 id="一、首屏加载，性能优化"><a href="#一、首屏加载，性能优化" class="headerlink" title="一、首屏加载，性能优化"></a>一、首屏加载，性能优化</h3><h4 id="1-首屏时间"><a href="#1-首屏时间" class="headerlink" title="1. 首屏时间"></a>1. 首屏时间</h4><p>首屏时间（First Contentful Paint），指的是浏览器从响应用户输入网址地址，到首屏内容渲染完成的时间，此时整个网页不一定要全部渲染完成，但需要展示当前视窗需要的内容</p>
+<h4 id="2-如何计算"><a href="#2-如何计算" class="headerlink" title="2. 如何计算"></a>2. 如何计算</h4><p>利用<code>performance.timing</code>提供的数据，通过<code>DOMContentLoad</code>或者<code>performance</code>计算。</p>
+<pre><code>// 方案一：
+document.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {
+    console.log(&#39;first contentful painting&#39;);
+});
+
+// 方案二：
+performance.getEntriesByName(&quot;first-contentful-paint&quot;)[0].startTime
+</code></pre><h4 id="3-加载慢的可能"><a href="#3-加载慢的可能" class="headerlink" title="3. 加载慢的可能"></a>3. 加载慢的可能</h4><ol>
+<li>网络延时；</li>
+<li>资源体积过大；</li>
+<li>代码问题，是否重复发送某些东西，重复发送请求；</li>
+<li>加载脚本时，执行脚本是不是过久，堵塞渲染线程了；</li>
+</ol>
+<h4 id="4-解决方法"><a href="#4-解决方法" class="headerlink" title="4. 解决方法"></a>4. 解决方法</h4><ol>
+<li>减少入口文件体积<ul>
+<li>从<code>webpack</code>等构建工具可以入手，切分代码，<code>splitChunk</code>等</li>
+<li>按需加载组件<code>import</code>引入</li>
+</ul>
+</li>
+<li>静态资源本地缓存<ul>
+<li>后端返回缓存，配合浏览器缓存机制进行缓存，强缓存或协商缓存<ul>
+<li>回顾缓存机制：<a href="/2021/02/26/web/HTTP缓存">👉HTTP面试相关</a></li>
+</ul>
+</li>
+<li>合理利用<code>Storage</code>机制，存储一些数据</li>
+<li>CDN分发等机制进行</li>
+</ul>
+</li>
+<li>UI框架按需加载<ul>
+<li>例如加载<code>element-ui</code>、<code>ant-design-vue</code>这些组件的时候，是可以按需加载的</li>
+</ul>
+</li>
+<li>图片资源压缩<ul>
+<li>合并雪碧图等</li>
+<li>webpack的<code>image-webpack-loader</code>进行压缩</li>
+</ul>
+</li>
+<li>组件重复打包<ul>
+<li><code>minChunks</code>可以将重复的文件，进行抽离，作为公共依赖</li>
+</ul>
+</li>
+<li>开启<code>gzip</code><ul>
+<li><code>nginx</code>可以进行gzip的压缩，及指定</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、vue-diff"><a href="#二、vue-diff" class="headerlink" title="二、vue-diff"></a>二、vue-diff</h3><p><a href="/2020/01/17/2020/Vue-Diff">👉Vue-Diff</a></p>
+<h3 id="三、defineProperty和Proxy"><a href="#三、defineProperty和Proxy" class="headerlink" title="三、defineProperty和Proxy"></a>三、defineProperty和Proxy</h3><h4 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a>defineProperty</h4><p>通过<code>defineProperty</code>设置<code>get</code>、<code>set</code>实现响应式</p>
+<ol>
+<li>监听不到对象属性的添加修改，因此需要使用<code>$set</code>；</li>
+<li>数组API无法监听，Vue重写了Array才做到</li>
+<li>需要对每个属性进行遍历监听，深层对象还要依次进行。</li>
+</ol>
+<h4 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h4><p><code>Proxy</code>的监听是针对对象的，会对对象所有的操作进行监听，就完全可以代理所有属性。</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
+<li><code>defineProperty</code>只能对对象属性劫持</li>
+<li><code>Proxy</code>可以劫持整个对象，并返回一个新对象</li>
+<li><code>Proxy</code>可以监听数组的变化，有多达13中方法</li>
+<li><code>Proxy</code>兼容性较差</li>
+</ul>
+<h3 id="四、keep-alive"><a href="#四、keep-alive" class="headerlink" title="四、keep-alive"></a>四、keep-alive</h3><p><a href="/2020/01/27/2020/Vue的Keep-alive">👉Vue, Keep-alive</a></p>
+<h3 id="五、父子组件的生命周期"><a href="#五、父子组件的生命周期" class="headerlink" title="五、父子组件的生命周期"></a>五、父子组件的生命周期</h3><ol>
+<li>加载过程</li>
+</ol>
 <ul>
-<li>借助了<code>ES6</code>模块的静态编译，在编译时确定模块的依赖关系。</li>
+<li>父<code>beforeCreate</code> -&gt; 父<code>created</code> -&gt; 父<code>beforeMount</code></li>
+<li>子<code>beforeCreate</code> -&gt; 子<code>created</code> -&gt; 子<code>beforeMount</code> -&gt; 子<code>mounted</code></li>
+<li>父<code>mounted</code></li>
 </ul>
-<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><ol>
-<li>只能作为模块顶层语句出现；</li>
-<li><code>import</code>的模块名只能是字符串常量；</li>
-<li>依赖<code>ES6 Module</code>特性。</li>
+<ol start="2">
+<li>更新过程</li>
 </ol>
-<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><ol>
-<li>编译阶段利用<code>es6 Module</code>判断哪些模块已经加载；</li>
-<li>判断那些模块和变量未被使用或者引用，进而删除对应代码。</li>
+<ul>
+<li>父<code>beforeUpdate</code></li>
+<li>子<code>beforeUpdate</code> -&gt; 子<code>updated</code></li>
+<li>父<code>updated</code></li>
+</ul>
+<ol start="3">
+<li>销毁过程</li>
 </ol>
-<h2 id="二、借助Webpack优化前端性能"><a href="#二、借助Webpack优化前端性能" class="headerlink" title="二、借助Webpack优化前端性能"></a>二、借助Webpack优化前端性能</h2><ol>
-<li>JS代码压缩<ul>
-<li>webpack可以默认使用<code>TerserPlugin</code>处理</li>
+<ul>
+<li>父<code>beforeDestroy</code></li>
+<li>子<code>beforeDestroy</code> -&gt; 子<code>destroyed</code></li>
+<li>父<code>destroyed</code></li>
+</ul>
+<h3 id="六、Vue组件间的通信"><a href="#六、Vue组件间的通信" class="headerlink" title="六、Vue组件间的通信"></a>六、Vue组件间的通信</h3><ol>
+<li>通过<code>props</code>传递</li>
+<li>通过<code>$emit</code>触发事件</li>
+<li>使用<code>ref</code><ul>
+<li>父组件通过<code>ref</code>获取子组件实例，然后设置值</li>
 </ul>
 </li>
-<li>CSS代码压缩<ul>
-<li>可以使用<code>css-minimizer-webpack-plugin</code>插件去除无用空格</li>
-</ul>
-</li>
-<li>HTML文件代码压缩</li>
-<li>文件大小压缩<ul>
-<li>使用<code>compression-webpack-plugin</code>文件的压缩，压缩方式，大小等</li>
-</ul>
-</li>
-<li>图片压缩<ul>
-<li><code>image-webpack-loader</code>图片压缩也较为重要，一般图片都比较大</li>
-</ul>
-</li>
-<li>TreeShaking<ul>
-<li>webpack实现<code>tree shaking</code>有两种方案<ul>
-<li><code>usedExports</code>: 通过标记某些函数是否被使用，之后通过Terser来进行优化的；</li>
-<li><code>sideEffects</code>: 跳过整个模块/文件，直接查看该文件是否有副作用。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>代码分离<ul>
-<li>可以通过配置<code>splitChunksPlugin</code>实现，分割例如element呀之类的…<pre><code>  config.optimization.splitChunks({
-      cacheGroups: {
-          elementUI: {
-              name: &#39;element&#39;,
-              priority: 20,
-              test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
-              chunks: &#39;all&#39;
-          },
-          highcharts: {
-              name: &#39;highcharts&#39;,
-              priority: 20,
-              test: /[\\/]node_modules[\\/]_?highcharts(.*)/,
-              chunks: &#39;all&#39;
-          }
-      }
-  })
-</code></pre></li>
-<li>splitChunks主要有以下属性:<ul>
-<li><code>Chunks</code>: 对同步代码还是异步代码进行处理；</li>
-<li><code>minSize</code>: 拆分包的大小, 至少为minSize，如何包的大小不超过minSize，这个包不会拆分；</li>
-<li><code>maxSize</code>:  将大于maxSize的包，拆分为不小于minSize的包；</li>
-<li><code>minChunks</code>: 被引入的次数，默认是1。</li>
-<li><code>cacheGroups</code>: 包含<code>name</code>、<code>chunks</code>两个属性：<ul>
-<li>name：提取出来的公共模块将会以这个来命名，可以不配置；</li>
-<li>chunks：指定哪些类型的chunk参与拆分，<code>all</code>、<code>async</code>、<code>initial</code>。</li>
-<li>priority：priority属性的值为数字，可以为负数。作用是当缓存组中设置有多个拆分规则，而某个模块同时符合好几个规则的时候，则需要通过优先级属性priority来决定使用哪个拆分规则</li>
-<li>test: test的值可以是一个正则表达式，也可以是一个函数。它可以匹配模块的绝对资源路径或chunk名称</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>内联chunk</li>
-</ol>
-<h2 id="三、提高webpack的构建速度（dev）"><a href="#三、提高webpack的构建速度（dev）" class="headerlink" title="三、提高webpack的构建速度（dev）"></a>三、提高webpack的构建速度（dev）</h2><ol>
-<li>优化loader配置<ul>
-<li>通过<code>include</code>、<code>exclude</code>、<code>test</code>属性配置文件，优化loader的一些查找</li>
-</ul>
-</li>
-<li>合理使用<code>resolve.extensions</code><ul>
-<li>通过配置合适的文件扩展名，加快文件寻找匹配的速度</li>
-</ul>
-</li>
-<li>优化<code>resolve.modules</code><ul>
-<li>默认是<code>node_modules</code>，配置的目录也可以减少寻找</li>
-</ul>
-</li>
-<li>优化<code>resolve.alias</code><ul>
-<li><code>alias</code>可以给常用路径起别名，可以减少查找过程</li>
-</ul>
-</li>
-<li>使用<code>cache-loader</code><ul>
-<li>可以在loader之前添加<code>cache-loader</code>，将结果缓存在磁盘中，显著提升二次构建速度<pre><code>  module.exports = {
-      module: {
-          rules: [
-              {
-                  test: /\.ext$/,
-                  use: [&#39;cache-loader&#39;, ...loaders],
-                  include: path.resolve(&#39;src&#39;),
-              },
-          ],
-      },
-  };
+<li><p><code>EventBus</code></p>
+<ul>
+<li><p>兄弟组件间通信</p>
+<pre><code>// 创建一个中央时间总线类  
+class Bus {  
+ constructor() {  
+   this.callbacks = {};   // 存放事件的名字  
+ }  
+ $on(name, fn) {  
+   this.callbacks[name] = this.callbacks[name] || [];  
+   this.callbacks[name].push(fn);  
+ }  
+ $emit(name, args) {  
+   if (this.callbacks[name]) {  
+     this.callbacks[name].forEach((cb) =&gt; cb(args));  
+   }  
+ }  
+}  
+
+// main.js  
+Vue.prototype.$bus = new Bus() // 将$bus挂载到vue实例的原型上  
+// 另一种方式  
+Vue.prototype.$bus = new Vue() // Vue已经实现了Bus的功能  
+</code></pre><p><code>Children1.vue</code>的使用</p>
+<pre><code>this.$bus.$emit(&#39;foo&#39;)  
+</code></pre><p><code>Children2.vue</code>的使用</p>
+<pre><code>this.$bus.$on(&#39;foo&#39;, this.handle)  
 </code></pre></li>
 </ul>
 </li>
-<li><code>terser</code>启动多线程<ul>
-<li><code>terser</code>启动多线程<pre><code>  module.exports = {
-      optimization: {
-          minimizer: [
-              new TerserPlugin({
-                  parallel: true,
-              }),
-          ],
-      },
-  };
+<li><code>$parent</code>或<code>$root</code><ul>
+<li>通过共同的祖辈，协调</li>
+</ul>
+</li>
+<li><code>Provide</code>与<code>inject</code><ul>
+<li>祖辈定义<code>provide</code>属性，返回传递的值<pre><code> provide(){  
+     return {  
+         foo:&#39;foo&#39;  
+     }  
+ } 
+</code></pre></li>
+<li>后代组件通过<code>inject</code>接收<pre><code>inject:[&#39;foo&#39;]
 </code></pre></li>
 </ul>
 </li>
-<li>合理使用<code>sourceMap</code><ul>
-<li>source-map(build)</li>
-<li>inline-source-map(dev)</li>
-<li>none(build)</li>
-<li>eval(dev)</li>
-<li>…</li>
-</ul>
-</li>
+<li><code>Vuex</code></li>
 </ol>
 
       

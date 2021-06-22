@@ -6,25 +6,24 @@
   <meta name="keywords" content=" JavaScript ">
   <meta name="description" content="SKU商品属性组合实践 | Jayant Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="还没开始写，就感觉真的是将要呕心沥血（拖拖拉拉）的一篇，其实写东西真的好不容易😂，虽然有时候，心灵深处一扑通，特别想总结某一样东西，但是总是顶不住拖延或者又被工作或者什么其他优先级更高的事给挤走了。 今天就总结一下，在日常开发中，面对Gis的数据渲染，大量或者批量所采用过的渲染策略🐱‍🏍 全文分了几个部分方式：  简单粗暴，直接渲染； 视域内diff增量； 建立简易LRU缓存队列； 通用辅助">
+<meta name="keywords" content="JavaScript,Web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SKU商品属性组合实践">
-<meta property="og:url" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/index.html">
+<meta property="og:title" content="大量&#x2F;批量数据优化总结">
+<meta property="og:url" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/index.html">
 <meta property="og:site_name" content="Jayant Blog">
-<meta property="og:description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
+<meta property="og:description" content="还没开始写，就感觉真的是将要呕心沥血（拖拖拉拉）的一篇，其实写东西真的好不容易😂，虽然有时候，心灵深处一扑通，特别想总结某一样东西，但是总是顶不住拖延或者又被工作或者什么其他优先级更高的事给挤走了。 今天就总结一下，在日常开发中，面对Gis的数据渲染，大量或者批量所采用过的渲染策略🐱‍🏍 全文分了几个部分方式：  简单粗暴，直接渲染； 视域内diff增量； 建立简易LRU缓存队列； 通用辅助">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/GIF.gif">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO5.png">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO6.png">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO7.png">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO8.png">
-<meta property="og:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/NO9.gif">
-<meta property="og:updated_time" content="2021-06-13T15:17:55.503Z">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_1.gif">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_2.gif">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_3.gif">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_4.gif">
+<meta property="og:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_5.gif">
+<meta property="og:updated_time" content="2021-06-13T15:17:55.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SKU商品属性组合实践">
-<meta name="twitter:description" content="需求背景最近有一个内部购买页面有如下gif所示逻辑的业务需求。  最初拿到这个平台需求，感觉可能没有很麻烦，可能只是一下状态什么的处理，然后就简单用了固定“硬”处理，直接把所有逻辑写了一遍，后来发现还是too young🤦‍♂️… 后来真实的开始动手想优雅点实现了，发现其实有些不太好整，并且一开始也不知道要如何形容这个东西，只能搜索什么购买商品、淘宝商品页等等等，毕竟还是知道这个应该是电商业务会">
-<meta name="twitter:image" content="http://jayantxu.cn/2021/05/07/2021/SKU商品属性组合实践/GIF.gif">
+<meta name="twitter:title" content="大量&#x2F;批量数据优化总结">
+<meta name="twitter:description" content="还没开始写，就感觉真的是将要呕心沥血（拖拖拉拉）的一篇，其实写东西真的好不容易😂，虽然有时候，心灵深处一扑通，特别想总结某一样东西，但是总是顶不住拖延或者又被工作或者什么其他优先级更高的事给挤走了。 今天就总结一下，在日常开发中，面对Gis的数据渲染，大量或者批量所采用过的渲染策略🐱‍🏍 全文分了几个部分方式：  简单粗暴，直接渲染； 视域内diff增量； 建立简易LRU缓存队列； 通用辅助">
+<meta name="twitter:image" content="http://jayantxu.cn/2021/05/26/2021/批量数据绘制心得/GIF_1.gif">
 
 
 <link rel="icon" href="/img/MyPic.png">
@@ -114,7 +113,7 @@
     <li>
         <!-- <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(66)</small>
+                <small>(68)</small>
             
         </div> -->
     </li>
@@ -125,7 +124,7 @@
                     <div data-rel="前端">
                         
                         前端
-                        <small>(50)</small>
+                        <small>(51)</small>
                         
                     </div>
                     
@@ -153,7 +152,7 @@
                     <div data-rel="工具">
                         
                         工具
-                        <small>(8)</small>
+                        <small>(9)</small>
                         
                     </div>
                     
@@ -188,8 +187,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="66">
-<input type="hidden" id="yelog_site_word_count" value="67.2k">
+<input type="hidden" id="yelog_site_posts_number" value="68">
+<input type="hidden" id="yelog_site_word_count" value="70.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -367,7 +366,7 @@
             <span class="post-date" title="2021-05-07 16:22:31">2021/05/07</span>
         </a>
         
-        <a id="top" class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="JavaScript,CSS" data-author>
+        <a id="top" class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="CSS,JavaScript" data-author>
             <span class="post-title" title="模拟生成虚拟3D轮播结构">模拟生成虚拟3D轮播结构</span>
             <span class="post-date" title="2020-03-30 17:30:29">2020/03/30</span>
         </a>
@@ -422,7 +421,7 @@
             <span class="post-date" title="2021-02-21 22:23:03">2021/02/21</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="JavaScript,CSS,Stylus" data-author>
+        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="CSS,JavaScript,Stylus" data-author>
             <span class="post-title" title="JS与stylus与CSSVar的相互作用">JS与stylus与CSSVar的相互作用</span>
             <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
         </a>
@@ -437,8 +436,8 @@
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/webpack/" data-tag="Web,Interview,WebPack" data-author>
-            <span class="post-title" title="WebPack">WebPack</span>
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
@@ -447,8 +446,13 @@
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
-            <span class="post-title" title="JS">JS</span>
+        <a class="全部文章 前端 " href="/2021/01/01/web/Vue/" data-tag="Vue,Web,Interview" data-author>
+            <span class="post-title" title="Vue">Vue</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/webpack/" data-tag="Web,Interview,WebPack" data-author>
+            <span class="post-title" title="WebPack">WebPack</span>
             <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
         </a>
         
@@ -488,7 +492,7 @@
         </a>
         
         <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="JavaScript,HTTP" data-author>
-            <span class="post-title" title="XSS-CSRF">XSS-CSRF</span>
+            <span class="post-title" title="XSS-CSRF-Cookie">XSS-CSRF-Cookie</span>
             <span class="post-date" title="2020-08-11 21:57:03">2020/08/11</span>
         </a>
         
@@ -522,9 +526,14 @@
             <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="JavaScript,CSS,HTML" data-author>
+        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="CSS,JavaScript,HTML" data-author>
             <span class="post-title" title="重绘回流">重绘回流</span>
             <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/27/2020/Vue的Keep-alive/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue的Keep-alive组件">Vue的Keep-alive组件</span>
+            <span class="post-date" title="2020-01-27 20:17:56">2020/01/27</span>
         </a>
         
         <a class="全部文章 工具 " href="/2020/01/23/2020/Vue的nextTick剖析/" data-tag="Vue" data-author>
@@ -602,7 +611,7 @@
             <span class="post-date" title="2019-03-03 19:29:44">2019/03/03</span>
         </a>
         
-        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="JavaScript,CSS,HTML" data-author>
+        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="CSS,JavaScript,HTML" data-author>
             <span class="post-title" title="margin重叠以及解决办法">margin重叠以及解决办法</span>
             <span class="post-date" title="2019-03-01 23:15:21">2019/03/01</span>
         </a>
@@ -724,7 +733,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2021-06-13 23:17:55">2021-05-07 16:22</time>
+            发布时间 : <time class="date" title="最后更新: 2021-06-21 13:39:52">2021-05-07 16:22</time>
         
     </div>
     <div class="article-meta">
@@ -914,21 +923,21 @@
 <pre><code>this.dfsAllItem(&#39;&#39;, 0);
 </code></pre><pre><code>dfsAllItem(str, idx, bool = false) {
     if(idx &gt;= this.baseConfigInfo.length) {
-    this.dfsAllRes.add(str); // 去重
-    return ;
+        this.dfsAllRes.add(str); // 去重
+        return ;
     }
     let letterArr = this.baseConfigInfo[idx].list;
     for(let iTem of letterArr) {
-    let iTemStr = iTem.desc;
-    let newSpaceStr, newStr = str;
-    if(idx === 0) {
-        newSpaceStr = `${iTemStr}`;
-    } else {
-        newSpaceStr = `${newStr},${iTemStr}`;
-        newStr = `${newStr},`;
-    }
-    this.dfsAllItem(newSpaceStr, idx + 1);
-    this.dfsAllItem(newStr, idx + 1);
+        let iTemStr = iTem.desc;
+        let newSpaceStr, newStr = str;
+        if(idx === 0) {
+            newSpaceStr = `${iTemStr}`;
+        } else {
+            newSpaceStr = `${newStr},${iTemStr}`;
+            newStr = `${newStr},`;
+        }
+        this.dfsAllItem(newSpaceStr, idx + 1);
+        this.dfsAllItem(newStr, idx + 1);
     }
 },
 </code></pre><p><em>递归这个注意项就是</em>，<strong>逗号</strong>，<em>的位置</em>，其他的问题及逻辑难度不大，时间空间也会因为维度和层数而变得复杂😢，索性还好，这边得划分没有那么多。</p>
