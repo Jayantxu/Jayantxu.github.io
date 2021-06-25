@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Gulp源码分析学习(二 | Jayant Blog</title>
+  <meta name="keywords" content=" Gulp , 源码 ">
+  <meta name="description" content="Gulp源码分析学习(二 | Jayant Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="http://jayantxu.cn/about/index.html">
+<meta property="og:site_name" content="Jayant Blog">
+<meta property="og:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-06-13T15:17:55.993Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="许俊彦96年小青年，目前大四，就读于广东药科大学，现在深圳在职，从事前端开发，有团队开发合作经验，积极向上，对于前端领域研究有着十足的兴趣。在成长着，也努力着… 邮箱：jayant_xu@qq.com　期待你的联系 教育经历2015-9　至　2019-6　　　　广东药科大学　　　　信息管理与信息系统 主修课程：Java程序设计、计算机网络、数据结构、UML系统建模、Web程序设计、Linux、数据">
+
+
+<link rel="icon" href="/img/MyPic.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/gruvbox-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/MyPic.png">
+</a>
+<div class="author">
+    <span>Jayantxu</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github" href="https://github.com/Jayantxu" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email" href="mailto:Jayant_xu@qq.com" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"/>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=591060601&site=qq&menu=yes" target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"/>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <!-- <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(68)</small>
+            
+        </div> -->
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        
+                        前端
+                        <small>(51)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="后端">
+                        
+                        后端
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="读书V生活">
+                        
+                        读书V生活
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url" href="/about">关于</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="68">
+<input type="hidden" id="yelog_site_word_count" value="72.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off">
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search">
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Adv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Axios</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bug</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>canvas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CSS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Element</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gulp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTTP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interview</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScipt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Stylus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>WebPack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>书籍摘录</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>布局</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>日常碎碎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>源码</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>踩坑</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>转载</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="全部文章 前端 " href="/2019/01/22/2019/hello-world/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="Hello">Hello</span>
+            <span class="post-date" title="2019-01-22 21:45:11">2019/01/22</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2021/06/01/2021/rJUI&vJUI/" data-tag="JavaScript,HTML" data-author>
+            <span class="post-title" title="rJUI&amp;vJUI✨✨✨">rJUI&amp;vJUI✨✨✨</span>
+            <span class="post-date" title="2021-06-01 22:23:03">2021/06/01</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2021/05/26/2021/批量数据绘制心得/" data-tag="JavaScript,Web" data-author>
+            <span class="post-title" title="大量/批量数据优化总结">大量/批量数据优化总结</span>
+            <span class="post-date" title="2021-05-26 20:23:03">2021/05/26</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2021/05/07/2021/SKU商品属性组合实践/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="SKU商品属性组合实践">SKU商品属性组合实践</span>
+            <span class="post-date" title="2021-05-07 16:22:31">2021/05/07</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2020/03/30/2020/轮播/" data-tag="JavaScript,CSS" data-author>
+            <span class="post-title" title="模拟生成虚拟3D轮播结构">模拟生成虚拟3D轮播结构</span>
+            <span class="post-date" title="2020-03-30 17:30:29">2020/03/30</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2020/02/15/2020/adv/" data-tag="JavaScript,Vue,Adv" data-author>
+            <span class="post-title" title="adv">adv</span>
+            <span class="post-date" title="2020-02-15 00:00:00">2020/02/15</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2020/01/07/2020/费舍尔-耶茨混洗/" data-tag="JavaScript,算法" data-author>
+            <span class="post-title" title="借鉴费舍尔.耶茨混洗优化公司年会抽奖">借鉴费舍尔.耶茨混洗优化公司年会抽奖</span>
+            <span class="post-date" title="2020-01-07 00:00:00">2020/01/07</span>
+        </a>
+        
+        <a id="top" class="全部文章 前端 " href="/2019/10/08/2019/canvas进行图像像素点着色/" data-tag="canvas" data-author>
+            <span class="post-title" title="基于Canvas进行像素分析，结合数据进行实时着色">基于Canvas进行像素分析，结合数据进行实时着色</span>
+            <span class="post-date" title="2019-10-08 18:35:35">2019/10/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/12/2021/浏览器的多线程/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="浏览器的多线程">浏览器的多线程</span>
+            <span class="post-date" title="2021-04-12 19:10:48">2021/04/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/07/2021/HTTP1-HTTP1-1-HTTP2-HTTPS-HTTP3的区别特点/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定">HTTP1-HTTP1.1-HTTP2-HTTPS-HTTP3的区别特定</span>
+            <span class="post-date" title="2021-04-07 14:45:27">2021/04/07</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2021/04/05/2021/github的3D打印/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="有趣-github的3D打印">有趣-github的3D打印</span>
+            <span class="post-date" title="2021-04-05 00:00:00">2021/04/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/02/2021/十大排序/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="十大排序">十大排序</span>
+            <span class="post-date" title="2021-04-02 11:10:07">2021/04/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/04/01/2021/JS手写Promise/" data-tag="JavaScript,转载" data-author>
+            <span class="post-title" title="JS手写Promise">JS手写Promise</span>
+            <span class="post-date" title="2021-04-01 20:08:55">2021/04/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/26/2021/HTTP缓存/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP缓存">HTTP缓存</span>
+            <span class="post-date" title="2021-02-26 00:00:00">2021/02/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/02/21/2021/TCP与UDP的区别/" data-tag="HTTP,Web" data-author>
+            <span class="post-title" title="TCP与UDP的区别">TCP与UDP的区别</span>
+            <span class="post-date" title="2021-02-21 22:23:03">2021/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/08/2021/JS与stylus与CSSVar的相互作用/" data-tag="JavaScript,CSS,Stylus" data-author>
+            <span class="post-title" title="JS与stylus与CSSVar的相互作用">JS与stylus与CSSVar的相互作用</span>
+            <span class="post-date" title="2021-01-08 00:00:00">2021/01/08</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/HTTP/" data-tag="HTTP,Web,Interview" data-author>
+            <span class="post-title" title="HTTP">HTTP</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/CSS/" data-tag="CSS,Web,Interview" data-author>
+            <span class="post-title" title="CSS&amp;HTML">CSS&amp;HTML</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/interview/" data-tag="Web,Interview" data-author>
+            <span class="post-title" title="interview">interview</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/JS/" data-tag="JavaScript,Web,Interview" data-author>
+            <span class="post-title" title="JS">JS</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/Vue/" data-tag="Vue,Web,Interview" data-author>
+            <span class="post-title" title="Vue">Vue</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2021/01/01/web/webpack/" data-tag="Web,Interview,WebPack" data-author>
+            <span class="post-title" title="WebPack">WebPack</span>
+            <span class="post-date" title="2021-01-01 00:00:00">2021/01/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/12/26/2020/stylus-media/" data-tag="CSS,Stylus" data-author>
+            <span class="post-title" title="stylus_media">stylus_media</span>
+            <span class="post-date" title="2020-12-26 11:30:02">2020/12/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2020/12/01/2020/My/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="My">My</span>
+            <span class="post-date" title="2020-12-01 20:09:10">2020/12/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/11/05/2020/网络七层结构/" data-tag="HTTP" data-author>
+            <span class="post-title" title="网络七层结构">网络七层结构</span>
+            <span class="post-date" title="2020-11-05 11:20:37">2020/11/05</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/10/28/2020/HTTP常见状态码/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTP常见状态码">HTTP常见状态码</span>
+            <span class="post-date" title="2020-10-28 09:29:34">2020/10/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/29/2020/JS设计模式/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS设计模式">JS设计模式</span>
+            <span class="post-date" title="2020-09-29 21:56:10">2020/09/29</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/28/2020/JS模块化演进/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JS模块化演进">JS模块化演进</span>
+            <span class="post-date" title="2020-09-28 09:21:32">2020/09/28</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/09/23/2020/垃圾回收机制/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="垃圾回收机制">垃圾回收机制</span>
+            <span class="post-date" title="2020-09-23 22:39:54">2020/09/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/08/11/2020/XSS-CSRF/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="XSS-CSRF-Cookie">XSS-CSRF-Cookie</span>
+            <span class="post-date" title="2020-08-11 21:57:03">2020/08/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/三次握手四次挥手/" data-tag="HTTP" data-author>
+            <span class="post-title" title="三次握手四次挥手">三次握手四次挥手</span>
+            <span class="post-date" title="2020-07-09 21:09:28">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/07/09/2020/HTTPS连接过程/" data-tag="HTTP" data-author>
+            <span class="post-title" title="HTTPS连接过程">HTTPS连接过程</span>
+            <span class="post-date" title="2020-07-09 00:00:00">2020/07/09</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/30/2020/async-await原理/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="async/await原理">async/await原理</span>
+            <span class="post-date" title="2020-06-30 20:03:07">2020/06/30</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/06/21/2020/Vue数据双向绑定原理/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue响应式原理">Vue响应式原理</span>
+            <span class="post-date" title="2020-06-21 20:02:10">2020/06/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/06/12/2020/EventLoop/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="EventLoop">EventLoop</span>
+            <span class="post-date" title="2020-06-12 12:20:39">2020/06/12</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/05/11/2020/cors跨域/" data-tag="JavaScript,HTTP" data-author>
+            <span class="post-title" title="跨域访问">跨域访问</span>
+            <span class="post-date" title="2020-05-11 20:38:10">2020/05/11</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2020/02/03/2020/重绘回流/" data-tag="JavaScript,CSS,HTML" data-author>
+            <span class="post-title" title="重绘回流">重绘回流</span>
+            <span class="post-date" title="2020-02-03 00:00:00">2020/02/03</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/27/2020/Vue的Keep-alive/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue的Keep-alive组件">Vue的Keep-alive组件</span>
+            <span class="post-date" title="2020-01-27 20:17:56">2020/01/27</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/23/2020/Vue的nextTick剖析/" data-tag="Vue" data-author>
+            <span class="post-title" title="Vue的nextTick剖析">Vue的nextTick剖析</span>
+            <span class="post-date" title="2020-01-23 16:42:30">2020/01/23</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2020/01/17/2020/Vue-Diff/" data-tag="Vue,转载" data-author>
+            <span class="post-title" title="Vue虚拟节点VNodeDiff算法">Vue虚拟节点VNodeDiff算法</span>
+            <span class="post-date" title="2020-01-17 20:17:56">2020/01/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/12/15/2019/JS原型链/" data-tag="JavaScipt" data-author>
+            <span class="post-title" title="JS原型链">JS原型链</span>
+            <span class="post-date" title="2019-12-15 22:48:23">2019/12/15</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/11/01/2019/踩坑eCharts参数/" data-tag="踩坑" data-author>
+            <span class="post-title" title="踩坑eCharts参数">踩坑eCharts参数</span>
+            <span class="post-date" title="2019-11-01 18:51:02">2019/11/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/10/17/2019/this指向/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="this指向">this指向</span>
+            <span class="post-date" title="2019-10-17 22:33:39">2019/10/17</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/09/26/2019/一个失焦指令的学习/" data-tag="Vue,Element" data-author>
+            <span class="post-title" title="一个失焦指令的学习">一个失焦指令的学习</span>
+            <span class="post-date" title="2019-09-26 17:41:35">2019/09/26</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/06/27/2019/毕业了/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="毕业了">毕业了</span>
+            <span class="post-date" title="2019-06-27 19:48:20">2019/06/27</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/05/13/2019/Flex布局的基本属性介绍/" data-tag="CSS,布局" data-author>
+            <span class="post-title" title="Flex布局的基本属性介绍">Flex布局的基本属性介绍</span>
+            <span class="post-date" title="2019-05-13 13:22:26">2019/05/13</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/09/2019/Gulp源码分析学习-三/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(三">Gulp源码分析学习(三</span>
+            <span class="post-date" title="2019-04-09 08:51:45">2019/04/09</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/06/2019/Gulp源码分析学习-二/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(二">Gulp源码分析学习(二</span>
+            <span class="post-date" title="2019-04-06 13:47:27">2019/04/06</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/04/05/2019/Gulp源码分析学习-一/" data-tag="Gulp,源码" data-author>
+            <span class="post-title" title="Gulp源码分析学习(一">Gulp源码分析学习(一</span>
+            <span class="post-date" title="2019-04-05 16:41:26">2019/04/05</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/03/30/2019/Node读取图片并转Base64/" data-tag="Node" data-author>
+            <span class="post-title" title="Node读取图片并转Base64">Node读取图片并转Base64</span>
+            <span class="post-date" title="2019-03-30 00:12:42">2019/03/30</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/26/2019/Grid布局/" data-tag="CSS,转载,布局" data-author>
+            <span class="post-title" title="Grid布局">Grid布局</span>
+            <span class="post-date" title="2019-03-26 10:50:48">2019/03/26</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/阻止冒泡、默认事件/" data-tag="JavaScript,HTML" data-author>
+            <span class="post-title" title="阻止冒泡、默认事件">阻止冒泡、默认事件</span>
+            <span class="post-date" title="2019-03-03 20:30:42">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/03/2019/CSS清除浮动/" data-tag="CSS" data-author>
+            <span class="post-title" title="CSS清除浮动的几种方式">CSS清除浮动的几种方式</span>
+            <span class="post-date" title="2019-03-03 19:29:44">2019/03/03</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/margin重叠以及解决办法/" data-tag="JavaScript,CSS,HTML" data-author>
+            <span class="post-title" title="margin重叠以及解决办法">margin重叠以及解决办法</span>
+            <span class="post-date" title="2019-03-01 23:15:21">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/03/01/2019/CSS省略号实现/" data-tag="CSS,HTML" data-author>
+            <span class="post-title" title="CSS省略号实现">CSS省略号实现</span>
+            <span class="post-date" title="2019-03-01 16:09:35">2019/03/01</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/02/21/2019/Gulp增量编译优化/" data-tag="JavaScript,Gulp" data-author>
+            <span class="post-title" title="Gulp增量编译优化">Gulp增量编译优化</span>
+            <span class="post-date" title="2019-02-21 20:14:45">2019/02/21</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/18/2019/JavaScript深浅拷贝/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript深浅拷贝">JavaScript深浅拷贝</span>
+            <span class="post-date" title="2019-02-18 20:06:36">2019/02/18</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/10/2019/Node-express文件上传下载/" data-tag="HTML,Node,Express,Element" data-author>
+            <span class="post-title" title="Node+Express+Element实现文件上传下载">Node+Express+Element实现文件上传下载</span>
+            <span class="post-date" title="2019-02-10 20:59:42">2019/02/10</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/02/08/2019/新年快乐/" data-tag="日常碎碎" data-author>
+            <span class="post-title" title="新年快乐">新年快乐</span>
+            <span class="post-date" title="2019-02-08 22:41:02">2019/02/08</span>
+        </a>
+        
+        <a class="全部文章 后端 " href="/2019/02/02/2019/Node-MySQL释放数据库连接的Bug/" data-tag="Node,Express,MySQL,Bug" data-author>
+            <span class="post-title" title="Node+MySQL释放数据库连接的Bug">Node+MySQL释放数据库连接的Bug</span>
+            <span class="post-date" title="2019-02-02 19:42:07">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/transform对fixed/" data-tag="CSS,Bug" data-author>
+            <span class="post-title" title="transform父元素对fixed子元素的影响">transform父元素对fixed子元素的影响</span>
+            <span class="post-date" title="2019-02-02 10:16:34">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/02/02/2019/Vue父子通信/" data-tag="JavaScript,Vue" data-author>
+            <span class="post-title" title="Vue父子组件间的通信">Vue父子组件间的通信</span>
+            <span class="post-date" title="2019-02-02 09:45:31">2019/02/02</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/31/2019/Axios使用/" data-tag="JavaScript,Vue,Axios" data-author>
+            <span class="post-title" title="Axios使用">Axios使用</span>
+            <span class="post-date" title="2019-01-31 15:14:03">2019/01/31</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/24/2019/手写new-call-apply-bind/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="手写new、call、apply、bind">手写new、call、apply、bind</span>
+            <span class="post-date" title="2019-01-24 19:21:39">2019/01/24</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript继承/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript继承">JavaScript继承</span>
+            <span class="post-date" title="2019-01-23 15:29:41">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 前端 " href="/2019/01/23/2019/JavaScript创建对象/" data-tag="JavaScript" data-author>
+            <span class="post-title" title="JavaScript创建对象">JavaScript创建对象</span>
+            <span class="post-date" title="2019-01-23 14:10:25">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 工具 " href="/2019/01/23/2019/Git相关命令/" data-tag="Git" data-author>
+            <span class="post-title" title="Git相关命令">Git相关命令</span>
+            <span class="post-date" title="2019-01-23 09:45:11">2019/01/23</span>
+        </a>
+        
+        <a class="全部文章 读书V生活 " href="/2019/01/23/2019/阅读摘录/" data-tag="书籍摘录" data-author>
+            <span class="post-title" title="阅读摘录">阅读摘录</span>
+            <span class="post-date" title="2019-01-23 08:56:01">2019/01/23</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-2019/Gulp源码分析学习-二" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Gulp源码分析学习(二</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a data-rel="工具">工具</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Gulp</a>
+            
+            <a class="color3">源码</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title="最后更新: 2021-06-13 23:17:54">2019-04-06 13:47</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undertaker模块文件分析"><span class="toc-text">undertaker模块文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、undertaker-index-js"><span class="toc-text">一、undertaker-index.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、undertaker-registry-index-js"><span class="toc-text">二、undertaker-registry - index.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回到undertaker-index-js"><span class="toc-text">回到undertaker-index.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-lib-registry"><span class="toc-text">三、 ./lib/registry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-lib-set-task"><span class="toc-text">四、./lib/set-task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、-lib-get-task"><span class="toc-text">五、./lib/get-task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、-lib-last-run"><span class="toc-text">六、./lib/last-run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、-lib-tree"><span class="toc-text">七、./lib/tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、-lib-task"><span class="toc-text">八、./lib/task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、-lib-parallel"><span class="toc-text">九、./lib/parallel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#九-1-、normalizeArgs"><span class="toc-text">九(1)、normalizeArgs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-2-、createExtensions"><span class="toc-text">九(2)、createExtensions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-3-、bach"><span class="toc-text">九(3)、bach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-4-async-Done"><span class="toc-text">九(4)async-Done</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-5-、now-and-later"><span class="toc-text">九(5)、now-and-later</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、-lib-series"><span class="toc-text">十、./lib/series</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="undertaker模块文件分析"><a href="#undertaker模块文件分析" class="headerlink" title="undertaker模块文件分析"></a>undertaker模块文件分析</h2><p>我们从上一篇的入口文件分析可以得知，<strong>Gulp</strong>进行task、series、parallel等任务时，所执行的方法入口其实来源于<em>undertaker</em>模块</p>
+<p>因此我们也进入相应的<em>undertaker</em>模块一探究竟</p>
+<h2 id="一、undertaker-index-js"><a href="#一、undertaker-index-js" class="headerlink" title="一、undertaker-index.js"></a>一、undertaker-index.js</h2><a id="more"></a>
+<p>undertaker模块下的index.js方法 =&gt;</p>
+<pre><code>// Node工具函数中的继承
+var inherits = require(&#39;util&#39;).inherits;
+// Node中的事件触发器
+var EventEmitter = require(&#39;events&#39;).EventEmitter;
+
+var DefaultRegistry = require(&#39;undertaker-registry&#39;);
+var tree = require(&#39;./lib/tree&#39;);
+var task = require(&#39;./lib/task&#39;);
+var series = require(&#39;./lib/series&#39;);
+var lastRun = require(&#39;./lib/last-run&#39;);
+var parallel = require(&#39;./lib/parallel&#39;);
+var registry = require(&#39;./lib/registry&#39;);
+var _getTask = require(&#39;./lib/get-task&#39;);
+var _setTask = require(&#39;./lib/set-task&#39;);
+
+</code></pre><pre><code>
+inherits(Undertaker, EventEmitter);
+
+// 然后继续看一下其他模块方法的具体作用
+Undertaker.prototype.tree = tree;
+
+Undertaker.prototype.task = task;
+
+Undertaker.prototype.series = series;
+
+Undertaker.prototype.lastRun = lastRun;
+
+Undertaker.prototype.parallel = parallel;
+
+Undertaker.prototype.registry = registry;
+
+Undertaker.prototype._getTask = _getTask;
+
+Undertaker.prototype._setTask = _setTask;
+
+</code></pre><p>依旧采用核心工具函数的inherits方法进行构造函数的继承</p>
+<p>inherits(Undertaker, EventEmitter); 此处使得<strong>Undertake</strong>r构造函数继承自<strong>Node</strong>核心模块<strong>EventEmitter</strong> 的原型链上方法，以及将EventEmitter的构造函数绑定在Undertaker构造函数的<strong>super_</strong>上。</p>
+<p>并且将我们在开始部分所require进来的方法函数添加至原始链prototype上，以便调用</p>
+<font color="ffff00"><em>接下来我们来看一下其中还有一个主方法，当中又实现了什么呢 =&gt; ?</em></font>
+
+
+<pre><code>function Undertaker(customRegistry) {
+
+  EventEmitter.call(this);
+
+  /*
+  我们来看一下DefaultRegistry(undertaker-registry)都干了什么
+  */
+  this._registry = new DefaultRegistry();
+
+  // 允许用户自定义的寄存器任务
+  if (customRegistry) {
+    this.registry(customRegistry);
+  }
+
+  // process.env =&gt; 包含对用户环境信息的 对象
+  this._settle = (process.env.UNDERTAKER_SETTLE === &#39;true&#39;);
+}
+</code></pre><p>EventEmitter.call(this); 将EventEmitter执行函数的this绑定</p>
+<p>this._registry = new DefaultRegistry(); new了一个DefaultRegistry的实例赋予this._registry属性</p>
+<p>// 后两句我们稍后处理</p>
+<p><em>DefaultRegistry</em>来源于<em>undertaker-registry</em></p>
+<p>好的，那让我们现在来看一下，<strong>undertaker-registry</strong> 都将干些什么事。</p>
+<h2 id="二、undertaker-registry-index-js"><a href="#二、undertaker-registry-index-js" class="headerlink" title="二、undertaker-registry - index.js"></a>二、undertaker-registry - index.js</h2><pre><code>
+// 提供了形如get、set的接口,充当寄存器的作用存放着那些任务队列
+
+function DefaultRegistry() {
+
+  if (this instanceof DefaultRegistry === false) {
+    return new DefaultRegistry();
+  }
+
+  this._tasks = {};
+}
+
+// 可能是初始化的作用
+DefaultRegistry.prototype.init = function init(taker) {};
+
+// 从上边的_tasks对象中去key=name的那个
+DefaultRegistry.prototype.get = function get(name) {
+  return this._tasks[name];
+};
+
+// set的时候,针对传入的name作为key,存放相应的处理方法fn
+DefaultRegistry.prototype.set = function set(name, fn) {
+  return this._tasks[name] = fn;
+};
+
+DefaultRegistry.prototype.tasks = function tasks() {
+  var self = this;
+  // 接收一个函数作为累加器-&gt;扩展-&gt;reduce()的用法
+  return Object.keys(this._tasks).reduce(function(tasks, name) {
+    tasks[name] = self.get(name);
+    return tasks;
+  }, {});
+  // {}将作为tasks的初始值-&gt;也就是=&gt; 相当于令一开始的  tasks={},  最终返回
+};
+
+module.exports = DefaultRegistry;
+
+</code></pre><p>undertaker-registry方法，增加在其构造函数中创建一个空对象_tasks = {}</p>
+<p>并且在其原型链上提供了四个方法</p>
+<ul>
+<li>init</li>
+<li>get</li>
+<li>set</li>
+<li>tasks</li>
+</ul>
+<p>也就是定义了一个内部属性_registry作为寄存器<strong>注册/寄存器模式的实现，提供统一接口来存储和读取 tasks</strong></p>
+<h3 id="回到undertaker-index-js"><a href="#回到undertaker-index-js" class="headerlink" title="回到undertaker-index.js"></a>回到undertaker-index.js</h3><pre><code>// 允许用户自定义的寄存器任务
+  if (customRegistry) {
+    this.registry(customRegistry);
+  }
+</code></pre><p>接下来的这一句：</p>
+<p>是根据前部引入的来实现的，那么它具体实现了什么功能呢？</p>
+<pre><code>var registry = require(&#39;./lib/registry&#39;);
+</code></pre><p>我们接下来看一下 =&gt; </p>
+<h2 id="三、-lib-registry"><a href="#三、-lib-registry" class="headerlink" title="三、 ./lib/registry"></a>三、 ./lib/registry</h2><pre><code>function setTasks(inst, task, name) {
+  inst.set(name, task);
+  return inst;
+}
+
+function registry(newRegistry) {
+  if (!newRegistry) {
+    return this._registry;
+  }
+
+  //验证是否有效，主要判断是否带有 .get/.set/.tasks/.init 接口，若不符合则抛出错误
+  validateRegistry(newRegistry);
+
+  var tasks = this._registry.tasks();
+
+  //将现有 tasks 拷贝到新的寄存器上
+  this._registry = reduce(tasks, setTasks, newRegistry);
+  //调用初始化接口（无论是否需要，寄存器务必带有一个init接口）
+  this._registry.init(this);
+}
+
+module.exports = registry;
+</code></pre><p>至此，将来逐步分析其余各任务方法模块的作用</p>
+<p>其中包括</p>
+<p>Undertaker.prototype.tree = tree; </p>
+<p>Undertaker.prototype.task = task; </p>
+<p>Undertaker.prototype.series = series;</p>
+<p>Undertaker.prototype.lastRun = lastRun;</p>
+<p>Undertaker.prototype.parallel = parallel;</p>
+<p>Undertaker.prototype.registry = registry;</p>
+<p>Undertaker.prototype._getTask = _getTask;</p>
+<p>Undertaker.prototype._setTask = _setTask;</p>
+<p>将按以下顺序进行 =&gt; </p>
+<p><strong>/lib/set-task</strong></p>
+<p><strong>/lib/get-task</strong></p>
+<p><strong>/lib/last-run</strong></p>
+<p><strong>/lib/task</strong></p>
+<p><strong>/lib/tree</strong></p>
+<p><strong>/lib/series</strong></p>
+<p><strong>/lib/parallel</strong></p>
+<h2 id="四、-lib-set-task"><a href="#四、-lib-set-task" class="headerlink" title="四、./lib/set-task"></a>四、./lib/set-task</h2><p>set-task</p>
+<pre><code>&#39;use strict&#39;;
+
+var assert = require(&#39;assert&#39;);
+
+var metadata = require(&#39;./helpers/metadata&#39;);
+
+/*
+var WM = require(&#39;es6-weak-map&#39;);
+var metadata = new WM();
+=&gt;ES6中的WeakMap新类型,在其中引用的对象不计入垃圾回收机制,例如书中讲可用于存放一些DOM相关对象
+=&gt;此处为什么用WeakMap不用Map,可能是方便任务执行结束,有效清理内存
+提供get、set等方法
+*/
+
+// set方法采用了map(WeakMap)的数据类型进行存放
+
+
+
+// 暴露了一个set方法
+function set(name, fn) {
+
+  // 其中对task第一个参数的name进行类型判断=&gt;错误则报
+  assert(name, &#39;Task name must be specified&#39;);
+  assert(typeof name === &#39;string&#39;, &#39;Task name must be a string&#39;);
+  assert(typeof fn === &#39;function&#39;, &#39;Task function must be specified&#39;);
+
+
+  // 绑定this, 在this中使用参数 fn 对象的方法以及参数
+  // 因为WeakMap中要求的key对象不能被引用过
+  function taskWrapper() {
+    // 返回一个新包装this后的函数
+    return fn.apply(this, arguments);
+  }
+
+  function unwrap() {
+    // 返回原本的fn函数方法
+    return fn;
+  }
+
+  // 将name、fn包装
+  taskWrapper.unwrap = unwrap;
+  taskWrapper.displayName = name;
+
+  // 打印一下输出是什么 =&gt; 
+  console.log(`taskWrapper： ${taskWrapper}`)
+
+
+  var meta = metadata.get(fn) || {};
+
+  // 打印一下输出是什么 =&gt; 
+  console.log(`meta: ${meta}`)
+
+  var nodes = [];
+  if (meta.branch) {
+    nodes.push(meta.tree);
+  }
+
+  var task = this._registry.set(name, taskWrapper) || taskWrapper;
+
+  // 打印一下输出是什么 =&gt; 
+  console.log(`task: ${task}`)
+
+  // 存入WeakMap对象
+  metadata.set(task, {
+    name: name,
+    orig: fn,
+    tree: {
+      label: name,
+      type: &#39;task&#39;,
+      nodes: nodes,
+    },
+  });
+
+  // 打印一下输出是什么 =&gt; 
+  console.log(`metadata: ${metadata.get(task)}`)
+}
+
+module.exports = set;
+
+
+</code></pre><h2 id="五、-lib-get-task"><a href="#五、-lib-get-task" class="headerlink" title="五、./lib/get-task"></a>五、./lib/get-task</h2><p>get-task方法模块代码很简单</p>
+<pre><code>&#39;use strict&#39;;
+
+// 也就是对undertaker-registry中的get方法提取
+function get(name) {
+  // 从_registry寄存器中get
+  return this._registry.get(name);
+}
+
+module.exports = get;
+
+</code></pre><h2 id="六、-lib-last-run"><a href="#六、-lib-last-run" class="headerlink" title="六、./lib/last-run"></a>六、./lib/last-run</h2><p>用来记录和获取针对某个方法的执行前/后时间</p>
+<pre><code>&#39;use strict&#39;;
+
+// npm中其介绍的功能为,记录函数的时间点 =&gt; 对metadata对象的属性一顿操作
+var retrieveLastRun = require(&#39;last-run&#39;);
+
+var metadata = require(&#39;./helpers/metadata&#39;);
+
+
+function lastRun(task, timeResolution) {
+  if (timeResolution == null) {
+    timeResolution = process.env.UNDERTAKER_TIME_RESOLUTION;
+  }
+
+  var fn = task;
+  if (typeof task === &#39;string&#39;) {
+    fn = this._getTask(task);
+  }
+
+  var meta = metadata.get(fn);
+
+  if (meta) {
+    fn = meta.orig || fn;
+  }
+
+  return retrieveLastRun(fn, timeResolution);
+}
+
+module.exports = lastRun;
+
+</code></pre><h2 id="七、-lib-tree"><a href="#七、-lib-tree" class="headerlink" title="七、./lib/tree"></a>七、./lib/tree</h2><p>通过遍历metadata，获取当前注册过的所有任务的metadata</p>
+<pre><code>&#39;use strict&#39;;
+
+var defaults = require(&#39;object.defaults&#39;);
+var map = require(&#39;collection-map&#39;);
+
+var metadata = require(&#39;./helpers/metadata&#39;);
+
+// 可用于获取当前注册过的所有任务的metadata-WeakMap
+// 也就是说,可以获取到当前我们定义了那些任务,对应方法,任务间依赖等关系
+
+function tree(opts) {
+
+  // 此方法会覆盖判断是否存在opts,并覆盖其中的{deep: false}
+  opts = defaults(opts || {}, {
+    deep: false,
+  });
+
+  // 获取寄存器中的tasks
+  var tasks = this._registry.tasks();
+
+  // 遍历tasks并且返回WeakMap(metadata)的“任务数组” 
+  var nodes = map(tasks, function(task) {
+
+
+    var meta = metadata.get(task);
+
+    if (opts.deep) {
+      return meta.tree;
+    }
+
+    return meta.tree.label;
+  });
+
+  return {
+    label: &#39;Tasks&#39;,
+    nodes: nodes,
+  };
+}
+
+module.exports = tree;
+
+
+/*
+var undertaker = require(&#39;undertaker&#39;);
+ut = new undertaker();
+
+ut.task(&#39;taskA&#39;, function(cb){console.log(&#39;A&#39;); cb()});
+ut.task(&#39;taskB&#39;, function(cb){console.log(&#39;B&#39;); cb()});
+ut.task(&#39;taskC&#39;, function(cb){console.log(&#39;C&#39;); cb()});
+ut.task(&#39;taskD&#39;, function(cb){console.log(&#39;D&#39;); cb()});
+ut.task(&#39;taskE&#39;, function(cb){console.log(&#39;E&#39;); cb()});
+
+ut.task(&#39;taskC&#39;, ut.series(&#39;taskA&#39;, &#39;taskB&#39;));
+ut.task(&#39;taskE&#39;, ut.parallel(&#39;taskC&#39;, &#39;taskD&#39;));
+
+var tree = ut.tree();
+console.log(tree);
+*/
+</code></pre><h2 id="八、-lib-task"><a href="#八、-lib-task" class="headerlink" title="八、./lib/task"></a>八、./lib/task</h2><p>使用举例：</p>
+<pre><code>
+gulp.task(&#39;css_comm&#39;, function() {
+  return gulp.src([&#39;1.css&#39;,&#39;2.css&#39;])
+      .pipe(concat(&#39;common.css&#39;))
+      .pipe(gulp.dest(&#39;./build/css&#39;))
+});
+
+</code></pre><pre><code>
+&#39;use strict&#39;;
+
+function task(name, fn) {
+
+  // 此处 if判断 写法为处理“新”打包写法
+  /*
+  function uglify(){
+    return gulp.src([&#39;src/*.js&#39;])
+        .pipe(uglify())
+        .pipe(gulp.dest(&#39;dist&#39;));
+  }
+  gulp.task(uglify);
+  */
+  if (typeof name === &#39;function&#39;) {
+    fn = name;
+    name = fn.displayName || fn.name;
+  }
+
+  // 当第二个参数为为空不存在时，即是对相应任务的获取----配合上一段  if 一起看
+  /*
+    gulp.task(&#39;css_comm&#39;, function() {
+    });
+  */
+  if (!fn) {
+    return this._getTask(name);
+  }
+
+  // 调整好关系,再次存入task
+  this._setTask(name, fn);
+  // console.log(`name: ${name}, fn: ${fn}`)
+
+  /*此两处的_getTask和_setTask=&gt;可以看一下,类似于一开始DefaultRegistry中对tasks中
+    任务的操作(get\set)
+  */
+
+}
+
+module.exports = task;
+
+</code></pre><h2 id="九、-lib-parallel"><a href="#九、-lib-parallel" class="headerlink" title="九、./lib/parallel"></a>九、./lib/parallel</h2><p>this.parallel的使用 =&gt;</p>
+<pre><code>
+var undertaker = require(&#39;undertaker&#39;);
+ut = new undertaker();
+
+  ut.task(&#39;taskA&#39;, function(){});
+  ut.task(&#39;taskB&#39;, function(){});
+  ut.task(&#39;taskC&#39;, function(){});
+  ut.task(&#39;taskD&#39;, function(){});
+
+// taskD 需要在 &#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39; 执行完毕后才开始执行，
+// 其中 &#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39; 的执行是异步的
+ut.task(&#39;taskD&#39;, ut.parallel(&#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39;));
+
+</code></pre><p><strong>那让我们来看一下parallel中分别实现了些什么吧！</strong></p>
+<pre><code>&#39;use strict&#39;;
+
+var bach = require(&#39;bach&#39;);
+
+var metadata = require(&#39;./helpers/metadata&#39;);
+var buildTree = require(&#39;./helpers/buildTree&#39;);
+var normalizeArgs = require(&#39;./helpers/normalizeArgs&#39;);
+var createExtensions = require(&#39;./helpers/createExtensions&#39;);
+
+function parallel() {
+  var create = this._settle ? bach.settleParallel : bach.parallel;
+
+  // 根据“任务”数组从寄存器中获取展开的任务数组
+  var args = normalizeArgs(this._registry, arguments);
+  // 为对象扩展新“”对象
+  var extensions = createExtensions(this);
+  // 将参数与扩展的对象(after,before,create,error)做关联
+  // 所以我们来看一下它具体实现了些什么 =&gt; 
+
+  // bach.settleParallel+
+
+  (args, extensions) : bach.parallel(args, extensions)
+  var fn = create(args, extensions);
+
+  fn.displayName = &#39;&lt;parallel&gt;&#39;;
+
+  metadata.set(fn, {
+    name: fn.displayName,
+    branch: true,
+    tree: {
+      label: fn.displayName,
+      type: &#39;function&#39;,
+      branch: true,
+      nodes: buildTree(args),
+    },
+  });
+  return fn;
+}
+
+module.exports = parallel;
+
+</code></pre><p>让我们从上到下的分析一下</p>
+<pre><code>// 根据“任务”数组从寄存器中获取展开的任务数组
+var args = normalizeArgs(this._registry, arguments);
+</code></pre><p><strong>normalizeArgs</strong> 方法是来源于模块 <strong>./helpers/normalizeArgs</strong></p>
+<p>那让我们转向来看一下此模块</p>
+<h3 id="九-1-、normalizeArgs"><a href="#九-1-、normalizeArgs" class="headerlink" title="九(1)、normalizeArgs"></a>九(1)、normalizeArgs</h3><pre><code>&#39;use strict&#39;;
+
+// nODE的断言测试
+var assert = require(&#39;assert&#39;);
+
+// 类似于Array.map()的改进版本=&gt;最终返回的也是数组
+/*
+:npm中的讲解
+map([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], function(ele, i) {
+  return i + ele;
+});
+//=&gt; [&#39;0a&#39;, &#39;1b&#39;, &#39;2c&#39;]
+*/
+var map = require(&#39;arr-map&#39;);
+
+// 将数组展开为平面数组,解除嵌套
+/*
+flatten([&#39;a&#39;, [&#39;b&#39;, [&#39;c&#39;]], &#39;d&#39;, [&#39;e&#39;]]);
+//=&gt; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]*/
+var flatten = require(&#39;arr-flatten&#39;);
+
+// 接收到寄存器以及相应的“任务数组”
+function normalizeArgs(registry, args) {
+
+  // 传递入一个一个的“任务”方法
+  function getFunction(task) {
+
+    // task类型判断
+    if (typeof task === &#39;function&#39;) {
+      return task;
+    }
+
+    // 从我们寄存器中找到有没有这个key的function,因为存在旧的写法----不知是否有理解错
+    /*
+    gulp.task(&#39;uglify&#39;, function(){
+        return gulp.src([&#39;src/*.js&#39;])
+            .pipe(uglify())
+            .pipe(gulp.dest(&#39;dist&#39;));
+    });
+    gulp.task(&#39;default&#39;, [&#39;uglify&#39;]);
+    =&gt;上面的一开始给registry传入的是一个uglify的key
+    */
+    var fn = registry.get(task);
+    // 错误处理
+    assert(fn, &#39;Task never defined: &#39; + task);
+    // 回
+    return fn;
+  }
+  // “任务数组”展开
+  var flattenArgs = flatten(args);
+  // 根据长度,判断是否写空了
+  assert(flattenArgs.length, &#39;One or more tasks should be combined using series or parallel&#39;);
+
+  // 对“任务数组”的任务进行方法的遍历
+  return map(flattenArgs, getFunction);
+}
+
+module.exports = normalizeArgs;
+
+</code></pre><p>//通过参数获取存在寄存器（registry）中的 taskFunctions（数组形式）<br>var args = normalizeArgs(this._registry, arguments);</p>
+<p><strong>接下来我们继续阅读下一句：</strong><br>var extensions = createExtensions(this);</p>
+<p>而<strong>createExtensions</strong>是来源于模块<strong>helpers/createExtensions</strong></p>
+<p>那么我们看一下其中实现了什么 = ?</p>
+<h3 id="九-2-、createExtensions"><a href="#九-2-、createExtensions" class="headerlink" title="九(2)、createExtensions"></a>九(2)、createExtensions</h3><pre><code>&#39;use strict&#39;;
+
+// 使用某函数,并记录捕获当前时间戳或者传入时间戳
+var captureLastRun = require(&#39;last-run&#39;).capture;
+
+// 获取一个function并删除最后一次运行时时间戳
+var releaseLastRun = require(&#39;last-run&#39;).release;
+
+var metadata = require(&#39;./metadata&#39;);
+
+var uid = 0;
+
+function Storage(fn) {
+  var meta = metadata.get(fn);
+
+  this.fn = meta.orig || fn;
+  this.uid = uid++;
+  this.name = meta.name;
+  this.branch = meta.branch || false;
+  this.captureTime = Date.now();
+  this.startHr = [];
+}
+
+Storage.prototype.capture = function() {
+  captureLastRun(this.fn, this.captureTime);
+};
+
+Storage.prototype.release = function() {
+  releaseLastRun(this.fn);
+};
+
+function createExtensions(ee) {
+  return {
+    create: function(fn) {
+      // 调用create时候,记录一下相关信息,并返回
+      return new Storage(fn);
+    },
+    before: function(storage) {
+      // Node获取相对于过去某一刻的时间
+      storage.startHr = process.hrtime();
+      // Node触发start事件,后面为参数
+      ee.emit(&#39;start&#39;, {
+        uid: storage.uid,
+        name: storage.name,
+        branch: storage.branch,
+        time: Date.now(),
+      });
+    },
+    after: function(result, storage) {
+      // 调用时判断是否有错,有则爆
+      if (result &amp;&amp; result.state === &#39;error&#39;) {
+        return this.error(result.value, storage);
+      }
+      // 记录当前时间戳
+      storage.capture();
+      // Node触发stop事件
+      ee.emit(&#39;stop&#39;, {
+        uid: storage.uid,
+        name: storage.name,
+        branch: storage.branch,
+        duration: process.hrtime(storage.startHr),
+        time: Date.now(),
+      });
+    },
+    error: function(error, storage) {
+      if (Array.isArray(error)) {
+        error = error[0];
+      }
+      // 删除出错的此次执行时间戳
+      storage.release();
+      ee.emit(&#39;error&#39;, {
+        uid: storage.uid,
+        name: storage.name,
+        branch: storage.branch,
+        error: error,
+        duration: process.hrtime(storage.startHr),
+        time: Date.now(),
+      });
+    },
+  };
+}
+
+module.exports = createExtensions;
+
+</code></pre><p>此方法扩展，为变量新增拥有<strong>create</strong>、<strong>before</strong>、<strong>after</strong>、<strong>error</strong>等方法的一个对象</p>
+<p>最终期望将扩展出来的对象与我们的“任务”task关联</p>
+<p><strong>接着我们来看下一句:</strong></p>
+<p>var fn = create(args, extensions);</p>
+<p>create =&gt; var create = this._settle ? bach.settleParallel : bach.parallel;</p>
+<p><strong>bach</strong>模块来源于<strong>bach</strong></p>
+<p>接下来我们再来看一下bach模块实现了些什么 =&gt; ?</p>
+<h3 id="九-3-、bach"><a href="#九-3-、bach" class="headerlink" title="九(3)、bach"></a>九(3)、bach</h3><pre><code>module.exports = {
+  series: require(&#39;./lib/series&#39;),
+  parallel: require(&#39;./lib/parallel&#39;),
+  settleSeries: require(&#39;./lib/settleSeries&#39;),
+  settleParallel: require(&#39;./lib/settleParallel&#39;),
+};
+</code></pre><p>而我们所需要用的的parallel是来源于<strong>lib/parallel</strong></p>
+<p>而<strong>lib/parallel</strong>具体代码如下:</p>
+<pre><code>&#39;use strict&#39;;
+
+// 对数组取值操作,取第一及最后一个
+var initial = require(&#39;array-initial&#39;);
+var last = require(&#39;array-last&#39;);
+// 用于异步化函数
+var asyncDone = require(&#39;async-done&#39;);
+
+var nowAndLater = require(&#39;now-and-later&#39;);
+
+var helpers = require(&#39;./helpers&#39;);
+
+function iterator(fn, key, cb) {
+  // 那asyncDone又是做什么的呢 =&gt; ?
+  // 传入一个方法与回调
+  return asyncDone(fn, cb);
+}
+
+function buildParallel() {
+  // 校验传入参数(arguments的合法性)
+  var args = helpers.verifyArguments(arguments);
+
+  // 取到最后一个参数,即传入时的extensions,然后执行此方法
+  // 如果最后一个参数!==function则return 回
+  var extensions = helpers.getExtensions(last(args));
+
+  if (extensions) {
+    // 如果扩展对象存在,取第一个参数
+    args = initial(args);
+  }
+
+  // 我们具体来看一下nowAndLater.map做了什么 =&gt; 
+  function parallel(done) {
+
+    /*
+    传入了四个值(args, function iterator(fn, key, cb) {return asyncDone(fn, cb);}, 扩展的对象, done)
+    */
+    nowAndLater.map(args, iterator, extensions, done);
+    //遍历tasks数组，将其生命周期和extensions属性关联起来,且将每个task异步化，且并发执行
+  }
+
+  return parallel;
+}
+
+module.exports = buildParallel;
+
+</code></pre><p>这一段代码中所用的的重要方法函数有这些：</p>
+<pre><code>function iterator(fn, key, cb) {
+  return asyncDone(fn, cb);
+}
+
+/*...省略*/
+function parallel(done) {
+
+  nowAndLater.map(args, iterator, extensions, done);
+}
+</code></pre><p>首先可以让我们来看一下<strong>async-Done</strong>分别做了什么 =&gt; ？</p>
+<h3 id="九-4-async-Done"><a href="#九-4-async-Done" class="headerlink" title="九(4)async-Done"></a>九(4)async-Done</h3><p>它可以把一个普通函数（传入的第一个参数）异步化</p>
+<pre><code>//demo1
+var asyncDone = require(&#39;async-done&#39;);
+
+asyncDone(function(done){
+    console.log(&#39;测试AsyncDone---1--开始&#39;);
+    done(null, &#39;测试AsyncDone---1--结束&#39;)
+}, function(err, data){
+  //  成功执行第一个函数时，``error`将为null。
+  //  `result`将是第一个函数的结果。
+    console.log(data)
+});
+
+asyncDone(function(done){
+    console.log(&#39;测试AsyncDone---2--开始&#39;);
+    setTimeout( done.bind(this, null, &#39;测试AsyncDone---2--结束&#39;), 1000 )
+
+}, function(err, data){
+    console.log(data)
+});
+
+asyncDone(function(done){
+    console.log(&#39;测试AsyncDone---3--开始&#39;);
+    done(null, &#39;测试AsyncDone---3--结束&#39;)
+}, function(err, data){
+    console.log(data)
+});
+</code></pre><p><strong>执行的结果 :</strong></p>
+<ul>
+<li>测试AsyncDone—1–开始</li>
+<li>测试AsyncDone—1–结束</li>
+<li>测试AsyncDone—2–开始</li>
+<li>测试AsyncDone—3–开始</li>
+<li>测试AsyncDone—3–结束</li>
+<li>测试AsyncDone—2–结束</li>
+</ul>
+<p>其中第一个参数方法中的done将会提醒第二个参数(callback)去执行相关回调</p>
+<p><strong>接下来我们我们再来看一下parallel的重要部分 :</strong></p>
+<pre><code>function parallel(done) {
+nowAndLater.map(args, iterator, extensions, done);
+}
+</code></pre><p>而nowAndLater的模块接口来源于<strong>now-and-later</strong></p>
+<p>那我们再来看一下<strong>now-and-later</strong>实现了些什么呢?</p>
+<h3 id="九-5-、now-and-later"><a href="#九-5-、now-and-later" class="headerlink" title="九(5)、now-and-later"></a>九(5)、now-and-later</h3><pre><code>var once = require(&#39;once&#39;);
+var helpers = require(&#39;./helpers&#39;);
+
+function map(values, iterator, extensions, done) {
+    if (typeof extensions === &#39;function&#39;) {
+        done = extensions;
+        extensions = {};
+    }
+
+    if (typeof done !== &#39;function&#39;) {
+        done = helpers.noop;  //没有传入done则赋予一个空函数
+    }
+
+    //让 done 函数只执行一次
+    done = once(done);
+
+    var keys = Object.keys(values);
+    var length = keys.length;
+    var count = length;
+    var idx = 0;
+
+    // 初始化一个空的、和values等长的数组
+    var results = helpers.initializeResults(values);
+
+    /**
+     * helpers.defaultExtensions(extensions) 返回如下对象：
+     *  {
+            create: extensions.create || defaultExts.create,
+            before: extensions.before || defaultExts.before,
+            after: extensions.after || defaultExts.after,
+            error: extensions.error || defaultExts.error,
+        }
+     */
+    var exts = helpers.defaultExtensions(extensions);
+
+    for (idx = 0; idx &lt; length; idx++) {
+        var key = keys[idx];
+        next(key);
+    }
+
+    function next(key) {
+        var value = values[key];
+        //创建一个 Storage 实例
+        var storage = exts.create(value, key) || {};
+        //触发&#39;start&#39;事件
+        exts.before(storage);
+        //利用 async-done 将 taskFunction 转为异步方法并执行
+        iterator(value, once(handler));
+
+        function handler(err, result) {
+            if (err) {
+                //触发&#39;error&#39;事件
+                exts.error(err, storage);
+                return done(err, results);
+            }
+            //触发&#39;stop&#39;事件
+            exts.after(result, storage);
+            results[key] = result;
+            if (--count === 0) {
+                done(err, results);
+            }
+        }
+    }
+}
+
+module.exports = map;
+
+</code></pre><p>在这段代码的 map 方法中，通过 for 循环遍历了每个传入 parallel 接口的 taskFunction，然后使用 iterator（async-done）将 taskFunction 异步化并执行（执行完毕会触发 hadler），并将 extensions 的各方法和 task 的生命周期关联起来（比如在任务开始时执行“start”事件、任务出错时执行“error”事件）。 ——[引用自vaoy博客说明]</p>
+<h2 id="十、-lib-series"><a href="#十、-lib-series" class="headerlink" title="十、./lib/series"></a>十、./lib/series</h2><p>series接口的使用:</p>
+<pre><code>ut.task(&#39;taskA&#39;, function(){/*略*/});
+  ut.task(&#39;taskB&#39;, function(){/*略*/});
+  ut.task(&#39;taskC&#39;, function(){/*略*/});
+  ut.task(&#39;taskD&#39;, function(){/*略*/});
+
+// taskD 需要在 &#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39; 执行完毕后才开始执行，
+// 其中 &#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39; 的执行必须是按顺序一个接一个的
+  ut.task(&#39;taskD&#39;, ut.series(&#39;taskA&#39;, &#39;taskB&#39;, &#39;taskC&#39;));
+</code></pre><p>其实现和parallel是基本一致的，但在series中使用的是nowAndlater的mapSeries接口</p>
+<pre><code>next(key);
+
+    function next(key) {
+        var value = values[key];
+
+        var storage = exts.create(value, key) || {};
+
+        exts.before(storage);
+        iterator(value, once(handler));
+
+        function handler(err, result) {
+            if (err) {
+                exts.error(err, storage);
+                return done(err, results); //有任务出错，故所有任务应停止调用
+            }
+
+            exts.after(result, storage);
+            results[key] = result;
+
+            if (++idx &gt;= length) {
+                done(err, results); //全部任务已经结束了
+            } else {
+                next(keys[idx]);  //next不在是放在外面的循环里，而是在任务的回调里
+            }
+        }
+    }
+</code></pre><p>此处在series接口中通过改动 next 的位置，可以很好地要求传入的任务必须一个接一个去执行（后一个任务在前一个任务执行完毕的回调里才会开始执行）。</p>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2019-2021 Jayant
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class id="rocket"></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0"></script>
+
+<script src="/js/script.js?v=1.1.0"></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
